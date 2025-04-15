@@ -1,0 +1,15 @@
+C:\Users\User\Desktop\My Personal projects\ReachForStars\ReachForStars\obj\Debug\net6.0\ReachForStars.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\My Personal projects\ReachForStars\ReachForStars\obj\Debug\net6.0\ReachForStars.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\My Personal projects\ReachForStars\ReachForStars\obj\Debug\net6.0\ReachForStars.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\My Personal projects\ReachForStars\ReachForStars\obj\Debug\net6.0\ReachForStars.AssemblyInfo.cs
+C:\Users\User\Desktop\My Personal projects\ReachForStars\ReachForStars\obj\Debug\net6.0\ReachForStars.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\My Personal projects\ReachForStars\ReachForStars\bin\Debug\net6.0\ReachForStars.deps.json
+C:\Users\User\Desktop\My Personal projects\ReachForStars\ReachForStars\bin\Debug\net6.0\ReachForStars.dll
+C:\Users\User\Desktop\My Personal projects\ReachForStars\ReachForStars\bin\Debug\net6.0\ReachForStars.pdb
+C:\Users\User\Desktop\My Personal projects\ReachForStars\ReachForStars\bin\Debug\net6.0\MiraAPI.dll
+C:\Users\User\Desktop\My Personal projects\ReachForStars\ReachForStars\bin\Debug\net6.0\MiraAPI.xml
+C:\Users\User\Desktop\My Personal projects\ReachForStars\ReachForStars\obj\Debug\net6.0\ReachFor.62F34D56.Up2Date
+C:\Users\User\Desktop\My Personal projects\ReachForStars\ReachForStars\obj\Debug\net6.0\ReachForStars.dll
+C:\Users\User\Desktop\My Personal projects\ReachForStars\ReachForStars\obj\Debug\net6.0\refint\ReachForStars.dll
+C:\Users\User\Desktop\My Personal projects\ReachForStars\ReachForStars\obj\Debug\net6.0\ReachForStars.pdb
+C:\Users\User\Desktop\My Personal projects\ReachForStars\ReachForStars\obj\Debug\net6.0\ref\ReachForStars.dll

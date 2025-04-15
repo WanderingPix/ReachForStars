@@ -1,0 +1,54 @@
+name: Compilation Workflow
+
+on: [ "push", "pull_request" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 6.x
+
+      - name: Run the Cake script
+        uses: cake-build/cake-action@v1
+        with:
+          verbosity: Diagnostic
+
+      - name: Upload RFS.dll artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ReachForStars.dll
+          path: bin/Debug/net6.0/ReachForStars.dll
+
+      - name: Download and extract BepInEx
+        run: |
+          wget -O BepInEx_x64.zip https://builds.bepinex.dev/projects/bepinex_be/697/BepInEx-Unity.IL2CPP-win-x64-6.0.0-be.697%2B5362580.zip
+          unzip BepInEx_x64.zip -d BepInEx_x64
+          wget -O BepInEx_x86.zip https://builds.bepinex.dev/projects/bepinex_be/697/BepInEx-Unity.IL2CPP-win-x86-6.0.0-be.697%2B5362580.zip
+          unzip BepInEx_x86.zip -d BepInEx_x86
+
+      - name: Place DLL in the zip
+        run: |
+          chmod -R 755 BepInEx_x86
+          chmod -R 755 BepInEx_x64
+          cp bin/Debug/net6.0/ReachForStars.dll BepInEx_x86/BepInEx/plugins/
+          cp bin/Debug/net6.0/ReachForStars.dll BepInEx_x64/BepInEx/plugins/
+
+      - name: Upload Steam/Epic/Itch.zip artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: RFS.SteamEpicItch.Build.zip
+          path: BepInEx_x86
+
+      - name: Upload RFS_MicrosoftStore.zip artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: RFS.MSStore.Build.zip
+          path: BepInEx_x64

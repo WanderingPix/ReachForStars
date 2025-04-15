@@ -1,0 +1,13 @@
+C:\Users\User\Desktop\My Personal projects\TheSillyRoles\MiraAPI-master\MiraAPI.Example\bin\Debug\net6.0\MiraAPI.Example.deps.json
+C:\Users\User\Desktop\My Personal projects\TheSillyRoles\MiraAPI-master\MiraAPI.Example\bin\Debug\net6.0\MiraAPI.Example.dll
+C:\Users\User\Desktop\My Personal projects\TheSillyRoles\MiraAPI-master\MiraAPI.Example\bin\Debug\net6.0\MiraAPI.dll
+C:\Users\User\Desktop\My Personal projects\TheSillyRoles\MiraAPI-master\MiraAPI.Example\bin\Debug\net6.0\MiraAPI.xml
+C:\Users\User\Desktop\My Personal projects\TheSillyRoles\MiraAPI-master\MiraAPI.Example\obj\Debug\net6.0\MiraAPI.Example.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\My Personal projects\TheSillyRoles\MiraAPI-master\MiraAPI.Example\obj\Debug\net6.0\MiraAPI.Example.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\My Personal projects\TheSillyRoles\MiraAPI-master\MiraAPI.Example\obj\Debug\net6.0\MiraAPI.Example.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\My Personal projects\TheSillyRoles\MiraAPI-master\MiraAPI.Example\obj\Debug\net6.0\MiraAPI.Example.AssemblyInfo.cs
+C:\Users\User\Desktop\My Personal projects\TheSillyRoles\MiraAPI-master\MiraAPI.Example\obj\Debug\net6.0\MiraAPI.Example.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\My Personal projects\TheSillyRoles\MiraAPI-master\MiraAPI.Example\obj\Debug\net6.0\MiraAPI..ADCF69EB.Up2Date
+C:\Users\User\Desktop\My Personal projects\TheSillyRoles\MiraAPI-master\MiraAPI.Example\obj\Debug\net6.0\MiraAPI.Example.dll
+C:\Users\User\Desktop\My Personal projects\TheSillyRoles\MiraAPI-master\MiraAPI.Example\obj\Debug\net6.0\refint\MiraAPI.Example.dll
+C:\Users\User\Desktop\My Personal projects\TheSillyRoles\MiraAPI-master\MiraAPI.Example\obj\Debug\net6.0\ref\MiraAPI.Example.dll
