@@ -34,7 +34,7 @@ public class RoleBlockedModifier : TimedModifier
     }
     public override void OnActivate()
     {
-        foreach (AbilityButton button in Object.FindObjectsOfType<AbilityButton>())
+        foreach (ActionButton button in Object.FindObjectsOfType<ActionButton>())
         {
             
             HudManager.Instance.StartCoroutine(Effects.ScaleIn(button.transform, 0.7f, 0f, 1f));

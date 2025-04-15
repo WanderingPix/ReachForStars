@@ -23,12 +23,11 @@ namespace ReachForStars.Roles.Impostors.Chiller
         }
         public void Start()
         {
+            //Setup
             gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y, -5f);
-            HudManager.Instance.StartCoroutine(Effects.Bounce(gameObject.transform, 0.7f, 0.25f));
-
             myRend = gameObject.AddComponent<SpriteRenderer>();
             myRend.sprite = Assets.FrozenBody0.LoadAsset();
-            gameObject.transform.localScale = new Vector3(0.45f, 0.45f, 0.45f);
+            gameObject.transform.localScale = new Vector3(0.35f, 0.35f, 0.45f);
             targetBody.gameObject.SetActive(false);
             
             myCollider = gameObject.AddComponent<BoxCollider>();
@@ -39,16 +38,18 @@ namespace ReachForStars.Roles.Impostors.Chiller
             {
                 Hit();
             }));
+
+            //Spawn Animation
+            HudManager.Instance.StartCoroutine(Effects.Bounce(gameObject.transform, 0.7f, 0.45f));
+            HudManager.Instance.StartCoroutine(Effects.ColorFade(myRend, new Color(1f, 1f, 1f, 0f), new Color(1f, 1f, 1f, 1f), 0.4f));
+            HudManager.Instance.StartCoroutine(Effects.ScaleIn(gameObject.transform, 0.5f, 0.35f, 0.4f));
         }
 
         public void Hit()
         {
             durability-=1;
             HudManager.Instance.StartCoroutine(Effects.Bounce(gameObject.transform, 0.7f, 0.25f));
-            if (durability % 10 == 0)
-            {
-                DecreaseLevelByOne();
-            }
+            DecreaseLevelByOne();
         }
         public void DecreaseLevelByOne()
         {
