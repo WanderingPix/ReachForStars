@@ -17,12 +17,11 @@ namespace ReachForStars
     [HarmonyPatch(typeof(HudManager), nameof(HudManager.Start))]
     public class OnHudStart
     {
-        /// Heavy rewrite of CheckEndCriteria
         public static void Postfix(HudManager __instance)
         {
-            foreach (Transform trans in __instance.GetComponentsInChildren<Transform>())
+            foreach (SpriteRenderer rend in __instance.GetComponentsInChildren<SpriteRenderer>(true))
             {
-                trans.transform.localScale *= 0.5f; //Once the client settings pr is merged, add a slider for this
+                rend.gameObject.transform.localScale *= 1f; //Once the client settings pr is merged, add a slider for this 
             }
         }
     }
