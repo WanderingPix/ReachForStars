@@ -6,6 +6,8 @@ using TheSillyRoles.RPCHandler;
 using UnityEngine;
 using MiraAPI.Utilities;
 using MiraAPI.Networking;
+using MiraAPI.Modifiers;
+using ReachForStars.Addons.RoleBlocked;
 
 namespace ReachForStars.Roles.Impostors.Witch;
 public class Poison : CustomActionButton<PlayerControl>
@@ -42,12 +44,10 @@ public class Poison : CustomActionButton<PlayerControl>
     }
     protected override void OnClick()
     {
-        //Unfinished
+        Target.RpcAddModifier<PoisonedModifier>();
     }
 
     public override void OnEffectEnd()
     {
-        PlayerControl.LocalPlayer.RpcCustomMurder (Target, true);
-        Target.DeathReasonsRPC ("You have been Poisoned!", 5);
     }
 }
