@@ -48,6 +48,7 @@ public class Shoot : CustomActionButton<PlayerControl>
         {
             PlayerControl.LocalPlayer.RpcCustomMurder(Target, true);
             Target.DeathReasonsRPC("You have been shot!!", 5);
+            HudManager.Instance.StartCoroutine(Effects.ScaleIn(Button.transform, 1.4f, 0.7f, 0.7f));
         }
         else
         {

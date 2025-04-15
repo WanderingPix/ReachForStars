@@ -14,6 +14,11 @@ public class RoleBlockedModifier : GameModifier
 {
     public override string ModifierName => "RoleBlocked";
 
+    public override string GetHudString()
+    {
+        return "You are blocked from using your role abilities.";
+    }
+
     public override int GetAmountPerGame()
     {
         return 0;

@@ -57,12 +57,12 @@ public class ExileKill : CustomActionButton<PlayerControl>
             if(exiled.EnemyTeam == "impostors" && Target.Data.Role.IsImpostor)
             {
                 PlayerControl.LocalPlayer.RpcCustomMurder (Target, true);
-                HudManager.Instance.StartCoroutine(Effects.ScaleIn(Button.transform, 0.9f, 0.7f, 0.7f));
+                HudManager.Instance.StartCoroutine(Effects.ScaleIn(Button.transform, 1.4f, 0.7f, 0.7f));
             }
             else if (!Target.Data.Role.IsImpostor && exiled.EnemyTeam == "crewmates")
             {
                 PlayerControl.LocalPlayer.RpcCustomMurder (Target, true);
-                HudManager.Instance.StartCoroutine(Effects.ScaleIn(Button.transform, 1.2f, 0.7f, 0.7f));
+                HudManager.Instance.StartCoroutine(Effects.ScaleIn(Button.transform, 1.4f, 0.7f, 0.7f));
             }
             else
             {
