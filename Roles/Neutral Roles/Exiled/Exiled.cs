@@ -12,7 +12,7 @@ namespace ReachForStars.Roles.Neutrals.Exiled
     {
         public string RoleName => "Exiled";
         public string EnemyTeam = "";
-        public string RoleDescription => "Make sure the" + EnemyTeam + " lose at all costs!";
+        public string RoleDescription => $"Make sure the {EnemyTeam}lose at all costs!";
         public string RoleLongDescription => RoleDescription;
         public Color RoleColor => Color.yellow;
         public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
@@ -55,7 +55,7 @@ namespace ReachForStars.Roles.Neutrals.Exiled
                 Button.transform.SetParent(HudManager.Instance.transform);
                 AspectPosition pos = Button.gameObject.AddComponent<AspectPosition>();
                 pos.Alignment = AspectPosition.EdgeAlignments.Center;
-                pos.DistanceFromEdge = new Vector3(0f, 0f, 0f);
+                pos.DistanceFromEdge = new Vector3(0f, -1.75f, 0f);
             }
         }
     }
