@@ -35,7 +35,12 @@ public class Strap : CustomActionButton<PlayerControl>
     }
     public override void SetOutline(bool active)
     {
-        Target.cosmetics.SetOutline(active, new Il2CppSystem.Nullable<Color>(new Color(1f, 0f, 0f, 1f)));
+        Target?.cosmetics.SetOutline(active, new Il2CppSystem.Nullable<Color>(Palette.ImpostorRed));
+    }
+
+    public override bool IsTargetValid(PlayerControl? target)
+    {
+        return true;
     }
 
     public override PlayerControl GetTarget()
@@ -46,7 +51,7 @@ public class Strap : CustomActionButton<PlayerControl>
     protected override void OnClick()
     {
         Target.RpcAddModifier<Bomb>();
-        
+        PlayerControl.LocalPlayer.RpcAddModifier<Bomb>();
     }
 
     public override void OnEffectEnd()
