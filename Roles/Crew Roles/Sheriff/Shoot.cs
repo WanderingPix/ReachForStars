@@ -65,27 +65,29 @@ public class Shoot : CustomActionButton<PlayerControl>
         GameObject badge = new GameObject("SheriffBadge");
         badge.transform.SetParent(HudManager.Instance.transform);
         AspectPosition pos = badge.AddComponent<AspectPosition>();
-        pos.Alignment = AspectPosition.EdgeAlignments.Center;
-        pos.DistanceFromEdge = new Vector3(0f, -1.5f, 0f);
+        pos.Alignment = AspectPosition.EdgeAlignments.Top;
+        pos.DistanceFromEdge = new Vector3(0f, 1f, 0f);
         SpriteRenderer badgeRend = badge.AddComponent<SpriteRenderer>();
 
         badgeRend.sprite = Assets.SheriffIcon0.LoadAsset();
+        yield return new WaitForSeconds(0.4f);
+
+        badgeRend.sprite = Assets.SheriffIcon1.LoadAsset();
+        yield return new WaitForSeconds(0.4f);
+
+        badgeRend.sprite = Assets.SheriffIcon0.LoadAsset();
         yield return new WaitForSeconds(0.2f);
 
         badgeRend.sprite = Assets.SheriffIcon1.LoadAsset();
         yield return new WaitForSeconds(0.2f);
 
         badgeRend.sprite = Assets.SheriffIcon0.LoadAsset();
-        yield return new WaitForSeconds(0.1f);
-
-        badgeRend.sprite = Assets.SheriffIcon1.LoadAsset();
-        yield return new WaitForSeconds(0.1f);
-
-        badgeRend.sprite = Assets.SheriffIcon0.LoadAsset();
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.2f);
 
         badgeRend.sprite = Assets.SheriffIcon2.LoadAsset();
+        HudManager.Instance.StartCoroutine(Effects.ScaleIn(badge.transform, 1.6f, 1f, 0.7f));
 
+        PlayerControl.LocalPlayer.RpcSetRole(AmongUs.GameOptions.RoleTypes.Crewmate, true);
         yield break;
     }
 }
