@@ -16,7 +16,7 @@ using ReachForStars.Addons.BombHolder;
 namespace ReachForStars.Roles.Impostors.Striker;
 public class Strap : CustomActionButton<PlayerControl>
 {
-    public override string Name => "Dig";
+    public override string Name => "Strap";
 
     public override float Cooldown => 0;
     public override float EffectDuration => 5;

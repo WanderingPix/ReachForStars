@@ -8,7 +8,7 @@ namespace ReachForStars.Roles.Impostors.Striker;
 
 public class StrikerRole : ImpostorRole, ICustomRole
 {
-    public string RoleName => "Miner";
+    public string RoleName => "Striker";
     public string RoleDescription => "Dig vents around the map";
     public string RoleLongDescription => RoleDescription;
     public Color RoleColor => Palette.ImpostorRed;

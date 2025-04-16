@@ -62,8 +62,11 @@ public class Shoot : CustomActionButton<PlayerControl>
     }
     public IEnumerator Demote()
     {
-        GameObject badge = new GameObject("Badge");
-        badge.transform.position = new Vector3(0f, 1f, 0f);
+        GameObject badge = new GameObject("SheriffBadge");
+        badge.transform.SetParent(HudManager.Instance.transform);
+        AspectPosition pos = badge.AddComponent<AspectPosition>();
+        pos.Alignment = AspectPosition.EdgeAlignments.Center;
+        pos.DistanceFromEdge = new Vector3(0f, -1.5f, 0f);
         SpriteRenderer badgeRend = badge.AddComponent<SpriteRenderer>();
 
         badgeRend.sprite = Assets.SheriffIcon0.LoadAsset();
