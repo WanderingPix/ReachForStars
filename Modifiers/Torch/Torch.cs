@@ -6,7 +6,7 @@ using MiraAPI.Utilities;
 using System;
 using TheSillyRoles.Modifiers;
 
-namespace TheSillyRoles.Modifiers;
+namespace ReachForStars.Addons.Torch;
 
 public class TorchModifier : GameModifier
 {
@@ -23,7 +23,7 @@ public class TorchModifier : GameModifier
     }
     public override void OnActivate()
     {
-        PlayerControl.LocalPlayer.lightSource.flashlightSize = 25f;
+        PlayerControl.LocalPlayer.lightSource.flashlightSize = 3f;
         PlayerControl.LocalPlayer.lightSource.SetFlashlightEnabled(true);
     }
     public override void OnDeactivate()

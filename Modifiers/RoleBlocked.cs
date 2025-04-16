@@ -10,7 +10,7 @@ using System.Linq;
 
 namespace ReachForStars.Addons.RoleBlocked;
 
-public class RoleBlockedModifier : GameModifier
+public class RoleBlockedModifier : TimedModifier
 {
     public override string ModifierName => "RoleBlocked";
 
@@ -18,15 +18,8 @@ public class RoleBlockedModifier : GameModifier
     {
         return "You are blocked from using your role abilities.";
     }
+    public override float Duration => 120f;
 
-    public override int GetAmountPerGame()
-    {
-        return 0;
-    }
-    public override int GetAssignmentChance()
-    {
-        return 0;
-    }
 
     public override void OnMeetingStart()
     {
@@ -44,7 +37,7 @@ public class RoleBlockedModifier : GameModifier
         }
         PlayerControl.LocalPlayer.cosmetics.SetOutline(true, new Il2CppSystem.Nullable<Color>(new Color(1f, 0f, 1f, 1f)));
     }
-    public override void OnDeactivate()
+    public override void OnTimerComplete()
     {
         foreach (ActionButton button in Object.FindObjectsOfType<ActionButton>())
         {
@@ -55,6 +48,4 @@ public class RoleBlockedModifier : GameModifier
         }
         PlayerControl.LocalPlayer.cosmetics.SetOutline(false, new Il2CppSystem.Nullable<Color>(new Color(1f, 0f, 1f, 1f)));
     }
-
-    public override bool HideOnUi => true;
 }

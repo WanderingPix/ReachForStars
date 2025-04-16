@@ -38,6 +38,4 @@ public class PoisonedModifier : TimedModifier
         PlayerControl.LocalPlayer.RpcCustomMurder(PlayerControl.LocalPlayer, true);
         PlayerControl.LocalPlayer.cosmetics.SetOutline(false, new Il2CppSystem.Nullable<Color>(new Color(1f, 0f, 1f, 1f)));
     }
-
-    public override bool HideOnUi => true;
 }
