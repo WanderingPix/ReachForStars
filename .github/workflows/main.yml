@@ -54,7 +54,7 @@ jobs:
           path: BepInEx_x64
 
       - name: Draft a Release
-        uses: actions/create-release@v4
+        uses: actions/create-release@v3
         with:
           name: Draft
           tag-name: CI
