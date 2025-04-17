@@ -52,9 +52,3 @@ jobs:
         with:
           name: RFS.MSStore.Build.zip
           path: BepInEx_x64
-
-      - name: Draft a Release
-        uses: actions/create-release@v3
-        with:
-          name: Draft
-          tag-name: CI
