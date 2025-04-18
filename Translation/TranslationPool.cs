@@ -1,6 +1,6 @@
 using System;
 
-namespace ReachForStars.Translations
+namespace ReachForStars.Translation
 {
    public struct TranslationPool
    {
