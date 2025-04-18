@@ -13,7 +13,7 @@ public class DetectiveRole : CrewmateRole, ICustomRole
     public Color RoleColor => Palette.AcceptedGreen;
     public ModdedRoleTeams Team => ModdedRoleTeams.Crewmate;
 
-    public list<PlayerControl> Suspects;
+    //public List<PlayerControl> Suspects;
 
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
