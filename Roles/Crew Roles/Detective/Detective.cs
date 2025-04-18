@@ -1,5 +1,5 @@
 ﻿using MiraAPI.Roles;
-using TMPro;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace ReachForStars.Roles.Crewmates.Detective;
@@ -13,7 +13,7 @@ public class DetectiveRole : CrewmateRole, ICustomRole
     public Color RoleColor => Palette.AcceptedGreen;
     public ModdedRoleTeams Team => ModdedRoleTeams.Crewmate;
 
-    public List<PlayerControl> Suspects;
+    public list<PlayerControl> Suspects;
 
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
