@@ -1,6 +1,5 @@
 using Reactor.Networking.Attributes;
 using Reactor.Networking.Rpc;
-using TheSillyRoles.RPCs;
 using UnityEngine;
 using Reactor.Utilities;
 using MiraAPI.Utilities;
@@ -13,9 +12,8 @@ using MiraAPI.Hud;
 using ReachForStars.Roles.Impostors.Chiller;
 using Epic.OnlineServices;
 
-namespace TheSillyRoles.RPCHandler
+namespace ReachForStars.Networking
 {
-    //To call an rpc that doesn't have a this playercontrol param, just put the class's name before it
     public static class RPCS
     {
         [MethodRpc((uint) RPC.DeathReasons)]
