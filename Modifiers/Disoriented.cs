@@ -4,9 +4,8 @@ using UnityEngine;
 using HarmonyLib;
 using MiraAPI.Utilities;
 using System;
-using TheSillyRoles.Modifiers;
 
-namespace TheSillyRoles.Modifiers;
+namespace ReachForStars.Addons.Disoriented;
 
 public class DisorientedModifier : GameModifier
 {
