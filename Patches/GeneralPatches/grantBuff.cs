@@ -1,7 +1,6 @@
 ﻿using ReachForStars.Addons;
 using HarmonyLib;
 using MiraAPI.Modifiers;
-using TheSillyRoles.Modifiers;
 
 namespace ReachForStars
 {
