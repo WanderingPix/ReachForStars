@@ -1,4 +1,3 @@
-using MiraAPI.Example.Roles;
 using MiraAPI.GameOptions;
 using MiraAPI.Hud;
 using MiraAPI.Utilities.Assets;
@@ -10,7 +9,6 @@ using MiraAPI.Utilities;
 using MiraAPI.Networking;
 using TheSillyRoles.RPCHandler;
 using TMPro;
-using System.Threading;
 
 namespace ReachForStars.Roles.Crewmates.Sheriff;
 public class Shoot : CustomActionButton<PlayerControl>

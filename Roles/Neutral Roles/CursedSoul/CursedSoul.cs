@@ -3,15 +3,14 @@ using UnityEngine;
 using MiraAPI.GameEnd;
 using MiraAPI.GameOptions;
 using ReachForStars.MiscSettings;
-using TheSillyRoles.RPCHandler;
+using ReachForStars.Networking;
 using MiraAPI.Networking;
 using MiraAPI.Patches.Stubs;
 using MiraAPI.Hud;
-using ReachForStars.Buttons.CursedSoul;
 using System;
 using Reactor.Localization.Utilities;
 
-namespace ReachForStars.Roles.CursedSoul;
+namespace ReachForStars.Roles.Netrals.CursedSoul;
 
 public class CursedSoulRole : ImpostorRole, ICustomRole
 {

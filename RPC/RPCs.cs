@@ -1,4 +1,4 @@
-namespace TheSillyRoles.RPCs
+namespace ReachForStars.Networking
 {
     public enum RPC : uint
     {

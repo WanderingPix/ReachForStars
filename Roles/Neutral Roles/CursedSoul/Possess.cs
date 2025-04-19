@@ -1,13 +1,11 @@
-//using MiraAPI.Example.Options.Roles;
-using MiraAPI.Example.Roles;
 using MiraAPI.Hud;
 using MiraAPI.Utilities.Assets;
-using TheSillyRoles.RPCHandler;
+using ReachForStars.Networking;
 using UnityEngine;
 using MiraAPI.Utilities;
 using MiraAPI.Networking;
 using System.Linq;
-using ReachForStars.Roles.CursedSoul;
+using ReachForStars.Roles.Neutrals.CursedSoul;
 
 namespace ReachForStars.Buttons.CursedSoul;
 public class posess : CustomActionButton<DeadBody>
