@@ -5,7 +5,7 @@ using MiraAPI.Utilities;
 using MiraAPI.Roles;
 using ReachForStars.Utilities;
 using ReachForStars.MiscSettings;
-using ReachForStars.Roles.CursedSoul;
+using ReachForStars.Roles;
 using MiraAPI.Networking;
 using Reactor.Utilities.Extensions;
 using MiraAPI.GameOptions;
@@ -21,7 +21,7 @@ namespace ReachForStars
         {
             foreach (SpriteRenderer rend in __instance.GetComponentsInChildren<SpriteRenderer>(true))
             {
-                rend.gameObject.transform.localScale *= 1f; //Once the client settings pr is merged, add a slider for this 
+                rend.gameObject.transform.localScale *= 1f; //Once chipseq's client settings pr is merged, add a slider for this 
             }
         }
     }
