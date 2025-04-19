@@ -5,12 +5,11 @@ using UnityEngine;
 using MiraAPI.Utilities;
 using MiraAPI.Networking;
 using System.Linq;
-using ReachForStars.Roles.Neutrals.CursedSoul;
 
-namespace ReachForStars.Buttons.CursedSoul;
+namespace ReachForStars.Roles.Neutrals.CursedSoul;
 public class posess : CustomActionButton<DeadBody>
 {
-    public override string Name => "posess";
+    public override string Name => "Possess";
 
     public override float Cooldown => 5;
     public override float EffectDuration => 5;
