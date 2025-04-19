@@ -3,12 +3,12 @@ using MiraAPI.Hud;
 using MiraAPI.Roles;
 using UnityEngine;
 
-namespace ReachForStars.Roles.Impostors.Miner;
+namespace ReachForStars.Roles.Impostors.Mole;
 
 
-public class MinerRole : ImpostorRole, ICustomRole
+public class MoleRole : ImpostorRole, ICustomRole
 {
-    public string RoleName => "Miner";
+    public string RoleName => "Mole";
     public string RoleDescription => "Dig vents around the map";
     public string RoleLongDescription => RoleDescription;
     public Color RoleColor => Palette.ImpostorRed;
