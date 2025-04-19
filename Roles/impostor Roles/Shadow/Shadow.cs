@@ -15,7 +15,7 @@ public class ShadowRole : ImpostorRole, ICustomRole
 
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
-        UseVanillaKillButton = true,
+        UseVanillaKillButton = false,
         CanGetKilled = true,
         CanUseVent = true,
     };
@@ -27,11 +27,21 @@ public class ShadowRole : ImpostorRole, ICustomRole
     public override void Initialize(PlayerControl player)
     {
         RoleBehaviourStubs.Initialize(this, player);
-        HudManager.Instance.KillButton.ToggleVisible(false);
+    }
+    public void FixedUpdate()
+    {
+        if (true) //Replace with a check for elec sabo
+        {
+             HudManager.instance.KillButton.Show();
+        }
+        else 
+        {
+             HudManager.instance.KillButton.Hide();
+        }
     }
 
     public override bool DidWin(GameOverReason gameOverReason)
     {
-        return GameManager.Instance.DidHumansWin(gameOverReason);
+        return GameManager.Instance.DidImpostorsWin(gameOverReason);
     }
 }
