@@ -1,7 +1,6 @@
 using MiraAPI.GameOptions;
 using MiraAPI.Hud;
 using MiraAPI.Utilities.Assets;
-using TheSillyRoles;
 using Reactor.Utilities;
 using System.Collections;
 using UnityEngine;
