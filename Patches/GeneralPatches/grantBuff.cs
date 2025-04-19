@@ -1,4 +1,4 @@
-﻿using ReachForStars.Addons;
+﻿using ReachForStars.Addons.Flash;
 using HarmonyLib;
 using MiraAPI.Modifiers;
 
