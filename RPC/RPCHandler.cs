@@ -6,7 +6,7 @@ using MiraAPI.Utilities;
 using ReachForStars.Utilities;
 using System.Linq;
 using Reactor.Utilities.Extensions;
-using ReachForStars.Roles.Impostors.Miner;
+using ReachForStars.Roles;
 using AmongUs.GameOptions;
 using MiraAPI.Hud;
 using ReachForStars.Roles.Impostors.Chiller;
@@ -57,10 +57,9 @@ namespace ReachForStars.Networking
         [MethodRpc((uint) RPC.PlaceDaVent)]
         public static void RpcPlaceVent(this PlayerControl PlayerPos, int MinerVentCount)
         {
-            if (PlayerPos.Data.Role is MinerRole miner)
+            if (PlayerPos.Data.Role is ReachForStars.Roles.Impostors.Mole.MoleRole miner)
             {
-                Object.Instantiate<MushroomMixupPlayerAnimation>(PrefabManager.CopyPrefab<MushroomMixupPlayerAnimation>(), PlayerPos.transform).CoAnimateCloud();
-                var vent = Object.Instantiate<Vent>(PrefabManager.CopyPrefab<Vent>());
+                var vent = Object.Instantiate<Vent>(Object.FindObjectOfType<Vent>(true));
                 
                 vent.Id = ShipStatus.Instance.AllVents.Count + 1;
                 vent.transform.position = PlayerPos.GetTruePosition();
@@ -82,7 +81,7 @@ namespace ReachForStars.Networking
                 allVents.Add(vent);
                 ShipStatus.Instance.AllVents = allVents.ToArray();
                 vent.StartCoroutine(Effects.Bounce(vent.transform, 1f));
-                vent.StartCoroutine(Effects.ColorFade(vent.myRend, Palette.Black, Palette.White, 0.7f));
+                vent.StartCoroutine(Effects.ColorFade(vent.myRend, Palette.Black, Palette.White, 1.4f));
             }
         }
         [MethodRpc((uint) RPC.ResizePlayer)]
