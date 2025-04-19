@@ -54,11 +54,10 @@ namespace ReachForStars.Networking
         {
             target.MyPhysics.SetBodyType(type);
         }
+        
         [MethodRpc((uint) RPC.PlaceDaVent)]
         public static void RpcPlaceVent(this PlayerControl PlayerPos, int MinerVentCount)
-        {
-            if (PlayerPos.Data.Role is ReachForStars.Roles.Impostors.Mole.MoleRole miner)
-            {
+        {/*
                 var vent = Object.Instantiate<Vent>(Object.FindObjectOfType<Vent>(true));
                 
                 vent.Id = ShipStatus.Instance.AllVents.Count + 1;
@@ -81,7 +80,7 @@ namespace ReachForStars.Networking
                 allVents.Add(vent);
                 ShipStatus.Instance.AllVents = allVents.ToArray();
                 vent.StartCoroutine(Effects.Bounce(vent.transform, 1f));
-                vent.StartCoroutine(Effects.ColorFade(vent.myRend, Palette.Black, Palette.White, 1.4f));
+                vent.StartCoroutine(Effects.ColorFade(vent.myRend, Palette.Black, Palette.White, 1.4f)); */
             }
         }
         [MethodRpc((uint) RPC.ResizePlayer)]
