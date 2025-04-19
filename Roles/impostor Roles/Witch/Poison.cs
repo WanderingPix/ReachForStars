@@ -5,7 +5,7 @@ using UnityEngine;
 using MiraAPI.Utilities;
 using MiraAPI.Networking;
 using MiraAPI.Modifiers;
-using ReachForStars.Addons.RoleBlocked;
+using ReachForStars.Addons.Poisoned;
 
 namespace ReachForStars.Roles.Impostors.Witch;
 public class Poison : CustomActionButton<PlayerControl>
