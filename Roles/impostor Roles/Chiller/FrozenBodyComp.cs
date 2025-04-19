@@ -34,7 +34,7 @@ namespace ReachForStars.Roles.Impostors.Chiller
             myCollider = gameObject.AddComponent<BoxCollider>();
             myCollider.size = gameObject.transform.localScale * 1.2f;
 
-            /passive button too
+            //passive button too
             myButton = gameObject.AddComponent<PassiveButton>();
 
             myButton.OnClick = new UnityEngine.UI.Button.ButtonClickedEvent();
