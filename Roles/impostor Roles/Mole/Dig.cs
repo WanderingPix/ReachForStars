@@ -1,5 +1,3 @@
-//using MiraAPI.Example.Options.Roles;
-using MiraAPI.Example.Roles;
 using MiraAPI.Hud;
 using MiraAPI.Utilities.Assets;
 using TheSillyRoles.RPCHandler;
@@ -11,7 +9,7 @@ using UnityEngine.UI;
 using ReachForStars.Utilities;
 using Reactor.Utilities;
 
-namespace ReachForStars.Roles.Impostors.Miner;
+namespace ReachForStars.Roles.Impostors.Mole;
 public class Dig : CustomActionButton
 {
     public override string Name => "Dig";
@@ -29,7 +27,7 @@ public class Dig : CustomActionButton
 
     public override bool Enabled(RoleBehaviour? role)
     {
-        return role is MinerRole;
+        return role is MoleRole;
     }
 
     public override bool CanUse()
