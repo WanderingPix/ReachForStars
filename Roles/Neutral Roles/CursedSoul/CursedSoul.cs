@@ -10,7 +10,7 @@ using MiraAPI.Hud;
 using System;
 using Reactor.Localization.Utilities;
 
-namespace ReachForStars.Roles.Netrals.CursedSoul;
+namespace ReachForStars.Roles.Neutrals.CursedSoul;
 
 public class CursedSoulRole : ImpostorRole, ICustomRole
 {
