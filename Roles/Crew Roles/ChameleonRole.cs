@@ -2,10 +2,10 @@
 using TMPro;
 using UnityEngine;
 
-namespace MiraAPI.Example.Roles;
+namespace ReachForStars.Roles.Crewmates.Chameleon;
 
 
-public class ChameloenRole : CrewmateRole, ICustomRole
+public class ChameleonRole : CrewmateRole, ICustomRole
 {
     public string RoleName => "Chameleon";
     public string RoleLongDescription => "Stay invisible while not moving.";
