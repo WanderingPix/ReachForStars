@@ -7,7 +7,6 @@ using System.Collections;
 using UnityEngine;
 using MiraAPI.Utilities;
 using MiraAPI.Networking;
-using TheSillyRoles.RPCHandler;
 using TMPro;
 
 namespace ReachForStars.Roles.Crewmates.Sheriff;
@@ -45,7 +44,6 @@ public class Shoot : CustomActionButton<PlayerControl>
         if (Target.Data.Role.IsImpostor)
         {
             PlayerControl.LocalPlayer.RpcCustomMurder(Target, true);
-            Target.DeathReasonsRPC("You have been shot!!", 5);
             HudManager.Instance.StartCoroutine(Effects.ScaleIn(Button.transform, 1.4f, 0.7f, 0.7f));
         }
         else
