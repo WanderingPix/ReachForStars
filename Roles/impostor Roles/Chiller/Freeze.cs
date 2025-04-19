@@ -1,5 +1,3 @@
-//using MiraAPI.Example.Options.Roles;
-using MiraAPI.Example.Roles;
 using MiraAPI.Hud;
 using MiraAPI.Utilities.Assets;
 using TheSillyRoles.RPCHandler;
