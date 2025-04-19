@@ -80,8 +80,8 @@ namespace ReachForStars.Networking
                 allVents.Add(vent);
                 ShipStatus.Instance.AllVents = allVents.ToArray();
                 vent.StartCoroutine(Effects.Bounce(vent.transform, 1f));
-                vent.StartCoroutine(Effects.ColorFade(vent.myRend, Palette.Black, Palette.White, 1.4f)); */
-            }
+                vent.StartCoroutine(Effects.ColorFade(vent.myRend, Palette.Black, Palette.White, 1.4f)); 
+            }*/
         }
         [MethodRpc((uint) RPC.ResizePlayer)]
         public static void RpcResize(this PlayerControl player, float x, float y, float z)
