@@ -32,11 +32,11 @@ public class ShadowRole : ImpostorRole, ICustomRole
     {
         if (true) //Replace with a check for elec sabo
         {
-             HudManager.instance.KillButton.Show();
+             HudManager.Instance.KillButton.Show();
         }
         else 
         {
-             HudManager.instance.KillButton.Hide();
+             HudManager.Instance.KillButton.Hide();
         }
     }
 
