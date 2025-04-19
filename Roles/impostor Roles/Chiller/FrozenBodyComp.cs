@@ -29,10 +29,12 @@ namespace ReachForStars.Roles.Impostors.Chiller
             myRend.sprite = Assets.FrozenBody0.LoadAsset();
             gameObject.transform.localScale = new Vector3(0.35f, 0.35f, 0.45f);
             targetBody.gameObject.SetActive(false);
-            
+
+            //Collier doesn't work, dunno why
             myCollider = gameObject.AddComponent<BoxCollider>();
             myCollider.size = gameObject.transform.localScale * 1.2f;
 
+            /passive button too
             myButton = gameObject.AddComponent<PassiveButton>();
 
             myButton.OnClick = new UnityEngine.UI.Button.ButtonClickedEvent();
