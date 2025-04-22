@@ -15,9 +15,9 @@ public class Dig : CustomActionButton
 {
     public override string Name => buttonName.GetTranslatedText();
     public TranslationPool buttonName = new TranslationPool(
-    english: "Dig"
-    spanish: "excavar"
-    portuguese: "escavação"
+    english: "Dig",
+    spanish: "excavar",
+    portuguese: "escavação",
     french: "creuser"
     );
 
