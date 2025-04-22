@@ -1,4 +1,5 @@
-﻿using MiraAPI.Patches.Stubs;
+﻿using Il2CppSystem.Web.Util;
+using MiraAPI.Patches.Stubs;
 using MiraAPI.Roles;
 using UnityEngine;
 
@@ -30,13 +31,16 @@ public class ShadowRole : ImpostorRole, ICustomRole
     }
     public void FixedUpdate()
     {
-        if (true) //Replace with a check for elec sabo
-        {
-             HudManager.Instance.KillButton.Show();
-        }
-        else 
-        {
-             HudManager.Instance.KillButton.Hide();
+        if (Player.Data.Role is ShadowRole)
+        {  
+            if (true) //Replace with a check for elec sabo
+            {
+                HudManager.Instance.KillButton.Show();
+            }
+            else 
+            {
+                HudManager.Instance.KillButton.Hide();
+            }
         }
     }
 

@@ -4,10 +4,21 @@ namespace ReachForStars.Translation
 {
   public static class TransManager
   {
-    public static string GetTranslatedText(TranslationPool pool)
+    public static string GetTranslatedText(this TranslationPool pool)
     {
-      //get the AU base Lang and return the string via switch case, for now return brainrot :3
-      return "Skibidi dop dope yes yes yes yes";
+      if (TranslationController.Instance.currentLanguage.languageID == SupportedLangs.Spanish && pool.Spanish != null)
+      {
+        return pool.Spanish;
+      }
+      else if (TranslationController.Instance.currentLanguage.languageID == SupportedLangs.Portuguese && pool.Portuguese != null)
+      {
+        return pool.Portuguese;
+      }
+      else if (TranslationController.Instance.currentLanguage.languageID == SupportedLangs.French && pool.French != null)
+      {
+        return pool.Spanish;
+      }
+      else return pool.English;
     }
   }
 }

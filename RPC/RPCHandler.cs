@@ -10,7 +10,7 @@ using ReachForStars.Roles;
 using AmongUs.GameOptions;
 using MiraAPI.Hud;
 using ReachForStars.Roles.Impostors.Chiller;
-using Epic.OnlineServices;
+using System.Collections.Generic;
 
 namespace ReachForStars.Networking
 {
@@ -57,31 +57,22 @@ namespace ReachForStars.Networking
         
         [MethodRpc((uint) RPC.PlaceDaVent)]
         public static void RpcPlaceVent(this PlayerControl PlayerPos, int MinerVentCount)
-        {/*
-                var vent = Object.Instantiate<Vent>(Object.FindObjectOfType<Vent>(true));
-                
-                vent.Id = ShipStatus.Instance.AllVents.Count + 1;
-                vent.transform.position = PlayerPos.GetTruePosition();
-                var ventpos = vent.transform.position;
-                ventpos.z = 0.0009f;
+        {
+            var vent = Object.Instantiate<Vent>(Object.FindObjectOfType<Vent>(true));
+            
+            vent.Id = ShipStatus.Instance.AllVents.Count + 1;
+            vent.transform.position = PlayerPos.GetTruePosition();
+            var ventpos = vent.transform.position;
+            ventpos.z = 0.0009f;
 
-                
-                vent.Left = miner.MinerVents[0];
-
-                miner.MinerVents.Add(vent);
-
-                if (miner.MinerVents[miner.MinerVents.Count - 1] != null)
-                {
-                    vent.Right = miner.MinerVents[miner.MinerVents.Count - 1];
-                }
-                
-                
-                var allVents = ShipStatus.Instance.AllVents.ToList();
-                allVents.Add(vent);
-                ShipStatus.Instance.AllVents = allVents.ToArray();
-                vent.StartCoroutine(Effects.Bounce(vent.transform, 1f));
-                vent.StartCoroutine(Effects.ColorFade(vent.myRend, Palette.Black, Palette.White, 1.4f)); 
-            }*/
+            vent.Id = ShipStatus.Instance.AllVents.Count + 1 + MinerVentCount;
+            vent.Right = null;
+            if (MinerVentCount != 0)
+            {
+                vent.Right = Helpers.GetVentById(ShipStatus.Instance.AllVents.Count + MinerVentCount);
+            }   
+            vent.StartCoroutine(Effects.Bounce(vent.transform, 1f));
+            vent.StartCoroutine(Effects.ColorFade(vent.myRend, Palette.Black, Palette.White, 1.4f)); 
         }
         [MethodRpc((uint) RPC.ResizePlayer)]
         public static void RpcResize(this PlayerControl player, float x, float y, float z)

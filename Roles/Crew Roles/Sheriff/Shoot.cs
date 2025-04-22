@@ -7,11 +7,19 @@ using UnityEngine;
 using MiraAPI.Utilities;
 using MiraAPI.Networking;
 using TMPro;
+using ReachForStars.Translation;
 
 namespace ReachForStars.Roles.Crewmates.Sheriff;
 public class Shoot : CustomActionButton<PlayerControl>
 {
-    public override string Name => "Shoot";
+    public override string Name => ButtonName.GetTranslatedText();
+
+    public TranslationPool ButtonName = new TranslationPool(
+        english: "Shoot",
+        spanish: "Disparar",
+        portuguese: "Atirar",
+        french: "Tirer"
+    );
     public override float Cooldown => 25;
     public override float EffectDuration => 0;
 

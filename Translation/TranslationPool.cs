@@ -9,7 +9,7 @@ namespace ReachForStars.Translation
      public string Spanish;
      public string French;
      public string Portuguese;
-     public TranslationPool(string english, string spanish, string portuguese, string french)
+     public TranslationPool(string english, string spanish = null, string portuguese = null, string french = null)
      {
        English = english;
        Spanish = spanish;
