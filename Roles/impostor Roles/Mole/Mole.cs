@@ -2,7 +2,7 @@
 using MiraAPI.Hud;
 using MiraAPI.Roles;
 using UnityEngine;
-using ReachForStars.Translation
+using ReachForStars.Translation;
 
 namespace ReachForStars.Roles.Impostors.Mole;
 
