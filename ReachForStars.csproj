@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <LangVersion>latest</LangVersion>
@@ -7,8 +7,13 @@
     <Authors>Pixel</Authors>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Reactor" Version="2.3.1" />
+    <PackageReference Include="BepInEx.Unity.IL2CPP" Version="6.0.0-be.697" Private="false" ExcludeAssets="runtime;native" />
+    <PackageReference Include="AllOfUs.MiraAPI" Version="0.2.0-rc.5" />
+  </ItemGroup>
+
 	<Import Project="AmongUs.props" />
-        <Import Project="packages\NuGet\**\*.nupkg"  />
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\**\*.png" />
