@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using ReachForStars.Utilities;
 using Reactor.Utilities;
-using ReachForStars.Translation
+using ReachForStars.Translation;
 
 namespace ReachForStars.Roles.Impostors.Mole;
 public class Dig : CustomActionButton
