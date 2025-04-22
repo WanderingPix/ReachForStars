@@ -6,7 +6,7 @@ using MiraAPI.Utilities;
 using System;
 using ReachForStars;
 
-namespace ReachForStars.Addons;
+namespace ReachForStars.Addons.Grandpa;
 public class WujModifier : GameModifier
 {
     public override string ModifierName => "Grandpa";

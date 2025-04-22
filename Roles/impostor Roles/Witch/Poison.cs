@@ -1,13 +1,11 @@
-//using MiraAPI.Example.Options.Roles;
-using MiraAPI.Example.Roles;
 using MiraAPI.Hud;
 using MiraAPI.Utilities.Assets;
-using TheSillyRoles.RPCHandler;
+using ReachForStars.Networking;
 using UnityEngine;
 using MiraAPI.Utilities;
 using MiraAPI.Networking;
 using MiraAPI.Modifiers;
-using ReachForStars.Addons.RoleBlocked;
+using ReachForStars.Addons.Poisoned;
 
 namespace ReachForStars.Roles.Impostors.Witch;
 public class Poison : CustomActionButton<PlayerControl>

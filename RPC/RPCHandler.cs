@@ -1,21 +1,19 @@
 using Reactor.Networking.Attributes;
 using Reactor.Networking.Rpc;
-using TheSillyRoles.RPCs;
 using UnityEngine;
 using Reactor.Utilities;
 using MiraAPI.Utilities;
 using ReachForStars.Utilities;
 using System.Linq;
 using Reactor.Utilities.Extensions;
-using ReachForStars.Roles.Impostors.Miner;
+using ReachForStars.Roles;
 using AmongUs.GameOptions;
 using MiraAPI.Hud;
 using ReachForStars.Roles.Impostors.Chiller;
 using Epic.OnlineServices;
 
-namespace TheSillyRoles.RPCHandler
+namespace ReachForStars.Networking
 {
-    //To call an rpc that doesn't have a this playercontrol param, just put the class's name before it
     public static class RPCS
     {
         [MethodRpc((uint) RPC.DeathReasons)]
@@ -56,13 +54,11 @@ namespace TheSillyRoles.RPCHandler
         {
             target.MyPhysics.SetBodyType(type);
         }
+        
         [MethodRpc((uint) RPC.PlaceDaVent)]
         public static void RpcPlaceVent(this PlayerControl PlayerPos, int MinerVentCount)
-        {
-            if (PlayerPos.Data.Role is MinerRole miner)
-            {
-                Object.Instantiate<MushroomMixupPlayerAnimation>(PrefabManager.CopyPrefab<MushroomMixupPlayerAnimation>(), PlayerPos.transform).CoAnimateCloud();
-                var vent = Object.Instantiate<Vent>(PrefabManager.CopyPrefab<Vent>());
+        {/*
+                var vent = Object.Instantiate<Vent>(Object.FindObjectOfType<Vent>(true));
                 
                 vent.Id = ShipStatus.Instance.AllVents.Count + 1;
                 vent.transform.position = PlayerPos.GetTruePosition();
@@ -84,8 +80,8 @@ namespace TheSillyRoles.RPCHandler
                 allVents.Add(vent);
                 ShipStatus.Instance.AllVents = allVents.ToArray();
                 vent.StartCoroutine(Effects.Bounce(vent.transform, 1f));
-                vent.StartCoroutine(Effects.ColorFade(vent.myRend, Palette.Black, Palette.White, 0.7f));
-            }
+                vent.StartCoroutine(Effects.ColorFade(vent.myRend, Palette.Black, Palette.White, 1.4f)); 
+            }*/
         }
         [MethodRpc((uint) RPC.ResizePlayer)]
         public static void RpcResize(this PlayerControl player, float x, float y, float z)

@@ -3,7 +3,9 @@ using MiraAPI.GameOptions;
 using UnityEngine;
 using MiraAPI.Utilities;
 using MiraAPI.Modifiers;
-using ReachForStars.Addons;
+using ReachForStars.Addons.Flash;
+using ReachForStars.Addons.Grandpa;
+using ReachForStars.Addons.Child;
 using MiraAPI.Hud;
 using ReachForStars.Roles.Impostors.Chiller;
 

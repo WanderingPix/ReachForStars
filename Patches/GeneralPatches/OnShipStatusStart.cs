@@ -5,7 +5,7 @@ using MiraAPI.Utilities;
 using MiraAPI.Roles;
 using ReachForStars.Utilities;
 using ReachForStars.MiscSettings;
-using ReachForStars.Roles.CursedSoul;
+using ReachForStars.Roles;
 using MiraAPI.Networking;
 
 namespace ReachForStars

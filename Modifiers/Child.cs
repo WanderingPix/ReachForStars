@@ -3,11 +3,10 @@ using MiraAPI.Modifiers.Types;
 using MiraAPI.Utilities;
 using UnityEngine;
 using HarmonyLib;
-using ReachForStars.Addons;
-using TheSillyRoles.RPCHandler;
+using ReachForStars.Networking;
 using ReachForStars.Utilities;
 
-namespace ReachForStars.Addons;
+namespace ReachForStars.Addons.Child;
 
 public class ChildModifier : GameModifier
 {

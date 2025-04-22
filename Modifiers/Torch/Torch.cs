@@ -4,7 +4,6 @@ using UnityEngine;
 using HarmonyLib;
 using MiraAPI.Utilities;
 using System;
-using TheSillyRoles.Modifiers;
 
 namespace ReachForStars.Addons.Torch;
 

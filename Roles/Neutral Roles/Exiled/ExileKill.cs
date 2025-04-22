@@ -1,21 +1,16 @@
- //using MiraAPI.Example.Options.Roles;
-using MiraAPI.Example.Roles;
+using MiraAPI.Networking;
 using MiraAPI.GameOptions;
 using MiraAPI.Hud;
 using MiraAPI.Utilities.Assets;
-using TheSillyRoles;
 using Reactor.Utilities;
 using System.Collections;
 using MiraAPI.Utilities;
-using MiraAPI.Networking;
-using Reactor.Networking.Rpc;
 using Reactor.Networking;
 using MiraAPI.Roles;
 using UnityEngine;
 using System.Collections.Generic;
 using System;
 using Random = System.Random;
-using System.Threading.Tasks;
 
 namespace ReachForStars.Roles.Neutrals.Exiled;
 public class ExileKill : CustomActionButton<PlayerControl>

@@ -3,12 +3,12 @@ using MiraAPI.Hud;
 using MiraAPI.Roles;
 using UnityEngine;
 
-namespace ReachForStars.Roles.Impostors.Striker;
+namespace ReachForStars.Roles.Impostors.Mole;
 
 
-public class StrikerRole : ImpostorRole, ICustomRole
+public class MoleRole : ImpostorRole, ICustomRole
 {
-    public string RoleName => "Striker";
+    public string RoleName => "Mole";
     public string RoleDescription => "Dig vents around the map";
     public string RoleLongDescription => RoleDescription;
     public Color RoleColor => Palette.ImpostorRed;
@@ -34,6 +34,6 @@ public class StrikerRole : ImpostorRole, ICustomRole
     }
     public override void OnMeetingStart()
     {
-        CustomButtonSingleton<Strap>.Instance.IncreaseUses(1);
+        CustomButtonSingleton<Dig>.Instance.IncreaseUses(1);
     }
 }

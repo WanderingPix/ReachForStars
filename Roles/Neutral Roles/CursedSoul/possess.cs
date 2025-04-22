@@ -1,18 +1,15 @@
-//using MiraAPI.Example.Options.Roles;
-using MiraAPI.Example.Roles;
 using MiraAPI.Hud;
 using MiraAPI.Utilities.Assets;
-using TheSillyRoles.RPCHandler;
+using ReachForStars.Networking;
 using UnityEngine;
 using MiraAPI.Utilities;
 using MiraAPI.Networking;
 using System.Linq;
-using ReachForStars.Roles.CursedSoul;
 
-namespace ReachForStars.Buttons.CursedSoul;
+namespace ReachForStars.Roles.Neutrals.CursedSoul;
 public class posess : CustomActionButton<DeadBody>
 {
-    public override string Name => "posess";
+    public override string Name => "Possess";
 
     public override float Cooldown => 5;
     public override float EffectDuration => 5;

@@ -1,9 +1,8 @@
-﻿using Il2CppSystem.Runtime.Serialization.Formatters.Binary;
 using MiraAPI.Modifiers;
 using MiraAPI.Modifiers.Types;
 using ReachForStars.Utilities;
 
-namespace ReachForStars.Addons;
+namespace ReachForStars.Addons.Flash;
 
 public class FlashModifier : GameModifier
 {
