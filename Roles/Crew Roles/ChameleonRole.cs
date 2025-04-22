@@ -10,7 +10,8 @@ public class ChameleonRole : CrewmateRole, ICustomRole
     public string RoleName => "Chameleon";
     public string RoleLongDescription => "Stay invisible while not moving.";
     public string RoleDescription => RoleLongDescription;
-    public Color RoleColor => Palette.AcceptedGreen;
+    public Color RoleColor => Palette.White;
+    public Color OptionsMenuColor => Palette.CrewmateBlue;
     public ModdedRoleTeams Team => ModdedRoleTeams.Crewmate;
 
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
