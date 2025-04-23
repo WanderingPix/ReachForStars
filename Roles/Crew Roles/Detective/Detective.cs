@@ -15,6 +15,7 @@ public class DetectiveRole : CrewmateRole, ICustomRole
     public string RoleLongDescription => "PlaceHolder";
     public string RoleDescription => RoleLongDescription;
     public Color RoleColor => Palette.White;
+    public Color OptionsMenuColor => Palette.CrewmateBlue;
     public ModdedRoleTeams Team => ModdedRoleTeams.Crewmate;
 
     public List<PlayerControl> Suspects;
