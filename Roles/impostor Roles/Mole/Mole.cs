@@ -33,7 +33,7 @@ public class MoleRole : ImpostorRole, ICustomRole
         // remove existing task header.
     }
 
-    public List<Vent> MinerVents;
+    public List<Vent> PlacedVents;
 
     public override bool DidWin(GameOverReason gameOverReason)
     {
