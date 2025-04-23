@@ -14,13 +14,19 @@ public class SheriffRole : CrewmateRole, ICustomRole
         portuguese: "Xerife",
         french: "Shérif"
     );
-    public string RoleLongDescription => "Choose who to shoot";
-    public string RoleDescription => RoleDescLong.GetTranslatedText();
+    public string RoleLongDescription => RoleDescLong.GetTranslatedText;
     public TranslationPool RoleDescLong = new TranslationPool(
-        english: "Shoot the Impostors, but\n not the Crew.",
-        french: "Tirez sur les imposteurs,\n mais pas sur vos coéquipiers.",
-        portuguese: "Atire nos Impostores, mas\n não nos seus companheiros de equipe.",
-        spanish: "Dispara a los impostores, pero no\n a tus compañeros."
+        english: "Shoot the Impostors, but\n not the Crew",
+        french: "Tirez sur les imposteurs,\n mais pas sur vos coéquipiers",
+        portuguese: "Atire nos Impostores, mas\n não nos seus companheiros de equipe",
+        spanish: "Dispara a los impostores, pero no\n a tus compañeros"
+    );
+    public string RoleDescription => RoleDescShort.GetTranslatedText();
+    public TranslationPool RoleDescLong = new TranslationPool(
+        english: "Choose who to shoot",
+        french: "Choisissez sur qui tirer",
+        portuguese: "Escolha em quem atirar",
+        spanish: "Elige a quién disparar"
     );
     
     public Color RoleColor => Palette.White;
