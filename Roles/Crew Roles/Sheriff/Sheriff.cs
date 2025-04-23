@@ -22,7 +22,7 @@ public class SheriffRole : CrewmateRole, ICustomRole
         spanish: "Dispara a los impostores, pero no\n a tus compañeros"
     );
     public string RoleDescription => RoleDescShort.GetTranslatedText();
-    public TranslationPool RoleDescLong = new TranslationPool(
+    public TranslationPool RoleDescShort = new TranslationPool(
         english: "Choose who to shoot",
         french: "Choisissez sur qui tirer",
         portuguese: "Escolha em quem atirar",
