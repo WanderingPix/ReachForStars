@@ -14,7 +14,7 @@ public class SheriffRole : CrewmateRole, ICustomRole
         portuguese: "Xerife",
         french: "Shérif"
     );
-    public string RoleLongDescription => RoleDescLong.GetTranslatedText;
+    public string RoleLongDescription => RoleDescLong.GetTranslatedText();
     public TranslationPool RoleDescLong = new TranslationPool(
         english: "Shoot the Impostors, but\n not the Crew",
         french: "Tirez sur les imposteurs,\n mais pas sur vos coéquipiers",
