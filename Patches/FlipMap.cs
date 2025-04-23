@@ -19,7 +19,7 @@ namespace ReachForStars
         {
             if (OptionGroupSingleton<MiscOptions>.Instance.FlippedMap)
             {
-                ship.gameObject.transform.localScale *= new Vector3(-1f, 1f, 1f);
+                ship.gameObject.transform.localScale = new Vector3(-0.7f, 0.7f, 0.7f);
             }
         }
         
