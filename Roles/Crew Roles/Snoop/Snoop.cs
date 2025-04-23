@@ -10,7 +10,7 @@ public class SnoopRole : CrewmateRole, ICustomRole
     public string RoleName => Rolename.GetTranslatedText(); 
     public TranslationPool Rolename = new TranslationPool(
         english: "Snoop",
-        spanish: "fisgón"
+        spanish: "fisgón",
         portuguese: "bisbilhoteira",
         french: "Espion"
     );
