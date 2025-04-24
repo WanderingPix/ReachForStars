@@ -16,7 +16,7 @@ namespace ReachForStars.Translation
       {
         return pool.Spanish;
       }
-      else if (TranslationController.Instance.currentLanguage.languageID == SupportedLangs.Russian && pool.Spanish != null)
+      else if (TranslationController.Instance.currentLanguage.languageID == SupportedLangs.Russian && pool.Russian != null)
       {
         return pool.Russian;
       }
