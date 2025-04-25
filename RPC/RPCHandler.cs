@@ -60,8 +60,8 @@ namespace ReachForStars.Networking
         {
             if (p.Data.Role is MoleRole mole)
             {
+                Vent vent = Object.Instantiate<Vent>(Object.FindObjectOfType<Vent>(true));  
                 mole.PlacedVents.Add(vent);
-                Vent vent = Object.Instantiate<Vent>(Object.FindObjectOfType<Vent>(true));            
                 vent.Id = ShipStatus.Instance.AllVents.Count + mole.PlacedVents.Count;        
                 vent.transform.position = new Vector3(p.GetTruePosition().x, p.GetTruePosition().y, 0.0009f);
                 vent.Id = ShipStatus.Instance.AllVents.Count + mole.PlacedVents.Count;
