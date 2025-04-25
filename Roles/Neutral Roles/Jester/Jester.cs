@@ -25,6 +25,16 @@ public class JesterRole : ImpostorRole, ICustomRole
     {
         return $"You've all been fooled!\n {player.PlayerName} was the Jester!\n\n";
     }
+    public override void Initialize(PlayerControl p)
+    {
+        RoleBehaviourStubs.Initialize(this, p);
+        ShipStatus.Instance.EmergencyButton.gameObject.SetActive(OptionsGroupSingleton<JesterOptions>.Instance.CanCallMeeting);
+    }
+    public override void Deinitialize(PlayerControl p)
+    {
+        ShipStatus.Instance.EmergencyButton.gameObject.SetActive(!OptionsGroupSingleton<JesterOptions>.Instance.CanCallMeeting);
+        
+    }
     
 
     public override void SpawnTaskHeader(PlayerControl playerControl)
