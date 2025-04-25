@@ -63,7 +63,7 @@ namespace ReachForStars.Networking
                 Vent vent = Object.Instantiate<Vent>(Object.FindObjectOfType<Vent>(true));  
                 mole.PlacedVents.Add(vent);
                 vent.Id = ShipStatus.Instance.AllVents.Count + mole.PlacedVents.Count;        
-                vent.transform.position = new Vector3(p.GetTruePosition().x, p.GetTruePosition().y, 0.0009f);
+                vent.transform.position = p.GetTruePosition();
                 vent.Id = ShipStatus.Instance.AllVents.Count + mole.PlacedVents.Count;
                 vent.Right = Helpers.GetVentById(mole.PlacedVents.Count - 1);
                 
