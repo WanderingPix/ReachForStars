@@ -12,7 +12,8 @@ public class SheriffRole : CrewmateRole, ICustomRole
         english: "Sheriff",
         spanish: "Sheriff",
         portuguese: "Xerife",
-        french: "Shérif"
+        french: "Shérif",
+        russian: "Replace it with your translation" //This is what I'm talking about lime
     );
     public string RoleLongDescription => RoleDescLong.GetTranslatedText();
     public TranslationPool RoleDescLong = new TranslationPool(
