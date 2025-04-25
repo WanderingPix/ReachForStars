@@ -65,7 +65,12 @@ namespace ReachForStars.Networking
                 vent.Id = ShipStatus.Instance.AllVents.Count + mole.PlacedVents.Count;        
                 vent.transform.position = p.GetTruePosition();
                 vent.Id = ShipStatus.Instance.AllVents.Count + mole.PlacedVents.Count;
-                vent.Right = Helpers.GetVentById(mole.PlacedVents.Count - 1);
+                vent.Right = null;
+                if (mole.PlacedVents.Count > 1)
+                {
+                    vent.Right = mole.PlacedVents[^1];
+                }
+                mole.PlacedVents[1].Left = vent;
                 
                 //TODO: smoke cloud
                 
