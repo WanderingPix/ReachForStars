@@ -60,14 +60,14 @@ namespace ReachForStars.Networking
         {
             if (p.Data.Role is MoleRole mole)
             {
-                Vent vent = Object.Instantiate<Vent>(Object.FindObjectOfType<Vent>(true));            
-                vent.Id = ShipStatus.Instance.AllVents.Count + mole.PlacedVents.Count;          
-                vent.transform.position = new Vector3(p.GetTruePosition().x, p.GetTruePosition().y, 0.0009f);
                 mole.PlacedVents.Add(vent);
+                Vent vent = Object.Instantiate<Vent>(Object.FindObjectOfType<Vent>(true));            
+                vent.Id = ShipStatus.Instance.AllVents.Count + mole.PlacedVents.Count;        
+                vent.transform.position = new Vector3(p.GetTruePosition().x, p.GetTruePosition().y, 0.0009f);
                 vent.Id = ShipStatus.Instance.AllVents.Count + mole.PlacedVents.Count;
-                vent.Right = mole.PlacedVents[mole.PlacedVents.Count - 1];
+                vent.Right? = Helpers.GetVentById[mole.PlacedVents.Count - 1];
                 
-                //TODO: smoke cloud.
+                //TODO: smoke cloud
                 
                 vent.StartCoroutine(Effects.Bounce(vent.transform, 1f));
                 vent.StartCoroutine(Effects.ColorFade(vent.myRend, Palette.Black, Palette.White, 1.4f)); 
