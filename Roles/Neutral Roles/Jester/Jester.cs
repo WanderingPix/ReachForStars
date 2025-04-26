@@ -3,6 +3,7 @@ using UnityEngine;
 using MiraAPI.GameEnd;
 using MiraAPI.GameOptions;
 using ReachForStars.MiscSettings;
+using MiraAPI.Patches.Stubs;
 
 namespace ReachForStars.Roles.Neutrals.Jester;
 
@@ -24,6 +25,16 @@ public class JesterRole : ImpostorRole, ICustomRole
     public string GetCustomEjectionMessage(NetworkedPlayerInfo player)
     {
         return $"You've all been fooled!\n {player.PlayerName} was the Jester!\n\n";
+    }
+    public override void Initialize(PlayerControl p)
+    {
+        RoleBehaviourStubs.Initialize(this, p);
+        ShipStatus.Instance.EmergencyButton.gameObject.SetActive(OptionGroupSingleton<JesterOptions>.Instance.CanCallMeeting);
+    }
+    public override void Deinitialize(PlayerControl p)
+    {
+        ShipStatus.Instance.EmergencyButton.gameObject.SetActive(!OptionGroupSingleton<JesterOptions>.Instance.CanCallMeeting);
+        
     }
     
 

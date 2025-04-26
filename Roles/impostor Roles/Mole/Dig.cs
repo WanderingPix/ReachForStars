@@ -8,11 +8,18 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using ReachForStars.Utilities;
 using Reactor.Utilities;
+using ReachForStars.Translation;
 
 namespace ReachForStars.Roles.Impostors.Mole;
 public class Dig : CustomActionButton
 {
-    public override string Name => "Dig";
+    public override string Name => buttonName.GetTranslatedText();
+    public TranslationPool buttonName = new TranslationPool(
+    english: "Dig",
+    spanish: "excavar",
+    portuguese: "escavação",
+    french: "creuser"
+    );
 
     public override float Cooldown => 0;
     public override float EffectDuration => 5;

@@ -7,7 +7,7 @@ namespace ReachForStars
     public static class NoVents
     {
         /// <summary>
-        /// Executed by Patches/OnCutsceneBreak.cs
+        /// Executed by Patches/GeneralPatches/OnShipStatusStart.cs
         /// </summary>
         public static void TryBreakVent()
         {
@@ -15,7 +15,7 @@ namespace ReachForStars
             {
                 foreach (var vent in ShipStatus.Instance.AllVents)
                 {
-                    vent.gameObject.DestroyImmediate();
+                    vent.gameObject.SetActive(false);
                 }
             }
         }

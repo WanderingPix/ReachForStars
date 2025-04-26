@@ -6,7 +6,7 @@ using MiraAPI.Utilities;
 using ReachForStars.Utilities;
 using System.Linq;
 using Reactor.Utilities.Extensions;
-using ReachForStars.Roles;
+using ReachForStars.Roles.Impostors.Mole;
 using AmongUs.GameOptions;
 using MiraAPI.Hud;
 using ReachForStars.Roles.Impostors.Chiller;
@@ -56,23 +56,27 @@ namespace ReachForStars.Networking
         }
         
         [MethodRpc((uint) RPC.PlaceDaVent)]
-        public static void RpcPlaceVent(this PlayerControl PlayerPos, int MinerVentCount)
+        public static void RpcPlaceVent(this PlayerControl p, int MinerVentCount)
         {
-            var vent = Object.Instantiate<Vent>(Object.FindObjectOfType<Vent>(true));
-            
-            vent.Id = ShipStatus.Instance.AllVents.Count + 1;
-            vent.transform.position = PlayerPos.GetTruePosition();
-            var ventpos = vent.transform.position;
-            ventpos.z = 0.0009f;
-
-            vent.Id = ShipStatus.Instance.AllVents.Count + 1 + MinerVentCount;
-            vent.Right = null;
-            if (MinerVentCount != 0)
+            if (p.Data.Role is MoleRole mole)
             {
-                vent.Right = Helpers.GetVentById(ShipStatus.Instance.AllVents.Count + MinerVentCount);
-            }   
-            vent.StartCoroutine(Effects.Bounce(vent.transform, 1f));
-            vent.StartCoroutine(Effects.ColorFade(vent.myRend, Palette.Black, Palette.White, 1.4f)); 
+                Vent vent = Object.Instantiate<Vent>(Object.FindObjectOfType<Vent>(true));  
+                mole.PlacedVents.Add(vent);
+                vent.Id = ShipStatus.Instance.AllVents.Count + mole.PlacedVents.Count;        
+                vent.transform.position = p.GetTruePosition();
+                vent.Id = ShipStatus.Instance.AllVents.Count + mole.PlacedVents.Count;
+                vent.Right = null;
+                if (mole.PlacedVents.Count > 1)
+                {
+                    vent.Right = mole.PlacedVents[^1];
+                }
+                mole.PlacedVents[1].Left = vent;
+                
+                //TODO: smoke cloud
+                
+                vent.StartCoroutine(Effects.Bounce(vent.transform, 1f));
+                vent.StartCoroutine(Effects.ColorFade(vent.myRend, Palette.Black, Palette.White, 1.4f)); 
+            }
         }
         [MethodRpc((uint) RPC.ResizePlayer)]
         public static void RpcResize(this PlayerControl player, float x, float y, float z)

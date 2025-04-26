@@ -12,10 +12,24 @@ public class SheriffRole : CrewmateRole, ICustomRole
         english: "Sheriff",
         spanish: "Sheriff",
         portuguese: "Xerife",
-        french: "Shérif"
+        french: "Shérif",
+        russian: "Replace it with your translation" //This is what I'm talking about lime
     );
-    public string RoleLongDescription => "Choose who to shoot";
-    public string RoleDescription => RoleLongDescription;
+    public string RoleLongDescription => RoleDescLong.GetTranslatedText();
+    public TranslationPool RoleDescLong = new TranslationPool(
+        english: "Shoot the Impostors, but\n not the Crew",
+        french: "Tirez sur les imposteurs,\n mais pas sur vos coéquipiers",
+        portuguese: "Atire nos Impostores, mas\n não nos seus companheiros de equipe",
+        spanish: "Dispara a los impostores pero no\n a los tripulantes"
+    );
+    public string RoleDescription => RoleDescShort.GetTranslatedText();
+    public TranslationPool RoleDescShort = new TranslationPool(
+        english: "Choose who to shoot",
+        french: "Choisissez sur qui tirer",
+        portuguese: "Escolha em quem atirar",
+        spanish: "Elige a quién disparar"
+    );
+    
     public Color RoleColor => Palette.White;
     public ModdedRoleTeams Team => ModdedRoleTeams.Crewmate;
 
