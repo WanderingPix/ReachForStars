@@ -9,6 +9,7 @@ using UnityEngine.UI;
 using ReachForStars.Utilities;
 using Reactor.Utilities;
 using ReachForStars.Translation;
+using MiraAPI.Roles;
 
 namespace ReachForStars.Roles.Impostors.Mole;
 public class Dig : CustomActionButton
@@ -27,8 +28,6 @@ public class Dig : CustomActionButton
     public override ButtonLocation Location => ButtonLocation.BottomRight;
 
     public override int MaxUses => 1;
-
-    public int VentCount = 0;
 
     public override LoadableAsset<Sprite> Sprite => Assets.PoisonButton;
 
@@ -50,8 +49,7 @@ public class Dig : CustomActionButton
     public override void OnEffectEnd()
     {
         PlayerControl.LocalPlayer.MyPhysics.enabled = true;
-        PlayerControl.LocalPlayer.RpcPlaceVent(VentCount);        
-        VentCount++;
+        PlayerControl.LocalPlayer.RpcPlaceVent();
     }
     
 }
