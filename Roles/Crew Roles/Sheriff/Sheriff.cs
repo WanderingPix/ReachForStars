@@ -21,7 +21,7 @@ public class SheriffRole : CrewmateRole, ICustomRole
         french: "Tirez sur les imposteurs,\n mais pas sur vos coéquipiers",
         portuguese: "Atire nos Impostores, mas\n não nos seus companheiros de equipe",
         spanish: "Dispara a los impostores pero no\n a los tripulantes",
-        russian: "стреляй в предалктелй, но не в экипаж"
+        russian: "стреляй в предателей, но не в экипаж"
     );
     public string RoleDescription => RoleDescShort.GetTranslatedText();
     public TranslationPool RoleDescShort = new TranslationPool(
