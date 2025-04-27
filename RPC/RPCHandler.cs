@@ -29,13 +29,6 @@ namespace ReachForStars.Networking
         {
             go.DestroyImmediate();
         }
-        [MethodRpc((uint) RPC.RoleBlock)]
-        public static void RoleBlockRPC(this PlayerControl target, int Time)
-        {   
-            target.DeathReasonsRPC("You've been RoleBlocked!", 3);
-
-            //target.RpcAddModifier(RoleBlockedModifier.TypeId);
-        }
         [MethodRpc((uint) RPC.Yeehaw)]
         public static void RpcYeehaw()
         {
@@ -64,9 +57,9 @@ namespace ReachForStars.Networking
             vent.transform.position = p.GetTruePosition();
             vent.Id = ShipStatus.Instance.AllVents.Count + count;
             vent.Right = null;
-            if (vents.Count > 1)
+            if (count > 1)
             {
-                vent.Right = Hlpers.GetVentById(count - 1);
+                vent.Right = Helpers.GetVentById(count - 1);
             }
                 
             //TODO: smoke cloud
