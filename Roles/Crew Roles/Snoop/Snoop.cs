@@ -13,7 +13,7 @@ public class SnoopRole : CrewmateRole, ICustomRole
         spanish: "fisgón",
         portuguese: "bisbilhoteira",
         french: "Espion",
-        russian: "шпион"
+        russian: "шпион",
         italian: "Spia" //https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/440/manuals/SentryManual_web.pdf?t=1745368581
     );
     public string RoleLongDescription => "Gather Info on the crew"; //TODO trans
