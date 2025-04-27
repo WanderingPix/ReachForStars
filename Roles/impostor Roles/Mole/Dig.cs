@@ -28,6 +28,7 @@ public class Dig : CustomActionButton
     public override ButtonLocation Location => ButtonLocation.BottomRight;
 
     public override int MaxUses => 1;
+    public int PlacedVentCount = 0;
 
     public override LoadableAsset<Sprite> Sprite => Assets.PoisonButton;
 
@@ -48,8 +49,10 @@ public class Dig : CustomActionButton
 
     public override void OnEffectEnd()
     {
+        PlacedVentCount += 1;
         PlayerControl.LocalPlayer.MyPhysics.enabled = true;
-        PlayerControl.LocalPlayer.RpcPlaceVent();
+        PlayerControl.LocalPlayer.RpcPlaceVent(PlacedVentCount);
+        
     }
     
 }
