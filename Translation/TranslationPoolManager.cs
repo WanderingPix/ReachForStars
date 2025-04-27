@@ -10,6 +10,7 @@ namespace ReachForStars.Translation
     ///No.
     ///Why?
     ///Because I'm a lazy cunt
+    ///I live in your walls  ^_^  -Pengun
     public static string GetTranslatedText(this TranslationPool pool)
     {
       if (TranslationController.Instance.currentLanguage.languageID == SupportedLangs.Spanish && pool.Spanish != null)
