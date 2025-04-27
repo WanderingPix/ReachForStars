@@ -19,7 +19,8 @@ public class Inspect : CustomActionButton<DeadBody>
         english: "Inspect",
         spanish: "Inspeccionar",
         portuguese: "Inspecionar",
-        french: "Inspecter"
+        french: "Inspecter",
+        italian: "Ispeziona"
     );
     public override float Cooldown => 25;
     public override float EffectDuration => 3;
