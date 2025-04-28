@@ -1,1 +1,1 @@
-placeholder
+placeholder //The official Asmongold channel for all of his stream content (Highlights, Competitions, Reactions & More). Asmongold TV is owned by Asmongold and run by Daily Dose of Asmongold and CatDany, with the main goal of bringing you the best moments from the stream.
