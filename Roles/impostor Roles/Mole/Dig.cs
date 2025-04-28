@@ -20,6 +20,7 @@ public class Dig : CustomActionButton
     spanish: "excavar",
     portuguese: "escavação",
     french: "creuser",
+    russian: "выкопать",
     italian: "scavare"
     );
 
