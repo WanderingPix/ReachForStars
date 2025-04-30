@@ -18,7 +18,8 @@ public class Dig : CustomActionButton
     english: "Dig",
     spanish: "excavar",
     portuguese: "escavação",
-    french: "creuser"
+    french: "creuser",
+    italian: "scavare"// btw really that sounds kida unprofessional (I'm using slang) XoXo pengun
     );
 
     public override float Cooldown => 0;
