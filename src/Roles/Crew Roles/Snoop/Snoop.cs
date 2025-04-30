@@ -13,6 +13,7 @@ public class SnoopRole : CrewmateRole, ICustomRole
         spanish: "fisgón",
         portuguese: "bisbilhoteira",
         french: "Espion",
+        russian: "шпион",
         italian: "Spia"
     );
     public string RoleLongDescription => "Gather Info on the crew"; //TODO trans
