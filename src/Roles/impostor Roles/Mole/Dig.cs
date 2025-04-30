@@ -19,6 +19,7 @@ public class Dig : CustomActionButton
     spanish: "excavar",
     portuguese: "escavação",
     french: "creuser",
+    russian: "копать",// tbh, i love this role actually :) - lime
     italian: "scavare"// btw really that sounds kida unprofessional (I'm using slang) XoXo pengun
     );
 
