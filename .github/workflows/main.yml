@@ -58,3 +58,19 @@ jobs:
         with:
           name: RFS.MSStore.Build.zip
           path: BepInEx_x64
+
+      - name: Draft A Release
+      # You may pin to the exact commit or the version
+        uses: release-drafter/release-drafter@v6.0.0
+        with:
+
+           name: Draft Release
+
+           publish: false
+           
+           latest: true
+
+           disable-releaser: true
+
+           disable-autolabeler: true
+          

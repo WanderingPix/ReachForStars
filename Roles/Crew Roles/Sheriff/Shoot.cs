@@ -18,7 +18,9 @@ public class Shoot : CustomActionButton<PlayerControl>
         english: "Shoot",
         spanish: "Disparar",
         portuguese: "Atirar",
-        french: "Tirer"
+        french: "Tirer",
+        russian: "выстрелить",
+        italian: "Sparare"
     );
     public override float Cooldown => 25;
     public override float EffectDuration => 0;

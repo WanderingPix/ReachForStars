@@ -10,23 +10,28 @@ namespace ReachForStars.Translation
     ///No.
     ///Why?
     ///Because I'm a lazy cunt
+    ///I live in your walls  ^_^  -Pengun
     public static string GetTranslatedText(this TranslationPool pool)
     {
       if (TranslationController.Instance.currentLanguage.languageID == SupportedLangs.Spanish && pool.Spanish != null)
       {
-        return pool.Spanish;
+        return pool.Spanish; //Spanish translator: TBD
       }
       else if (TranslationController.Instance.currentLanguage.languageID == SupportedLangs.Russian && pool.Russian != null)
       {
-        return pool.Russian;
+        return pool.Russian; //Russian translator: lime
       }
       else if (TranslationController.Instance.currentLanguage.languageID == SupportedLangs.Portuguese && pool.Portuguese != null)
       {
-        return pool.Portuguese;
+        return pool.Portuguese; //Portuguese translator: TBD
       }
       else if (TranslationController.Instance.currentLanguage.languageID == SupportedLangs.French && pool.French != null)
       {
-        return pool.French;
+        return pool.French; //french translator: WanderingPix
+      }
+      else if (TranslationController.Instance.currentLanguage.languageID == SupportedLangs.Italian && pool.Italian != null)
+      {
+        return pool.Italian; //french translator: pengun
       }
       else return pool.English;
     }
