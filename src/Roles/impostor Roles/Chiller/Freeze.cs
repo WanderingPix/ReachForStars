@@ -20,7 +20,7 @@ public class Freeze : CustomActionButton
 
     public int VentCount = 0;
 
-    public override LoadableAsset<Sprite> Sprite => Assets.PoisonButton;
+    public override LoadableAsset<Sprite> Sprite => Assets.Freeze;
 
     public override bool Enabled(RoleBehaviour? role)
     {

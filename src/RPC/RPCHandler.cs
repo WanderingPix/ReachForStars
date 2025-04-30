@@ -60,7 +60,7 @@ namespace ReachForStars.Networking
         {
             if (p.Data.Role is MoleRole mole)
             {
-                Vent vent = Object.Instantiate<Vent>(Object.FindObjectOfType<Vent>(true)); 
+                /*Vent vent = Object.Instantiate<Vent>(Object.FindObjectOfType<Vent>(true)); 
                 vent.name = $"MoleVent{CurrentCount + 1}";    
                 vent.transform.position = p.GetTruePosition();
                 vent.Id = ShipStatus.Instance.AllVents.Count + mole.vents.Count + 1;
@@ -75,7 +75,7 @@ namespace ReachForStars.Networking
                     
                 vent.StartCoroutine(Effects.Bounce(vent.transform, 1f));
                 vent.StartCoroutine(Effects.ColorFade(vent.myRend, Palette.Black, Palette.White, 1.4f)); 
-                mole.vents.Add(vent);
+                mole.vents.Add(vent);*/
             }
         }
         [MethodRpc((uint) RPC.ResizePlayer)]
