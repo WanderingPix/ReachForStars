@@ -46,7 +46,7 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         return gameOverReason == CustomGameOver.GameOverReason<BountyHunterWin>();
     }
     
-    GameObject Popup;
+    NameplateChip Popup;
     public PlayerControl BountyTarget;
     private void GenerateNewBountyTarget()
     {
@@ -55,9 +55,11 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         int index = rnd.Next(Playerpool.Count);
         BountyTarget = Playerpool[index];
 
-        Popup = HudManager.Instance.SpawnHnSPopUp(BountyTarget, $"Wipe  out {BountyTarget.Data.name}");
+        Popup = Object.Instantiate<NameplateChip>(PrefabManager.GetTempPrefab<NameplateChip>(), HudManager.Instance.transform);
 
         RoleDescription.Replace(RoleLongDescription, $"Kill {BountyTarget.Data.PlayerName}");
+
+
     }
     public override void OnMeetingStart()
     {

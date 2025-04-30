@@ -36,27 +36,6 @@ public class MoleRole : ImpostorRole, ICustomRole
     }
         public List<Vent> vents;
 
-    public void PlaceVent(PlayerControl p)
-    {
-            Vent vent = Object.Instantiate<Vent>(Object.FindObjectOfType<Vent>(true)); 
-            vents.Add(vent);
-            vent.name = $"MoleVent{vents.Count + 1}";
-            vent.Id = ShipStatus.Instance.AllVents.Count + vents.Count;        
-            vent.transform.position = p.GetTruePosition();
-            vent.Id = ShipStatus.Instance.AllVents.Count + vents.Count;
-            vent.Right = null;
-            if (vents.Count > 1)
-            {
-                vent.Right = vents[^1];
-            }
-            vents[1].Left = vent;
-                
-            //TODO: smoke cloud
-                
-            vent.StartCoroutine(Effects.Bounce(vent.transform, 1f));
-            vent.StartCoroutine(Effects.ColorFade(vent.myRend, Palette.Black, Palette.White, 1.4f)); 
-    }
-
     public override bool DidWin(GameOverReason gameOverReason)
     {
         return GameManager.Instance.DidImpostorsWin(gameOverReason);

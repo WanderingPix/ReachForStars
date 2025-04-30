@@ -56,11 +56,26 @@ namespace ReachForStars.Networking
         }
         
         [MethodRpc((uint) RPC.PlaceDaVent)]
-        public static void RpcPlaceVent(this PlayerControl p)
+        public static void RpcPlaceVent(this PlayerControl p, int CurrentCount)
         {
             if (p.Data.Role is MoleRole mole)
             {
-                mole.PlaceVent(p);
+                Vent vent = Object.Instantiate<Vent>(Object.FindObjectOfType<Vent>(true)); 
+                vent.name = $"MoleVent{CurrentCount + 1}";    
+                vent.transform.position = p.GetTruePosition();
+                vent.Id = ShipStatus.Instance.AllVents.Count + mole.vents.Count + 1;
+                vent.Right = null;
+                if (mole.vents.Count > 1)
+                {
+                    vent.Right = mole.vents[^1];
+                }
+                mole.vents[1].Left = vent;
+                    
+                //TODO: smoke cloud
+                    
+                vent.StartCoroutine(Effects.Bounce(vent.transform, 1f));
+                vent.StartCoroutine(Effects.ColorFade(vent.myRend, Palette.Black, Palette.White, 1.4f)); 
+                mole.vents.Add(vent);
             }
         }
         [MethodRpc((uint) RPC.ResizePlayer)]
