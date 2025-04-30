@@ -4,7 +4,6 @@ namespace ReachForStars;
 
 public static class Assets
 {
-    public static LoadableResourceAsset ExampleButton { get; } = new("ReachForStars.Resources.ExampleButton.png");
     public static LoadableResourceAsset PoisonButton { get; } = new("ReachForStars.Resources.Poison.png");
     public static LoadableResourceAsset ShadowKillButton { get; } = new("ReachForStars.Resources.KillButtonVariants.ShadowKill.png");
 
@@ -17,7 +16,9 @@ public static class Assets
 
     public static LoadableResourceAsset Logo { get; } = new("ReachForStars.Resources.TSR.png");
 
-    //Chiller Frozen Bodies
+    //Chiller 
+    public static LoadableResourceAsset Freeze { get; } = new("ReachForStars.Resources.Freeze.png");
+    
     public static LoadableResourceAsset FrozenBody0 { get; } = new("ReachForStars.Resources.FrozenBodyStages.FrozenBody0.png");
     public static LoadableResourceAsset FrozenBody1 { get; } = new("ReachForStars.Resources.FrozenBodyStages.FrozenBody1.png");
     public static LoadableResourceAsset FrozenBody2 { get; } = new("ReachForStars.Resources.FrozenBodyStages.FrozenBody2.png");
