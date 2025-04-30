@@ -13,7 +13,8 @@ public class SheriffRole : CrewmateRole, ICustomRole
         spanish: "Sheriff",
         portuguese: "Xerife",
         french: "Shérif",
-        russian: "Replace it with your translation" //This is what I'm talking about lime
+        russian: "Replace it with your translation", //This is what I'm talking about lime
+        italian: "Sceriffo"
     );
     public string RoleLongDescription => RoleDescLong.GetTranslatedText();
     public TranslationPool RoleDescLong = new TranslationPool(
@@ -21,6 +22,7 @@ public class SheriffRole : CrewmateRole, ICustomRole
         french: "Tirez sur les imposteurs,\n mais pas sur vos coéquipiers",
         portuguese: "Atire nos Impostores, mas\n não nos seus companheiros de equipe",
         spanish: "Dispara a los impostores pero no\n a los tripulantes"
+        italian
     );
     public string RoleDescription => RoleDescShort.GetTranslatedText();
     public TranslationPool RoleDescShort = new TranslationPool(
