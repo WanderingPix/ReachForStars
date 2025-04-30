@@ -2,12 +2,6 @@ using MiraAPI.Hud;
 using MiraAPI.Utilities.Assets;
 using ReachForStars.Networking;
 using UnityEngine;
-using MiraAPI.Utilities;
-using MiraAPI.Networking;
-using System.Collections.Generic;
-using UnityEngine.UI;
-using ReachForStars.Utilities;
-using Reactor.Utilities;
 using ReachForStars.Translation;
 using MiraAPI.Roles;
 
@@ -47,11 +41,14 @@ public class Dig : CustomActionButton
         PlayerControl.LocalPlayer.MyPhysics.enabled = false;
         
     }
+    public int GlobalCount = 0;
+    public int LocalCount = 0;
 
     public override void OnEffectEnd()
     {
+        LocalCount++;
         PlayerControl.LocalPlayer.MyPhysics.enabled = true;
-        PlayerControl.LocalPlayer.RpcPlaceVent();
+        PlayerControl.LocalPlayer.RpcPlaceVent(LocalCount);
     }
     
 }
