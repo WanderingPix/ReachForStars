@@ -20,6 +20,7 @@ namespace ReachForStars.Translation
        French = french;
        Russian = russian;
        Italian = italian;
+     }
         
        ///Could I use a switch case here?
        ///Yes.
@@ -54,4 +55,3 @@ namespace ReachForStars.Translation
       }
     }
   }
-}
