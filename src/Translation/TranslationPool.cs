@@ -54,4 +54,3 @@ namespace ReachForStars.Translation
       }
     }
   }
-}
