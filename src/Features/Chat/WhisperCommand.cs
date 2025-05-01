@@ -22,7 +22,7 @@ namespace ReachForStars
             public string Output = Original;
             foreach (var player in PlayerControl.AllPlayerControls)
             {
-                if (Original.ToLower().StartsWith($"/msg {player.Data.PlayerName.ToLower()))
+                if (Original.ToLower().StartsWith($"/msg {player.Data.PlayerName.ToLower()}"))
                 {
                     if (player == PlayerControl.LocalPlayer)
                     {
