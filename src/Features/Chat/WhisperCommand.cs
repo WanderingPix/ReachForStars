@@ -8,34 +8,35 @@ using System.Linq;
 
 namespace ReachForStars
 {
-public static class Whispering
-{
-    /// <summary>
-    /// Does the whispering logic
-    /// </summary>
-    /// <param name="Target"> The chatbubble's text </param>
-    /// <param name="bubble"> The chatbubble instance </param>
-
-    /// Called by Patches/Chat/ChatPatch
-    public static string TryWhisper(this string Original, ChatBubble bubble)
+    public static class Whispering
     {
-        public string Output = Original;
-        foreach (var player in PlayerControl.AllPlayerControls)
+        /// <summary>
+        /// Does the whispering logic
+        /// </summary>
+        /// <param name="Target"> The chatbubble's text </param>
+        /// <param name="bubble"> The chatbubble instance </param>
+
+        /// Called by Patches/Chat/ChatPatch
+        public static string TryWhisper(this string Original, ChatBubble bubble)
         {
-            if (Original.ToLower().StartsWith($"/msg {player.Data.PlayerName.ToLower()))
+            public string Output = Original;
+            foreach (var player in PlayerControl.AllPlayerControls)
             {
-                if (player == PlayerControl.LocalPlayer)
+                if (Original.ToLower().StartsWith($"/msg {player.Data.PlayerName.ToLower()))
                 {
-                    Output = $"{bubble.playerInfo.PlayerName} is whispering to you: {Original}";
+                    if (player == PlayerControl.LocalPlayer)
+                    {
+                        Output = $"{bubble.playerInfo.PlayerName} is whispering to you: {Original}";
+                    }
+                    else
+                    {
+                        Output = $"{bubble.playerInfo.PlayerName} is whispering {player.Data.PlayerName}";
+                    }
+                    bubble.Background.color = new Color(0.65f, 0.65f, 0.65f, 1f);
                 }
-                else
-                {
-                    Output = $"{bubble.playerInfo.PlayerName} is whispering {player.Data.PlayerName}";
-                }
-                bubble.Background.color = new Color(0.65f, 0.65f, 0.65f, 1f);
+                return Output
             }
-            return Output
         }
     }
-}
+    }
 } 
