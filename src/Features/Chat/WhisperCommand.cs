@@ -21,19 +21,15 @@ public static class Whispering
     {
         foreach (var player in PlayerControl.AllPlayerControls)
         {
-            if (Target.Contains("/msg " + player.Data.PlayerName))
+            if (Target.ToLower().Contains("/msg " + player.Data.PlayerName.ToLower()))
             {
-                if (PlayerControl.LocalPlayer.Data.PlayerName == bubble.playerInfo.PlayerName)
+                if (player == PlayerControl.LocalPlayer)
                 {
-                    Target = Target.Replace("/msg " + player.Data.PlayerName, bubble.playerInfo.PlayerName + " Whispers to you: ");
-                }
-                if (bubble.playerInfo.PlayerName == PlayerControl.LocalPlayer.Data.PlayerName)
-                {
-                    Target = Target.Replace("/msg " + player.Data.PlayerName, "You whisper to " + player.Data.PlayerName + " :");
+                    return $"{bubble.playerInfo.PlayerName} is whispering to {player.Data.PlayerName}";
                 }
                 else
                 {
-                    Target = bubble.playerInfo.PlayerName + " is whispering to " + player.Data.PlayerName;
+                    return 
                 }
                 bubble.Background.color = new Color(0.5f, 0.5f, 0.5f, 1f);
             }
