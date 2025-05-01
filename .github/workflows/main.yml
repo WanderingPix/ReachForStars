@@ -20,12 +20,13 @@ jobs:
         uses: cake-build/cake-action@v1
         with:
           verbosity: Diagnostic
+          target: src/ReachForStars.csproj
 
       - name: Upload RFS.dll artifact
         uses: actions/upload-artifact@v4
         with:
           name: ReachForStars.dll
-          path: bin/Debug/net6.0/ReachForStars.dll
+          path: src/bin/Debug/net6.0/ReachForStars.dll
 
       - name: Download and extract BepInEx
         run: |
@@ -38,22 +39,22 @@ jobs:
         run: |
           chmod -R 755 BepInEx_x86
           chmod -R 755 BepInEx_x64
-          cp bin/Debug/net6.0/ReachForStars.dll BepInEx_x86/BepInEx/plugins/
-          cp bin/Debug/net6.0/ReachForStars.dll BepInEx_x64/BepInEx/plugins/
+          cp src/bin/Debug/net6.0/ReachForStars.dll BepInEx_x86/BepInEx/plugins/
+          cp src/bin/Debug/net6.0/ReachForStars.dll BepInEx_x64/BepInEx/plugins/
           
-          cp packages/Dependencies/MiraAPI.dll BepInEx_x86/BepInEx/plugins/
+          cp src/packages/Dependencies/MiraAPI.dll BepInEx_x86/BepInEx/plugins/
           cp packages/Dependencies/MiraAPI.dll BepInEx_x64/BepInEx/plugins/
           
-          cp packages/Dependencies/Reactor.dll BepInEx_x86/BepInEx/plugins/
-          cp packages/Dependencies/Reactor.dll BepInEx_x64/BepInEx/plugins/
+          cp src/packages/Dependencies/Reactor.dll BepInEx_x86/BepInEx/plugins/
+          cp src/packages/Dependencies/Reactor.dll BepInEx_x64/BepInEx/plugins/
 
-      - name: Upload Steam/Epic/Itch.zip artifact
+      - name: Upload Steam/Epic/Itch artifact
         uses: actions/upload-artifact@v4
         with:
-          name: RFS.SteamEpicItch.Build.zip
+          name: RFS.SteamEpicItch.zip
           path: BepInEx_x86
 
-      - name: Upload RFS_MicrosoftStore.zip artifact
+      - name: Upload MSStore artifact
         uses: actions/upload-artifact@v4
         with:
           name: RFS.MSStore.Build.zip
