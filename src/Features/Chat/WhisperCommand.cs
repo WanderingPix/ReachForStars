@@ -17,21 +17,21 @@ public static class Whispering
     /// <param name="bubble"> The chatbubble instance </param>
 
     /// Called by Patches/Chat/ChatPatch
-    public static string TryWhisper(this string Target, ChatBubble bubble)
+    public static string TryWhisper(this string Original, ChatBubble bubble)
     {
         foreach (var player in PlayerControl.AllPlayerControls)
         {
-            if (Target.ToLower().Contains("/msg " + player.Data.PlayerName.ToLower()))
+            if (Original.ToLower().StartsWith($"/msg {player.Data.PlayerName.ToLower()}))
             {
                 if (player == PlayerControl.LocalPlayer)
                 {
-                    return $"{bubble.playerInfo.PlayerName} is whispering to {player.Data.PlayerName}";
+                    return $"{bubble.playerInfo.PlayerName} is whispering to you: {Original}";
                 }
                 else
                 {
-                    return 
+                    return $"{bubble.playerInfo.PlayerName} is whispering {player.Data.PlayerName}";
                 }
-                bubble.Background.color = new Color(0.5f, 0.5f, 0.5f, 1f);
+                bubble.Background.color = new Color(0.65f, 0.65f, 0.65f, 1f);
             }
         }
         return Target;
