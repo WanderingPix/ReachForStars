@@ -30,8 +30,6 @@ public class Dig : CustomActionButton
 
     public override int MaxUses => 1;
 
-    public int VentCount = 0;
-
     public override LoadableAsset<Sprite> Sprite => Assets.PoisonButton;
 
     public override bool Enabled(RoleBehaviour? role)
@@ -52,8 +50,7 @@ public class Dig : CustomActionButton
     public override void OnEffectEnd()
     {
         PlayerControl.LocalPlayer.MyPhysics.enabled = true;
-        PlayerControl.LocalPlayer.RpcPlaceVent(VentCount);        
-        VentCount++;
+        PlayerControl.LocalPlayer.RpcPlaceVent();
     }
     
 }
