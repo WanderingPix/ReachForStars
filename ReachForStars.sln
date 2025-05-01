@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.2.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReachForStars", "ReachForStars.csproj", "{805C976D-BEB7-0CCC-D4F5-7C03E1B2E4D7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReachForStars", "src/ReachForStars.csproj", "{805C976D-BEB7-0CCC-D4F5-7C03E1B2E4D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
