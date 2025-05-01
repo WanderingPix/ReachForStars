@@ -19,21 +19,22 @@ public static class Whispering
     /// Called by Patches/Chat/ChatPatch
     public static string TryWhisper(this string Original, ChatBubble bubble)
     {
+        public string Output = Original;
         foreach (var player in PlayerControl.AllPlayerControls)
         {
             if (Original.ToLower().StartsWith($"/msg {player.Data.PlayerName.ToLower()}))
             {
                 if (player == PlayerControl.LocalPlayer)
                 {
-                    return $"{bubble.playerInfo.PlayerName} is whispering to you: {Original}";
+                    Output = $"{bubble.playerInfo.PlayerName} is whispering to you: {Original}";
                 }
                 else
                 {
-                    return $"{bubble.playerInfo.PlayerName} is whispering {player.Data.PlayerName}";
+                    Output = $"{bubble.playerInfo.PlayerName} is whispering {player.Data.PlayerName}";
                 }
                 bubble.Background.color = new Color(0.65f, 0.65f, 0.65f, 1f);
             }
-            else return Original;
+            return Output
         }
     }
 }
