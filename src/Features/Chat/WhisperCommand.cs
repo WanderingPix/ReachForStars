@@ -33,8 +33,8 @@ public static class Whispering
                 }
                 bubble.Background.color = new Color(0.65f, 0.65f, 0.65f, 1f);
             }
+            else return Original;
         }
-        return Target;
     }
 }
 } 
