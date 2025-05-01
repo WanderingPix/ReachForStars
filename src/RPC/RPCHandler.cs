@@ -56,27 +56,23 @@ namespace ReachForStars.Networking
         }
         
         [MethodRpc((uint) RPC.PlaceDaVent)]
-        public static void RpcPlaceVent(this PlayerControl p, int CurrentCount)
+        public static void RpcPlaceVent(this PlayerControl p)
         {
-            if (p.Data.Role is MoleRole mole)
+            int count = Object.GetObjectsOfType<Vent>().ToList().Count();
+            vent.name = $"MoleVent{count.ToString()}";
+            vent.Id = ShipStatus.Instance.AllVents.Count + count;        
+            vent.transform.position = p.GetTruePosition();
+            vent.Id = ShipStatus.Instance.AllVents.Count + count;
+            vent.Right = null;
+            if (count > 1)
             {
-                /*Vent vent = Object.Instantiate<Vent>(Object.FindObjectOfType<Vent>(true)); 
-                vent.name = $"MoleVent{CurrentCount + 1}";    
-                vent.transform.position = p.GetTruePosition();
-                vent.Id = ShipStatus.Instance.AllVents.Count + mole.vents.Count + 1;
-                vent.Right = null;
-                if (mole.vents.Count > 1)
-                {
-                    vent.Right = mole.vents[^1];
-                }
-                mole.vents[1].Left = vent;
-                    
-                //TODO: smoke cloud
-                    
-                vent.StartCoroutine(Effects.Bounce(vent.transform, 1f));
-                vent.StartCoroutine(Effects.ColorFade(vent.myRend, Palette.Black, Palette.White, 1.4f)); 
-                mole.vents.Add(vent);*/
+                vent.Right = Helpers.GetVentById(count - 1);
             }
+
+            //TODO: smoke cloud
+                    
+            vent.StartCoroutine(Effects.Bounce(vent.transform, 1f));
+            vent.StartCoroutine(Effects.ColorFade(vent.myRend, Palette.Black, Palette.White, 1.4f)); 
         }
         [MethodRpc((uint) RPC.ResizePlayer)]
         public static void RpcResize(this PlayerControl player, float x, float y, float z)
