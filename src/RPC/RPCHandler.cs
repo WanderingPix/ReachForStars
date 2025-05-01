@@ -59,6 +59,7 @@ namespace ReachForStars.Networking
         public static void RpcPlaceVent(this PlayerControl p)
         {
             int count = Object.FindObjectsBfType<Vent>(true).ToList().Count();
+            Vent vent = Object.Instantiate<Vent>(Object.FindObjectOfType<Vent>(true)); 
             vent.name = $"MoleVent{count.ToString()}";
             vent.Id = ShipStatus.Instance.AllVents.Count + count;        
             vent.transform.position = p.GetTruePosition();
