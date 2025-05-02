@@ -29,20 +29,6 @@ public class ShadowRole : ImpostorRole, ICustomRole
     {
         RoleBehaviourStubs.Initialize(this, player);
     }
-    public void FixedUpdate()
-    {
-        if (Player.Data.Role is ShadowRole)
-        {  
-            if (true) //Replace with a check for elec sabo
-            {
-                HudManager.Instance.KillButton.Show();
-            }
-            else 
-            {
-                HudManager.Instance.KillButton.Hide();
-            }
-        }
-    }
 
     public override bool DidWin(GameOverReason gameOverReason)
     {

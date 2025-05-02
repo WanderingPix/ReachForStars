@@ -20,12 +20,12 @@ public class WujModifier : GameModifier
     {
         return 100;
     }
+
+    public string prevVisor = "";
     public override void OnActivate()
     {
-        PlayerControl.LocalPlayer.RpcSetVisor("visor_king");
     }
     public override void OnDeactivate()
     {
-        PlayerControl.LocalPlayer.RpcSetVisor("");
     }
 }

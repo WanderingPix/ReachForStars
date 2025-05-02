@@ -19,7 +19,6 @@ public class CursedSoulRole : ImpostorRole, ICustomRole
     public string RoleLongDescription => RoleDescription;
     public Color RoleColor => new Color(0.7f, 0.7f, 0.7f, 1f);
     public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
-    public StringNames BlurbName = CustomStringName.CreateAndRegister("Cursed Soul");
 
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
@@ -38,17 +37,12 @@ public class CursedSoulRole : ImpostorRole, ICustomRole
     {
         return true;
     }
-    bool HasDiedOnce = false;
     public override void Initialize(PlayerControl player)
     {
+        RoleBehaviourStubs.Initialize(this, player);
         
-        this.Player = player;
-        if (!player.AmOwner)
-        {
-            RoleBehaviourStubs.Initialize(this, player);
-            
-            player.RpcCustomMurder(player, true, false, false, false, false, false);
-            CustomButtonSingleton<posess>.Instance.Button.ToggleVisible(true);
-        }
+        player.RpcCustomMurder(player, true, false, false, false, false, false);
+        CustomButtonSingleton<posess>.Instance.Button.ToggleVisible(true);
+        player.Die(DeathReason.Disconnect, false);
     }
 }
