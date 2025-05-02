@@ -41,11 +41,11 @@ jobs:
           cp src/bin/Debug/net6.0/ReachForStars.dll BepInEx_x86/BepInEx/plugins/
           cp src/bin/Debug/net6.0/ReachForStars.dll BepInEx_x64/BepInEx/plugins/
           
-          cp src/packages/Dependencies/MiraAPI.dll BepInEx_x86/BepInEx/plugins/
+          cp packages/Dependencies/MiraAPI.dll BepInEx_x86/BepInEx/plugins/
           cp packages/Dependencies/MiraAPI.dll BepInEx_x64/BepInEx/plugins/
           
-          cp src/packages/Dependencies/Reactor.dll BepInEx_x86/BepInEx/plugins/
-          cp src/packages/Dependencies/Reactor.dll BepInEx_x64/BepInEx/plugins/
+          cp packages/Dependencies/Reactor.dll BepInEx_x86/BepInEx/plugins/
+          cp packages/Dependencies/Reactor.dll BepInEx_x64/BepInEx/plugins/
 
       - name: Upload Steam/Epic/Itch artifact
         uses: actions/upload-artifact@v4
