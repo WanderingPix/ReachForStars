@@ -7,7 +7,7 @@ using System;
 
 namespace ReachForStars.Roles.Impostors.Chiller
 {
-    public class FrozenBody : MonoBehaviour 
+    public class FrozenBody : IUsable
     {
         SpriteRenderer myRend;
         DeadBody targetBody;
