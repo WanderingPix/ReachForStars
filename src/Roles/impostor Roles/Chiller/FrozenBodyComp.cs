@@ -1,88 +1,126 @@
-using UnityEngine;
 using MiraAPI.Utilities.Assets;
 using Reactor.Utilities.Extensions;
 using Reactor.Utilities;
 using System.Collections;
 using System;
+using UnityEngine;
 
-namespace ReachForStars.Roles.Impostors.Chiller
+namespace ReachForStars.Roles.Impostors.Chiller;
+
+public class FrozenBody(IntPtr intPtr) : MonoBehaviour(intPtr)
 {
-    public class FrozenBody : IUsable
+    private readonly Color HIGHLIGHT_COLOR = Color.white;
+
+    SpriteRenderer myRend;
+    DeadBody targetBody;
+    PassiveButton myButton;
+
+    BoxCollider myCollider;
+
+    int durability = 30;
+
+    public void SetTargetBody(DeadBody body)
     {
-        SpriteRenderer myRend;
-        DeadBody targetBody;
-        PassiveButton myButton;
+        targetBody = body;
+    }
+    public void Start()
+    {
+        //Setup
+        gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y, -5f);
+        myRend = gameObject.AddComponent<SpriteRenderer>();
+        myRend.sprite = Assets.FrozenBody0.LoadAsset();
+        gameObject.transform.localScale = new Vector3(0.35f, 0.35f, 0.45f);
+        targetBody.gameObject.SetActive(false);
 
-        BoxCollider myCollider;
-
-        int durability = 30;
-
-        public void SetTargetBody(DeadBody body)
-        {
-            targetBody = body;
-        }
-        public void Start()
-        {
-            //Setup
-            gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y, -5f);
-            myRend = gameObject.AddComponent<SpriteRenderer>();
-            myRend.sprite = Assets.FrozenBody0.LoadAsset();
-            gameObject.transform.localScale = new Vector3(0.35f, 0.35f, 0.45f);
-            targetBody.gameObject.SetActive(false);
-
-            //Collier doesn't work, dunno why
-            myCollider = gameObject.AddComponent<BoxCollider>();
-            myCollider.size = gameObject.transform.localScale * 1.2f;
-
-            //passive button too
-            myButton = gameObject.AddComponent<PassiveButton>();
-
-            myButton.OnClick = new UnityEngine.UI.Button.ButtonClickedEvent();
-            myButton.OnClick.AddListener(new Action(() =>
-            {
-                Hit();
-            }));
 
             //Spawn Animation
-            HudManager.Instance.StartCoroutine(Effects.Bounce(gameObject.transform, 0.7f, 0.45f));
-            HudManager.Instance.StartCoroutine(Effects.ColorFade(myRend, new Color(1f, 1f, 1f, 0f), new Color(1f, 1f, 1f, 1f), 0.4f));
-            HudManager.Instance.StartCoroutine(Effects.ScaleIn(gameObject.transform, 0.5f, 0.35f, 0.4f));
+        HudManager.Instance.StartCoroutine(Effects.Bounce(gameObject.transform, 0.7f, 0.45f));
+        HudManager.Instance.StartCoroutine(Effects.ColorFade(myRend, new Color(1f, 1f, 1f, 0f), new Color(1f, 1f, 1f, 1f), 0.4f));
+        HudManager.Instance.StartCoroutine(Effects.ScaleIn(gameObject.transform, 0.5f, 0.35f, 0.4f));
+    }
+
+    public void Hit()
+    {
+        durability-=1;
+        HudManager.Instance.StartCoroutine(Effects.Bounce(gameObject.transform, 0.7f, 0.25f));
+        
+        switch (durability)
+        {
+            case 30:
+                myRend.sprite = Assets.FrozenBody0.LoadAsset();
+                break;
+            case 20:
+                myRend.sprite = Assets.FrozenBody1.LoadAsset();
+                break;
+            case 10:
+                myRend.sprite = Assets.FrozenBody2.LoadAsset();
+                break;
+            case 0:
+                this.DestroyImmediate();
+                break;
+        }
+    }
+            
+    
+    public void OnDestroy()
+    {
+        targetBody.gameObject.SetActive(true);
+        myRend.sprite = Assets.Puddle.LoadAsset();
+    }
+
+    // IUsable
+    public float UsableDistance => 1.0f;
+    public float PercentCool => 0;
+    public ImageNames UseIcon => ImageNames.UseButton;
+
+    /// <summary>
+    ///     Updates the sprite outline for the consoles
+    /// </summary>
+    /// <param name="isVisible">TRUE iff the console is within vision</param>
+    /// <param name="isTargeted">TRUE iff the console is the main target selected</param>
+    public void SetOutline(bool isVisible, bool isTargeted)
+    {
+        if (myRend == null)
+            return;
+
+        myRend.material.SetFloat("_Outline", isVisible ? 1 : 0);
+        myRend.material.SetColor("_OutlineColor", HIGHLIGHT_COLOR);
+        myRend.material.SetColor("_AddColor", isTargeted ? HIGHLIGHT_COLOR : Color.clear);
+    }
+
+    /// <summary
+    ///     Checks whether or not the console is usable by a player
+    /// </summary>
+    /// <param name="playerInfo">Player to check</param>
+    /// <param name="canUse">TRUE iff the player can access this console currently</param>
+    /// <param name="couldUse">TRUE iff the player could access this console in the future</param>
+    /// <returns>Distance from console</returns>
+    public float CanUse(NetworkedPlayerInfo playerInfo, out bool canUse, out bool couldUse)
+    {
+        var playerControl = playerInfo.Object;
+        var truePosition = playerControl.GetTruePosition();
+
+        couldUse = playerControl.CanMove && AmongUsClient.Instance.AmHost;
+        canUse = couldUse;
+
+        if (couldUse)
+        {
+            var playerDistance = Vector2.Distance(truePosition, transform.position);
+            canUse = couldUse && playerDistance <= UsableDistance;
+            return playerDistance;
         }
 
-        public void Hit()
-        {
-            durability-=1;
-            HudManager.Instance.StartCoroutine(Effects.Bounce(gameObject.transform, 0.7f, 0.25f));
-            DecreaseLevelByOne();
-        }
-        public void DecreaseLevelByOne()
-        {
-            durability -= 10;
-            switch (durability)
-            {
-                case 30:
-                    myRend.sprite = Assets.FrozenBody0.LoadAsset();
-                    break;
-                case 20:
-                    myRend.sprite = Assets.FrozenBody1.LoadAsset();
-                    break;
-                case 10:
-                    myRend.sprite = Assets.FrozenBody2.LoadAsset();
-                    break;
-                case 0:
-                    Break();
-                    break;
-            }
-        }
-        void FixedUpdate()
-        {
-            
-        }
-        public void Break()
-        {
-            targetBody.gameObject.SetActive(true);
-            myRend.sprite = Assets.Puddle.LoadAsset();
-            this.DestroyImmediate();
-        }
+        return float.MaxValue;
+    }
+
+    /// <summary>
+    ///     Activates the associated console trigger
+    /// </summary>
+    public void Use()
+    {
+        CanUse(PlayerControl.LocalPlayer.Data, out var canUse, out _);
+        if (!canUse)
+            return;
+        Hit();
     }
 }
