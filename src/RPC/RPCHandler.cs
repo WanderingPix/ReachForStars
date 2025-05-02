@@ -58,7 +58,7 @@ namespace ReachForStars.Networking
         [MethodRpc((uint) RPC.PlaceDaVent)]
         public static void RpcPlaceVent(this PlayerControl p)
         {
-            int count = Object.FindObjectsByType<Vent>(FindObjectsSortMode.None);.ToList().Count();
+            int count = Object.FindObjectsByType<Vent>(FindObjectsSortMode.None).ToList().Count();
             Vent vent = Object.Instantiate<Vent>(Object.FindObjectOfType<Vent>(true)); 
             vent.name = $"MoleVent{count.ToString()}";
             vent.Id = ShipStatus.Instance.AllVents.Count + count;        
