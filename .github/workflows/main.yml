@@ -60,7 +60,7 @@ jobs:
           path: BepInEx_x64
 
       - name: Draft A Release
-      - uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v1
         if: github.ref_type == 'tag'
         with:
           draft: true
