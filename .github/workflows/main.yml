@@ -60,17 +60,9 @@ jobs:
           path: BepInEx_x64
 
       - name: Draft A Release
-      # You may pin to the exact commit or the version
-        uses: release-drafter/release-drafter@v6.0.0
+      - uses: softprops/action-gh-release@v1
+        if: github.ref_type == 'tag'
         with:
-
-           name: Draft Release
-
-           publish: false
-           
-           latest: true
-
-           disable-releaser: true
-
-           disable-autolabeler: true
+          draft: true
+          files: src/bin/Debug/net6.0/ReachForStars.dll
           
