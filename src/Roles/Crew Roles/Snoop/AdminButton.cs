@@ -34,6 +34,6 @@ public class AdminButton : CustomActionButton
     }
     protected override void OnClick()
     {
-        MapBehaviour.Instance.ShowNormalMap()
+        MapBehaviour.Instance.ShowSabotageMap();
     }
 }
