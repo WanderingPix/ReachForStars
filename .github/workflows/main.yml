@@ -38,8 +38,8 @@ jobs:
         run: |
           chmod -R 755 BepInEx_x86
           chmod -R 755 BepInEx_x64
-          cp src/bin/Debug/net6.0/ReachForStars.dll BepInEx_x86/BepInEx/plugins/
-          cp src/bin/Debug/net6.0/ReachForStars.dll BepInEx_x64/BepInEx/plugins/
+          cp bin/Debug/net6.0/ReachForStars.dll BepInEx_x86/BepInEx/plugins/
+          cp bin/Debug/net6.0/ReachForStars.dll BepInEx_x64/BepInEx/plugins/
           
           cp packages/Dependencies/MiraAPI.dll BepInEx_x86/BepInEx/plugins/
           cp packages/Dependencies/MiraAPI.dll BepInEx_x64/BepInEx/plugins/
