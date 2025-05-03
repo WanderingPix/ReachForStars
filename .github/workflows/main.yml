@@ -25,12 +25,12 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ReachForStars.dll
-          path: src/bin/Debug/net6.0/ReachForStars.dll
+          path: bin/Debug/net6.0/ReachForStars.dll
           
       - name: Draft A Release
         uses: softprops/action-gh-release@v1
         if: github.ref_type == 'tag'
         with:
           draft: true
-          files: src/bin/Debug/net6.0/ReachForStars.dll
+          files: bin/Debug/net6.0/ReachForStars.dll
           
