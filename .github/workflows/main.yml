@@ -26,14 +26,7 @@ jobs:
         with:
           name: ReachForStars.dll
           path: src/bin/Debug/net6.0/ReachForStars.dll
-
-      - name: Download and extract BepInEx
-        run: |
-          wget -O BepInEx_x64.zip https://builds.bepinex.dev/projects/bepinex_be/697/BepInEx-Unity.IL2CPP-win-x64-6.0.0-be.697%2B5362580.zip
-          unzip BepInEx_x64.zip -d BepInEx_x64
-          wget -O BepInEx_x86.zip https://builds.bepinex.dev/projects/bepinex_be/697/BepInEx-Unity.IL2CPP-win-x86-6.0.0-be.697%2B5362580.zip
-          unzip BepInEx_x86.zip -d BepInEx_x86
-
+          
       - name: Draft A Release
         uses: softprops/action-gh-release@v1
         if: github.ref_type == 'tag'
