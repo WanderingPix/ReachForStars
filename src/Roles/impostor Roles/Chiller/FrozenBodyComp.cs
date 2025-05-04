@@ -13,9 +13,6 @@ public class FrozenBody(IntPtr intPtr) : MonoBehaviour(intPtr)
 
     SpriteRenderer myRend;
     DeadBody targetBody;
-    PassiveButton myButton;
-
-    BoxCollider myCollider;
 
     int durability = 30;
 

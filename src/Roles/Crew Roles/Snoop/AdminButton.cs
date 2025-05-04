@@ -32,8 +32,13 @@ public class AdminButton : CustomActionButton
     {
         return role is SnoopRole;
     }
+    MapOptions opts = new MapOptions()
+    {
+        ShowLivePlayerPosition = true,
+        IncludeDeadBodies = true,
+    };
     protected override void OnClick()
     {
-        MapBehaviour.Instance.ShowNormalMap();
+        MapBehaviour.Instance.Show(opts);
     }
 }
