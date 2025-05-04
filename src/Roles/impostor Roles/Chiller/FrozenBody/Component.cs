@@ -70,11 +70,6 @@ public class FrozenBody(IntPtr ptr) : MonoBehaviour(ptr)
         myRend.sprite = Assets.Puddle.LoadAsset();
     }
 
-    // IUsable
-    public float UsableDistance => 1.0f;
-    public float PercentCool => 0;
-    public ImageNames UseIcon => ImageNames.UseButton;
-
     /// <summary>
     ///     Updates the sprite outline for the consoles
     /// </summary>
