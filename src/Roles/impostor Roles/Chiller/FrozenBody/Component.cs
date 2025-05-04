@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace ReachForStars.Roles.Impostors.Chiller;
 
-public class FrozenBody(IntPtr intPtr) : MonoBehaviour(intPtr)
+public class FrozenBody: ICustomUsable, MonoBehaviour
 {
     private readonly Color HIGHLIGHT_COLOR = Color.white;
 
