@@ -105,12 +105,4 @@ public class FrozenBody(IntPtr ptr) : MonoBehaviour(ptr)
 
         return float.MaxValue;
     }
-
-    /// <summary>
-    ///     Activates the associated console trigger
-    /// </summary>
-    public void Use()
-    {
-        Hit();
-    }
 }
