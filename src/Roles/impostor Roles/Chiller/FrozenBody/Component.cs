@@ -7,9 +7,13 @@ using UnityEngine;
 
 namespace ReachForStars.Roles.Impostors.Chiller;
 
-public class FrozenBody : MonoBehaviour, ICustomUsable
+[RegisterInIl2Cpp(typeof(IUsable))]
+public class FrozenBody(IntPtr ptr) : MonoBehaviour(ptr)
 {
-    private readonly Color HIGHLIGHT_COLOR = Color.white;
+    public bool isActive;
+    public ImageNames UseIcon => ImageNames.UseButton;
+    public float UsableDistance => 1.2f;
+    public Color OutlineColor = new Color(1f, 1f, 1f, 1f);
 
     SpriteRenderer myRend;
     DeadBody targetBody;
@@ -36,7 +40,7 @@ public class FrozenBody : MonoBehaviour, ICustomUsable
         HudManager.Instance.StartCoroutine(Effects.ScaleIn(gameObject.transform, 0.5f, 0.35f, 0.4f));
     }
 
-    public void Hit()
+    public void Use()
     {
         durability-=1;
         HudManager.Instance.StartCoroutine(Effects.Bounce(gameObject.transform, 0.7f, 0.25f));
@@ -75,14 +79,10 @@ public class FrozenBody : MonoBehaviour, ICustomUsable
     /// </summary>
     /// <param name="isVisible">TRUE iff the console is within vision</param>
     /// <param name="isTargeted">TRUE iff the console is the main target selected</param>
-    public void SetOutline(bool isVisible, bool isTargeted)
+    public void SetOutline(bool on, bool mainTarget)
     {
-        if (myRend == null)
-            return;
-
-        myRend.material.SetFloat("_Outline", isVisible ? 1 : 0);
-        myRend.material.SetColor("_OutlineColor", HIGHLIGHT_COLOR);
-        myRend.material.SetColor("_AddColor", isTargeted ? HIGHLIGHT_COLOR : Color.clear);
+        if (on) myRend.UpdateOutline(OutlineColor);
+        else myRend.UpdateOutline(new Color(0f, 0f, 0f, 0f));
     }
 
     /// <summary
@@ -115,9 +115,6 @@ public class FrozenBody : MonoBehaviour, ICustomUsable
     /// </summary>
     public void Use()
     {
-        CanUse(PlayerControl.LocalPlayer.Data, out var canUse, out _);
-        if (!canUse)
-            return;
         Hit();
     }
 }
