@@ -21,7 +21,7 @@ public class SnoopRole : CrewmateRole, ICustomRole
         english: "Use the admin map and place cameras to gather info",
         french: "Utilisez la carte d'administration et les caméras pour recueillir de l'info"
     );
-    public string RoleDescription => RoleDescShort.GetTranslatedText();;
+    public string RoleDescription => RoleDescShort.GetTranslatedText();
     public TranslationPool RoleDescShort = new TranslationPool(
         english:"Gather Info on the crew",
         french:"Espionnez vos coéquipiers",
