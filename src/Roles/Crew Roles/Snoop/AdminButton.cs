@@ -20,7 +20,7 @@ public class AdminButton : CustomActionButton
         spanish: "TBD",
         portuguese: "TBD",
         french: "Administration",
-        russian: "TBD"
+        russian: "TBD",
         italian: "TBD"
     );
     public override float Cooldown => 0;
