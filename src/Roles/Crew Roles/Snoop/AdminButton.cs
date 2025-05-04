@@ -16,10 +16,12 @@ public class AdminButton : CustomActionButton
     public override string Name => ButtonName.GetTranslatedText();
 
     public TranslationPool ButtonName = new TranslationPool(
-        english: "View",
+        english: "Admin",
         spanish: "TBD",
         portuguese: "TBD",
-        french: "TBD"
+        french: "Administration",
+        russian: "TBD"
+        italian: "TBD"
     );
     public override float Cooldown => 0;
     public override float EffectDuration => 0;
@@ -32,13 +34,8 @@ public class AdminButton : CustomActionButton
     {
         return role is SnoopRole;
     }
-    MapOptions opts = new MapOptions()
-    {
-        ShowLivePlayerPosition = true,
-        IncludeDeadBodies = true,
-    };
     protected override void OnClick()
     {
-        MapBehaviour.Instance.Show(opts);
+        ShipStatus.Instance.MapPrefab.ShowMap(3);
     }
 }
