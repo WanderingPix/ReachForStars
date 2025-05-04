@@ -3,6 +3,7 @@ using Reactor.Utilities.Extensions;
 using Reactor.Utilities;
 using System.Collections;
 using System;
+using Reactor.Utilities.Attributes;
 using UnityEngine;
 
 namespace ReachForStars.Roles.Impostors.Chiller;
