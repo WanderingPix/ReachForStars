@@ -24,7 +24,7 @@ public class SnoopRole : CrewmateRole, ICustomRole
     public string RoleDescription => RoleDescShort.GetTranslatedText();
     public TranslationPool RoleDescShort = new TranslationPool(
         english:"Gather Info on the crew",
-        french:"Espionnez vos coéquipiers",
+        french:"Espionnez vos coéquipiers"
     );
     public Color RoleColor => Palette.White;
     public ModdedRoleTeams Team => ModdedRoleTeams.Crewmate;
