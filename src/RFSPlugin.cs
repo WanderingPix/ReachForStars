@@ -29,7 +29,7 @@ public partial class ReachForStars : BasePlugin, IMiraPlugin
     public override void Load()
     {
         Harmony.PatchAll();
-        ClassInjector.RegisterTypeInIl2Cpp<FrozenBody>();
+        //ClassInjector.RegisterTypeInIl2Cpp<FrozenBody>();
         ReactorCredits.Register<ReachForStars>(ReactorCredits.AlwaysShow);
     }
 }
