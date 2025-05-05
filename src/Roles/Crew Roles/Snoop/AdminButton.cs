@@ -41,6 +41,6 @@ public class AdminButton : CustomActionButton
     };
     protected override void OnClick()
     {
-        HudManager.Instance.ToggleMapVisible(opts);
+        Object.FindObjectOfType<MapConsole>().Use();
     }
 }
