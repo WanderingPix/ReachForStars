@@ -13,8 +13,6 @@ namespace ReachForStars.Roles.Impostors.Chiller;
 public class FrozenBody(IntPtr ptr) : MonoBehaviour(ptr)
 {
     public bool isActive;
-    public int id;
-    public SpriteRenderer image = null!;
     public ArrowBehaviour? arrow;
     public ImageNames UseIcon => ImageNames.UseButton;
     public float UsableDistance => 0.8f;
