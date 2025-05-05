@@ -13,9 +13,12 @@ namespace ReachForStars.Roles.Impostors.Chiller;
 public class FrozenBody(IntPtr ptr) : MonoBehaviour(ptr)
 {
     public bool isActive;
+    public int id;
+    public SpriteRenderer image = null!;
+    public ArrowBehaviour? arrow;
     public ImageNames UseIcon => ImageNames.UseButton;
-    public float UsableDistance => 1.2f;
-    public Color OutlineColor = new Color(1f, 1f, 1f, 1f);
+    public float UsableDistance => 0.8f;
+    public float PercentCool => 0;
 
     SpriteRenderer myRend;
     DeadBody targetBody;
@@ -78,7 +81,7 @@ public class FrozenBody(IntPtr ptr) : MonoBehaviour(ptr)
     /// <param name="isTargeted">TRUE iff the console is the main target selected</param>
     public void SetOutline(bool on, bool mainTarget)
     {
-        if (on) myRend.UpdateOutline(OutlineColor);
+        if (on) myRend.UpdateOutline(Pallete.CrewmateBlue);
         else myRend.UpdateOutline(new Color(0f, 0f, 0f, 0f));
     }
 
@@ -87,7 +90,7 @@ public class FrozenBody(IntPtr ptr) : MonoBehaviour(ptr)
     /// </summary>
     /// <param name="playerInfo">Player to check</param>
     /// <param name="canUse">TRUE iff the player can access this console currently</param>
-    /// <param name="couldUse">TRUE iff the player could access this console in the future</param>
+    /// <param name="couldUse">TRUE if the player could access this console in the future</param>
     /// <returns>Distance from console</returns>
     public float CanUse(NetworkedPlayerInfo playerInfo, out bool canUse, out bool couldUse)
     {
