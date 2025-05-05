@@ -6,6 +6,7 @@ using System.Collections;
 using System;
 using Reactor.Utilities.Attributes;
 using UnityEngine;
+using Sentry.Unity.NativeUtils;
 
 namespace ReachForStars.Roles.Impostors.Chiller;
 
@@ -13,13 +14,12 @@ namespace ReachForStars.Roles.Impostors.Chiller;
 public class FrozenBody(IntPtr ptr) : MonoBehaviour(ptr)
 {
     public bool isActive;
-    public ArrowBehaviour? arrow;
     public ImageNames UseIcon => ImageNames.UseButton;
     public float UsableDistance => 0.8f;
     public float PercentCool => 0;
-
-    SpriteRenderer myRend;
-    DeadBody targetBody;
+    public CircleCollider2D myCol;
+    public SpriteRenderer myRend;
+    public DeadBody targetBody;
 
     int durability = 30;
 
@@ -35,6 +35,7 @@ public class FrozenBody(IntPtr ptr) : MonoBehaviour(ptr)
         myRend.sprite = Assets.FrozenBody0.LoadAsset();
         gameObject.transform.localScale = new Vector3(0.35f, 0.35f, 0.45f);
         targetBody.gameObject.SetActive(false);
+        myCol = gameObject.AddComponent<CircleCollider2D>();
 
 
             //Spawn Animation
@@ -105,6 +106,6 @@ public class FrozenBody(IntPtr ptr) : MonoBehaviour(ptr)
             return playerDistance;
         }
 
-        return float.MaxValue;
+        return 0f;
     }
 }
