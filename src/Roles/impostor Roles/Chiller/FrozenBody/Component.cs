@@ -79,7 +79,7 @@ public class FrozenBody(IntPtr ptr) : MonoBehaviour(ptr)
     /// <param name="isTargeted">TRUE iff the console is the main target selected</param>
     public void SetOutline(bool on, bool mainTarget)
     {
-        if (on) myRend.UpdateOutline(Pallete.CrewmateBlue);
+        if (on) myRend.UpdateOutline(Palette.CrewmateBlue);
         else myRend.UpdateOutline(new Color(0f, 0f, 0f, 0f));
     }
 
