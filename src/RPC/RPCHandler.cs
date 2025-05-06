@@ -60,6 +60,7 @@ namespace ReachForStars.Networking
         {
             int count = Object.FindObjectsByType<Vent>(FindObjectsSortMode.None).ToList().Count();
             Vent vent = Object.Instantiate<Vent>(Object.FindObjectOfType<Vent>(true)); 
+            vent.transform.parent = ShipStatus.Instance.transform;
             vent.name = $"MoleVent{count.ToString()}";
             vent.Id = ShipStatus.Instance.AllVents.Count + count;        
             vent.transform.position = p.GetTruePosition();

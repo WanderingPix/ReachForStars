@@ -17,7 +17,7 @@ public class FrozenBody(IntPtr ptr) : MonoBehaviour(ptr)
     public ImageNames UseIcon => ImageNames.UseButton;
     public float UsableDistance => 200f;
     public float PercentCool => 0;
-    public CircleCollider2D myCol;
+    public BoxCollider2D myCol;
     public SpriteRenderer myRend;
     public DeadBody targetBody;
 
@@ -35,7 +35,7 @@ public class FrozenBody(IntPtr ptr) : MonoBehaviour(ptr)
         myRend.sprite = Assets.FrozenBody0.LoadAsset();
         gameObject.transform.localScale = new Vector3(0.35f, 0.35f, 0.45f);
         targetBody.gameObject.SetActive(false);
-        myCol = gameObject.AddComponent<CircleCollider2D>();
+        myCol = gameObject.AddComponent<BoxCollider2D>();
         //myCol.bounds.size = gameObject.transform.localScale * 0.8f;
 
 
@@ -55,12 +55,15 @@ public class FrozenBody(IntPtr ptr) : MonoBehaviour(ptr)
         {
             case 30:
                 myRend.sprite = Assets.FrozenBody0.LoadAsset();
+                HudManager.Instance.StartCoroutine(Effects.ScaleIn(gameObject.transform, gameObject.transform.localScale.x, gameObject.transform.localScale.x*0.6f, 0.4f));
                 break;
             case 20:
                 myRend.sprite = Assets.FrozenBody1.LoadAsset();
+                HudManager.Instance.StartCoroutine(Effects.ScaleIn(gameObject.transform, gameObject.transform.localScale.x, gameObject.transform.localScale.x*0.6f, 0.4f));
                 break;
             case 10:
                 myRend.sprite = Assets.FrozenBody2.LoadAsset();
+                HudManager.Instance.StartCoroutine(Effects.ScaleIn(gameObject.transform, gameObject.transform.localScale.x, gameObject.transform.localScale.x*0.6f, 0.4f));
                 break;
             case 0:
                 this.DestroyImmediate();

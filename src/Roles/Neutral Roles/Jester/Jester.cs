@@ -31,12 +31,9 @@ public class JesterRole : ImpostorRole, ICustomRole
     public override void Initialize(PlayerControl p)
     {
         RoleBehaviourStubs.Initialize(this, p);
-        //ShipStatus.Instance.EmergencyButton.gameObject.SetActive(OptionGroupSingleton<JesterOptions>.Instance.CanCallMeeting);
     }
     public override void Deinitialize(PlayerControl p)
-    {
-        //ShipStatus.Instance.EmergencyButton.gameObject.SetActive(!OptionGroupSingleton<JesterOptions>.Instance.CanCallMeeting);
-        
+    {   
     }
     
 
