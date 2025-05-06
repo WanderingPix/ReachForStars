@@ -15,7 +15,7 @@ public class FrozenBody(IntPtr ptr) : MonoBehaviour(ptr)
 {
     public bool isActive;
     public ImageNames UseIcon => ImageNames.UseButton;
-    public float UsableDistance => 0.8f;
+    public float UsableDistance => 200f;
     public float PercentCool => 0;
     public CircleCollider2D myCol;
     public SpriteRenderer myRend;
@@ -36,6 +36,8 @@ public class FrozenBody(IntPtr ptr) : MonoBehaviour(ptr)
         gameObject.transform.localScale = new Vector3(0.35f, 0.35f, 0.45f);
         targetBody.gameObject.SetActive(false);
         myCol = gameObject.AddComponent<CircleCollider2D>();
+        //myCol.bounds.size = gameObject.transform.localScale * 0.8f;
+
 
 
             //Spawn Animation
@@ -91,21 +93,19 @@ public class FrozenBody(IntPtr ptr) : MonoBehaviour(ptr)
     /// <param name="canUse">TRUE iff the player can access this console currently</param>
     /// <param name="couldUse">TRUE if the player could access this console in the future</param>
     /// <returns>Distance from console</returns>
-    public float CanUse(NetworkedPlayerInfo playerInfo, out bool canUse, out bool couldUse)
+    public float CanUse(NetworkedPlayerInfo pc, out bool canUse, out bool couldUse)
     {
-        var playerControl = playerInfo.Object;
-        var truePosition = playerControl.GetTruePosition();
-
-        couldUse = playerControl.CanMove && AmongUsClient.Instance.AmHost;
+        var num = float.MaxValue;
+        var @object = pc.Object;
+        couldUse = !pc.IsDead;
         canUse = couldUse;
-
-        if (couldUse)
+        if (canUse)
         {
-            var playerDistance = Vector2.Distance(truePosition, transform.position);
-            canUse = couldUse && playerDistance <= UsableDistance;
-            return playerDistance;
+            var truePosition = @object.GetTruePosition();
+            var position = transform.position;
+            num = Vector2.Distance(truePosition, position);
+            canUse &= num <= UsableDistance;
         }
-
-        return 0f;
+        return num;
     }
 }
