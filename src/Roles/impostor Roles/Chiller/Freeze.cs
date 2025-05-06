@@ -38,5 +38,6 @@ public class Freeze : CustomActionButton
     protected override void OnClick()
     {
         PlayerControl.LocalPlayer.RpcFreezeBody();
+        SoundManager.Instance.PlaySound(Assets.FreezeSFX.LoadAsset(), false, 1f);
     }
 }

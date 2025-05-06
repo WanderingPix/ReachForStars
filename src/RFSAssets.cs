@@ -18,6 +18,8 @@ public static class Assets
 
     //Chiller 
     public static LoadableResourceAsset Freeze { get; } = new("ReachForStars.Resources.Freeze.png");
+
+    public static LoadableAudioResourceAsset FreezeSFX { get; } = new("ReachForStars.Resources.SFXs.FreezeSFX.mp3");
     
     public static LoadableResourceAsset FrozenBody0 { get; } = new("ReachForStars.Resources.FrozenBodyStages.FrozenBody0.png");
     public static LoadableResourceAsset FrozenBody1 { get; } = new("ReachForStars.Resources.FrozenBodyStages.FrozenBody1.png");
