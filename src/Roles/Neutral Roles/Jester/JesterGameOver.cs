@@ -2,6 +2,7 @@
 using MiraAPI.GameEnd;
 using MiraAPI.Modifiers;
 using MiraAPI.Utilities;
+using ReachForStars.Translation;
 using UnityEngine;
 
 namespace ReachForStars.Roles.Neutrals.Jester;
@@ -20,6 +21,15 @@ public class JesterWin : CustomGameOver
             return false;
         }
     }
+    public TranslationPool EjectMessage = new TranslationPool
+    (
+        english: "The Jester has fooled the crew!",
+        french: "Le Plaisantin a trollé l'équipage !",
+        spanish: "¡El Bufón ha engañado a la tripulación!",
+        portuguese: "O Bobo enganou a tripulação!",
+        russian: "",
+        italian: ""
+    );
 
     public override void AfterEndGameSetup(EndGameManager endGameManager)
     {
