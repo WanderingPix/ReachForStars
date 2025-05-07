@@ -28,7 +28,7 @@ public class JesterWin : CustomGameOver
         spanish: "¡El Bufón ha engañado a la tripulación!",
         portuguese: "O Bobo enganou a tripulação!",
         russian: "шут обхитрил экипаж!",
-        italian: ""
+        italian: "L'equipaggio ha sottostimato il pagliaccio"
     );
 
     public override void AfterEndGameSetup(EndGameManager endGameManager)
