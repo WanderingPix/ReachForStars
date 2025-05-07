@@ -16,14 +16,6 @@ namespace ReachForStars.Networking
 {
     public static class RPCS
     {
-        [MethodRpc((uint) RPC.DeathReasons)]
-        public static void DeathReasonsRPC(this PlayerControl source, string Sentence, int Time)
-        {
-            if (PlayerControl.LocalPlayer == source)
-            {
-                HudManager.Instance.SpawnHnSPopUp(source, Sentence);
-            }
-        }
         [MethodRpc((uint) RPC.DestroyObj)]
         public static void RpcDestroyImmediate(this GameObject go, bool shouldFade = false, int Fadetime = 0)
         {
@@ -84,7 +76,6 @@ namespace ReachForStars.Networking
         [MethodRpc((uint) RPC.Revive)]
         public static void RpcRevive(this PlayerControl player, bool ShouldAnimate)
         {
-            //cutscene logic
             player.Revive();
         }
         [MethodRpc((uint) RPC.FreezeBody)]
@@ -95,6 +86,14 @@ namespace ReachForStars.Networking
             FrozenBody.transform.position = targetBody.gameObject.transform.position;
             FrozenBody.transform.localScale = targetBody.gameObject.transform.localScale;
             FrozenBody.AddComponent<FrozenBody>().SetTargetBody(targetBody);
+        }
+        [MethodRpc((uint) RPC.DamageFrozenBody)]
+        public static void RpcDamageBody(int id, int NewDurability)
+        {
+            var body = Object.FindObjectsOfType<FrozenBody>().ToList().FirstOrDefault(Where(x => x.myBody.parentId = id))
+            body.Durability = NewDurability + 1; //Plus one because the New durability will always be a multiplication of 5, and calling Use() will decrease it by 1 and do sprite checks
+
+            body.Use();
         }
     }
 }
