@@ -15,27 +15,25 @@ public class FrozenBody(IntPtr ptr) : MonoBehaviour(ptr)
 {
     public bool isActive;
     public ImageNames UseIcon => ImageNames.UseButton;
-    public float UsableDistance => 200f;
-    public float PercentCool => 0;
-    public BoxCollider2D myCol;
-    public SpriteRenderer myRend;
-    public DeadBody targetBody;
+    public float UsableDistance => 180f;
+    public float PercentCool => 1;
+    public BoxCollider2D myCol = myCol = gameObject.AddComponent<BoxCollider2D>();
+    public SpriteRenderer myRend = gameObject.AddComponent<SpriteRenderer>();
+    public DeadBody myBody;
 
-    int durability = 30;
+    int Durability = 30;
 
     public void SetTargetBody(DeadBody body)
     {
-        targetBody = body;
+        myBody = body;
     }
     public void Start()
     {
         //Setup
         gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y, -5f);
-        myRend = gameObject.AddComponent<SpriteRenderer>();
         myRend.sprite = Assets.FrozenBody0.LoadAsset();
         gameObject.transform.localScale = new Vector3(0.35f, 0.35f, 0.45f);
-        targetBody.gameObject.SetActive(false);
-        myCol = gameObject.AddComponent<BoxCollider2D>();
+        myBody.gameObject.SetActive(false);
         //myCol.bounds.size = gameObject.transform.localScale * 0.8f;
 
 
@@ -48,25 +46,19 @@ public class FrozenBody(IntPtr ptr) : MonoBehaviour(ptr)
 
     public void Use()
     {
-        durability-=1;
+        Durability--;
         HudManager.Instance.StartCoroutine(Effects.Bounce(gameObject.transform, 0.7f, 0.25f));
         
-        switch (durability)
+        switch (Durability / 5)
         {
-            case 30:
-                myRend.sprite = Assets.FrozenBody0.LoadAsset();
-                HudManager.Instance.StartCoroutine(Effects.ScaleIn(gameObject.transform, gameObject.transform.localScale.x, gameObject.transform.localScale.x*0.6f, 0.4f));
+            case 4:
+                RPC.RpcDamageFrozenBody(myBody.parentId, Durability);
                 break;
-            case 20:
-                myRend.sprite = Assets.FrozenBody1.LoadAsset();
-                HudManager.Instance.StartCoroutine(Effects.ScaleIn(gameObject.transform, gameObject.transform.localScale.x, gameObject.transform.localScale.x*0.6f, 0.4f));
-                break;
-            case 10:
-                myRend.sprite = Assets.FrozenBody2.LoadAsset();
-                HudManager.Instance.StartCoroutine(Effects.ScaleIn(gameObject.transform, gameObject.transform.localScale.x, gameObject.transform.localScale.x*0.6f, 0.4f));
+            case 2:
+                RPC.RpcDamageFrozenBody(myBody.parentId, Durability);
                 break;
             case 0:
-                this.DestroyImmediate();
+                RPC.RpcDamageFrozenBody(myBody.parentId, Durability);
                 break;
         }
     }
@@ -74,8 +66,8 @@ public class FrozenBody(IntPtr ptr) : MonoBehaviour(ptr)
     
     public void OnDestroy()
     {
-        targetBody.gameObject.SetActive(true);
-        myRend.sprite = Assets.Puddle.LoadAsset();
+        myBody.gameObject.SetActive(true);
+        gameObject.DestroyImmediate();
     }
 
     /// <summary>

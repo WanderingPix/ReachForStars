@@ -16,25 +16,10 @@ namespace ReachForStars.Networking
 {
     public static class RPCS
     {
-        [MethodRpc((uint) RPC.DeathReasons)]
-        public static void DeathReasonsRPC(this PlayerControl source, string Sentence, int Time)
-        {
-            if (PlayerControl.LocalPlayer == source)
-            {
-                HudManager.Instance.SpawnHnSPopUp(source, Sentence);
-            }
-        }
         [MethodRpc((uint) RPC.DestroyObj)]
         public static void RpcDestroyImmediate(this GameObject go, bool shouldFade = false, int Fadetime = 0)
         {
             go.DestroyImmediate();
-        }
-        [MethodRpc((uint) RPC.RoleBlock)]
-        public static void RoleBlockRPC(this PlayerControl target, int Time)
-        {   
-            target.DeathReasonsRPC("You've been RoleBlocked!", 3);
-
-            //target.RpcAddModifier(RoleBlockedModifier.TypeId);
         }
         [MethodRpc((uint) RPC.Yeehaw)]
         public static void RpcYeehaw()
@@ -84,7 +69,6 @@ namespace ReachForStars.Networking
         [MethodRpc((uint) RPC.Revive)]
         public static void RpcRevive(this PlayerControl player, bool ShouldAnimate)
         {
-            //cutscene logic
             player.Revive();
         }
         [MethodRpc((uint) RPC.FreezeBody)]
@@ -95,6 +79,27 @@ namespace ReachForStars.Networking
             FrozenBody.transform.position = targetBody.gameObject.transform.position;
             FrozenBody.transform.localScale = targetBody.gameObject.transform.localScale;
             FrozenBody.AddComponent<FrozenBody>().SetTargetBody(targetBody);
+        }
+        [MethodRpc((uint) RPC.DamageFrozenBody)]
+        public static void RpcDamageBody(int id, int NewDurability)
+        {
+            var body = Object.FindObjectsOfType<FrozenBody>().ToList().FirstOrDefault(Where(x => x.myBody.parentId = id));
+            body.Durability = NewDurability; //Plus one because the New durability will always be a multiplication of 5, and calling Use() will decrease it by 1 and do sprite checks
+            switch (durability / 5)
+            {
+            case 4:
+                body.myRend.sprite = Assets.FrozenBody1.LoadAsset();
+                HudManager.Instance.StartCoroutine(Effects.ScaleIn(body.gameObject.transform, body.gameObject.transform.localScale.x, body.gameObject.transform.localScale.x*0.6f, 0.4f));
+                break;
+            case 2:
+                body.myRend.sprite = Assets.FrozenBody2.LoadAsset();
+                HudManager.Instance.StartCoroutine(Effects.ScaleIn(body.gameObject.transform, body.gameObject.transform.localScale.x, body.gameObject.transform.localScale.x*0.6f, 0.4f));
+                break;
+            case 0:
+                body.DestroyImmediate();
+                break;
+            }
+            
         }
     }
 }

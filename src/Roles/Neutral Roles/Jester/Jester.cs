@@ -17,8 +17,8 @@ public class JesterRole : ImpostorRole, ICustomRole
         french: "Plaisantin",
         spanish: "Bufón",
         portuguese: "Bobo",
-        russian: "",
-        italian: ""
+        russian: "Шут",
+        italian: "Pagliaccio"
     );
     public string RoleDescription => RoleDescShort.GetTranslatedText();
     public TranslationPool RoleDescShort = new TranslationPool
