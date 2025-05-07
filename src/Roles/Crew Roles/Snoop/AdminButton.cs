@@ -41,6 +41,6 @@ public class AdminButton : CustomActionButton
     };
     protected override void OnClick()
     {
-        Object.FindObjectOfType<MapConsole>().Use();
+        MapBehaviour.Instance.ShowCountOverlay(true, false, true);
     }
 }

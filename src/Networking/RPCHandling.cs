@@ -81,11 +81,11 @@ namespace ReachForStars.Networking
             FrozenBody.AddComponent<FrozenBody>().SetTargetBody(targetBody);
         }
         [MethodRpc((uint) RPC.DamageFrozenBody)]
-        public static void RpcDamageBody(int id, int NewDurability)
+        public static void RpcDamageFrozenBody(int id, int NewDurability)
         {
-            var body = Object.FindObjectsOfType<FrozenBody>().ToList().FirstOrDefault(Where(x => x.myBody.parentId = id));
+            var body = Object.FindObjectsOfType<FrozenBody>().ToList().Where(x => x.myBody.ParentId == id).ToList()[0];
             body.Durability = NewDurability; //Plus one because the New durability will always be a multiplication of 5, and calling Use() will decrease it by 1 and do sprite checks
-            switch (durability / 5)
+            switch (body.Durability / 5)
             {
             case 4:
                 body.myRend.sprite = Assets.FrozenBody1.LoadAsset();

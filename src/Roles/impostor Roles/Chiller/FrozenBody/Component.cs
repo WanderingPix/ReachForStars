@@ -7,6 +7,7 @@ using System;
 using Reactor.Utilities.Attributes;
 using UnityEngine;
 using Sentry.Unity.NativeUtils;
+using ReachForStars.Networking;
 
 namespace ReachForStars.Roles.Impostors.Chiller;
 
@@ -17,11 +18,11 @@ public class FrozenBody(IntPtr ptr) : MonoBehaviour(ptr)
     public ImageNames UseIcon => ImageNames.UseButton;
     public float UsableDistance => 180f;
     public float PercentCool => 1;
-    public BoxCollider2D myCol = myCol = gameObject.AddComponent<BoxCollider2D>();
-    public SpriteRenderer myRend = gameObject.AddComponent<SpriteRenderer>();
+    public BoxCollider2D myCol;
+    public SpriteRenderer myRend;
     public DeadBody myBody;
 
-    int Durability = 30;
+    public int Durability = 30;
 
     public void SetTargetBody(DeadBody body)
     {
@@ -30,6 +31,8 @@ public class FrozenBody(IntPtr ptr) : MonoBehaviour(ptr)
     public void Start()
     {
         //Setup
+        myCol = gameObject.AddComponent<BoxCollider2D>();
+        myRend = gameObject.AddComponent<SpriteRenderer>();
         gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y, -5f);
         myRend.sprite = Assets.FrozenBody0.LoadAsset();
         gameObject.transform.localScale = new Vector3(0.35f, 0.35f, 0.45f);
@@ -52,13 +55,13 @@ public class FrozenBody(IntPtr ptr) : MonoBehaviour(ptr)
         switch (Durability / 5)
         {
             case 4:
-                RPC.RpcDamageFrozenBody(myBody.parentId, Durability);
+                RPCS.RpcDamageFrozenBody(myBody.ParentId, Durability);
                 break;
             case 2:
-                RPC.RpcDamageFrozenBody(myBody.parentId, Durability);
+                RPCS.RpcDamageFrozenBody(myBody.ParentId, Durability);
                 break;
             case 0:
-                RPC.RpcDamageFrozenBody(myBody.parentId, Durability);
+                RPCS.RpcDamageFrozenBody(myBody.ParentId, Durability);
                 break;
         }
     }
