@@ -21,13 +21,6 @@ namespace ReachForStars.Networking
         {
             go.DestroyImmediate();
         }
-        [MethodRpc((uint) RPC.RoleBlock)]
-        public static void RoleBlockRPC(this PlayerControl target, int Time)
-        {   
-            target.DeathReasonsRPC("You've been RoleBlocked!", 3);
-
-            //target.RpcAddModifier(RoleBlockedModifier.TypeId);
-        }
         [MethodRpc((uint) RPC.Yeehaw)]
         public static void RpcYeehaw()
         {
