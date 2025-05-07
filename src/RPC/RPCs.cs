@@ -14,5 +14,6 @@ namespace ReachForStars.Networking
         Rampage,
         Revive,
         FreezeBody,
+        DamageFrozenBody,
     }
 }
