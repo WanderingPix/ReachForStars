@@ -2,7 +2,6 @@ using MiraAPI.Hud;
 using MiraAPI.Utilities.Assets;
 using UnityEngine;
 using MiraAPI.Utilities;
-using ReachForStars.Addons.RoleBlocked;
 using MiraAPI.Modifiers;
 
 namespace ReachForStars.Roles.Impostors.Witch;

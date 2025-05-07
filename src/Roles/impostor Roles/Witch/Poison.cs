@@ -5,7 +5,7 @@ using UnityEngine;
 using MiraAPI.Utilities;
 using MiraAPI.Networking;
 using MiraAPI.Modifiers;
-using ReachForStars.Addons.Poisoned;
+using MiraAPI.GameOptions;
 
 namespace ReachForStars.Roles.Impostors.Witch;
 public class Poison : CustomActionButton<PlayerControl>
@@ -13,7 +13,7 @@ public class Poison : CustomActionButton<PlayerControl>
     public override string Name => "Poison";
 
     public override float Cooldown => 5;
-    public override float EffectDuration => 5;
+    public override float EffectDuration => OptionGroupSingleton<WitchOptions>.Instance.PoisonDelay.Value;
 
     public override ButtonLocation Location => ButtonLocation.BottomLeft;
 
@@ -47,5 +47,6 @@ public class Poison : CustomActionButton<PlayerControl>
 
     public override void OnEffectEnd()
     {
+        SoundManager.Instance.PlaySound(PlayerControl.LocalPlayer.KillSfx, false, 0.5f);
     }
 }

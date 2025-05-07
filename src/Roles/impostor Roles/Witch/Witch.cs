@@ -1,4 +1,5 @@
-﻿using MiraAPI.Roles;
+﻿using MiraAPI.GameOptions;
+using MiraAPI.Roles;
 using UnityEngine;
 
 namespace ReachForStars.Roles.Impostors.Witch;
@@ -14,9 +15,9 @@ public class WitchRole : ImpostorRole, ICustomRole
 
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
-        UseVanillaKillButton = true,
+        UseVanillaKillButton = OptionGroupSingleton<WitchOptions>.Instance.CanDoNormalKilling.Value,
         CanGetKilled = true,
-        CanUseVent = false,
+        CanUseVent = OptionGroupSingleton<WitchOptions>.Instance.Canvent.Value,
     };
 
     public override void SpawnTaskHeader(PlayerControl playerControl)

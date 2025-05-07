@@ -7,14 +7,11 @@ using ReachForStars.Networking;
 using ReachForStars.Utilities;
 using System.Linq;
 
-namespace ReachForStars.Addons.RoleBlocked;
+namespace ReachForStars.Roles.Impostors.Witch;
 
-public class RoleBlockedModifier : TimedModifier
+public class RoleBlockedModifier : GameModifier
 {
     public override string ModifierName => "RoleBlocked";
-
-    public override float Duration => 120f;
-
 
     public override void OnMeetingStart()
     {
@@ -32,7 +29,7 @@ public class RoleBlockedModifier : TimedModifier
         }
         PlayerControl.LocalPlayer.cosmetics.SetOutline(true, new Il2CppSystem.Nullable<Color>(new Color(1f, 0f, 1f, 1f)));
     }
-    public override void OnTimerComplete()
+    public override void OnDeactivate()
     {
         foreach (ActionButton button in Object.FindObjectsOfType<ActionButton>())
         {
@@ -42,5 +39,15 @@ public class RoleBlockedModifier : TimedModifier
             HudManager.Instance.StartCoroutine(Effects.ColorFade(button.graphic, Palette.Black, Palette.White, 1f));
         }
         PlayerControl.LocalPlayer.cosmetics.SetOutline(false, new Il2CppSystem.Nullable<Color>(new Color(1f, 0f, 1f, 1f)));
+    }
+
+    public override int GetAssignmentChance()
+    {
+        return 0;
+    }
+
+    public override int GetAmountPerGame()
+    {
+        return 0;
     }
 }
