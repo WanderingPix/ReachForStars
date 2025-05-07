@@ -7,6 +7,7 @@ using ReachForStars.Utilities;
 using MiraAPI.GameEnd;
 using UnityEngine;
 using Random = System.Random;
+using MiraAPI.GameOptions;
 
 namespace ReachForStars.Roles.Neutrals.Roles;
 
@@ -19,8 +20,6 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
     public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
 
     public int SuccessfulKills;
-
-    public int UnsuccessfulKills;
 
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
@@ -78,5 +77,9 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
     {
         HudManager.Instance.StartCoroutine(Effects.ScaleIn(Popup.gameObject.transform, 2f, 1f, 1.2f));
         HudManager.Instance.StartCoroutine(Effects.ColorFade(Popup.background, Color.white, new Color(0f, 0f, 0f, 0f), 1.2f));
+        if (SuccessfulKills == OptionGroupSingleton<BountyHunterOptions>.Instance.SuccessfulKillsQuota)
+        {
+            CustomGameOver.Trigger<BountyHunterWin>([Player.Data]);
+        }
     }
 }

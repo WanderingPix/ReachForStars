@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using MiraAPI.GameOptions;
 using MiraAPI.Hud;
 using MiraAPI.Roles;
 using UnityEngine;
@@ -18,7 +19,7 @@ public class FreezerRole : ImpostorRole, ICustomRole
     {
         UseVanillaKillButton = true,
         CanGetKilled = true,
-        CanUseVent = true,
+        CanUseVent = OptionGroupSingleton<ChillerOptions>.Instance.CanVent,
     };
 
     public override void SpawnTaskHeader(PlayerControl playerControl)
