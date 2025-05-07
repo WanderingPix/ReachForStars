@@ -19,13 +19,13 @@ public class FrozenBody(IntPtr ptr) : MonoBehaviour(ptr)
     public float PercentCool => 0;
     public BoxCollider2D myCol;
     public SpriteRenderer myRend;
-    public DeadBody targetBody;
+    public DeadBody myBody;
 
     int durability = 30;
 
     public void SetTargetBody(DeadBody body)
     {
-        targetBody = body;
+        myBody = body;
     }
     public void Start()
     {
@@ -34,7 +34,7 @@ public class FrozenBody(IntPtr ptr) : MonoBehaviour(ptr)
         myRend = gameObject.AddComponent<SpriteRenderer>();
         myRend.sprite = Assets.FrozenBody0.LoadAsset();
         gameObject.transform.localScale = new Vector3(0.35f, 0.35f, 0.45f);
-        targetBody.gameObject.SetActive(false);
+        myBody.gameObject.SetActive(false);
         myCol = gameObject.AddComponent<BoxCollider2D>();
         //myCol.bounds.size = gameObject.transform.localScale * 0.8f;
 
@@ -51,17 +51,13 @@ public class FrozenBody(IntPtr ptr) : MonoBehaviour(ptr)
         durability-=1;
         HudManager.Instance.StartCoroutine(Effects.Bounce(gameObject.transform, 0.7f, 0.25f));
         
-        switch (durability)
+        switch (durability / 5)
         {
-            case 30:
-                myRend.sprite = Assets.FrozenBody0.LoadAsset();
-                HudManager.Instance.StartCoroutine(Effects.ScaleIn(gameObject.transform, gameObject.transform.localScale.x, gameObject.transform.localScale.x*0.6f, 0.4f));
-                break;
-            case 20:
+            case 4:
                 myRend.sprite = Assets.FrozenBody1.LoadAsset();
                 HudManager.Instance.StartCoroutine(Effects.ScaleIn(gameObject.transform, gameObject.transform.localScale.x, gameObject.transform.localScale.x*0.6f, 0.4f));
                 break;
-            case 10:
+            case 2:
                 myRend.sprite = Assets.FrozenBody2.LoadAsset();
                 HudManager.Instance.StartCoroutine(Effects.ScaleIn(gameObject.transform, gameObject.transform.localScale.x, gameObject.transform.localScale.x*0.6f, 0.4f));
                 break;
@@ -74,8 +70,8 @@ public class FrozenBody(IntPtr ptr) : MonoBehaviour(ptr)
     
     public void OnDestroy()
     {
-        targetBody.gameObject.SetActive(true);
-        myRend.sprite = Assets.Puddle.LoadAsset();
+        myBody.gameObject.SetActive(true);
+        gameObject.DestroyImmediate();
     }
 
     /// <summary>
