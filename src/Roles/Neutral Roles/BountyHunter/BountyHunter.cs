@@ -29,11 +29,16 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         CanUseVent = false,
     };
 
-    GameObject TargetNameplate;
-
     public override void Initialize(PlayerControl player)
     {
         GenerateNewBountyTarget();
+        HudManager.Instance.KillButton.Show();
+
+        Popup = Object.Instantiate<HideAndSeekDeathPopupNameplate>(GameManagerCreator.Instance.HideAndSeekManagerPrefab.DeathPopupPrefab.GetComponentInChildren<HideAndSeekDeathPopupNameplate>(), HudManager.Instance.transform.parent);
+        AspectPosition pos = Popup.gameObject.AddComponent<AspectPosition>();
+        pos.Alignment = AspectPosition.EdgeAlignments.Top;
+        pos.DistanceFromEdge = new Vector3(0f, 1f, 0f);
+        pos.AdjustPosition();
     }
 
     public override void SpawnTaskHeader(PlayerControl playerControl)
@@ -46,7 +51,7 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         return gameOverReason == CustomGameOver.GameOverReason<BountyHunterWin>();
     }
     
-    GameObject Popup;
+    HideAndSeekDeathPopupNameplate Popup;
     public PlayerControl BountyTarget;
     private void GenerateNewBountyTarget()
     {
@@ -54,22 +59,7 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         List<PlayerControl> Playerpool = Helpers.GetAlivePlayers().Where(x => x.Data.PlayerId != PlayerControl.LocalPlayer.Data.PlayerId).ToList();
         int index = rnd.Next(Playerpool.Count);
         BountyTarget = Playerpool[index];
-
-        Popup = HudManager.Instance.SpawnHnSPopUp(BountyTarget, $"Wipe  out {BountyTarget.Data.name}");
-
-        RoleDescription.Replace(RoleLongDescription, $"Kill {BountyTarget.Data.PlayerName}");
-    }
-    public override void OnMeetingStart()
-    {
-        if (BountyTarget != null && BountyTarget.Data.IsDead)
-        {
-            SuccessfulKills++;
-        }
-        else if (BountyTarget != null && !BountyTarget.Data.IsDead)
-        {
-            UnsuccessfulKills++;
-        }
-        GenerateNewBountyTarget();
+        Popup.SetPlayer(BountyTarget);
     }
 
     public override void OnVotingComplete()
@@ -83,5 +73,10 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
             return BountyTarget;
         }
         else return null;
+    }
+    public override void UseAbility()
+    {
+        HudManager.Instance.StartCoroutine(Effects.ScaleIn(Popup.gameObject.transform, 2f, 1f, 1.2f));
+        HudManager.Instance.StartCoroutine(Effects.ColorFade(Popup.background, Color.white, new Color(0f, 0f, 0f, 0f), 1.2f));
     }
 }

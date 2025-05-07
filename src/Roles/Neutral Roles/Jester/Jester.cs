@@ -4,7 +4,6 @@ using MiraAPI.GameEnd;
 using MiraAPI.GameOptions;
 using ReachForStars.MiscSettings;
 using MiraAPI.Patches.Stubs;
-using ReachForStars.Addons.NeutralWinner;
 using MiraAPI.Modifiers;
 
 namespace ReachForStars.Roles.Neutrals.Jester;
@@ -50,8 +49,7 @@ public class JesterRole : ImpostorRole, ICustomRole
     {
         if (deathreason == DeathReason.Exile)
         {
-            Player.RpcAddModifier<NeutralWinner>();
-            CustomGameOver.Trigger<JesterWin>([PlayerControl.LocalPlayer.Data]);
+            CustomGameOver.Trigger<JesterWin>([Player.Data]);
         }
     }
 }

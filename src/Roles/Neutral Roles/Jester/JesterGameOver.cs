@@ -2,7 +2,6 @@
 using MiraAPI.GameEnd;
 using MiraAPI.Modifiers;
 using MiraAPI.Utilities;
-using ReachForStars.Addons.NeutralWinner;
 using UnityEngine;
 
 namespace ReachForStars.Roles.Neutrals.Jester;
@@ -12,7 +11,7 @@ public class JesterWin : CustomGameOver
     public override bool VerifyCondition(PlayerControl playerControl, NetworkedPlayerInfo[] winners)
     {
         winners.AddItem<NetworkedPlayerInfo>(playerControl.Data);
-        if (playerControl.Data.Role is JesterRole && playerControl.HasModifier<NeutralWinner>())
+        if (playerControl.Data.Role is JesterRole)
         {
             return true;
         }

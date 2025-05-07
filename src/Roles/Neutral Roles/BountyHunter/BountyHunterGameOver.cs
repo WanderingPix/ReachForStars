@@ -11,7 +11,7 @@ public class BountyHunterWin : CustomGameOver
     public override bool VerifyCondition(PlayerControl playerControl, NetworkedPlayerInfo[] winners)
     {
         winners.AddItem<NetworkedPlayerInfo>(playerControl.Data);
-        if (playerControl.Data.Role is BountyHunterRole)
+        if (playerControl.Data.Role is BountyHunterRole BH && BH.SuccessfulKills == 1)
         {
             return true;
         }
