@@ -90,7 +90,7 @@ namespace ReachForStars.Networking
         [MethodRpc((uint) RPC.DamageFrozenBody)]
         public static void RpcDamageBody(int id, int NewDurability)
         {
-            var body = Object.FindObjectsOfType<FrozenBody>().ToList().FirstOrDefault(Where(x => x.myBody.parentId = id))
+            var body = Object.FindObjectsOfType<FrozenBody>().ToList().FirstOrDefault(Where(x => x.myBody.parentId = id));
             body.Durability = NewDurability + 1; //Plus one because the New durability will always be a multiplication of 5, and calling Use() will decrease it by 1 and do sprite checks
 
             body.Use();
