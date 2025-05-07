@@ -9,9 +9,10 @@ using MiraAPI.Patches.Stubs;
 using MiraAPI.Hud;
 using System;
 using Reactor.Localization.Utilities;
+using MiraAPI.PluginLoading;
 
 namespace ReachForStars.Roles.Neutrals.CursedSoul;
-
+[MiraIgnore]
 public class CursedSoulRole : ImpostorRole, ICustomRole
 {
     public string RoleName => "Cursed Soul";

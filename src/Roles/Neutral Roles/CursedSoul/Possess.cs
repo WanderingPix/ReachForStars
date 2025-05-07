@@ -5,8 +5,10 @@ using UnityEngine;
 using MiraAPI.Utilities;
 using MiraAPI.Networking;
 using System.Linq;
+using MiraAPI.PluginLoading;
 
 namespace ReachForStars.Roles.Neutrals.CursedSoul;
+[MiraIgnore]
 public class posess : CustomActionButton<DeadBody>
 {
     public override string Name => "Possess";
