@@ -1,9 +1,7 @@
 using MiraAPI.Hud;
 using MiraAPI.Utilities.Assets;
-using ReachForStars.Networking;
 using UnityEngine;
 using MiraAPI.Utilities;
-using MiraAPI.Networking;
 using MiraAPI.Modifiers;
 using MiraAPI.GameOptions;
 

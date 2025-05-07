@@ -1,10 +1,6 @@
 using MiraAPI.Modifiers;
 using MiraAPI.Modifiers.Types;
-using MiraAPI.Utilities;
 using UnityEngine;
-using ReachForStars.Networking;
-using ReachForStars.Utilities;
-using System.Linq;
 using MiraAPI.Networking;
 using MiraAPI.GameOptions;
 

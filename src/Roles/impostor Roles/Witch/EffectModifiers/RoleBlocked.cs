@@ -1,11 +1,6 @@
 using MiraAPI.Modifiers;
 using MiraAPI.Modifiers.Types;
-using MiraAPI.Utilities;
 using UnityEngine;
-using HarmonyLib;
-using ReachForStars.Networking;
-using ReachForStars.Utilities;
-using System.Linq;
 
 namespace ReachForStars.Roles.Impostors.Witch;
 
