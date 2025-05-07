@@ -27,7 +27,7 @@ public class JesterWin : CustomGameOver
         french: "Le Plaisantin a trollé l'équipage !",
         spanish: "¡El Bufón ha engañado a la tripulación!",
         portuguese: "O Bobo enganou a tripulação!",
-        russian: "",
+        russian: "шут обхитрил экипаж!",
         italian: ""
     );
 
