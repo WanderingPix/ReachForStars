@@ -35,7 +35,8 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         RoleBehaviourStubs.Initialize(this, player);
         HudManager.Instance.KillButton.Show();
 
-        Popup = Object.Instantiate<PlayerVoteArea>(HudManager.Instance.MeetingPrefab.CreateButton(GenerateNewBountyTarget().Data), HudManager.Instance.transform.parent);
+        Popup = HudManager.Instance.MeetingPrefab.CreateButton(GenerateNewBountyTarget().Data);
+        Popup.transform.SetParent(HudManager.Instance.transform);
         Popup.SetCosmetics(BountyTarget.Data);
         Popup.SetHighlighted(true);
         AspectPosition pos = Popup.gameObject.AddComponent<AspectPosition>();
