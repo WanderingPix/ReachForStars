@@ -33,10 +33,9 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
     public override void Initialize(PlayerControl player)
     {
         RoleBehaviourStubs.Initialize(this, player);
-        GenerateNewBountyTarget();
         HudManager.Instance.KillButton.Show();
 
-        Popup = Object.Instantiate<PlayerVoteArea>(HudManager.Instance.MeetingPrefab.CreateButton(BountyTarget.Data), HudManager.Instance.transform.parent);
+        Popup = Object.Instantiate<PlayerVoteArea>(HudManager.Instance.MeetingPrefab.CreateButton(GenerateNewBountyTarget().Data), HudManager.Instance.transform.parent);
         AspectPosition pos = Popup.gameObject.AddComponent<AspectPosition>();
         pos.Alignment = AspectPosition.EdgeAlignments.Top;
         pos.DistanceFromEdge = new Vector3(0f, 1f, 0f);
@@ -60,7 +59,7 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
     
     PlayerVoteArea Popup;
     public PlayerControl BountyTarget;
-    private void GenerateNewBountyTarget()
+    private PlayerControl GenerateNewBountyTarget()
     {
         Random rnd = new Random();
         List<PlayerControl> Playerpool = Helpers.GetAlivePlayers().Where(x => x.Data.PlayerId != PlayerControl.LocalPlayer.Data.PlayerId).ToList();
@@ -68,6 +67,8 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         BountyTarget = Playerpool[index];
         Popup.SetCosmetics(BountyTarget.Data);
         Popup.SetHighlighted(true);
+
+        return BountyTarget;
     }
 
     public override void OnVotingComplete()
