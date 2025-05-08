@@ -36,7 +36,7 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         GenerateNewBountyTarget();
         HudManager.Instance.KillButton.Show();
 
-        Popup = Object.Instantiate<PlayerVoteArea>(HudManager.Instance.MeetingPrefab.GetComponentInChildren<PlayerVoteArea>(), HudManager.Instance.transform.parent);
+        Popup = Object.Instantiate<PlayerVoteArea>(HudManager.Instance.MeetingPrefab.CreateButton(BountyTarget.Data), HudManager.Instance.transform.parent);
         AspectPosition pos = Popup.gameObject.AddComponent<AspectPosition>();
         pos.Alignment = AspectPosition.EdgeAlignments.Top;
         pos.DistanceFromEdge = new Vector3(0f, 1f, 0f);
@@ -85,6 +85,7 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
     public override void UseAbility()
     {
         SuccessfulKills++;
+        Popup.SetDead(false, true, false);
         
         HudManager.Instance.StartCoroutine(Effects.ScaleIn(Popup.gameObject.transform, 2f, 1f, 1.2f));
         HudManager.Instance.StartCoroutine(Effects.ColorFade(Popup.Background, Color.white, new Color(0f, 0f, 0f, 0f), 1.2f));
