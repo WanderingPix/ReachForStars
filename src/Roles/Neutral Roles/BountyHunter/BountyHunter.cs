@@ -8,6 +8,8 @@ using MiraAPI.GameEnd;
 using UnityEngine;
 using Random = System.Random;
 using MiraAPI.GameOptions;
+using MiraAPI.Patches.Stubs;
+using Reactor.Utilities.Extensions;
 
 namespace ReachForStars.Roles.Neutrals.Roles;
 
@@ -30,15 +32,21 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
 
     public override void Initialize(PlayerControl player)
     {
+        RoleBehaviourStubs.Initialize(this, player);
         GenerateNewBountyTarget();
         HudManager.Instance.KillButton.Show();
 
-        Popup = Object.Instantiate<HideAndSeekDeathPopupNameplate>(GameManagerCreator.Instance.HideAndSeekManagerPrefab.DeathPopupPrefab.GetComponentInChildren<HideAndSeekDeathPopupNameplate>(), HudManager.Instance.transform.parent);
+        Popup = Object.Instantiate<PlayerVoteArea>(HudManager.Instance.MeetingPrefab.GetComponentInChildren<PlayerVoteArea>(), HudManager.Instance.transform.parent);
         AspectPosition pos = Popup.gameObject.AddComponent<AspectPosition>();
         pos.Alignment = AspectPosition.EdgeAlignments.Top;
         pos.DistanceFromEdge = new Vector3(0f, 1f, 0f);
         pos.AdjustPosition();
     }
+    public override void Deinitialize(PlayerControl targetPlayer)
+    {
+        Popup.gameObject.DestroyImmediate();
+    }
+
 
     public override void SpawnTaskHeader(PlayerControl playerControl)
     {
@@ -50,7 +58,7 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         return gameOverReason == CustomGameOver.GameOverReason<BountyHunterWin>();
     }
     
-    HideAndSeekDeathPopupNameplate Popup;
+    PlayerVoteArea Popup;
     public PlayerControl BountyTarget;
     private void GenerateNewBountyTarget()
     {
@@ -58,7 +66,8 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         List<PlayerControl> Playerpool = Helpers.GetAlivePlayers().Where(x => x.Data.PlayerId != PlayerControl.LocalPlayer.Data.PlayerId).ToList();
         int index = rnd.Next(Playerpool.Count);
         BountyTarget = Playerpool[index];
-        Popup.SetPlayer(BountyTarget);
+        Popup.SetCosmetics(BountyTarget.Data);
+        Popup.SetHighlighted(true);
     }
 
     public override void OnVotingComplete()
@@ -75,8 +84,10 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
     }
     public override void UseAbility()
     {
+        SuccessfulKills++;
+        
         HudManager.Instance.StartCoroutine(Effects.ScaleIn(Popup.gameObject.transform, 2f, 1f, 1.2f));
-        HudManager.Instance.StartCoroutine(Effects.ColorFade(Popup.background, Color.white, new Color(0f, 0f, 0f, 0f), 1.2f));
+        HudManager.Instance.StartCoroutine(Effects.ColorFade(Popup.Background, Color.white, new Color(0f, 0f, 0f, 0f), 1.2f));
         if (SuccessfulKills == OptionGroupSingleton<BountyHunterOptions>.Instance.SuccessfulKillsQuota)
         {
             CustomGameOver.Trigger<BountyHunterWin>([Player.Data]);

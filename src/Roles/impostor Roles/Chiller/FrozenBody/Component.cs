@@ -8,6 +8,7 @@ using Reactor.Utilities.Attributes;
 using UnityEngine;
 using Sentry.Unity.NativeUtils;
 using ReachForStars.Networking;
+using System.Linq;
 
 namespace ReachForStars.Roles.Impostors.Chiller;
 
@@ -21,7 +22,7 @@ public class FrozenBody(IntPtr ptr) : MonoBehaviour(ptr)
     public BoxCollider2D myCol;
     public SpriteRenderer myRend;
     public DeadBody myBody;
-
+    public int StartingDurability = 30;
     public int Durability = 30;
 
     public void SetTargetBody(DeadBody body)
@@ -31,13 +32,15 @@ public class FrozenBody(IntPtr ptr) : MonoBehaviour(ptr)
     public void Start()
     {
         //Setup
+        gameObject.isStatic = true;
+        gameObject.transform.localScale = new Vector3(0.35f, 0.35f, 0.45f);
+        myBody.gameObject.SetActive(false);
         myCol = gameObject.AddComponent<BoxCollider2D>();
+        myCol.size = gameObject.transform.localScale;
         myRend = gameObject.AddComponent<SpriteRenderer>();
         gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y, -5f);
         myRend.sprite = Assets.FrozenBody0.LoadAsset();
-        gameObject.transform.localScale = new Vector3(0.35f, 0.35f, 0.45f);
-        myBody.gameObject.SetActive(false);
-        //myCol.bounds.size = gameObject.transform.localScale * 0.8f;
+       
 
 
 
@@ -52,12 +55,12 @@ public class FrozenBody(IntPtr ptr) : MonoBehaviour(ptr)
         Durability--;
         HudManager.Instance.StartCoroutine(Effects.Bounce(gameObject.transform, 0.7f, 0.25f));
         
-        switch (Durability / 5)
+        switch (Durability)
         {
-            case 4:
+            case 20 :
                 RPCS.RpcDamageFrozenBody(myBody.ParentId, Durability);
                 break;
-            case 2:
+            case 10:
                 RPCS.RpcDamageFrozenBody(myBody.ParentId, Durability);
                 break;
             case 0:
