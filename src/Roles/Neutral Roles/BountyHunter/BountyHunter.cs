@@ -92,7 +92,7 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         }
         else return null;
     }
-    public override void UseAbility()
+    public void OnTargetKill()
     {
         SuccessfulKills++;
         Popup.SetDead(false, true, false);

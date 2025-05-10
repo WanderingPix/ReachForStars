@@ -9,7 +9,7 @@ using ReachForStars.Addons.Child;
 using MiraAPI.Hud;
 using ReachForStars.Roles.Impostors.Chiller;
 
-namespace TheSillyRoles
+namespace ReachForStars
 {
 [HarmonyPatch(typeof(PlayerPhysics), nameof(PlayerPhysics.FixedUpdate))]
     
