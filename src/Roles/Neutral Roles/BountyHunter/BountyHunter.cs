@@ -38,15 +38,20 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         Popup = HudManager.Instance.MeetingPrefab.CreateButton(GenerateNewBountyTarget().Data);
         Popup.transform.SetParent(HudManager.Instance.transform);
         Popup.SetCosmetics(BountyTarget.Data);
+        Popup.Background.enabled = true;
         Popup.SetHighlighted(true);
         AspectPosition pos = Popup.gameObject.AddComponent<AspectPosition>();
         pos.Alignment = AspectPosition.EdgeAlignments.Top;
         pos.DistanceFromEdge = new Vector3(0f, 1f, 0f);
         pos.AdjustPosition();
+        Popup.MaskArea.DestroyImmediate();
     }
     public override void Deinitialize(PlayerControl targetPlayer)
     {
-        Popup.gameObject.DestroyImmediate();
+        if (Popup != null)
+        {
+            Popup.gameObject.DestroyImmediate();
+        }
     }
 
 
@@ -76,6 +81,8 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
     {
         Popup.SetCosmetics(GenerateNewBountyTarget().Data);
         Popup.SetHighlighted(true);
+        Popup.MaskArea.DestroyImmediate();
+
     }
     public override PlayerControl FindClosestTarget()
     {

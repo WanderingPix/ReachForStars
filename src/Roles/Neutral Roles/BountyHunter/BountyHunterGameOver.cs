@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using MiraAPI.GameEnd;
+using MiraAPI.Roles;
 using MiraAPI.Utilities;
 using ReachForStars.Roles.Neutrals.Roles;
 using UnityEngine;
@@ -23,8 +24,8 @@ public class BountyHunterWin : CustomGameOver
 
     public override void AfterEndGameSetup(EndGameManager endGameManager)
     {
-        endGameManager.WinText.text = "The Jester has fooled the crew!";
-        endGameManager.WinText.color = new Color(1f, 0.18f, 0.81f, 1f);
-        endGameManager.BackgroundBar.material.SetColor(ShaderID.Color, new Color(1f, 0.18f, 0.81f, 1f));
+        endGameManager.WinText.text += "\n<size=5.The Bounty Hunter has killed their targets!<size>";
+        endGameManager.WinText.color = Color.white;
+        endGameManager.BackgroundBar.material.SetColor(ShaderID.Color, CustomRoleSingleton<BountyHunterRole>.Instance.RoleColor);
     }
 }

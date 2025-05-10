@@ -84,15 +84,13 @@ namespace ReachForStars.Networking
         public static void RpcDamageFrozenBody(int id, int NewDurability)
         {
             var body = Object.FindObjectsOfType<FrozenBody>().ToList().Where(x => x.myBody.ParentId == id).ToList()[0];
-            body.Durability = NewDurability; //Plus one because the New durability will always be a multiplication of 5, and calling Use() will decrease it by 1 and do sprite checks
-            switch (body.Durability / 5)
+            body.Durability = NewDurability;
+            switch (body.Durability )
             {
-            case 4:
-                body.myRend.sprite = Assets.FrozenBody1.LoadAsset();
+            case 20:
                 HudManager.Instance.StartCoroutine(Effects.ScaleIn(body.gameObject.transform, body.gameObject.transform.localScale.x, body.gameObject.transform.localScale.x*0.6f, 0.4f));
                 break;
-            case 2:
-                body.myRend.sprite = Assets.FrozenBody2.LoadAsset();
+            case 10:
                 HudManager.Instance.StartCoroutine(Effects.ScaleIn(body.gameObject.transform, body.gameObject.transform.localScale.x, body.gameObject.transform.localScale.x*0.6f, 0.4f));
                 break;
             case 0:

@@ -18,13 +18,7 @@ public static class Assets
 
     //Chiller 
     public static LoadableResourceAsset Freeze { get; } = new("ReachForStars.Resources.Freeze.png");
-
     public static LoadableAudioResourceAsset FreezeSFX { get; } = new("ReachForStars.Resources.SFXs.FreezeSFX.wav");
-    
     public static LoadableResourceAsset FrozenBody0 { get; } = new("ReachForStars.Resources.FrozenBodyStages.FrozenBody0.png");
-    public static LoadableResourceAsset FrozenBody1 { get; } = new("ReachForStars.Resources.FrozenBodyStages.FrozenBody1.png");
-    public static LoadableResourceAsset FrozenBody2 { get; } = new("ReachForStars.Resources.FrozenBodyStages.FrozenBody2.png");
-    public static LoadableResourceAsset Puddle { get; } = new("ReachForStars.Resources.FrozenBodyStages.Puddle.png");
-
     public static LoadableResourceAsset SpeedOMeter { get; } = new("ReachForStars.Resources.SpeedOMeter.png");
 }
