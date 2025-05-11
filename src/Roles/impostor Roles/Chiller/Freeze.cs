@@ -16,7 +16,7 @@ public class Freeze : CustomActionButton<DeadBody>
 
     public override ButtonLocation Location => ButtonLocation.BottomRight;
 
-    public override int MaxUses => 1;
+    public override int MaxUses => 0;
 
     public override float Distance => 2f;
 
@@ -40,7 +40,7 @@ public class Freeze : CustomActionButton<DeadBody>
     }
     public override bool CanClick()
     {
-        return Target != null && UsesLeft > 0;
+        return Target != null;
     }
 
     protected override void OnClick()
