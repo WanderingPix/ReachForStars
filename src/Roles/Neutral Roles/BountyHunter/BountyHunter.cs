@@ -82,8 +82,13 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         Popup.SetCosmetics(GenerateNewBountyTarget().Data);
         Popup.SetHighlighted(true);
         Popup.MaskArea.DestroyImmediate();
-
+        HudManager.Instance.StartCoroutine(Effects.ScaleIn(Popup.gameObject.transform, 0f, 1f, 0.7f));
     }
+    public override void OnMeetingStart()
+    {
+        HudManager.Instance.StartCoroutine(Effects.ScaleIn(Popup.gameObject.transform, 1f, 0f, 0.7f));
+    }
+
     public override PlayerControl FindClosestTarget()
     {
         if (PlayerControl.LocalPlayer.GetClosestPlayer(true, 1f, false) == BountyTarget)
@@ -99,7 +104,7 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         
         HudManager.Instance.StartCoroutine(Effects.ScaleIn(Popup.gameObject.transform, 2f, 1f, 1.2f));
         HudManager.Instance.StartCoroutine(Effects.ColorFade(Popup.Background, Color.white, new Color(0f, 0f, 0f, 0f), 1.2f));
-        if (SuccessfulKills == OptionGroupSingleton<BountyHunterOptions>.Instance.SuccessfulKillsQuota)
+        if (SuccessfulKills == 1/*OptionGroupSingleton<BountyHunterOptions>.Instance.SuccessfulKillsQuota*/)
         {
             CustomGameOver.Trigger<BountyHunterWin>([Player.Data]);
         }
