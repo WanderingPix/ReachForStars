@@ -9,24 +9,25 @@ using MiraAPI.Networking;
 using TMPro;
 using ReachForStars.Translation;
 using Reactor.Utilities.Extensions;
+using ReachForStars.Networking;
 
 namespace ReachForStars.Roles.Crewmates.Snoop;
-public class AdminButton : CustomActionButton
+public class PlaceCameras : CustomActionButton
 {
     public override string Name => ButtonName.GetTranslatedText();
 
     public TranslationPool ButtonName = new TranslationPool(
-        english: "Admin",
+        english: "Place Camera",
         spanish: "TBD",
         portuguese: "TBD",
-        french: "Administration",
-        russian: "Админ",
-        italian: "Amministrazone"
+        french: "TBD",
+        russian: "TBD",
+        italian: "TBD"
     );
-    public override float Cooldown => 0;
+    public override float Cooldown => 3;
     public override float EffectDuration => 0;
 
-    public override int MaxUses => 0;
+    public override int MaxUses => 5; // TODO make this a setting
 
     public override LoadableAsset<Sprite> Sprite => Assets.Shoot;
 
@@ -36,7 +37,6 @@ public class AdminButton : CustomActionButton
     }
     protected override void OnClick()
     {
-        HudManager.Instance.InitMap();
-        MapBehaviour.Instance.ShowCountOverlay(true, false, true);
+        PlayerControl.LocalPlayer.RpcPlaceCamera(1);
     }
 }

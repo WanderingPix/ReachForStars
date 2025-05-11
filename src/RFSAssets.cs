@@ -21,4 +21,9 @@ public static class Assets
     public static LoadableAudioResourceAsset FreezeSFX { get; } = new("ReachForStars.Resources.SFXs.FreezeSFX.wav");
     public static LoadableResourceAsset FrozenBody0 { get; } = new("ReachForStars.Resources.FrozenBodyStages.FrozenBody0.png");
     public static LoadableResourceAsset SpeedOMeter { get; } = new("ReachForStars.Resources.SpeedOMeter.png");
+
+
+    //Snoop
+    public static LoadableResourceAsset SnoopCamOn { get; } = new("ReachForStars.Resources.SnoopCamera.SnoopCamOn.png");
+    public static LoadableResourceAsset SnoopCamOff { get; } = new("ReachForStars.Resources.SnoopCamera.SnoopCamOff.png");
 }

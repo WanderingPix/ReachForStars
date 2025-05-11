@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 
 namespace ReachForStars.Roles.Impostors.Chiller;
-public class Freeze : CustomActionButton
+public class Freeze : CustomActionButton<DeadBody>
 {
     public override string Name => "Freeze";
 
@@ -26,14 +26,18 @@ public class Freeze : CustomActionButton
     {
         return role is FreezerRole;
     }
-
-    public override bool CanUse()
+    public override void SetOutline(bool active)
     {
-        if (PlayerControl.LocalPlayer.GetNearestDeadBody(1.5f) != null)
+        foreach (var rend in Target.bodyRenderers)
         {
-            return true;
+            if (Target != null) rend.UpdateOutline(active ? Palette.ImpostorRed : null);
+
+        
         }
-        else return false;
+    }
+    public override DeadBody? GetTarget()
+    {
+        return PlayerControl.LocalPlayer.GetNearestDeadBody(1.5f);
     }
     protected override void OnClick()
     {

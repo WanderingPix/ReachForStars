@@ -11,6 +11,7 @@ using AmongUs.GameOptions;
 using MiraAPI.Hud;
 using ReachForStars.Roles.Impostors.Chiller;
 using System.Collections.Generic;
+using ReachForStars.Roles.Crewmates.Snoop;
 
 namespace ReachForStars.Networking
 {
@@ -96,8 +97,15 @@ namespace ReachForStars.Networking
             case 0:
                 body.DestroyImmediate();
                 break;
-            }
-            
+            } 
+        }
+        [MethodRpc((uint) RPC.PlaceCamera)]
+        public static void RpcPlaceCamera(this PlayerControl p, int id)
+        {
+            GameObject Cam = new GameObject($"SnoopCam{id}");
+            Cam.transform.position = p.GetTruePosition();
+            Cam.transform.localScale = new Vector3(0.35f, 0.35f, 0.45f);
+            Cam.AddComponent<SnoopCamera>();
         }
     }
 }
