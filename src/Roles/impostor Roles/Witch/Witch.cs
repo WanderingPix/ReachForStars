@@ -28,7 +28,7 @@ public class WitchRole : ImpostorRole, ICustomRole
         russian: "",
         italian: ""
     );
-    public string RoleLongDescription => RoleDescription;
+    public string RoleLongDescription => RoleDescLong.GetTranslatedText();
     public TranslationPool RoleDescLong = new TranslationPool
     (
         english: "Use potions to kill, roleblock, and confuse the crew",
