@@ -4,11 +4,21 @@ using UnityEngine;
 using MiraAPI.Utilities;
 using MiraAPI.Modifiers;
 using MiraAPI.GameOptions;
+using ReachForStars.Translation;
 
 namespace ReachForStars.Roles.Impostors.Witch;
 public class Poison : CustomActionButton<PlayerControl>
 {
-    public override string Name => "Poison";
+    public override string Name => btnName.GetTranslatedText();
+    public TranslationPool btnName = new TranslationPool
+    (
+        english: "Poison",
+        french: "Empoisoner",
+        spanish: "",
+        portuguese: "",
+        russian: "",
+        italian: ""
+    );
 
     public override float Cooldown => 5;
     public override float EffectDuration => OptionGroupSingleton<WitchOptions>.Instance.PoisonDelay.Value;
