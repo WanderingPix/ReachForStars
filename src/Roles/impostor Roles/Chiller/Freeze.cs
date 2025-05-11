@@ -31,14 +31,17 @@ public class Freeze : CustomActionButton<DeadBody>
         foreach (var rend in Target.bodyRenderers)
         {
             if (Target != null) rend.UpdateOutline(active ? Palette.ImpostorRed : null);
-
-        
         }
     }
     public override DeadBody? GetTarget()
     {
         return PlayerControl.LocalPlayer.GetNearestDeadBody(1.5f);
     }
+    public override bool CanClick()
+    {
+        return Target != null && UsesLeft > 0;
+    }
+
     protected override void OnClick()
     {
         PlayerControl.LocalPlayer.RpcFreezeBody();

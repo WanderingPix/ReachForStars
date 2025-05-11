@@ -13,6 +13,14 @@ public class ChameleonRole : CrewmateRole, ICustomRole
     public Color RoleColor => Palette.White;
     public Color OptionsMenuColor => Palette.CrewmateBlue;
     public ModdedRoleTeams Team => ModdedRoleTeams.Crewmate;
+    public override void Deinitialize(PlayerControl p)
+    {
+        foreach (var rend in p.GetComponentsInChildren<SpriteRenderer>())
+        {
+            rend.color = Color.white;
+        }
+    }
+
 
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
