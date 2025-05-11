@@ -21,7 +21,7 @@ public class PlaceCameras : CustomActionButton
         spanish: "TBD",
         portuguese: "TBD",
         french: "TBD",
-        russian: "TBD",
+        russian: "Поставить Камеру",
         italian: "TBD"
     );
     public override float Cooldown => 3;
