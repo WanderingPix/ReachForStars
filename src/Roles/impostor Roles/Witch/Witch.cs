@@ -15,8 +15,8 @@ public class WitchRole : ImpostorRole, ICustomRole
         french: "Sorcière",
         spanish: "",
         portuguese: "",
-        russian: "",
-        italian: ""
+        russian: "Ведьма",
+        italian: "Strega"
     );
     public string RoleDescription => RoleDescShort.GetTranslatedText();
     public TranslationPool RoleDescShort = new TranslationPool
