@@ -1,15 +1,43 @@
 ﻿using MiraAPI.GameOptions;
 using MiraAPI.Roles;
 using UnityEngine;
+using ReachForStars.Translation;
 
 namespace ReachForStars.Roles.Impostors.Witch;
 
 
 public class WitchRole : ImpostorRole, ICustomRole
 {
-    public string RoleName => "Witch";
-    public string RoleDescription => "Lurk in the shadows.";
+    public string RoleName => roleName.GetTranslatedText();
+    public TranslationPool roleName = new TranslationPool
+    (
+        english: "Witch",
+        french: "Sorcière",
+        spanish: "",
+        portuguese: "",
+        russian: "",
+        italian: ""
+    );
+    public string RoleDescription => RoleDescShort.GetTranslatedText();
+    public TranslationPool RoleDescShort = new TranslationPool
+    (
+        english: "Use magic against the crew.",
+        french: "Utilisez de la magie contre l'equipage.",
+        spanish: "",
+        portuguese: "",
+        russian: "",
+        italian: ""
+    );
     public string RoleLongDescription => RoleDescription;
+    public TranslationPool RoleDescLong = new TranslationPool
+    (
+        english: "Use potions to kill, roleblock, and confuse the crew",
+        french: "Utilisez des potions pour tuer, bloquer les roles des coéquipiers, et les embrouilles",
+        spanish: "",
+        portuguese: "",
+        russian: "",
+        italian: ""
+    );
     public Color RoleColor => Palette.ImpostorRed;
     public ModdedRoleTeams Team => ModdedRoleTeams.Impostor;
 
