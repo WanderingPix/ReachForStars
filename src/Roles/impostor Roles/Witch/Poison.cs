@@ -16,7 +16,7 @@ public class Poison : CustomActionButton<PlayerControl>
         french: "Empoisoner",
         spanish: "",
         portuguese: "",
-        russian: "",
+        russian: "Яд",
         italian: "Veleno"
     );
 
