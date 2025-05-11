@@ -3,11 +3,21 @@ using MiraAPI.Utilities.Assets;
 using UnityEngine;
 using MiraAPI.Utilities;
 using MiraAPI.Modifiers;
+using ReachForStars.Translation;
 
 namespace ReachForStars.Roles.Impostors.Witch;
 public class RoleBlock : CustomActionButton<PlayerControl>
 {
-    public override string Name => "Role Block";
+    public override string Name => btnName.GetTranslatedText();
+    public TranslationPool btnName = new TranslationPool
+    (
+        english: "Role Block",
+        french: "Bloquer",
+        spanish: "",
+        portuguese: "",
+        russian: "",
+        italian: ""
+    );
 
     public override float Cooldown => 5;
     public override float EffectDuration => 21;
