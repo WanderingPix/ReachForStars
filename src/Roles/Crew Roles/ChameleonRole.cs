@@ -1,6 +1,7 @@
 ﻿using MiraAPI.Roles;
 using TMPro;
 using UnityEngine;
+using ReachForStars.Translation;
 
 namespace ReachForStars.Roles.Crewmates.Chameleon;
 
@@ -8,7 +9,7 @@ namespace ReachForStars.Roles.Crewmates.Chameleon;
 public class ChameleonRole : CrewmateRole, ICustomRole
 {
     public string RoleName => "Chameleon";
-    public string RoleLongDescription => "Stay invisible while not moving.";
+    public string RoleLongDescription => "sneak around to gather info";
     public string RoleDescription => RoleLongDescription;
     public Color RoleColor => Palette.White;
     public Color OptionsMenuColor => Palette.CrewmateBlue;
