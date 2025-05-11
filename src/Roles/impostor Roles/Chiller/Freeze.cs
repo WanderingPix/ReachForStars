@@ -27,6 +27,10 @@ public class Freeze : CustomActionButton<DeadBody>
     {
         return role is FreezerRole;
     }
+    public override bool IsTargetValid(DeadBody? target)
+    {
+        return target != null;
+    }
     public override void SetOutline(bool active)
     {
         foreach (var rend in Target.bodyRenderers)
@@ -46,6 +50,6 @@ public class Freeze : CustomActionButton<DeadBody>
     protected override void OnClick()
     {
         PlayerControl.LocalPlayer.RpcFreezeBody();
-        SoundManager.Instance.PlaySound(Assets.FreezeSFX.LoadAsset(), false, 1f);
+        SoundManager.Instance.PlaySound(Assets.FreezeSFX.LoadAsset(), false, 2f);
     }
 }
