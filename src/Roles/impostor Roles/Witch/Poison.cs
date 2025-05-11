@@ -17,7 +17,7 @@ public class Poison : CustomActionButton<PlayerControl>
         spanish: "",
         portuguese: "",
         russian: "",
-        italian: ""
+        italian: "Veleno"
     );
 
     public override float Cooldown => 5;
