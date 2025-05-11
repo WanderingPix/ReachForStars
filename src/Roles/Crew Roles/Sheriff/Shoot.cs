@@ -84,12 +84,9 @@ public class Shoot : CustomActionButton<PlayerControl>
         badgeRend.sprite = Assets.SheriffIcon2.LoadAsset();
         yield return new WaitForSeconds(1f);
 
-        HudManager.Instance.StartCoroutine(Effects.ScaleIn(badge.transform, 2f, 1f, 0.7f));
-
-        badgeRend.sprite = Assets.SheriffIcon2.LoadAsset();
         HudManager.Instance.StartCoroutine(Effects.ScaleIn(badge.transform, 1.6f, 1f, 0.7f));
 
-        PlayerControl.LocalPlayer.RpcSetRole(AmongUs.GameOptions.RoleTypes.Crewmate, true);
+        PlayerControl.LocalPlayer.RpcSetRole(AmongUs.GameOptions.RoleTypes.Crewmate, true); //TODO condition here for the options thing
         yield break;
     }
 }
