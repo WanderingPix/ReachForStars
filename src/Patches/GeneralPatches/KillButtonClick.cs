@@ -18,7 +18,7 @@ namespace ReachForStars
     {
         public static void Postfix(KillButton __instance)
         {
-            if (PlayerControl.LocalPlayer.Data.Role is BountyHunterRole BH)
+            if (PlayerControl.LocalPlayer.Data.Role is BountyHunterRole BH && __instance.canInteract)
             {
                 BH.OnTargetKill();
             }

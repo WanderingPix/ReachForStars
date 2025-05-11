@@ -18,7 +18,7 @@ public class FrozenBody(IntPtr ptr) : MonoBehaviour(ptr)
     public bool isActive;
     public ImageNames UseIcon => ImageNames.UseButton;
     public float UsableDistance => 180f;
-    public float PercentCool => 1;
+    public float PercentCool => 0f;
     public BoxCollider2D myCol;
     public SpriteRenderer myRend;
     public DeadBody myBody;

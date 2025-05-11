@@ -41,6 +41,7 @@ public class AdminButton : CustomActionButton
     };
     protected override void OnClick()
     {
+        HudManager.Instance.InitMap();
         MapBehaviour.Instance.ShowCountOverlay(true, false, true);
     }
 }

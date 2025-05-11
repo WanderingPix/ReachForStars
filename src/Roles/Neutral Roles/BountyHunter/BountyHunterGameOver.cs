@@ -24,7 +24,7 @@ public class BountyHunterWin : CustomGameOver
 
     public override void AfterEndGameSetup(EndGameManager endGameManager)
     {
-        endGameManager.WinText.text += "\n<size=5.The Bounty Hunter has killed their targets!<size>";
+        endGameManager.WinText.text = "\n<size=5>The Bounty Hunter has killed their targets!<size>";
         endGameManager.WinText.color = Color.white;
         endGameManager.BackgroundBar.material.SetColor(ShaderID.Color, CustomRoleSingleton<BountyHunterRole>.Instance.RoleColor);
     }
