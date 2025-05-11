@@ -18,7 +18,8 @@ public class Freeze : CustomActionButton<DeadBody>
 
     public override int MaxUses => 1;
 
-    public int VentCount = 0;
+    public override float Distance => 2f;
+
 
     public override LoadableAsset<Sprite> Sprite => Assets.Freeze;
 
@@ -35,7 +36,7 @@ public class Freeze : CustomActionButton<DeadBody>
     }
     public override DeadBody? GetTarget()
     {
-        return PlayerControl.LocalPlayer.GetNearestDeadBody(1.5f);
+        return PlayerControl.LocalPlayer.GetNearestDeadBody(Distance);
     }
     public override bool CanClick()
     {

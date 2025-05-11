@@ -102,10 +102,8 @@ namespace ReachForStars.Networking
         [MethodRpc((uint) RPC.PlaceCamera)]
         public static void RpcPlaceCamera(this PlayerControl p, int id)
         {
-            GameObject Cam = new GameObject($"SnoopCam{id}");
-            Cam.transform.position = p.GetTruePosition();
-            Cam.transform.localScale = new Vector3(0.35f, 0.35f, 0.45f);
-            Cam.AddComponent<SnoopCamera>();
+            var Cam = Object.Instantiate<SurvCamera>(Object.FindObjectOfType<SurvCamera>());
+            Cam.CamName = $"SnoopCam{id}";
         }
     }
 }
