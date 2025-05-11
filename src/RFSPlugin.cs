@@ -16,7 +16,7 @@ using Reactor.Localization.Utilities;
 
 namespace ReachForStars;
 
-[BepInAutoPlugin("ReachForStars", "Reach For Stars", "0.0.2")]
+[BepInAutoPlugin("ReachForStars", "Reach For Stars", "0.0.4")]
 [BepInProcess("Among Us.exe")]
 [BepInDependency(ReactorPlugin.Id)]
 [BepInDependency(MiraApiPlugin.Id)]
