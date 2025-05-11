@@ -23,7 +23,7 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         french: "Chasseur De Prime",
         spanish: "",
         portuguese: "",
-        russian: "",
+        russian: "Охотник за Головами",
         italian: "Mercenario"
     );
     public string RoleDescription => "Make sure your targets are dead";
