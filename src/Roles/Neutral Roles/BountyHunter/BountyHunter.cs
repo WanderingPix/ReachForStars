@@ -6,6 +6,7 @@ using ReachForStars.Roles.Neutrals.BountyHunter;
 using ReachForStars.Utilities;
 using MiraAPI.GameEnd;
 using UnityEngine;
+using ReachForStars.Translation;
 using Random = System.Random;
 using MiraAPI.GameOptions;
 using MiraAPI.Patches.Stubs;
@@ -15,7 +16,16 @@ namespace ReachForStars.Roles.Neutrals.Roles;
 
 public class BountyHunterRole : ImpostorRole, ICustomRole
 {
-    public string RoleName => "Bounty Hunter";
+    public string RoleName => roleName.GetTranslatedText();
+    public TranslationPool roleName = new TranslationPool
+    (
+        english: "Bounty Hunter",
+        french: "Chasseur De Prime",
+        spanish: "",
+        portuguese: "",
+        russian: "",
+        italian: ""
+    );
     public string RoleDescription => "Make sure your targets are dead";
     public string RoleLongDescription => RoleDescription;
     public Color RoleColor => new Color(1f, 0.12f, 0.54f, 1f);
