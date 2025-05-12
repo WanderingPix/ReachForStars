@@ -29,7 +29,7 @@ public class Freeze : CustomActionButton<DeadBody>
     }
     public override bool IsTargetValid(DeadBody? target)
     {
-        return target != null;
+        return true;
     }
     public override void SetOutline(bool active)
     {
@@ -41,10 +41,6 @@ public class Freeze : CustomActionButton<DeadBody>
     public override DeadBody? GetTarget()
     {
         return PlayerControl.LocalPlayer.GetNearestDeadBody(Distance);
-    }
-    public override bool CanClick()
-    {
-        return Target != null;
     }
 
     protected override void OnClick()
