@@ -49,7 +49,7 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         Popup.transform.SetParent(HudManager.Instance.transform);
         foreach (var rend in Popup.gameObject.transform.GetComponentsInChildren<SpriteRenderer>())
         {
-            rend.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+            rend.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
         }
         Popup.SetCosmetics(BountyTarget.Data);
         Popup.Background.enabled = true;

@@ -16,7 +16,7 @@ namespace ReachForStars
     
     public static class OnKillButtonClick
     {
-        public static void Postfix(KillButton __instance)
+        public static void Prefix(KillButton __instance)
         {
             if (PlayerControl.LocalPlayer.Data.Role is BountyHunterRole BH && __instance.canInteract)
             {
