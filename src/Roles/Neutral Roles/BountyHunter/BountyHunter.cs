@@ -47,6 +47,10 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
 
         Popup = HudManager.Instance.MeetingPrefab.CreateButton(GenerateNewBountyTarget().Data);
         Popup.transform.SetParent(HudManager.Instance.transform);
+        foreach (var rend in Popup.gameObject.transform.GetComponentsInChildren<SpriteRenderer>())
+        {
+            rend.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+        }
         Popup.SetCosmetics(BountyTarget.Data);
         Popup.Background.enabled = true;
         Popup.SetHighlighted(true);
