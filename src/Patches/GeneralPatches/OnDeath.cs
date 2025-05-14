@@ -1,6 +1,4 @@
-﻿using ReachForStars.Addons.Flash;
-using HarmonyLib;
-using MiraAPI.Modifiers;
+﻿using HarmonyLib;
 using ReachForStars.Features.Sabotages;
 
 namespace ReachForStars
@@ -8,9 +6,10 @@ namespace ReachForStars
 [HarmonyPatch(typeof(PlayerControl), nameof(PlayerControl.Die))]
 public static class OnDeath
 {
-    public static void Prefix(this PlayerControl __instance)
+    public static void Prefix(PlayerControl __instance)
     {
-        DisableAnnoyingImpostorsSabotagingWhileDead.ToggleOffSabs();
+        
+        if (__instance == PlayerControl.LocalPlayer) DisableAnnoyingImpostorsSabotagingWhileDead.ToggleOffSabs();
     }
 }
 }

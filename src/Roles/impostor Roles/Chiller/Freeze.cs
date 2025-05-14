@@ -33,9 +33,12 @@ public class Freeze : CustomActionButton<DeadBody>
     }
     public override void SetOutline(bool active)
     {
-        foreach (var rend in Target.bodyRenderers)
+        if (Target != null)
         {
-            if (Target != null) rend.UpdateOutline(active ? Palette.ImpostorRed : null);
+            foreach (var rend in Target.bodyRenderers)
+            {
+                rend.UpdateOutline(active ? Palette.ImpostorRed : null);
+            }
         }
     }
     public override DeadBody? GetTarget()
