@@ -1,13 +1,4 @@
 ﻿using HarmonyLib;
-using MiraAPI.GameOptions;
-using UnityEngine;
-using MiraAPI.Utilities;
-using MiraAPI.Modifiers;
-using ReachForStars.Addons.Flash;
-using ReachForStars.Addons.Grandpa;
-using ReachForStars.Addons.Child;
-using MiraAPI.Hud;
-using ReachForStars.Roles.Impostors.Chiller;
 using ReachForStars.Roles.Neutrals.Roles;
 
 namespace ReachForStars
@@ -18,7 +9,7 @@ namespace ReachForStars
     {
         public static void Prefix(KillButton __instance)
         {
-            if (PlayerControl.LocalPlayer.Data.Role is BountyHunterRole BH && __instance.canInteract)
+            if (PlayerControl.LocalPlayer.Data.Role is BountyHunterRole BH && __instance.Target == BH.BountyTarget)
             {
                 BH.OnTargetKill();
             }
