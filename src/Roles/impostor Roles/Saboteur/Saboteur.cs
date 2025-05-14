@@ -8,7 +8,7 @@ using UnityEngine;
 namespace ReachForStars.Roles.Impostors.Saboteur;
 
 
-public class SaboteurRole : ImpostorGhostRole, ICustomRole
+public class SaboteurRole : ImpostorRole, ICustomRole
 {
     public string RoleName => "Saboteur";
     public string RoleDescription => "Sabotage the ship while dead.";
@@ -18,7 +18,6 @@ public class SaboteurRole : ImpostorGhostRole, ICustomRole
 
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
-        
     };
 
     public override void SpawnTaskHeader(PlayerControl playerControl)
