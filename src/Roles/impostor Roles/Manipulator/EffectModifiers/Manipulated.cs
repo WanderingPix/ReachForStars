@@ -29,9 +29,13 @@ public class ManipulatedModifier : TimedModifier
     {
         if (Player == PlayerControl.LocalPlayer)
         {
-            HudManager.Instance.shhhEmblem.PlayAnimation();
+            HudManager.Instance.shhhEmblem.AnimateText();
 
-            label = MiraAPI.Utilities.Helpers.CreateTextLabel("Kill someone or die! vewy scawy I know", HudManager.Instance.transform, pos.Alignment, pos.DistanceFromEdge, 3f);
+            CustomButtonSingleton<ManipulatedKill>.Instance.Button.Show();
+            label = MiraAPI.Utilities.Helpers.CreateTextLabel("Kill someone or die! vewy scawy I know", HudManager.Instance.transform, AspectPosition.EdgeAlignments.Center, new Vector3(0f, -1.2f, 0f), 3f);
+            label.font = HudManager.Instance.KillButton.buttonLabelText.font;
+            label.SetOutlineThickness(HudManager.Instance.KillButton.buttonLabelText.outlineWidth);
+            label.SetOutlineColor(HudManager.Instance.KillButton.buttonLabelText.outlineColor);
             Coroutines.Start(DoCountdown(label, Duration));
         }
     }

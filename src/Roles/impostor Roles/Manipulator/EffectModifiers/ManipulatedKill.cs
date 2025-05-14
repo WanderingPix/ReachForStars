@@ -34,7 +34,7 @@ public class ManipulatedKill : CustomActionButton<PlayerControl>
 
     public override bool Enabled(RoleBehaviour? role)
     {
-        return role is ManipulatorRole;
+        return PlayerControl.LocalPlayer.HasModifier<ManipulatedModifier>();
     }
 
     public override PlayerControl? GetTarget()
@@ -55,7 +55,7 @@ public class ManipulatedKill : CustomActionButton<PlayerControl>
     protected override void OnClick()
     {
         PlayerControl.LocalPlayer.RpcCustomMurder(Target);
-        PlayerControl.LocalPlayer.GetModifier<ManipulatedModifier>().OnTimerComplete();
+        PlayerControl.LocalPlayer.RpcRemoveModifier<ManipulatedModifier>();
     }
 
     
