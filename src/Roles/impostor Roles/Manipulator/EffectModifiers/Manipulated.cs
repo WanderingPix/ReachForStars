@@ -30,6 +30,7 @@ public class ManipulatedModifier : TimedModifier
         if (Player == PlayerControl.LocalPlayer)
         {
             HudManager.Instance.shhhEmblem.PlayAnimation();
+            HudManager.Instance.shhhEmblem.GetComponentInChildren<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
 
             CustomButtonSingleton<ManipulatedKill>.Instance.Button.Show();
             label = MiraAPI.Utilities.Helpers.CreateTextLabel("Kill someone or die! vewy scawy I know", HudManager.Instance.transform, AspectPosition.EdgeAlignments.Center, new Vector3(0f, -1.2f, 0f), 3f);

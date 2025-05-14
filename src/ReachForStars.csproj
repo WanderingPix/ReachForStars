@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\**\*.png" />
+    <EmbeddedResource Include="Resources\**\*.wav" />
   </ItemGroup>
   
 </Project>
