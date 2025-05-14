@@ -56,7 +56,5 @@ public class ManipulatedKill : CustomActionButton<PlayerControl>
     {
         PlayerControl.LocalPlayer.RpcCustomMurder(Target);
         PlayerControl.LocalPlayer.RpcRemoveModifier<ManipulatedModifier>();
-    }
-
-    
+    } 
 }
