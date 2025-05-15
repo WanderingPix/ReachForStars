@@ -3,9 +3,6 @@ using MiraAPI.Utilities.Assets;
 using ReachForStars.Networking;
 using UnityEngine;
 using MiraAPI.Utilities;
-using MiraAPI.Networking;
-using System.Linq;
-using MiraAPI.PluginLoading;
 
 namespace ReachForStars.Roles.Neutrals.CursedSoul;
 public class PossessButton : CustomActionButton<DeadBody>
@@ -26,31 +23,31 @@ public class PossessButton : CustomActionButton<DeadBody>
         return role is CursedSoulRole && PlayerControl.LocalPlayer.Data.IsDead;
     }
 
-    public override DeadBody? GetTarget()
-    {
-        return PlayerControl.LocalPlayer.GetNearestDeadBody(Distance);
-    }
-
-    public override bool IsTargetValid(DeadBody? target)
-    {
-        return true;
-    }
-
     public override void SetOutline(bool active)
     {
         if (Target != null)
         {
             foreach (var rend in Target.bodyRenderers)
             {
-                rend.UpdateOutline(active ? Color.gray : null);
+                rend.UpdateOutline(active ? Palette.ImpostorRed : null);
             }
         }
     }
+    public override DeadBody? GetTarget()
+    {
+        return PlayerControl.LocalPlayer.GetNearestDeadBody(Distance);
+    }
+    public override bool IsTargetValid(DeadBody target)
+    {
+        return true;
+    }
+
 
 
     protected override void OnClick()
     {
         PlayerControl.LocalPlayer.RpcReviveFromBody(true, Target.ParentId);
+        HudManager.Instance.KillButton.Show();
         Button.Hide();
     }
 }

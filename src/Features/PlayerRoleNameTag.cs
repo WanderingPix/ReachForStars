@@ -6,7 +6,7 @@ using MiraAPI.Roles;
 using ReachForStars.Utilities;
 using TMPro;
 
-namespace ReachForStars
+namespace ReachForStars.Features
 {
     public class RoleNameTag
     {

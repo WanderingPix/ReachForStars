@@ -2,9 +2,7 @@
 using UnityEngine;
 using MiraAPI.GameEnd;
 using MiraAPI.GameOptions;
-using ReachForStars.MiscSettings;
 using MiraAPI.Patches.Stubs;
-using MiraAPI.Modifiers;
 using ReachForStars.Translation;
 
 namespace ReachForStars.Roles.Neutrals.Jester;
@@ -47,7 +45,7 @@ public class JesterRole : ImpostorRole, ICustomRole
     {
         UseVanillaKillButton = false,
         CanGetKilled = true,
-        CanUseVent = OptionGroupSingleton<JesterOptions>.Instance.CanVent,
+        CanUseVent = true,
         CanUseSabotage = false,
     };
     public TranslationPool EjectMessage = new TranslationPool

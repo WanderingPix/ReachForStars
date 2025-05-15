@@ -69,7 +69,7 @@ namespace ReachForStars.Roles.Crewmates.Sheriff
                         break;
                     case MisfireResults.Suicide:
                         PlayerControl.LocalPlayer.RpcCustomMurder(PlayerControl.LocalPlayer, true, true, true, false, false);
-                        PlayerControl.LocalPlayer.RpcCustomMurder(Target, true, true, true, false, false)
+                        PlayerControl.LocalPlayer.RpcCustomMurder(Target, true, true, true, false, false);
                         break;
                     case MisfireResults.None:
                         break;

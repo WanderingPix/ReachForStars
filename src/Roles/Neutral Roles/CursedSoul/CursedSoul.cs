@@ -1,15 +1,7 @@
 ﻿using MiraAPI.Roles;
 using UnityEngine;
-using MiraAPI.GameEnd;
-using MiraAPI.GameOptions;
-using ReachForStars.MiscSettings;
-using ReachForStars.Networking;
-using MiraAPI.Networking;
 using MiraAPI.Patches.Stubs;
 using MiraAPI.Hud;
-using System;
-using Reactor.Localization.Utilities;
-using MiraAPI.PluginLoading;
 
 namespace ReachForStars.Roles.Neutrals.CursedSoul;
 public class CursedSoulRole : ImpostorRole, ICustomRole
@@ -24,7 +16,7 @@ public class CursedSoulRole : ImpostorRole, ICustomRole
     {
         UseVanillaKillButton = true,
         CanGetKilled = true,
-        CanUseVent = !OptionGroupSingleton<MiscOptions>.Instance.NoVents,
+        CanUseVent = false,
     };
     
 
@@ -35,14 +27,14 @@ public class CursedSoulRole : ImpostorRole, ICustomRole
 
     public override bool DidWin(GameOverReason gameOverReason)
     {
-        return true;
+        return false; //TODO: win cons
     }
     public override void Initialize(PlayerControl player)
     {
         RoleBehaviourStubs.Initialize(this, player);
 
-        player.Die(DeathReason.Kill, false);
-
         CustomButtonSingleton<PossessButton>.Instance.Button.Show();
+
+        player.MurderPlayer(player, MurderResultFlags.Succeeded);
     }
 }

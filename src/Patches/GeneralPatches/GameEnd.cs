@@ -1,13 +1,6 @@
-using System;
 using HarmonyLib;
-using UnityEngine;
 using MiraAPI.Utilities;
 using MiraAPI.Roles;
-using ReachForStars.Utilities;
-using ReachForStars.MiscSettings;
-using ReachForStars.Roles;
-using MiraAPI.Networking;
-using Reactor.Utilities.Extensions;
 using MiraAPI.GameOptions;
 using ReachForStars.GameEndSettings;
 using System.Linq;
