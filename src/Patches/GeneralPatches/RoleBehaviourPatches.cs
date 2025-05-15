@@ -4,7 +4,7 @@ using ReachForStars.Features;
 namespace ReachForStars
 {
     [HarmonyPatch(typeof(RoleBehaviour))]
-    public class OnShipStatusStart
+    public class RoleBehaviourPatches
     {
         [HarmonyPatch(typeof(RoleBehaviour), nameof(RoleBehaviour.Initialize))]
         [HarmonyPostfix]
