@@ -45,7 +45,8 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         RoleBehaviourStubs.Initialize(this, player);
         HudManager.Instance.KillButton.Show();
 
-        Popup = HudManager.Instance.MeetingPrefab.CreateButton(GenerateNewBountyTarget().Data);
+        GenerateNewBountyTarget();
+        Popup = HudManager.Instance.MeetingPrefab.CreateButton(BountyTarget.Data);
         Popup.transform.SetParent(HudManager.Instance.transform);
         foreach (var rend in Popup.gameObject.transform.GetComponentsInChildren<SpriteRenderer>())
         {
@@ -81,19 +82,18 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
     
     PlayerVoteArea Popup;
     public PlayerControl BountyTarget;
-    private PlayerControl GenerateNewBountyTarget()
+    private void GenerateNewBountyTarget()
     {
         Random rnd = new Random();
         List<PlayerControl> Playerpool = Helpers.GetAlivePlayers().Where(x => x.Data.PlayerId != PlayerControl.LocalPlayer.Data.PlayerId).ToList();
         int index = rnd.Next(Playerpool.Count);
         BountyTarget = Playerpool[index];
-
-        return BountyTarget;
     }
 
     public override void OnVotingComplete()
     {
-        Popup.SetCosmetics(GenerateNewBountyTarget().Data);
+        GenerateNewBountyTarget();
+        Popup.SetCosmetics(BountyTarget.Data);
         Popup.SetHighlighted(true);
         Popup.MaskArea.DestroyImmediate();
         HudManager.Instance.StartCoroutine(Effects.ScaleIn(Popup.gameObject.transform, 0f, 1f, 0.7f));

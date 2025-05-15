@@ -8,11 +8,6 @@ using Reactor.Utilities;
 using Reactor.Networking;
 using Reactor.Networking.Attributes;
 using MiraAPI;
-using Il2CppInterop.Runtime.Injection;
-using Reactor.Utilities;
-using ReachForStars.Roles.Impostors.Chiller;
-using AmongUs.GameOptions;
-using Reactor.Localization.Utilities;
 
 namespace ReachForStars;
 

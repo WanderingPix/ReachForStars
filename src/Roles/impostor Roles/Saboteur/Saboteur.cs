@@ -8,7 +8,7 @@ using UnityEngine;
 namespace ReachForStars.Roles.Impostors.Saboteur;
 
 
-public class SaboteurRole : ImpostorGhostRole, ICustomRole
+public class SaboteurRole : ImpostorRole, ICustomRole
 {
     public string RoleName => "Saboteur";
     public string RoleDescription => "Sabotage the ship while dead.";
@@ -18,7 +18,6 @@ public class SaboteurRole : ImpostorGhostRole, ICustomRole
 
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
-        RoleHintType = RoleHintType.TaskHint
     };
 
     public override void SpawnTaskHeader(PlayerControl playerControl)
@@ -30,6 +29,7 @@ public class SaboteurRole : ImpostorGhostRole, ICustomRole
     {
         RoleBehaviourStubs.Initialize(this, playerControl);
         HudManager.Instance.SabotageButton.Show();
+        if (Player.Data.IsDead == false) Player.Die(DeathReason.Kill, false);
     }
 
     public override bool DidWin(GameOverReason gameOverReason)

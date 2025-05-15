@@ -50,7 +50,7 @@ public class ManipulatedModifier : TimedModifier
         HudManager.Instance.StartCoroutine(Effects.ShakeForever(tmp.transform, 0.02f));
         while (currentCD > 0)
         {
-            tmp.text = $"Kill someone or die! vewy scawy I know \n\n<size=7>{currentCD}";
+            tmp.text = $"Kill someone or die! vewy scawy I know \n\n\n{currentCD}";
             yield return new WaitForSeconds(1f);
             currentCD--;
         }
