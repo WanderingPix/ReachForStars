@@ -8,8 +8,7 @@ using System.Linq;
 using MiraAPI.PluginLoading;
 
 namespace ReachForStars.Roles.Neutrals.CursedSoul;
-[MiraIgnore]
-public class posess : CustomActionButton<DeadBody>
+public class PossessButton : CustomActionButton<DeadBody>
 {
     public override string Name => "Possess";
 
@@ -32,23 +31,26 @@ public class posess : CustomActionButton<DeadBody>
         return PlayerControl.LocalPlayer.GetNearestDeadBody(Distance);
     }
 
-    public override void SetOutline(bool active)
-    {
-    }
-
     public override bool IsTargetValid(DeadBody? target)
     {
         return true;
     }
-    protected override void OnClick()
+
+    public override void SetOutline(bool active)
     {
-        PlayerControl.LocalPlayer.Revive();
-        foreach (var p in PlayerControl.AllPlayerControls)
+        if (Target != null)
         {
-            if (p.Data.PlayerId == Target.ParentId)
+            foreach (var rend in Target.bodyRenderers)
             {
-                PlayerControl.LocalPlayer.RpcShapeshift(p, false);
+                rend.UpdateOutline(active ? Color.gray : null);
             }
         }
+    }
+
+
+    protected override void OnClick()
+    {
+        PlayerControl.LocalPlayer.RpcReviveFromBody(true, Target.ParentId);
+        Button.Hide();
     }
 }

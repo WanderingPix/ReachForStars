@@ -12,13 +12,12 @@ using Reactor.Localization.Utilities;
 using MiraAPI.PluginLoading;
 
 namespace ReachForStars.Roles.Neutrals.CursedSoul;
-[MiraIgnore]
 public class CursedSoulRole : ImpostorRole, ICustomRole
 {
     public string RoleName => "Cursed Soul";
     public string RoleDescription => "Win the game as a new body";
     public string RoleLongDescription => RoleDescription;
-    public Color RoleColor => new Color(0.7f, 0.7f, 0.7f, 1f);
+    public Color RoleColor => Color.gray;
     public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
 
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
@@ -41,9 +40,9 @@ public class CursedSoulRole : ImpostorRole, ICustomRole
     public override void Initialize(PlayerControl player)
     {
         RoleBehaviourStubs.Initialize(this, player);
-        
-        player.RpcCustomMurder(player, true, false, false, false, false, false);
-        CustomButtonSingleton<posess>.Instance.Button.ToggleVisible(true);
-        player.Die(DeathReason.Disconnect, false);
+
+        player.Die(DeathReason.Kill, false);
+
+        CustomButtonSingleton<PossessButton>.Instance.Button.Show();
     }
 }

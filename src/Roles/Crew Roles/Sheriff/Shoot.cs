@@ -11,6 +11,7 @@ using ReachForStars.Translation;
 using MiraAPI.Roles;
 using Rewired;
 using AmongUs.GameOptions;
+using Hazel;
 
 namespace ReachForStars.Roles.Crewmates.Sheriff
 {
@@ -29,7 +30,7 @@ namespace ReachForStars.Roles.Crewmates.Sheriff
         public override float Cooldown => 25;
         public override float EffectDuration => 0;
 
-        public override int MaxUses => 1;
+        public override int MaxUses => (int)OptionGroupSingleton<SheriffOptions>.Instance.BulletCount;
 
         public override LoadableAsset<Sprite> Sprite => Assets.Shoot;
 
@@ -67,7 +68,8 @@ namespace ReachForStars.Roles.Crewmates.Sheriff
                         PlayerControl.LocalPlayer.RpcSetRole(RoleTypes.Crewmate, true);
                         break;
                     case MisfireResults.Suicide:
-                        PlayerControl.LocalPlayer.Die(DeathReason.Kill, false);
+                        PlayerControl.LocalPlayer.RpcCustomMurder(PlayerControl.LocalPlayer, true, true, true, false, false);
+                        PlayerControl.LocalPlayer.RpcCustomMurder(Target, true, true, true, false, false)
                         break;
                     case MisfireResults.None:
                         break;
