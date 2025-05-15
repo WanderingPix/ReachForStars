@@ -46,11 +46,12 @@ namespace ReachForStars.Networking
         public static void RpcPlaceVent(this PlayerControl p)
         {
             int count = Object.FindObjectsByType<Vent>(FindObjectsSortMode.None).ToList().Count();
-            Vent vent = Object.Instantiate<Vent>(Object.FindObjectOfType<Vent>(true));
+            Vent prefab = Object.FindObjectOfType<Vent>(true);
+            Vent vent = Object.Instantiate<Vent>(prefab);
             vent.transform.parent = ShipStatus.Instance.transform;
             vent.name = $"MoleVent{count.ToString()}";
             vent.Id = ShipStatus.Instance.AllVents.Count + count;
-            vent.transform.position = p.GetTruePosition();
+            vent.transform.position = new Vector3(p.GetTruePosition().x, p.GetTruePosition().y, prefab.transform.position.z);
             vent.Id = ShipStatus.Instance.AllVents.Count + count;
             vent.Right = null;
             if (count > 1)
@@ -141,6 +142,7 @@ namespace ReachForStars.Networking
             p.MyPhysics.enabled = true;
             p.Revive();
             p.Shapeshift(target, false);
+            p.cosmetics = target.cosmetics;
 
             body.gameObject.DestroyImmediate();
             yield break;

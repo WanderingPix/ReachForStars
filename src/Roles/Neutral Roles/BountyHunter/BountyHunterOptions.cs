@@ -15,7 +15,6 @@ namespace ReachForStars.Roles.Neutrals.BountyHunter
     public class BountyHunterOptions : AbstractOptionGroup<BountyHunterRole>
     {
         public override string GroupName => "Bounty Hunter Options";
-        public override Color GroupColor => CustomRoleSingleton<BountyHunterRole>.Instance.RoleColor;
 
         [ModdedNumberOption("Required Assassinations Count", 3f, 6f, 1f, MiraAPI.Utilities.MiraNumberSuffixes.None)]
         public float SuccessfulKillsQuota { get; set; } = 3f;

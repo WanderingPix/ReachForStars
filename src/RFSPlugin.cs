@@ -8,6 +8,7 @@ using Reactor.Utilities;
 using Reactor.Networking;
 using Reactor.Networking.Attributes;
 using MiraAPI;
+using Il2CppInterop.Runtime.Injection;
 
 namespace ReachForStars;
 
@@ -24,7 +25,7 @@ public partial class ReachForStars : BasePlugin, IMiraPlugin
     public override void Load()
     {
         Harmony.PatchAll();
-        //ClassInjector.RegisterTypeInIl2Cpp<FrozenBody>();
+        ClassInjector.RegisterTypeInIl2Cpp<ExtendedPlayerControl>();
         ReactorCredits.Register<ReachForStars>(ReactorCredits.AlwaysShow);
     }
 }

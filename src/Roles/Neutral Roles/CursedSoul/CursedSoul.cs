@@ -34,14 +34,17 @@ public class CursedSoulRole : ImpostorRole, ICustomRole
     {
         return false; //TODO: win cons
     }
+    CosmeticsLayer prevCosmetics;
     public override void Initialize(PlayerControl player)
     {
         RoleBehaviourStubs.Initialize(this, player);
 
         CustomButtonSingleton<PossessButton>.Instance.Button.Show();
 
-        player.Die(DeathReason.Kill, false);
+        prevCosmetics = player.cosmetics;
 
         player.Visible = true;
+
+        player.Die(DeathReason.Exile, false);
     }
 }
