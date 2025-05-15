@@ -50,7 +50,7 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
 
         //UI Holder stuff
         BountyUIHolder = new GameObject("BountyUIHolder");
-        BountyUIHolder.transform.SetParent(HudManager.Instance.transform);
+        BountyUIHolder.transform.SetParent(HudManager.Instance.gameObject.transform);
         AspectPosition pos = BountyUIHolder.gameObject.AddComponent<AspectPosition>();
         pos.Alignment = AspectPosition.EdgeAlignments.Top;
         pos.DistanceFromEdge = new Vector3(0f, 1f, 0f);
@@ -66,11 +66,11 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         Popup.XMark.gameObject.SetActive(false);
         Popup.Overlay.gameObject.SetActive(false);
         Popup.SetHighlighted(true);
-        Popup.transform.localPosition = new Vector3(0f, 1.5f, 0f);
+        Popup.transform.localPosition = new Vector3(0f, 0f, 0f);
 
         //BountyText stuff
         BountyText = Object.Instantiate<TextMeshPro>(HudManager.Instance.UseButton.buttonLabelText, BountyUIHolder.transform);
-        BountyText.gameObject.transform.localPosition = new Vector3(0f, 0f, 0f);
+        BountyText.gameObject.transform.localPosition = new Vector3(0f, -0.5f, 0f);
 
         GenerateNewBountyTarget();
     }
