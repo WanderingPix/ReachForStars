@@ -1,6 +1,10 @@
 using AmongUs.GameOptions;
 using HarmonyLib;
+using MiraAPI.Hud;
+using MiraAPI.Modifiers;
 using ReachForStars.Features;
+using ReachForStars.Roles.Impostors.Manipulator;
+using ReachForStars.Roles.Neutrals.Roles;
 
 namespace ReachForStars
 {
@@ -25,6 +29,19 @@ namespace ReachForStars
         {
             target.GetExtendedPlayerControl().Killer = __instance;
             target.GetExtendedPlayerControl().deathReason = DeathReason.Kill;
+
+            if (PlayerControl.LocalPlayer.Data.Role is BountyHunterRole BH && __instance == PlayerControl.LocalPlayer && target == BH.BountyTarget)
+            {
+                BH.OnTargetKill();
+            }
+
+
+            if (PlayerControl.LocalPlayer.Data.Role is ManipulatorRole Manip && __instance == CustomButtonSingleton<Manipulate>.Instance.CurrentlyManipulatedPlayer)
+            {
+                Manipulate manipulatebtn = CustomButtonSingleton<Manipulate>.Instance;
+                PlayerControl.LocalPlayer.RpcRemoveModifier<ManipulatedModifier>();
+                manipulatebtn.overlay.ShowKillAnimation(PlayerControl.LocalPlayer.Data, manipulatebtn.CurrentlyManipulatedPlayer.Data);
+            }
         }
     }
 }
