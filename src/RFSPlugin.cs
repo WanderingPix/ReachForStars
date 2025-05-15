@@ -12,7 +12,7 @@ using Il2CppInterop.Runtime.Injection;
 
 namespace ReachForStars;
 
-[BepInAutoPlugin("ReachForStars", "Reach For Stars", "0.0.4")]
+[BepInAutoPlugin("ReachForStars", "Reach For Stars Beta", "0.1")]
 [BepInProcess("Among Us.exe")]
 [BepInDependency(ReactorPlugin.Id)]
 [BepInDependency(MiraApiPlugin.Id)]

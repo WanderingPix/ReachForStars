@@ -50,30 +50,28 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
 
         //UI Holder stuff
         BountyUIHolder = new GameObject("BountyUIHolder");
+        BountyUIHolder.transform.SetParent(HudManager.Instance.transform);
         AspectPosition pos = BountyUIHolder.gameObject.AddComponent<AspectPosition>();
         pos.Alignment = AspectPosition.EdgeAlignments.Top;
         pos.DistanceFromEdge = new Vector3(0f, 1f, 0f);
         pos.AdjustPosition();
 
         //PlayerVoteArea stuff
-        Popup = HudManager.Instance.MeetingPrefab.CreateButton(Player.Data);
-        Popup.transform.SetParent(HudManager.Instance.transform);
+        Popup = HudManager.Instance.MeetingPrefab.CreateButton(player.Data);
+        Popup.transform.SetParent(BountyUIHolder.transform);
         foreach (var rend in Popup.gameObject.transform.GetComponentsInChildren<SpriteRenderer>())
         {
             rend.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
         }
         Popup.XMark.gameObject.SetActive(false);
-        Popup.PlayerIcon.GetComponent<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
         Popup.Overlay.gameObject.SetActive(false);
         Popup.SetHighlighted(true);
-        Popup.transform.SetParent(BountyUIHolder.transform);
         Popup.transform.localPosition = new Vector3(0f, 1.5f, 0f);
 
         //BountyText stuff
-        BountyText = Object.Instantiate<TextMeshPro>(HudManager.Instance.KillButton.buttonLabelText, BountyUIHolder.transform);
+        BountyText = Object.Instantiate<TextMeshPro>(HudManager.Instance.UseButton.buttonLabelText, BountyUIHolder.transform);
         BountyText.gameObject.transform.localPosition = new Vector3(0f, 0f, 0f);
-        BountyText.text = "Current Target: P";
-        
+
         GenerateNewBountyTarget();
     }
     public override void Deinitialize(PlayerControl targetPlayer)
