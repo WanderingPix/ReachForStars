@@ -6,13 +6,9 @@ using MiraAPI.Utilities;
 using ReachForStars.Utilities;
 using System.Linq;
 using Reactor.Utilities.Extensions;
-using ReachForStars.Roles.Impostors.Mole;
-using AmongUs.GameOptions;
-using MiraAPI.Hud;
 using ReachForStars.Roles.Impostors.Chiller;
 using System.Collections.Generic;
-using ReachForStars.Roles.Crewmates.Snoop;
-using Rewired;
+using Object = UnityEngine.Object;
 
 namespace ReachForStars.Networking
 {
@@ -50,7 +46,7 @@ namespace ReachForStars.Networking
         public static System.Collections.IEnumerator DoDigAnim(PlayerControl p)
         {
             RoleEffectAnimation roleEffectAnimation = Object.Instantiate<RoleEffectAnimation>(DestroyableSingleton<RoleManager>.Instance.appear_PoofAnim, p.transform);
-            roleEffectAnimation.Play(p, null, false, RoleEffectAnimation.SoundType.Global, 5f);
+            roleEffectAnimation.Play(p, null, false, RoleEffectAnimation.SoundType.Local, 5f);
 
             yield return new WaitForSeconds(5f);
 
@@ -81,32 +77,6 @@ namespace ReachForStars.Networking
         {
             player.Resize(new Vector3(x, y, z));
         }
-        /*[MethodRpc((uint)RPC.Revive)]
-        public static void RpcRevivey(this PlayerControl player, bool ShouldAnimate, byte bodyId)
-        {
-            DeadBody body = Object.FindObjectsOfType<DeadBody>().FirstOrDefault(x => x.ParentId == bodyId);
-            if (!ShouldAnimate)
-            {
-                player.Revive();
-                player.transform.position = body.TruePosition;
-            }
-            else if (ShouldAnimate) Coroutines.Start(DoReviveAnim(player, body));
-        }
-        public static System.Collections.IEnumerator DoReviveAnim(PlayerControl p, Vector3 body)
-        {
-            p.MyPhysics.enabled = false;
-            p.StartCoroutine(Effects.Slide2D(p.transform, p.transform.position, body.TruePosition, 0.8f));
-
-            yield return new WaitForSeconds(1f);
-
-            p.MyPhysics.enabled = true;
-            p.Revive();
-            p.Shapeshift(PlayerControl.AllPlayerControls.ToArray().ToList().FirstOrDefault(x => x.Data.PlayerId == body.ParentId), false);
-
-            body.DestroyImmediate();
-
-            yield break;
-        }*/
         [MethodRpc((uint)RPC.FreezeBody)]
         public static void RpcFreezeBody(this PlayerControl player)
         {

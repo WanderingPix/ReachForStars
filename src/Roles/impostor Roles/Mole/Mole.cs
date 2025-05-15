@@ -12,7 +12,7 @@ public class MoleRole : ImpostorRole, ICustomRole
     public string RoleName => rolename.GetTranslatedText();
     public TranslationPool rolename = new TranslationPool(
     english: "Mole",
-    spanish: "Lunar",
+    spanish: "Topo",
     portuguese: "Verruga",
     french: "Taupe", 
     italian: "Talpa"
