@@ -1,3 +1,4 @@
+using AmongUs.GameOptions;
 using HarmonyLib;
 using ReachForStars.Features;
 
@@ -14,7 +15,7 @@ namespace ReachForStars
         }
         [HarmonyPatch(typeof(PlayerControl), nameof(PlayerControl.CoSetRole))]
         [HarmonyPostfix]
-        public static void PostfixCoSetRole(PlayerControl __instance, ref RoleBehaviour role)
+        public static void PostfixCoSetRole(PlayerControl __instance, ref RoleTypes role)
         {
             __instance.GetExtendedPlayerControl().RoleHistory.Add(role);
         }

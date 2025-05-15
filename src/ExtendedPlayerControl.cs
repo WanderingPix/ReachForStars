@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using AmongUs.GameOptions;
 using Reactor.Utilities.Attributes;
 using UnityEngine;
 
@@ -9,7 +10,7 @@ namespace ReachForStars
         public PlayerControl parent;
         public DeathReason deathReason;
         public PlayerControl Killer;
-        public List<RoleBehaviour> RoleHistory;
+        public List<RoleTypes> RoleHistory;
         
     }
 }
