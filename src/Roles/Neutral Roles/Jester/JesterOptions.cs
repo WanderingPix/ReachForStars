@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MiraAPI.GameOptions;
+using MiraAPI.GameOptions.Attributes;
 using MiraAPI.GameOptions.OptionTypes;
 
 namespace ReachForStars.Roles.Neutrals.Jester
@@ -10,8 +11,13 @@ namespace ReachForStars.Roles.Neutrals.Jester
     public class JesterOptions : AbstractOptionGroup<JesterRole>
     {
         public override string GroupName => "Jester Options";
-        public ModdedToggleOption CanVent = new ModdedToggleOption("Jester Can Vent", true);
-        public ModdedToggleOption CanCallMeeting = new ModdedToggleOption("Jester Can Call Meetings", false);
-        public ModdedToggleOption CanReportBodies = new ModdedToggleOption("Jester Can Report Dead Bodies", false);
+        [ModdedToggleOption("Jester Can Vent")]
+        public bool CanVent { get; set; } = true;
+
+        [ModdedToggleOption("Jester Can Call Meeting")]
+        public bool CanCallMeeting { get; set; } = true;
+
+        [ModdedToggleOption("Jester Can Report Bodies")]
+        public bool CanReportBodies { get; set; } = true;
     }
 }

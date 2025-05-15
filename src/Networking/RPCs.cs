@@ -21,6 +21,6 @@ namespace ReachForStars.Networking
         // For unfreezing dead bodies
         DamageFrozenBody,
         // for placing cameras as snoop
-        PlaceCamera,
+        Possess
     }
 }

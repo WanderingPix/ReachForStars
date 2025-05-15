@@ -5,6 +5,7 @@ using MiraAPI.Hud;
 using Reactor.Localization.Utilities;
 using MiraAPI.Utilities;
 using MiraAPI.GameEnd;
+using MiraAPI.Networking;
 
 namespace ReachForStars.Roles.Neutrals.CursedSoul;
 public class CursedSoulRole : ImpostorRole, ICustomRole
@@ -33,19 +34,14 @@ public class CursedSoulRole : ImpostorRole, ICustomRole
     {
         return false; //TODO: win cons
     }
-    public void FixedUpdate()
-    {
-        if (!Player.Data.IsDead && Helpers.GetAlivePlayers().Count < 3)
-        {
-            CustomGameOver.Trigger<CUrsedSoulWin>([Player.Data]);
-        }
-    }
     public override void Initialize(PlayerControl player)
     {
         RoleBehaviourStubs.Initialize(this, player);
 
         CustomButtonSingleton<PossessButton>.Instance.Button.Show();
 
-        player.MurderPlayer(player, MurderResultFlags.Succeeded);
+        player.Die(DeathReason.Kill, false);
+
+        player.Visible = true;
     }
 }

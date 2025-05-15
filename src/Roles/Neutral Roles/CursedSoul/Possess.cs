@@ -46,7 +46,7 @@ public class PossessButton : CustomActionButton<DeadBody>
 
     protected override void OnClick()
     {
-        PlayerControl.LocalPlayer.RpcReviveFromBody(true, Target.ParentId);
+        PlayerControl.LocalPlayer.RpcPossess(Target.ParentId);
         HudManager.Instance.KillButton.Show();
         Button.Hide();
     }

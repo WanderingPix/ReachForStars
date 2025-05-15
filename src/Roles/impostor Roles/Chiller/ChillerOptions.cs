@@ -1,4 +1,5 @@
 using MiraAPI.GameOptions;
+using MiraAPI.GameOptions.Attributes;
 using MiraAPI.GameOptions.OptionTypes;
 
 namespace ReachForStars.Roles.Impostors.Chiller
@@ -6,6 +7,7 @@ namespace ReachForStars.Roles.Impostors.Chiller
     public class ChillerOptions : AbstractOptionGroup<FreezerRole>
     {
         public override string GroupName => "Chiller Options";
-        public ModdedToggleOption CanVent = new ModdedToggleOption("Chiller Can Vent", true);
+        [ModdedToggleOption("Chiller Can Vent")]
+        public bool CanVent { get; set; } = true;
     }
 }

@@ -21,7 +21,7 @@ public class Poison : CustomActionButton<PlayerControl>
     );
 
     public override float Cooldown => 5;
-    public override float EffectDuration => OptionGroupSingleton<WitchOptions>.Instance.PoisonDelay.Value;
+    public override float EffectDuration => OptionGroupSingleton<WitchOptions>.Instance.PoisonDelay;
 
     public override ButtonLocation Location => ButtonLocation.BottomLeft;
 

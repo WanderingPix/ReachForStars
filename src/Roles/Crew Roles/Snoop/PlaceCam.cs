@@ -37,6 +37,6 @@ public class PlaceCameras : CustomActionButton
     }
     protected override void OnClick()
     {
-        PlayerControl.LocalPlayer.RpcPlaceCamera(1);
+        //PlayerControl.LocalPlayer.RpcPlaceCamera(1);
     }
 }

@@ -10,7 +10,7 @@ public class PoisonedModifier : TimedModifier
 {
     public override string ModifierName => "Poisoned";
 
-    public override float Duration => OptionGroupSingleton<WitchOptions>.Instance.PoisonDelay.Value;
+    public override float Duration => OptionGroupSingleton<WitchOptions>.Instance.PoisonDelay;
 
     public override void OnMeetingStart()
     {
