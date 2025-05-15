@@ -45,7 +45,16 @@ namespace ReachForStars.Networking
         [MethodRpc((uint)RPC.PlaceDaVent)]
         public static void RpcPlaceVent(this PlayerControl p)
         {
-            int count = Object.FindObjectsByType<Vent>(FindObjectsSortMode.None).ToList().Count();
+            Coroutines.Start(DoDigAnim(p));
+        }
+        public static System.Collections.IEnumerator DoDigAnim(PlayerControl p)
+        {
+            RoleEffectAnimation roleEffectAnimation = Object.Instantiate<RoleEffectAnimation>(DestroyableSingleton<RoleManager>.Instance.appear_PoofAnim, p.transform);
+            roleEffectAnimation.Play(p, null, false, RoleEffectAnimation.SoundType.Global, 5f);
+
+            yield return new WaitForSeconds(5f);
+
+            int count = ShipStatus.Instance.AllVents.Count();
             Vent prefab = Object.FindObjectOfType<Vent>(true);
             Vent vent = Object.Instantiate<Vent>(prefab);
             vent.transform.parent = ShipStatus.Instance.transform;
@@ -59,10 +68,13 @@ namespace ReachForStars.Networking
                 vent.Right = Helpers.GetVentById(count - 1);
             }
 
-            //TODO: smoke cloud
-
             vent.StartCoroutine(Effects.Bounce(vent.transform, 1f));
             vent.StartCoroutine(Effects.ColorFade(vent.myRend, Palette.Black, Palette.White, 1.4f));
+
+            List<Vent> newVentList = ShipStatus.Instance.AllVents.ToList();
+            newVentList.Add(vent);
+            ShipStatus.Instance.AllVents = newVentList.ToArray();
+            yield break;
         }
         [MethodRpc((uint)RPC.ResizePlayer)]
         public static void RpcResize(this PlayerControl player, float x, float y, float z)
@@ -142,7 +154,6 @@ namespace ReachForStars.Networking
             p.MyPhysics.enabled = true;
             p.Revive();
             p.Shapeshift(target, false);
-            p.cosmetics = target.cosmetics;
 
             body.gameObject.DestroyImmediate();
             yield break;

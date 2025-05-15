@@ -17,12 +17,12 @@ namespace ReachForStars
         {
             __instance.gameObject.AddComponent<ExtendedPlayerControl>().parent = __instance;
         }
-        [HarmonyPatch(typeof(PlayerControl), nameof(PlayerControl.CoSetRole))]
+        /*[HarmonyPatch(typeof(PlayerControl), nameof(PlayerControl.CoSetRole))]
         [HarmonyPostfix]
         public static void PostfixCoSetRole(PlayerControl __instance, ref RoleTypes role)
         {
             __instance.GetExtendedPlayerControl().RoleHistory.Add(role);
-        }
+        }*/
         [HarmonyPatch(typeof(PlayerControl), nameof(PlayerControl.MurderPlayer))]
         [HarmonyPostfix]
         public static void PostfixMurderPlayer(PlayerControl __instance, ref PlayerControl target)

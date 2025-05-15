@@ -1,5 +1,6 @@
 using HarmonyLib;
 using ReachForStars.Features;
+using ReachForStars.Roles.Neutrals.CursedSoul;
 
 namespace ReachForStars
 {

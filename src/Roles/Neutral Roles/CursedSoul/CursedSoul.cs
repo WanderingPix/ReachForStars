@@ -41,7 +41,5 @@ public class CursedSoulRole : ImpostorRole, ICustomRole
         CustomButtonSingleton<PossessButton>.Instance.Button.Show();
 
         player.Visible = true;
-
-        player.Die(DeathReason.Exile, false);
     }
 }
