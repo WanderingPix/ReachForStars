@@ -24,7 +24,7 @@ public class PoisonedModifier : TimedModifier
     }
     public override void OnTimerComplete()
     {
-        Player.RpcCustomMurder(PlayerControl.LocalPlayer, true);
+        Player.RpcCustomMurder(Player, true);
         Player.cosmetics.SetOutline(false, new Il2CppSystem.Nullable<Color>(new Color(1f, 0f, 1f, 1f)));
     }
 }
