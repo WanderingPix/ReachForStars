@@ -8,85 +8,75 @@ using MiraAPI.Utilities;
 using MiraAPI.Networking;
 using TMPro;
 using ReachForStars.Translation;
+using MiraAPI.Roles;
+using Rewired;
+using AmongUs.GameOptions;
 
-namespace ReachForStars.Roles.Crewmates.Sheriff;
-public class Shoot : CustomActionButton<PlayerControl>
+namespace ReachForStars.Roles.Crewmates.Sheriff
 {
-    public override string Name => ButtonName.GetTranslatedText();
-
-    public TranslationPool ButtonName = new TranslationPool(
-        english: "Shoot",
-        spanish: "Disparar",
-        portuguese: "Atirar",
-        french: "Tirer",
-        russian: "выстрелить",
-        italian: "Sparare"
-    );
-    public override float Cooldown => 25;
-    public override float EffectDuration => 0;
-
-    public override int MaxUses => 1;
-
-    public override LoadableAsset<Sprite> Sprite => Assets.Shoot;
-
-    public override bool Enabled(RoleBehaviour? role)
+    public class Shoot : CustomActionButton<PlayerControl>
     {
-        return role is SheriffRole;
-    }
+        public override string Name => ButtonName.GetTranslatedText();
 
-    public override PlayerControl? GetTarget()
-    {
-        return PlayerControl.LocalPlayer.GetClosestPlayer(true, Distance, false);
-    }
+        public TranslationPool ButtonName = new TranslationPool(
+            english: "Shoot",
+            spanish: "Disparar",
+            portuguese: "Atirar",
+            french: "Tirer",
+            russian: "выстрелить",
+            italian: "Sparare"
+        );
+        public override float Cooldown => 25;
+        public override float EffectDuration => 0;
 
-    public override void SetOutline(bool active)
-    {
-        Target?.cosmetics.SetOutline(active, new Il2CppSystem.Nullable<Color>(new Color(1f, 1f, 0f, 1f)));
-    }
-    
-    public override bool IsTargetValid(PlayerControl? target)
-    {
-        return true;
-    }
-    protected override void OnClick()
-    {
-        if (Target.Data.Role.IsImpostor)
+        public override int MaxUses => 1;
+
+        public override LoadableAsset<Sprite> Sprite => Assets.Shoot;
+
+        public override bool Enabled(RoleBehaviour? role)
         {
-            PlayerControl.LocalPlayer.RpcCustomMurder(Target, true);
-            HudManager.Instance.StartCoroutine(Effects.ScaleIn(Button.transform, 1.4f, 0.7f, 0.7f));
+            return role is SheriffRole;
         }
-        else
+
+        public override PlayerControl? GetTarget()
         {
-            
-            Coroutines.Start(Demote());
+            return PlayerControl.LocalPlayer.GetClosestPlayer(true, Distance, false);
         }
-    }
 
-    public override void OnEffectEnd()
-    {
-    }
-    public IEnumerator Demote()
-    {
-        GameObject badge = new GameObject("SheriffBadge");
-        badge.transform.SetParent(HudManager.Instance.transform);
-        AspectPosition pos = badge.AddComponent<AspectPosition>();
-        pos.Alignment = AspectPosition.EdgeAlignments.Top;
-        pos.DistanceFromEdge = new Vector3(0f, 0f, 0f);
-        SpriteRenderer badgeRend = badge.AddComponent<SpriteRenderer>();
+        public override void SetOutline(bool active)
+        {
+            Target?.cosmetics.SetOutline(active, new Il2CppSystem.Nullable<Color>(new Color(1f, 1f, 0f, 1f)));
+        }
 
-        badgeRend.sprite = Assets.SheriffIcon0.LoadAsset();
-        HudManager.Instance.StartCoroutine(Effects.SwayX(badge.transform, 3f, 1f));
-        yield return new WaitForSeconds(1f);
+        public override bool IsTargetValid(PlayerControl? target)
+        {
+            return true;
+        }
+        protected override void OnClick()
+        {
+            if (Target.Data.Role.IsImpostor)
+            {
+                PlayerControl.LocalPlayer.RpcCustomMurder(Target, true);
+                HudManager.Instance.StartCoroutine(Effects.ScaleIn(Button.transform, 1.4f, 0.7f, 0.7f));
+            }
+            else if (!Target.Data.Role.IsImpostor)
+            {
+                switch (OptionGroupSingleton<SheriffOptions>.Instance.Consequence)
+                {
+                    case MisfireResults.Demote:
+                        PlayerControl.LocalPlayer.RpcSetRole(RoleTypes.Crewmate, true);
+                        break;
+                    case MisfireResults.Suicide:
+                        PlayerControl.LocalPlayer.Die(DeathReason.Kill, false);
+                        break;
+                    case MisfireResults.None:
+                        break;
+                }
+            }
+        }
 
-        badgeRend.sprite = Assets.SheriffIcon1.LoadAsset();
-        yield return new WaitForSeconds(1f);
-
-        badgeRend.sprite = Assets.SheriffIcon2.LoadAsset();
-        yield return new WaitForSeconds(1f);
-
-        HudManager.Instance.StartCoroutine(Effects.ScaleIn(badge.transform, 1.6f, 1f, 0.7f));
-
-        PlayerControl.LocalPlayer.RpcSetRole(AmongUs.GameOptions.RoleTypes.Crewmate, true); //TODO condition here for the options thing
-        yield break;
+        public override void OnEffectEnd()
+        {
+        }
     }
 }
