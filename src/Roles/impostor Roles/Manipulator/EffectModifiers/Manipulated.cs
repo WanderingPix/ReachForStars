@@ -24,17 +24,21 @@ public class ManipulatedModifier : TimedModifier
         Player.RpcCustomMurder(Player, true, true, true, false, false, true);
     }
     TextMeshPro label;
-    KillButton ManipulatedKillButton;
+    ManipulatedKill ManipulatedKillButton = CustomButtonSingleton<ManipulatedKill>.Instance;
     public override void OnActivate()
     {
         if (Player == PlayerControl.LocalPlayer)
         {
-            HudManager.Instance.shhhEmblem.PlayAnimation();
-            HudManager.Instance.shhhEmblem.GetComponentInChildren<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
+            HudManager.Instance.StartCoroutine(HudManager.Instance.ShowEmblem(true));
 
-            CustomButtonSingleton<ManipulatedKill>.Instance.Button.Show();
-            label = MiraAPI.Utilities.Helpers.CreateTextLabel("Kill someone or die! vewy scawy I know", HudManager.Instance.transform, AspectPosition.EdgeAlignments.Center, new Vector3(0f, -1.2f, 0f), 3f);
+            ManipulatedKillButton.Button.Show();
+            label = Object.Instantiate<TextMeshPro>(HudManager.Instance.KillButton.buttonLabelText, HudManager.Instance.transform);
+            AspectPosition pos = label.gameObject.AddComponent<AspectPosition>();
+            pos.Alignment = AspectPosition.EdgeAlignments.Center;
+            pos.DistanceFromEdge = new Vector3(0f, -1f, 0f);
+            pos.AdjustPosition();
             label.font = HudManager.Instance.KillButton.buttonLabelText.font;
+            label.SetFaceColor(Color.black);
             label.SetOutlineThickness(HudManager.Instance.KillButton.buttonLabelText.outlineWidth);
             label.SetOutlineColor(HudManager.Instance.KillButton.buttonLabelText.outlineColor);
             Coroutines.Start(DoCountdown(label, Duration));
@@ -53,9 +57,19 @@ public class ManipulatedModifier : TimedModifier
         tmp.DestroyImmediate();
         yield break;
     }
-    public override void OnTimerComplete()
+    public override void OnDeactivate()
     {
-        HudManager.Instance.KillButton.Hide();
+        CustomButtonSingleton<ManipulatedKill>.Instance.Button.Hide();
         Player.RpcCustomMurder(Player, true, true, true, false, false, true);
     }
+    public override void OnDeath(DeathReason reason)
+    {
+        if (PlayerControl.LocalPlayer.Data.Role is ManipulatorRole manip && CustomButtonSingleton<Manipulate>.Instance.CurrentlyManipulatedPlayer == Player)
+        {
+            Manipulate manipulatebtn = CustomButtonSingleton<Manipulate>.Instance;
+            PlayerControl.LocalPlayer.RpcRemoveModifier<ManipulatedModifier>();
+            manipulatebtn.overlay.ShowKillAnimation(PlayerControl.LocalPlayer.Data, manipulatebtn.CurrentlyManipulatedPlayer.Data);
+        }
+    }
+    public override bool HideOnUi => true;
 }

@@ -60,11 +60,9 @@ public class Manipulate : CustomActionButton<PlayerControl>
 
     public override void OnEffectEnd()
     {
-        if (overlay != null)
-        {
-            overlay = Object.Instantiate<KillOverlay>(HudManager.Instance.KillOverlay, HudManager.Instance.transform);
-            overlay.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
-        }
+        overlay = Object.Instantiate<KillOverlay>(HudManager.Instance.KillOverlay, HudManager.Instance.transform);
+        overlay.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
+
         SoundManager.Instance.PlaySound(PlayerControl.LocalPlayer.KillSfx, false, 0.5f);
         if (CurrentlyManipulatedPlayer.Data.IsDead) overlay.ShowKillAnimation(PlayerControl.LocalPlayer.Data, CurrentlyManipulatedPlayer.Data);
 
