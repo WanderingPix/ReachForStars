@@ -15,10 +15,11 @@ using ReachForStars.Roles.Neutrals.Roles;
 
 namespace ReachForStars.Roles.Neutrals.BountyHunter;
 
-public class BountyModifier : TimedModifier
+public class BountyModifier : GameModifier
 {
     public override string ModifierName => "Target";
-    public override float Duration => 25f; //TODO make this a config option
+
+    
 
     public override void OnMeetingStart()
     {
@@ -31,5 +32,16 @@ public class BountyModifier : TimedModifier
             BH.OnTargetKill();
         }
     }
+
+    public override int GetAssignmentChance()
+    {
+        return 0;
+    }
+
+    public override int GetAmountPerGame()
+    {
+        return 0;
+    }
+
     public override bool HideOnUi => true;
 }
