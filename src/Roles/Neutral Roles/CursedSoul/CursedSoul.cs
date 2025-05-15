@@ -8,6 +8,7 @@ using MiraAPI.GameEnd;
 using MiraAPI.Networking;
 
 namespace ReachForStars.Roles.Neutrals.CursedSoul;
+
 public class CursedSoulRole : ImpostorRole, ICustomRole
 {
     public string RoleName => "Cursed Soul";
@@ -23,7 +24,7 @@ public class CursedSoulRole : ImpostorRole, ICustomRole
         CanGetKilled = true,
         CanUseVent = false,
     };
-    
+
 
     public override void SpawnTaskHeader(PlayerControl playerControl)
     {
@@ -42,4 +43,6 @@ public class CursedSoulRole : ImpostorRole, ICustomRole
 
         player.Visible = true;
     }
+    public override bool IsDead => true;
+
 }
