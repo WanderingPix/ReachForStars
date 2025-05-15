@@ -12,6 +12,7 @@ using MiraAPI.GameOptions;
 using MiraAPI.Patches.Stubs;
 using Reactor.Utilities.Extensions;
 using MiraAPI.Modifiers;
+using TMPro;
 
 namespace ReachForStars.Roles.Neutrals.Roles;
 
@@ -31,36 +32,49 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
     public string RoleLongDescription => RoleDescription;
     public Color RoleColor => new Color(1f, 0.12f, 0.54f, 1f);
     public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
-
-    public int SuccessfulKills;
-
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
         UseVanillaKillButton = true,
         CanGetKilled = true,
         CanUseVent = false,
     };
-
+    PlayerVoteArea Popup;
+    public PlayerControl BountyTarget;
+    public int SuccessfulKills;
+    public GameObject BountyUIHolder;
+    public TextMeshPro BountyText;
     public override void Initialize(PlayerControl player)
     {
         RoleBehaviourStubs.Initialize(this, player);
         HudManager.Instance.KillButton.Show();
 
-        GenerateNewBountyTarget();
-        Popup = HudManager.Instance.MeetingPrefab.CreateButton(BountyTarget.Data);
+        //UI Holder stuff
+        BountyUIHolder = new GameObject("BountyUIHolder");
+        AspectPosition pos = BountyUIHolder.gameObject.AddComponent<AspectPosition>();
+        pos.Alignment = AspectPosition.EdgeAlignments.Top;
+        pos.DistanceFromEdge = new Vector3(0f, 1f, 0f);
+        pos.AdjustPosition();
+
+        //PlayerVoteArea stuff
+        Popup = HudManager.Instance.MeetingPrefab.CreateButton(Player.Data);
         Popup.transform.SetParent(HudManager.Instance.transform);
         foreach (var rend in Popup.gameObject.transform.GetComponentsInChildren<SpriteRenderer>())
         {
             rend.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
         }
-        Popup.SetCosmetics(BountyTarget.Data);
-        Popup.Background.enabled = true;
+        Popup.XMark.gameObject.SetActive(false);
+        Popup.PlayerIcon.GetComponent<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+        Popup.Overlay.gameObject.SetActive(false);
         Popup.SetHighlighted(true);
-        AspectPosition pos = Popup.gameObject.AddComponent<AspectPosition>();
-        pos.Alignment = AspectPosition.EdgeAlignments.Top;
-        pos.DistanceFromEdge = new Vector3(0f, 1f, 0f);
-        pos.AdjustPosition();
-        Popup.MaskArea.DestroyImmediate();
+        Popup.transform.SetParent(BountyUIHolder.transform);
+        Popup.transform.localPosition = new Vector3(0f, 1.5f, 0f);
+
+        //BountyText stuff
+        BountyText = Object.Instantiate<TextMeshPro>(HudManager.Instance.KillButton.buttonLabelText, BountyUIHolder.transform);
+        BountyText.gameObject.transform.localPosition = new Vector3(0f, 0f, 0f);
+        BountyText.text = "Current Target: P";
+        
+        GenerateNewBountyTarget();
     }
     public override void Deinitialize(PlayerControl targetPlayer)
     {
@@ -80,13 +94,10 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
     {
         return gameOverReason == CustomGameOver.GameOverReason<BountyHunterWin>();
     }
-    
-    PlayerVoteArea Popup;
-    public PlayerControl BountyTarget;
     private void GenerateNewBountyTarget()
     {
         Random rnd = new Random();
-        List<PlayerControl> Playerpool = Helpers.GetAlivePlayers().Where(x => x.Data.PlayerId != PlayerControl.LocalPlayer.Data.PlayerId).ToList();
+        List<PlayerControl> Playerpool = Helpers.GetAlivePlayers().Where(x => x != PlayerControl.LocalPlayer).ToList();
         int index = rnd.Next(Playerpool.Count);
         BountyTarget = Playerpool[index];
 
@@ -95,6 +106,10 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         if (Popup)
         {
             Popup.SetCosmetics(BountyTarget.Data);
+        }
+        if (BountyText)
+        {
+            BountyText.text = $"Current Target: {BountyTarget}";
         }
     }
 

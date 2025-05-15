@@ -9,6 +9,10 @@ using Reactor.Utilities.Extensions;
 using ReachForStars.Roles.Impostors.Chiller;
 using System.Collections.Generic;
 using Object = UnityEngine.Object;
+using System;
+using Rewired;
+using ReachForStars.Roles.Impostors.Mole;
+using MiraAPI.Hud;
 
 namespace ReachForStars.Networking
 {
@@ -45,32 +49,26 @@ namespace ReachForStars.Networking
         }
         public static System.Collections.IEnumerator DoDigAnim(PlayerControl p)
         {
-            RoleEffectAnimation roleEffectAnimation = Object.Instantiate<RoleEffectAnimation>(DestroyableSingleton<RoleManager>.Instance.appear_PoofAnim, p.transform);
+            RoleEffectAnimation roleEffectAnimation = Object.Instantiate<RoleEffectAnimation>(RoleManager.Instance.appear_PoofAnim, p.transform);
             roleEffectAnimation.Play(p, null, false, RoleEffectAnimation.SoundType.Local, 5f);
 
             yield return new WaitForSeconds(5f);
-
-            int count = ShipStatus.Instance.AllVents.Count();
+            Dig dig = CustomButtonSingleton<Dig>.Instance;
             Vent prefab = Object.FindObjectOfType<Vent>(true);
             Vent vent = Object.Instantiate<Vent>(prefab);
             vent.transform.parent = ShipStatus.Instance.transform;
-            vent.name = $"MoleVent{count.ToString()}";
-            vent.Id = ShipStatus.Instance.AllVents.Count + count;
+            vent.transform.localScale = new Vector3(1f, 1f, 1f);
+            vent.name = $"MoleVent{dig.GlobalVentCount.ToString()}";
             vent.transform.position = new Vector3(p.GetTruePosition().x, p.GetTruePosition().y, prefab.transform.position.z);
-            vent.Id = ShipStatus.Instance.AllVents.Count + count;
-            vent.Right = null;
-            if (count > 1)
-            {
-                vent.Right = Helpers.GetVentById(count - 1);
-            }
+
+            vent.Id = 99 + dig.GlobalVentCount;
+            vent.Left = null;
+            vent.Right = Helpers.GetVentById(98 + dig.GlobalVentCount);
+
+            dig.GlobalVentCount++;
 
             vent.StartCoroutine(Effects.Bounce(vent.transform, 1f));
             vent.StartCoroutine(Effects.ColorFade(vent.myRend, Palette.Black, Palette.White, 1.4f));
-
-            List<Vent> newVentList = ShipStatus.Instance.AllVents.ToList();
-            newVentList.Add(vent);
-            ShipStatus.Instance.AllVents = newVentList.ToArray();
-            yield break;
         }
         [MethodRpc((uint)RPC.ResizePlayer)]
         public static void RpcResize(this PlayerControl player, float x, float y, float z)

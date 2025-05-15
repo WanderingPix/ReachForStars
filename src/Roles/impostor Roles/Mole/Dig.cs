@@ -45,11 +45,14 @@ public class Dig : CustomActionButton
     {
         PlayerControl.LocalPlayer.RpcPlaceVent();
         PlayerControl.LocalPlayer.MyPhysics.enabled = false;
+        LocalVentCount++;
     }
-
+    public int GlobalVentCount = 0;
+    public int LocalVentCount = 0;
     public override void OnEffectEnd()
     {
         PlayerControl.LocalPlayer.MyPhysics.enabled = true;
+
     }
     
 }

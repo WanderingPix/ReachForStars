@@ -17,10 +17,11 @@ public class RoleBlockedModifier : GameModifier
     {
         foreach (ActionButton button in Object.FindObjectsOfType<ActionButton>())
         {
-            
+
             HudManager.Instance.StartCoroutine(Effects.ScaleIn(button.transform, 0.7f, 0f, 1.5f));
-        
+
             HudManager.Instance.StartCoroutine(Effects.ColorFade(button.graphic, Palette.White, Palette.Black, 1f));
+
         }
         PlayerControl.LocalPlayer.cosmetics.SetOutline(true, new Il2CppSystem.Nullable<Color>(new Color(1f, 0f, 1f, 1f)));
     }
