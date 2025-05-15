@@ -11,6 +11,7 @@ using Random = System.Random;
 using MiraAPI.GameOptions;
 using MiraAPI.Patches.Stubs;
 using Reactor.Utilities.Extensions;
+using MiraAPI.Modifiers;
 
 namespace ReachForStars.Roles.Neutrals.Roles;
 
@@ -88,12 +89,18 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         List<PlayerControl> Playerpool = Helpers.GetAlivePlayers().Where(x => x.Data.PlayerId != PlayerControl.LocalPlayer.Data.PlayerId).ToList();
         int index = rnd.Next(Playerpool.Count);
         BountyTarget = Playerpool[index];
+
+        BountyTarget.RpcAddModifier<BountyModifier>();
+
+        if (Popup)
+        {
+            Popup.SetCosmetics(BountyTarget.Data);
+        }
     }
 
     public override void OnVotingComplete()
     {
         GenerateNewBountyTarget();
-        Popup.SetCosmetics(BountyTarget.Data);
         Popup.SetHighlighted(true);
         Popup.MaskArea.DestroyImmediate();
         HudManager.Instance.StartCoroutine(Effects.ScaleIn(Popup.gameObject.transform, 0f, 1f, 0.7f));
@@ -114,7 +121,7 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
     public void OnTargetKill()
     {
         SuccessfulKills++;
-        Popup.SetDead(false, true, false);
+        Popup.SetDead(false, true, BountyTarget.Data.Role is GuardianAngelRole);
         
         HudManager.Instance.StartCoroutine(Effects.ScaleIn(Popup.gameObject.transform, 2f, 1f, 1.2f));
         HudManager.Instance.StartCoroutine(Effects.ColorFade(Popup.Background, Color.white, new Color(0f, 0f, 0f, 0f), 1.2f));
