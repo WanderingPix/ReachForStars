@@ -13,15 +13,15 @@ namespace ReachForStars.Features
         /// <summary>
         /// Executed by Patches/OnCutsceneBreak.cs
         /// </summary>
-        public static void SetRoleNameTag()
+        public static void SetRoleNameTag(RoleBehaviour role)
         {
-            if (PlayerControl.LocalPlayer.Data.Role is ICustomRole customRole)
+            if (role is ICustomRole customRole && role.Player == PlayerControl.LocalPlayer)
             {
                 PlayerControl.LocalPlayer.transform.GetChild(3).GetChild(0).GetComponent<TextMeshPro>().text = $"<size=2>{customRole.RoleName}</size>\n{PlayerControl.LocalPlayer.Data.PlayerName}\n\n";
             }
-            else if (PlayerControl.LocalPlayer.Data.Role is RoleBehaviour rolebehaviour)
+            else if (role is RoleBehaviour vanillarole && vanillarole.Player == PlayerControl.LocalPlayer)
             {
-                PlayerControl.LocalPlayer.transform.GetChild(3).GetChild(0).GetComponent<TextMeshPro>().text = $"<size=2>{rolebehaviour.NiceName}</size>\n{PlayerControl.LocalPlayer.Data.PlayerName}\n\n";
+                PlayerControl.LocalPlayer.transform.GetChild(3).GetChild(0).GetComponent<TextMeshPro>().text = $"<size=2>{vanillarole.NiceName}</size>\n{PlayerControl.LocalPlayer.Data.PlayerName}\n\n";
             }
         }
         

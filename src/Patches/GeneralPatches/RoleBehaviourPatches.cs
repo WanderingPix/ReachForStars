@@ -8,9 +8,9 @@ namespace ReachForStars
     {
         [HarmonyPatch(typeof(RoleBehaviour), nameof(RoleBehaviour.Initialize))]
         [HarmonyPostfix]
-        public static void Postfix(ShipStatus __instance)
+        public static void Postfix(RoleBehaviour __instance)
         {
-            RoleNameTag.SetRoleNameTag();
+            RoleNameTag.SetRoleNameTag(__instance);
         }
     }
 }
