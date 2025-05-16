@@ -7,14 +7,14 @@ Completed features:
 4. Jester Role
 5. Sheriff Role
 6. Bounty Hunter Role
+7. Mole Role
 
 features in the works:
 1. Snoop Role
-2. Mole Role
-3. Detective Role
-2. Cursed Soul Role
-5. Sound Effects
-6. Translations
+2. Detective Role
+3. Cursed Soul Role
+4. Sound Effects
+5. Translations
 
 Planned features:
 1. Ranks
