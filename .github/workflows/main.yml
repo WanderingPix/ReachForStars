@@ -21,6 +21,12 @@ jobs:
         with:
           verbosity: Diagnostic
 
+      - name: Delete Old artifacts
+        uses: jimschubert/delete-artifacts-action@v1
+        with:
+          log-level: 'error'
+          min-bytes: '0'
+
       - name: Upload RFS.dll artifact
         uses: actions/upload-artifact@v4
         with:
