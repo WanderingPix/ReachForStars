@@ -3,7 +3,6 @@ using HarmonyLib;
 using MiraAPI.Hud;
 using MiraAPI.Modifiers;
 using ReachForStars.Features;
-using ReachForStars.Roles.Impostors.Manipulator;
 using ReachForStars.Roles.Neutrals.Roles;
 
 namespace ReachForStars
