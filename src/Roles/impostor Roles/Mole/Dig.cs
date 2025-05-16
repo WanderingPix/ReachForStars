@@ -41,18 +41,14 @@ public class Dig : CustomActionButton
     {
         return PlayerControl.LocalPlayer.CanPet() && UsesLeft != 0;
     }
+    public List<Vent> MinedVents;
     protected override void OnClick()
     {
         PlayerControl.LocalPlayer.RpcPlaceVent();
         PlayerControl.LocalPlayer.MyPhysics.enabled = false;
-        LocalVentCount++;
     }
-    public int GlobalVentCount = 0;
-    public int LocalVentCount = 0;
     public override void OnEffectEnd()
     {
         PlayerControl.LocalPlayer.MyPhysics.enabled = true;
-
-    }
-    
+    } 
 }
