@@ -58,14 +58,15 @@ namespace ReachForStars.Networking
             Vent vent = Object.Instantiate<Vent>(prefab);
             vent.transform.parent = ShipStatus.Instance.transform;
             vent.transform.localScale = new Vector3(1f, 1f, 1f);
-            vent.name = $"MoleVent{dig.GlobalVentCount.ToString()}";
+            dig.MinedVents.Add(vent);
+            vent.name = $"MoleVent{dig.MinedVents.Count()}";
             vent.transform.position = new Vector3(p.GetTruePosition().x, p.GetTruePosition().y, prefab.transform.position.z);
 
-            vent.Id = 99 + dig.GlobalVentCount;
+            vent.Id = VentUtils.GetAvailableId();
             vent.Left = null;
-            vent.Right = Helpers.GetVentById(98 + dig.GlobalVentCount);
+            vent.Right = dig.MinedVents[^1];
 
-            dig.GlobalVentCount++;
+            dig.MinedVents[^1].Left = vent;
 
             vent.StartCoroutine(Effects.Bounce(vent.transform, 1f));
             vent.StartCoroutine(Effects.ColorFade(vent.myRend, Palette.Black, Palette.White, 1.4f));
