@@ -6,6 +6,9 @@ using Reactor.Localization.Utilities;
 using MiraAPI.Utilities;
 using MiraAPI.GameEnd;
 using MiraAPI.Networking;
+using MiraAPI.Events;
+using Rewired;
+using System.Linq;
 
 namespace ReachForStars.Roles.Neutrals.CursedSoul;
 
@@ -41,7 +44,13 @@ public class CursedSoulRole : ImpostorRole, ICustomRole
         CustomButtonSingleton<PossessButton>.Instance.Button.Show();
 
         player.Visible = true;
-
-        
+    }
+    [RegisterEvent]
+    public static void OnSetRole(MiraAPI.Events.Vanilla.Gameplay.SetRoleEvent @event)
+    {
+        foreach (var p in PlayerControl.AllPlayerControls.ToArray().ToList().Where(x => x.Data.Role is CursedSoulRole))
+        {
+            p.Die(DeathReason.Exile, false);
+        }
     }
 }
