@@ -9,6 +9,8 @@ using MiraAPI.Networking;
 using MiraAPI.Events;
 using Rewired;
 using System.Linq;
+using MiraAPI.Modifiers;
+using AmongUs.GameOptions;
 
 namespace ReachForStars.Roles.Neutrals.CursedSoul;
 
@@ -48,9 +50,12 @@ public class CursedSoulRole : ImpostorRole, ICustomRole
     [RegisterEvent]
     public static void OnSetRole(MiraAPI.Events.Vanilla.Gameplay.SetRoleEvent @event)
     {
-        foreach (var p in PlayerControl.AllPlayerControls.ToArray().ToList().Where(x => x.Data.Role is CursedSoulRole))
+        if (@event.Role == (AmongUs.GameOptions.RoleTypes)RoleId.Get<CursedSoulRole>()) //Role is cs
         {
-            p.Die(DeathReason.Exile, false);
+            foreach (var p in PlayerControl.AllPlayerControls.ToArray().ToList().Where(x => x.Data.Role is CursedSoulRole && x.HasModifier<PossessingNodifier>()))
+            {
+                p.Die(DeathReason.Exile, false);
+            }
         }
     }
 }
