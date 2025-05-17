@@ -17,6 +17,7 @@ public class CursedSoulRole : ImpostorRole, ICustomRole
     public Color RoleColor => Color.gray;
     public StringNames BlurbName = CustomStringName.CreateAndRegister("Cursed Soul");
     public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
+    public bool IsDead => true;
 
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
