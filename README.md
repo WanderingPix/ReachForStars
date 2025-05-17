@@ -15,9 +15,10 @@ features in the works:
 3. Cursed Soul Role
 4. Sound Effects
 5. Translations
+6. Cursed Soul Role
 
 Planned features:
 1. Ranks
-2. Cursed Soul Role
+2. FogBringer Role
 
 **Estimated Public Release: Late June / Early July**
