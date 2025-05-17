@@ -15,9 +15,7 @@ public class CursedSoulRole : ImpostorRole, ICustomRole
     public string RoleDescription => "Win the game as a new body";
     public string RoleLongDescription => RoleDescription;
     public Color RoleColor => Color.gray;
-    public StringNames BlurbName = CustomStringName.CreateAndRegister("Cursed Soul");
     public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
-    public bool IsDead => true;
 
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
@@ -42,7 +40,8 @@ public class CursedSoulRole : ImpostorRole, ICustomRole
 
         CustomButtonSingleton<PossessButton>.Instance.Button.Show();
 
-        player.Die(DeathReason.Exile, false);
         player.Visible = true;
+
+        
     }
 }
