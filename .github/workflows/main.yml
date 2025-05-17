@@ -26,7 +26,7 @@ jobs:
         with:
           log_level: 'error'
           min_bytes: '0'
-          GITHUB_TOKEN: ACCESSTOKEN
+          GITHUB_TOKEN: ACTIONS_PERMISSIONS_KEY
           
 
       - name: Upload RFS.dll artifact
