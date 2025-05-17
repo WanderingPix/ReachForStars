@@ -33,14 +33,6 @@ namespace ReachForStars
             {
                 BH.OnTargetKill();
             }
-
-
-            if (PlayerControl.LocalPlayer.Data.Role is ManipulatorRole Manip && __instance == CustomButtonSingleton<Manipulate>.Instance.CurrentlyManipulatedPlayer)
-            {
-                Manipulate manipulatebtn = CustomButtonSingleton<Manipulate>.Instance;
-                PlayerControl.LocalPlayer.RpcRemoveModifier<ManipulatedModifier>();
-                manipulatebtn.overlay.ShowKillAnimation(PlayerControl.LocalPlayer.Data, manipulatebtn.CurrentlyManipulatedPlayer.Data);
-            }
         }
     }
 }
