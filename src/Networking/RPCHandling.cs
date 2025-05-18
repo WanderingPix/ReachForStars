@@ -16,6 +16,7 @@ using MiraAPI.Hud;
 using MiraAPI.Modifiers;
 using ReachForStars.Roles.Neutrals.CursedSoul;
 using ReachForStars.Roles.Crewmates.FogBringer;
+using PowerTools;
 
 namespace ReachForStars.Networking
 {
@@ -135,8 +136,10 @@ namespace ReachForStars.Networking
         [MethodRpc((uint)RPC.FogUp)]
         public static void RpcFogUp(this PlayerControl p)
         {
-            Mushroom shroom = PrefabManager.CopyPrefab<Mushroom>();
-            shroom.sporeCloudAnimator.Play(shroom.sporeCloudIdle, 1f);
+            SpriteAnim Cloud = Object.Instantiate<SpriteAnim>(PrefabManager.CopyPrefab<Mushroom>().sporeCloudAnimator);
+            Cloud.transform.position = p.GetTruePosition();
+            Cloud.Play(Cloud.Clip, 1f);
+            Cloud.GetComponent<SpriteRenderer>().color = new Color(0f, 4f, 0f, 0.7f);
         }
     }
 }

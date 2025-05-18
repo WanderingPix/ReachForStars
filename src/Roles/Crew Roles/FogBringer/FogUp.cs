@@ -10,6 +10,7 @@ using MiraAPI.Roles;
 using Rewired;
 using AmongUs.GameOptions;
 using Hazel;
+using InnerNet;
 
 namespace ReachForStars.Roles.Crewmates.FogBringer
 {

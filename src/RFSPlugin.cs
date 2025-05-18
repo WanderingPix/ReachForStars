@@ -9,6 +9,7 @@ using Reactor.Networking;
 using Reactor.Networking.Attributes;
 using MiraAPI;
 using Il2CppInterop.Runtime.Injection;
+using ReachForStars.Roles.Crewmates.FogBringer;
 
 namespace ReachForStars;
 
@@ -27,6 +28,7 @@ public partial class ReachForStars : BasePlugin, IMiraPlugin
     {
         Harmony.PatchAll();
         ClassInjector.RegisterTypeInIl2Cpp<ExtendedPlayerControl>();
+        ClassInjector.RegisterTypeInIl2Cpp<FogCloud>();
         ReactorCredits.Register<ReachForStars>(ReactorCredits.AlwaysShow);
     }
 }
