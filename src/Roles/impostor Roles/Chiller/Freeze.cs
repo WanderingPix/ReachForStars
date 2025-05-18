@@ -41,10 +41,6 @@ public class Freeze : CustomActionButton<DeadBody>
             }
         }
     }
-    public void Start()
-    {
-        Button.usesRemainingSprite.color = Palette.ImpostorRed;
-    }
     public override DeadBody? GetTarget()
     {
         return PlayerControl.LocalPlayer.GetNearestDeadBody(Distance);

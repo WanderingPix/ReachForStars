@@ -46,10 +46,6 @@ public class RoleBlock : CustomActionButton<PlayerControl>
     {
         return true;
     }
-    public void Start()
-    {
-        Button.usesRemainingSprite.color = Palette.ImpostorRed;
-    }
     protected override void OnClick()
     {
         //Unfinished

@@ -44,18 +44,13 @@ public class CursedSoulRole : ImpostorRole, ICustomRole
         RoleBehaviourStubs.Initialize(this, player);
 
         CustomButtonSingleton<PossessButton>.Instance.Button.Show();
-
-        player.Visible = true;
     }
     [RegisterEvent]
     public static void OnSetRole(MiraAPI.Events.Vanilla.Gameplay.SetRoleEvent @event)
     {
-        if (@event.Role == (AmongUs.GameOptions.RoleTypes)RoleId.Get<CursedSoulRole>()) //Role is cs
+        if (@event.Role == (AmongUs.GameOptions.RoleTypes)RoleId.Get<CursedSoulRole>() && @event.Player == PlayerControl.LocalPlayer && !PlayerControl.LocalPlayer.HasModifier<PossessingNodifier>()) //Role is cs
         {
-            foreach (var p in PlayerControl.AllPlayerControls.ToArray().ToList().Where(x => x.Data.Role is CursedSoulRole && !x.HasModifier<PossessingNodifier>()))
-            {
-                p.Die(DeathReason.Exile, false);
-            }
+            @event.Player.RpcMurderPlayer(@event.Player, false);
         }
     }
 }
