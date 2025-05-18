@@ -5,16 +5,12 @@ namespace ReachForStars;
 public static class Assets
 {
     public static LoadableResourceAsset PoisonButton { get; } = new("ReachForStars.Resources.Poison.png");
-    public static LoadableResourceAsset ShadowKillButton { get; } = new("ReachForStars.Resources.KillButtonVariants.ShadowKill.png");
 
     //Sheriff
     public static LoadableResourceAsset Shoot { get; } = new("ReachForStars.Resources.Shoot.png");
     public static LoadableResourceAsset SheriffIcon0 { get; } = new("ReachForStars.Resources.RoleIcons.Sheriff.sheriff0.png");
     public static LoadableResourceAsset SheriffIcon1 { get; } = new("ReachForStars.Resources.RoleIcons.Sheriff.sheriff1.png");
     public static LoadableResourceAsset SheriffIcon2 { get; } = new("ReachForStars.Resources.RoleIcons.Sheriff.sheriff2.png");
-
-
-    public static LoadableResourceAsset Logo { get; } = new("ReachForStars.Resources.TSR.png");
 
     //Chiller 
     public static LoadableResourceAsset Freeze { get; } = new("ReachForStars.Resources.Freeze.png");

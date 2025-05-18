@@ -22,7 +22,7 @@ public class ExileKill : CustomActionButton<PlayerControl>
 
     public override int MaxUses => 0;
 
-    public override LoadableAsset<Sprite> Sprite => Assets.ShadowKillButton;
+    public override LoadableAsset<Sprite> Sprite => Assets.PoisonButton;
 
     public override ButtonLocation Location => ButtonLocation.BottomLeft;
 
