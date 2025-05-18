@@ -48,12 +48,10 @@ public class RoleBlock : CustomActionButton<PlayerControl>
     }
     protected override void OnClick()
     {
-        //Unfinished
+        Target.AddModifier<RoleBlockedModifier>();
     }
 
     public override void OnEffectEnd()
     {
-        PlayerControl.LocalPlayer.AddModifier<RoleBlockedModifier>();
-        PlayerControl.LocalPlayer.GetClosestPlayer(false, Distance).AddModifier<RoleBlockedModifier>();
     }
 }

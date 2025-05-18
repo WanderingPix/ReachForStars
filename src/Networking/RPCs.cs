@@ -20,7 +20,9 @@ namespace ReachForStars.Networking
         FreezeBody,
         // For unfreezing dead bodies
         DamageFrozenBody,
-        // for placing cameras as snoop
-        Possess
+        // for possessing as Cursed soul
+        Possess,
+        //For placing fog clouds as FogBringer
+        FogUp
     }
 }

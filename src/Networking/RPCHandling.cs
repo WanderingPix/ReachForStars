@@ -15,6 +15,7 @@ using ReachForStars.Roles.Impostors.Mole;
 using MiraAPI.Hud;
 using MiraAPI.Modifiers;
 using ReachForStars.Roles.Neutrals.CursedSoul;
+using ReachForStars.Roles.Crewmates.FogBringer;
 
 namespace ReachForStars.Networking
 {
@@ -129,6 +130,13 @@ namespace ReachForStars.Networking
 
             body.gameObject.DestroyImmediate();
             yield break;
+        }
+
+        [MethodRpc((uint)RPC.FogUp)]
+        public static void RpcFogUp(this PlayerControl p)
+        {
+            Mushroom shroom = PrefabManager.CopyPrefab<Mushroom>();
+            shroom.sporeCloudAnimator.Play(shroom.sporeCloudIdle, 1f);
         }
     }
 }
