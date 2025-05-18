@@ -1,4 +1,5 @@
 using HarmonyLib;
+using ReachForStars.Features;
 using UnityEngine;
 
 namespace ReachForStars
@@ -8,10 +9,8 @@ namespace ReachForStars
     {
         public static void Postfix(HudManager __instance)
         {
-            foreach (SpriteRenderer rend in __instance.GetComponentsInChildren<SpriteRenderer>(true))
-            {
-                rend.gameObject.transform.localScale *= 1f; //Once chipseq's client settings pr is merged, add a slider for this 
-            }
+            SmolUI.ResizeUI();
+            AndroidJoystickFix.FixJoystick();
         }
     }
 }
