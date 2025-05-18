@@ -20,11 +20,10 @@ public class RoleBlock : CustomActionButton<PlayerControl>
     );
 
     public override float Cooldown => 5;
-    public override float EffectDuration => 21;
+    public override float EffectDuration => 0;
+    public override int MaxUses => 1;
 
     public override ButtonLocation Location => ButtonLocation.BottomLeft;
-
-    public override int MaxUses => 0;
 
     public override LoadableAsset<Sprite> Sprite => Assets.PoisonButton;
 
@@ -46,6 +45,10 @@ public class RoleBlock : CustomActionButton<PlayerControl>
     public override bool IsTargetValid(PlayerControl? target)
     {
         return true;
+    }
+    public void Start()
+    {
+        Button.usesRemainingSprite.color = Palette.ImpostorRed;
     }
     protected override void OnClick()
     {

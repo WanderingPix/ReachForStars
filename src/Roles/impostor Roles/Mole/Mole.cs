@@ -42,6 +42,6 @@ public class MoleRole : ImpostorRole, ICustomRole
     }
     public override void OnMeetingStart()
     {
-        CustomButtonSingleton<Dig>.Instance.IncreaseUses(1);
+        CustomButtonSingleton<Dig>.Instance.SetUses(1);
     }
 }

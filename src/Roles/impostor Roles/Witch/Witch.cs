@@ -2,6 +2,7 @@
 using MiraAPI.Roles;
 using UnityEngine;
 using ReachForStars.Translation;
+using MiraAPI.Hud;
 
 namespace ReachForStars.Roles.Impostors.Witch;
 
@@ -57,5 +58,9 @@ public class WitchRole : ImpostorRole, ICustomRole
     public override bool DidWin(GameOverReason gameOverReason)
     {
         return GameManager.Instance.DidImpostorsWin(gameOverReason);
+    }
+    public override void OnMeetingStart()
+    {
+        CustomButtonSingleton<RoleBlock>.Instance.SetUses(1);
     }
 }

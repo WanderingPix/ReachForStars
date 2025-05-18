@@ -41,6 +41,10 @@ public class Dig : CustomActionButton
     {
         return PlayerControl.LocalPlayer.CanPet() && UsesLeft != 0;
     }
+    public void Start()
+    {
+        Button.usesRemainingSprite.color = Palette.ImpostorRed;
+    }
     public List<Vent> MinedVents;
     protected override void OnClick()
     {
