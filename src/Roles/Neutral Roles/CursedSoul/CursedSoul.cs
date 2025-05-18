@@ -52,7 +52,7 @@ public class CursedSoulRole : ImpostorRole, ICustomRole
     {
         if (@event.Role == (AmongUs.GameOptions.RoleTypes)RoleId.Get<CursedSoulRole>()) //Role is cs
         {
-            foreach (var p in PlayerControl.AllPlayerControls.ToArray().ToList().Where(x => x.Data.Role is CursedSoulRole && x.HasModifier<PossessingNodifier>()))
+            foreach (var p in PlayerControl.AllPlayerControls.ToArray().ToList().Where(x => x.Data.Role is CursedSoulRole && !x.HasModifier<PossessingNodifier>()))
             {
                 p.Die(DeathReason.Exile, false);
             }

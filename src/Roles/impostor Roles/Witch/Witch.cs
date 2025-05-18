@@ -13,8 +13,8 @@ public class WitchRole : ImpostorRole, ICustomRole
     (
         english: "Witch",
         french: "Sorcière",
-        spanish: "",
-        portuguese: "",
+        spanish: "Bruja",
+        portuguese: "Bruxa",
         russian: "Ведьма",
         italian: "Strega"
     );
@@ -46,6 +46,7 @@ public class WitchRole : ImpostorRole, ICustomRole
         UseVanillaKillButton = OptionGroupSingleton<WitchOptions>.Instance.CanDoNormalKilling,
         CanGetKilled = true,
         CanUseVent = OptionGroupSingleton<WitchOptions>.Instance.CanVent,
+        Icon = Assets.PoisonButton
     };
 
     public override void SpawnTaskHeader(PlayerControl playerControl)

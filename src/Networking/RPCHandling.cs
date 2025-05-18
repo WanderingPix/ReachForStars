@@ -13,6 +13,8 @@ using System;
 using Rewired;
 using ReachForStars.Roles.Impostors.Mole;
 using MiraAPI.Hud;
+using MiraAPI.Modifiers;
+using ReachForStars.Roles.Neutrals.CursedSoul;
 
 namespace ReachForStars.Networking
 {
@@ -123,6 +125,7 @@ namespace ReachForStars.Networking
             p.MyPhysics.enabled = true;
             p.Revive();
             p.Shapeshift(target, false);
+            p.AddModifier<PossessingNodifier>();
 
             body.gameObject.DestroyImmediate();
             yield break;

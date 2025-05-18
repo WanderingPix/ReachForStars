@@ -3,6 +3,7 @@ using MiraAPI.Utilities.Assets;
 using ReachForStars.Networking;
 using UnityEngine;
 using MiraAPI.Utilities;
+using Rewired;
 
 namespace ReachForStars.Roles.Neutrals.CursedSoul;
 public class PossessButton : CustomActionButton<DeadBody>
