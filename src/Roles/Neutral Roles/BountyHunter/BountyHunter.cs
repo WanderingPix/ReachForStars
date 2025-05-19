@@ -143,7 +143,7 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         
         HudManager.Instance.StartCoroutine(Effects.ScaleIn(Popup.gameObject.transform, 2f, 1f, 1.2f));
         HudManager.Instance.StartCoroutine(Effects.ColorFade(Popup.Background, Color.white, new Color(0f, 0f, 0f, 0f), 1.2f));
-        if (SuccessfulKills == 1/*OptionGroupSingleton<BountyHunterOptions>.Instance.SuccessfulKillsQuota*/)
+        if (SuccessfulKills == OptionGroupSingleton<BountyHunterOptions>.Instance.SuccessfulKillsQuota)
         {
             CustomGameOver.Trigger<BountyHunterWin>([Player.Data]);
         }
