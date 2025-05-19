@@ -19,6 +19,6 @@ features in the works:
 
 Planned features:
 1. Ranks
-2. FogBringer Role
+2. Pyromaniac Role
 
-**Estimated Public Release: Late June / Early July**
+**Estimated Public Release: July**
