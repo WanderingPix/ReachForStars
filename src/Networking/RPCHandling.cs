@@ -136,10 +136,14 @@ namespace ReachForStars.Networking
         [MethodRpc((uint)RPC.FogUp)]
         public static void RpcFogUp(this PlayerControl p)
         {
-            SpriteAnim Cloud = Object.Instantiate<SpriteAnim>(PrefabManager.CopyPrefab<Mushroom>().sporeCloudAnimator);
+            Mushroom pref = PrefabManager.CopyPrefab<Mushroom>();
+            SpriteAnim Cloud = pref.sporeCloudAnimator;
             Cloud.transform.position = p.GetTruePosition();
-            Cloud.Play(Cloud.Clip, 1f);
-            Cloud.GetComponent<SpriteRenderer>().color = new Color(0f, 4f, 0f, 0.7f);
+            pref.secondsSporeIsActive = 99999999999; //Heh
+            pref.CoReleaseSpores();
+            pref.gameObject.DestroyImmediate();
+            Cloud.GetComponent<SpriteRenderer>().color = new Color(0f, 0.6f, 0f, 0.7f);
+            Cloud.gameObject.AddComponent<FogCloud>();
         }
     }
 }
