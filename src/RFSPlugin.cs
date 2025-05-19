@@ -22,7 +22,7 @@ public partial class ReachForStars : BasePlugin, IMiraPlugin
 {
     public Harmony Harmony { get; } = new(Id);
     public string OptionsTitleText => "Reach For The Stars";
-    public bool IsDev = false;
+    public bool IsDev = true;
     public ConfigFile GetConfigFile() => Config;
     public override void Load()
     {

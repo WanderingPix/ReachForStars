@@ -3,7 +3,7 @@ using MiraAPI.GameOptions.Attributes;
 using MiraAPI.Utilities;
 using UnityEngine;
 
-namespace TheSillyRoles.GhostSettings;
+namespace ReachForStars;
 
 public class GhostOptions : AbstractOptionGroup
 {

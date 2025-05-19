@@ -5,6 +5,7 @@ using MiraAPI.Utilities;
 using MiraAPI.Roles;
 using ReachForStars.Utilities;
 using TMPro;
+using MiraAPI.GameOptions;
 
 namespace ReachForStars.Features
 {
@@ -15,13 +16,16 @@ namespace ReachForStars.Features
         /// </summary>
         public static void SetRoleNameTag(RoleBehaviour role)
         {
-            if (role is ICustomRole customRole && role.Player == PlayerControl.LocalPlayer)
+            if (role.Player == PlayerControl.LocalPlayer && !OptionGroupSingleton<DevModeOptions>.Instance.ShowAllRoles)
             {
-                PlayerControl.LocalPlayer.transform.GetChild(3).GetChild(0).GetComponent<TextMeshPro>().text = $"<size=2>{customRole.RoleName}</size>\n{PlayerControl.LocalPlayer.Data.PlayerName}\n\n";
+                PlayerControl.LocalPlayer.transform.GetChild(3).GetChild(0).GetComponent<TextMeshPro>().text = $"<size=2>{role.NiceName}</size>\n{PlayerControl.LocalPlayer.Data.PlayerName}\n\n";
             }
-            else if (role is RoleBehaviour vanillarole && vanillarole.Player == PlayerControl.LocalPlayer)
+            else if (OptionGroupSingleton<DevModeOptions>.Instance.ShowAllRoles)
             {
-                PlayerControl.LocalPlayer.transform.GetChild(3).GetChild(0).GetComponent<TextMeshPro>().text = $"<size=2>{vanillarole.NiceName}</size>\n{PlayerControl.LocalPlayer.Data.PlayerName}\n\n";
+                foreach (PlayerControl p in PlayerControl.AllPlayerControls)
+                {
+                    p.transform.GetChild(3).GetChild(0).GetComponent<TextMeshPro>().text = $"<size=2>{p.Data.Role.NiceName}</size>\n{p.Data.PlayerName}\n\n";
+                }
             }
         }
         
