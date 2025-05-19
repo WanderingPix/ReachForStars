@@ -47,17 +47,23 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
     {
         RoleBehaviourStubs.Initialize(this, player);
         HudManager.Instance.KillButton.Show();
-
+        SetUpUI();
+        GenerateNewBountyTarget();
+    }
+    public void SetUpUI()
+    {
         //UI Holder stuff
         BountyUIHolder = new GameObject("BountyUIHolder");
+        BountyUIHolder.transform.localScale = new Vector3(4f, 1.5f, 1f);
         BountyUIHolder.transform.SetParent(HudManager.Instance.gameObject.transform);
         AspectPosition pos = BountyUIHolder.gameObject.AddComponent<AspectPosition>();
         pos.Alignment = AspectPosition.EdgeAlignments.Top;
-        pos.DistanceFromEdge = new Vector3(0f, 1f, 0f);
+        pos.DistanceFromEdge = new Vector3(0f, 0.5f, 0f);
         pos.AdjustPosition();
 
+
         //PlayerVoteArea stuff
-        Popup = HudManager.Instance.MeetingPrefab.CreateButton(player.Data);
+        Popup = HudManager.Instance.MeetingPrefab.CreateButton(Player.Data); //Using Player temporarily, it'll get overriden anyway by GenerateBountyTarget
         Popup.transform.SetParent(BountyUIHolder.transform);
         foreach (var rend in Popup.gameObject.transform.GetComponentsInChildren<SpriteRenderer>())
         {
@@ -66,13 +72,12 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         Popup.XMark.gameObject.SetActive(false);
         Popup.Overlay.gameObject.SetActive(false);
         Popup.SetHighlighted(true);
-        Popup.transform.localPosition = new Vector3(0f, 0f, 0f);
+        Popup.transform.localPosition = new Vector3(0f, -0.5f, 0f);
+
 
         //BountyText stuff
-        BountyText = Object.Instantiate<TextMeshPro>(HudManager.Instance.UseButton.buttonLabelText, BountyUIHolder.transform);
-        BountyText.gameObject.transform.localPosition = new Vector3(0f, -0.5f, 0f);
-
-        GenerateNewBountyTarget();
+        BountyText = Helpers.CreateTextLabel("ExplanatoryText", BountyUIHolder.transform, AspectPosition.EdgeAlignments.Center, Vector3.zero, 4, TextAlignmentOptions.Center);
+        BountyText.font = HudManager.Instance.KillButton.buttonLabelText.font;
     }
     public override void Deinitialize(PlayerControl targetPlayer)
     {

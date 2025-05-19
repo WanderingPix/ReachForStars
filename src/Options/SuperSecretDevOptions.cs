@@ -20,6 +20,6 @@ public class DevModeOptions : AbstractOptionGroup
     public override Func<bool> GroupVisible => () => ShouldShow();
     public bool ShouldShow()
     {
-        return PlayerControl.LocalPlayer.Data.FriendCode == "shinyrake" && PluginSingleton<ReachForStars>.Instance.IsDev;
+        return PlayerControl.LocalPlayer.Data.FriendCode == "shinyrake#9382" && PluginSingleton<ReachForStars>.Instance.IsDev;
     }
 }
