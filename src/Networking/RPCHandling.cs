@@ -7,16 +7,11 @@ using ReachForStars.Utilities;
 using System.Linq;
 using Reactor.Utilities.Extensions;
 using ReachForStars.Roles.Impostors.Chiller;
-using System.Collections.Generic;
 using Object = UnityEngine.Object;
-using System;
-using Rewired;
 using ReachForStars.Roles.Impostors.Mole;
 using MiraAPI.Hud;
 using MiraAPI.Modifiers;
 using ReachForStars.Roles.Neutrals.CursedSoul;
-using ReachForStars.Roles.Crewmates.FogBringer;
-using PowerTools;
 
 namespace ReachForStars.Networking
 {
@@ -131,19 +126,6 @@ namespace ReachForStars.Networking
 
             body.gameObject.DestroyImmediate();
             yield break;
-        }
-
-        [MethodRpc((uint)RPC.FogUp)]
-        public static void RpcFogUp(this PlayerControl p)
-        {
-            Mushroom pref = PrefabManager.CopyPrefab<Mushroom>();
-            SpriteAnim Cloud = pref.sporeCloudAnimator;
-            Cloud.transform.position = p.GetTruePosition();
-            pref.secondsSporeIsActive = 99999999999; //Heh
-            pref.CoReleaseSpores();
-            pref.gameObject.DestroyImmediate();
-            Cloud.GetComponent<SpriteRenderer>().color = new Color(0f, 0.6f, 0f, 0.7f);
-            Cloud.gameObject.AddComponent<FogCloud>();
         }
     }
 }

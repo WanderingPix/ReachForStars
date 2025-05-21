@@ -58,7 +58,7 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         BountyUIHolder.transform.SetParent(HudManager.Instance.gameObject.transform);
         AspectPosition pos = BountyUIHolder.gameObject.AddComponent<AspectPosition>();
         pos.Alignment = AspectPosition.EdgeAlignments.Top;
-        pos.DistanceFromEdge = new Vector3(0f, 0.5f, 0f);
+        pos.DistanceFromEdge = new Vector3(0f, 0.75f, 0f);
         pos.AdjustPosition();
 
 
@@ -74,16 +74,19 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         Popup.SetHighlighted(true);
         Popup.transform.localPosition = new Vector3(0f, -0.5f, 0f);
 
+        Popup.PlayerIcon.gameObject.SetActive(true);
+
 
         //BountyText stuff
-        BountyText = Helpers.CreateTextLabel("ExplanatoryText", BountyUIHolder.transform, AspectPosition.EdgeAlignments.Center, Vector3.zero, 4, TextAlignmentOptions.Center);
-        BountyText.font = HudManager.Instance.KillButton.buttonLabelText.font;
+        BountyText = Object.Instantiate<TextMeshPro>(HudManager.Instance.KillButton.buttonLabelText, BountyUIHolder.transform);
+        BountyText.gameObject.GetComponent<TextTranslatorTMP>().DestroyImmediate();
+        BountyText.gameObject.transform.localScale = new Vector3(1.25f, 2.5f, 1f);
     }
     public override void Deinitialize(PlayerControl targetPlayer)
     {
-        if (Popup != null)
+        if (BountyUIHolder != null)
         {
-            Popup.gameObject.DestroyImmediate();
+            BountyUIHolder.gameObject.DestroyImmediate();
         }
     }
 
@@ -108,24 +111,23 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
 
         if (Popup)
         {
+            Popup.SetDead(false, false);
             Popup.SetCosmetics(BountyTarget.Data);
         }
         if (BountyText)
         {
-            BountyText.text = $"Current Target: {BountyTarget}";
+            BountyText.text = $"Current Target: {BountyTarget.Data.PlayerName}\n\n\n\n ({SuccessfulKills}/{OptionGroupSingleton<BountyHunterOptions>.Instance.SuccessfulKillsQuota})";
         }
     }
 
     public override void OnVotingComplete()
     {
         GenerateNewBountyTarget();
-        Popup.SetHighlighted(true);
-        Popup.MaskArea.DestroyImmediate();
-        HudManager.Instance.StartCoroutine(Effects.ScaleIn(Popup.gameObject.transform, 0f, 1f, 0.7f));
+        BountyUIHolder.SetActive(true);
     }
     public override void OnMeetingStart()
     {
-        HudManager.Instance.StartCoroutine(Effects.ScaleIn(Popup.gameObject.transform, 1f, 0f, 0.7f));
+        BountyUIHolder.SetActive(false);
     }
 
     public override PlayerControl FindClosestTarget()
@@ -140,10 +142,11 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
     {
         SuccessfulKills++;
         Popup.SetDead(false, true, BountyTarget.Data.Role is GuardianAngelRole);
-        
-        HudManager.Instance.StartCoroutine(Effects.ScaleIn(Popup.gameObject.transform, 2f, 1f, 1.2f));
+
+        HudManager.Instance.StartCoroutine(Effects.Bloop(0f, BountyUIHolder.transform, 1f, 0.7f));
         HudManager.Instance.StartCoroutine(Effects.ColorFade(Popup.Background, Color.white, new Color(0f, 0f, 0f, 0f), 1.2f));
-        if (SuccessfulKills == OptionGroupSingleton<BountyHunterOptions>.Instance.SuccessfulKillsQuota)
+        
+        if (SuccessfulKills >= ((int)OptionGroupSingleton<BountyHunterOptions>.Instance.SuccessfulKillsQuota))
         {
             CustomGameOver.Trigger<BountyHunterWin>([Player.Data]);
         }

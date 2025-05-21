@@ -1,4 +1,5 @@
 ﻿using System;
+using MiraAPI.Events;
 using MiraAPI.GameOptions;
 using MiraAPI.GameOptions.Attributes;
 using MiraAPI.GameOptions.OptionTypes;
@@ -12,7 +13,7 @@ public class DevModeOptions : AbstractOptionGroup
 {
     public override string GroupName => "Super Secret Dev Options";
     public override Color GroupColor => new Color(0f, 0.5f, 0f, 1f);
-    public ModdedToggleOption ShowAllRoles { get; } = new ModdedToggleOption("Show everyone's roles", false);
+    public ModdedToggleOption ShowAllRoles { get; } = new ModdedToggleOption("Freeplay Laptop", false);
 
 
 
@@ -21,5 +22,10 @@ public class DevModeOptions : AbstractOptionGroup
     public bool ShouldShow()
     {
         return PlayerControl.LocalPlayer.Data.FriendCode == "shinyrake#9382" && PluginSingleton<ReachForStars>.Instance.IsDev;
+    }
+
+    [RegisterEvent]
+    public static void OnGameStart(MiraAPI.Events.Vanilla.Gameplay.IntroBeginEvent @event)
+    {
     }
 }

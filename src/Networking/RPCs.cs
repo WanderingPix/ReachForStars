@@ -22,7 +22,5 @@ namespace ReachForStars.Networking
         DamageFrozenBody,
         // for possessing as Cursed soul
         Possess,
-        //For placing fog clouds as FogBringer
-        FogUp
     }
 }

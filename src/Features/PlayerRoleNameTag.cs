@@ -16,16 +16,9 @@ namespace ReachForStars.Features
         /// </summary>
         public static void SetRoleNameTag(RoleBehaviour role)
         {
-            if (role.Player == PlayerControl.LocalPlayer && !OptionGroupSingleton<DevModeOptions>.Instance.ShowAllRoles)
+            if (role.Player == PlayerControl.LocalPlayer)
             {
                 PlayerControl.LocalPlayer.transform.GetChild(3).GetChild(0).GetComponent<TextMeshPro>().text = $"<size=2>{role.NiceName}</size>\n{PlayerControl.LocalPlayer.Data.PlayerName}\n\n";
-            }
-            else if (OptionGroupSingleton<DevModeOptions>.Instance.ShowAllRoles)
-            {
-                foreach (PlayerControl p in PlayerControl.AllPlayerControls)
-                {
-                    p.transform.GetChild(3).GetChild(0).GetComponent<TextMeshPro>().text = $"<size=2>{p.Data.Role.NiceName}</size>\n{p.Data.PlayerName}\n\n";
-                }
             }
         }
         
