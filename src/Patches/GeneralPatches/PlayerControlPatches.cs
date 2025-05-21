@@ -1,5 +1,6 @@
 using AmongUs.GameOptions;
 using HarmonyLib;
+using MiraAPI.Events;
 using MiraAPI.Hud;
 using MiraAPI.Modifiers;
 using ReachForStars.Features;
@@ -22,14 +23,13 @@ namespace ReachForStars
         {
             __instance.GetExtendedPlayerControl().RoleHistory.Add(role);
         }*/
-        [HarmonyPatch(typeof(PlayerControl), nameof(PlayerControl.MurderPlayer))]
-        [HarmonyPostfix]
-        public static void PostfixMurderPlayer(PlayerControl __instance, ref PlayerControl target)
+        [RegisterEvent]
+        public static void PostfixMurderPlayer(MiraAPI.Events.Vanilla.Gameplay.AfterMurderEvent @event)
         {
-            target.GetExtendedPlayerControl().Killer = __instance;
-            target.GetExtendedPlayerControl().deathReason = DeathReason.Kill;
+            @event.Target.GetExtendedPlayerControl().Killer = @event.Source;
+            @event.Target.GetExtendedPlayerControl().deathReason = DeathReason.Kill;
 
-            if (PlayerControl.LocalPlayer.Data.Role is BountyHunterRole BH && __instance == PlayerControl.LocalPlayer && target == BH.BountyTarget)
+            if (@event.Source.Data.Role is BountyHunterRole BH && BH.BountyTarget == @event.Target)
             {
                 BH.OnTargetKill();
             }

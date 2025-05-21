@@ -107,8 +107,6 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         int index = rnd.Next(Playerpool.Count);
         BountyTarget = Playerpool[index];
 
-        BountyTarget.RpcAddModifier<BountyModifier>();
-
         if (Popup)
         {
             Popup.SetDead(false, false);
@@ -143,8 +141,7 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         SuccessfulKills++;
         Popup.SetDead(false, true, BountyTarget.Data.Role is GuardianAngelRole);
 
-        HudManager.Instance.StartCoroutine(Effects.Bloop(0f, BountyUIHolder.transform, 1f, 0.7f));
-        HudManager.Instance.StartCoroutine(Effects.ColorFade(Popup.Background, Color.white, new Color(0f, 0f, 0f, 0f), 1.2f));
+        BountyText.text = $"Current Target: {BountyTarget.Data.PlayerName}\n\n\n\n ({SuccessfulKills}/{OptionGroupSingleton<BountyHunterOptions>.Instance.SuccessfulKillsQuota})";
         
         if (SuccessfulKills >= ((int)OptionGroupSingleton<BountyHunterOptions>.Instance.SuccessfulKillsQuota))
         {
