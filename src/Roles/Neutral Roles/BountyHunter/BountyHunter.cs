@@ -63,7 +63,7 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
 
 
         //PlayerVoteArea stuff
-        Popup = HudManager.Instance.MeetingPrefab.CreateButton(Player.Data); //Using Player temporarily, it'll get overriden anyway by GenerateBountyTarget
+        Popup = HudManager.Instance.MeetingPrefab.CreateButton(null); //Using Player temporarily, it'll get overriden anyway by GenerateBountyTarget
         Popup.transform.SetParent(BountyUIHolder.transform);
         foreach (var rend in Popup.gameObject.transform.GetComponentsInChildren<SpriteRenderer>())
         {
@@ -103,7 +103,7 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
     private void GenerateNewBountyTarget()
     {
         Random rnd = new Random();
-        List<PlayerControl> Playerpool = Helpers.GetAlivePlayers().Where(x => x != PlayerControl.LocalPlayer).ToList();
+        List<PlayerControl> Playerpool = Helpers.GetAlivePlayers().Where(x => x != PlayerControl.LocalPlayer && x != MeetingHud.Instance.exiledPlayer).ToList();
         int index = rnd.Next(Playerpool.Count);
         BountyTarget = Playerpool[index];
 

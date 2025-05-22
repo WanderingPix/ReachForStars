@@ -36,9 +36,14 @@ namespace ReachForStars.Networking
         }
 
         [MethodRpc((uint)RPC.ChangeBodyType)]
-        public static void RpcChangeBodyType(this PlayerControl target, PlayerBodyTypes type)
+        public static void RpcChangeBodyType(this PlayerControl target, PlayerBodyTypes type, bool shouldAnimateForSeeker = false)
         {
             target.MyPhysics.SetBodyType(type);
+            if (type == PlayerBodyTypes.Seeker && shouldAnimateForSeeker)
+            {
+                target.AnimateCustom(HudManager.Instance.IntroPrefab.HnSSeekerSpawnAnim);
+                target.cosmetics.SetBodyCosmeticsVisible(false);
+            }
         }
 
         [MethodRpc((uint)RPC.PlaceDaVent)]
