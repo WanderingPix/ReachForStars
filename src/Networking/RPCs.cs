@@ -22,5 +22,7 @@ namespace ReachForStars.Networking
         DamageFrozenBody,
         // for possessing as Cursed soul
         Possess,
+        // for placing cobwebs as arachnid
+        PlaceCobweb,
     }
 }
