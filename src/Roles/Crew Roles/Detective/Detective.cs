@@ -32,5 +32,11 @@ public class DetectiveRole : CrewmateRole, ICustomRole
         Suspects = PlayerControl.AllPlayerControls.ToArray().ToList();
         ActualEvils = Suspects.Where(x => x.Data.Role.IsImpostor || x.Data.Role is ICustomRole custom && custom.Team == ModdedRoleTeams.Custom).ToList();
     }
-
+    public void SetUpVoteArea(PlayerVoteArea area)
+    {
+        SpriteRenderer Indicator = Object.Instantiate<SpriteRenderer>(area.XMark, area.XMark.transform.parent);
+        Indicator.gameObject.name = "DetectiveIndicator";
+        Indicator.sprite = Assets.Freeze.LoadAsset();
+        Indicator.gameObject.SetActive(true);
+    }
 }

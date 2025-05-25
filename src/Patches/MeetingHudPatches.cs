@@ -5,29 +5,21 @@ using System.Threading.Tasks;
 using HarmonyLib;
 using MiraAPI.Utilities;
 using ReachForStars.Roles.Crewmates.Detective;
+using ReachForStars.Utilities;
 using UnityEngine;
 
 namespace ReachForStars.Patches
 {
-    [HarmonyPatch(typeof(MeetingHud))]
+    [HarmonyPatch]
     public class MeetingHudPatches
     {
-        [HarmonyPatch(typeof(MeetingHud), nameof(MeetingHud.PopulateButtons))]
+        [HarmonyPatch(typeof(PlayerVoteArea), nameof(PlayerVoteArea.SetCosmetics))]
         [HarmonyPostfix]
-        public static void PopulatePostfix(MeetingHud __instance)
+        public static void SetCosmeticsPostfix(PlayerVoteArea __instance, ref NetworkedPlayerInfo pInfo)
         {
-            if (PlayerControl.LocalPlayer.Data.Role is DetectiveRole det)
+            if (PlayerControl.LocalPlayer.Data.Role is DetectiveRole det && PlayerControlUtils.GetPlayerById(pInfo.PlayerId))
             {
-                foreach (PlayerVoteArea area in UnityEngine.Object.FindObjectsOfType<PlayerVoteArea>())
-                {
-                    if (det.Suspects.Contains(area.GetPlayer()))
-                    {
-                        SpriteRenderer DetIndicator = UnityEngine.Object.Instantiate<SpriteRenderer>(area.XMark, area.XMark.transform.parent);
-                        DetIndicator.gameObject.SetActive(true);
-                        DetIndicator.sprite = Assets.Shoot.LoadAsset();
-                        DetIndicator.gameObject.name = "DetIndicator";
-                    }
-                }
+                det.SetUpVoteArea(__instance);
             }
         }
     }

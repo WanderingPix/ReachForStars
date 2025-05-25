@@ -18,6 +18,7 @@ using System.Threading.Tasks;
 using MiraAPI.Utilities.Assets;
 using System.Collections.Generic;
 using Rewired;
+using System.Linq;
 
 namespace ReachForStars.Utilities;
 
@@ -61,7 +62,11 @@ public static class PlayerControlUtils
             Camera.main.orthographicSize -= 0.2f;
             yield return new WaitForSeconds(0.1f);
         }
-        
+
         yield break;
+    }
+    public static PlayerControl GetPlayerById(byte id)
+    {
+        return PlayerControl.AllPlayerControls.ToArray().ToList().FirstOrDefault(x => x.PlayerId == id);
     }
 }
