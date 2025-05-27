@@ -15,7 +15,9 @@ namespace ReachForStars
         [HarmonyPostfix]
         public static void PostfixStart(PlayerControl __instance)
         {
-            __instance.gameObject.AddComponent<ExtendedPlayerControl>().parent = __instance;
+            ExtendedPlayerControl exp = __instance.gameObject.AddComponent<ExtendedPlayerControl>();
+            exp.parent = __instance;
+            
         }
         /*[HarmonyPatch(typeof(PlayerControl), nameof(PlayerControl.CoSetRole))]
         [HarmonyPostfix]

@@ -10,7 +10,6 @@ namespace ReachForStars
         public static void Postfix(HudManager __instance)
         {
             SmolUI.ResizeUI();
-            AndroidJoystickFix.FixJoystick();
         }
     }
 }
