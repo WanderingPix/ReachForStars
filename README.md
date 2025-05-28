@@ -16,9 +16,10 @@ features in the works:
 4. Sound Effects
 5. Translations
 6. Cursed Soul Role
+7. Update to 16.0.5
 
 Planned features:
 1. Ranks
-2. Pyromaniac Role
+2. Necromancer Role
 
 **Estimated Public Release: July**
