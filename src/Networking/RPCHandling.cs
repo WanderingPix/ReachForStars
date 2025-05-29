@@ -93,7 +93,7 @@ namespace ReachForStars.Networking
         [MethodRpc((uint)RPC.DamageFrozenBody)]
         public static void RpcDamageFrozenBody(int id, int NewDurability)
         {
-            var body = Object.FindObjectsOfType<FrozenBody>().ToList().Where(x => x.myBody.ParentId == id).ToList()[0];
+            var body = Object.FindObjectsOfType<FrozenBody>().ToList().FirstOrDefault(x => x.myBody.ParentId == id);
             body.Durability = NewDurability;
             switch (body.Durability)
             {
