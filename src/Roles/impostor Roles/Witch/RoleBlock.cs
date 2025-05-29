@@ -23,7 +23,7 @@ public class RoleBlock : CustomActionButton<PlayerControl>
     public override float EffectDuration => 0;
     public override int MaxUses => 1;
 
-    public override ButtonLocation Location => ButtonLocation.BottomLeft;
+    public override ButtonLocation Location => ButtonLocation.BottomRight;
 
     public override LoadableAsset<Sprite> Sprite => Assets.PoisonButton;
 

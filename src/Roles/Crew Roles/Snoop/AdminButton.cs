@@ -39,4 +39,5 @@ public class AdminButton : CustomActionButton
         HudManager.Instance.InitMap();
         MapBehaviour.Instance.ShowCountOverlay(true, false, true);
     }
+    public override ButtonLocation Location => ButtonLocation.BottomRight;
 }

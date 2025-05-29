@@ -76,9 +76,6 @@ namespace ReachForStars.Roles.Crewmates.Sheriff
                 }
             }
         }
-
-        public override void OnEffectEnd()
-        {
-        }
+        public override ButtonLocation Location => ButtonLocation.BottomRight;
     }
 }
