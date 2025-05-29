@@ -61,4 +61,5 @@ public class Inspect : CustomActionButton<DeadBody>
             }
         }
     }
+    public override ButtonLocation Location => ButtonLocation.BottomRight;
 }
