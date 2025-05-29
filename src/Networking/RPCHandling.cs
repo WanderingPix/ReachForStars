@@ -132,16 +132,5 @@ namespace ReachForStars.Networking
             body.gameObject.DestroyImmediate();
             yield break;
         }
-        [MethodRpc((uint)RPC.Revive)]
-        public static void RpcRevive(this PlayerControl p, ReviveTypes revive)
-        {
-            p.Revive();
-            if (revive == ReviveTypes.ReviveAsPuppet) p.SetRole(*/Id*/);
-        }
-    }
-    public enum ReviveTypes
-    {
-        ReviveAsPuppet,
-        ReviveAsCurrentRole,
     }
 }
