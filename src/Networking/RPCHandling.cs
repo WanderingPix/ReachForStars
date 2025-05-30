@@ -12,6 +12,7 @@ using ReachForStars.Roles.Impostors.Mole;
 using MiraAPI.Hud;
 using MiraAPI.Modifiers;
 using ReachForStars.Roles.Neutrals.CursedSoul;
+using ReachForStars.Roles.Impostors.Arachnid;
 
 namespace ReachForStars.Networking
 {
@@ -92,7 +93,7 @@ namespace ReachForStars.Networking
         [MethodRpc((uint)RPC.DamageFrozenBody)]
         public static void RpcDamageFrozenBody(int id, int NewDurability)
         {
-            var body = Object.FindObjectsOfType<FrozenBody>().ToList().Where(x => x.myBody.ParentId == id).ToList()[0];
+            var body = Object.FindObjectsOfType<FrozenBody>().ToList().FirstOrDefault(x => x.myBody.ParentId == id);
             body.Durability = NewDurability;
             switch (body.Durability)
             {
@@ -130,6 +131,18 @@ namespace ReachForStars.Networking
             p.AddModifier<PossessingNodifier>();
 
             body.gameObject.DestroyImmediate();
+            yield break;
+        }
+        [MethodRpc((uint)RPC.PlaceCobweb)]
+        public static void RpcPlaceCobweb(this PlayerControl p)
+        {
+            GameObject web = new GameObject("Cobweb");
+            web.transform.position = p.GetTruePosition();
+            Coroutines.Start(DoCobwebAnim(web.AddComponent<Cobweb>()));
+        }
+        public static System.Collections.IEnumerator DoCobwebAnim(Cobweb web)
+        {
+            //TODO Animation :heh:
             yield break;
         }
     }
