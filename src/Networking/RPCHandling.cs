@@ -13,6 +13,7 @@ using MiraAPI.Hud;
 using MiraAPI.Modifiers;
 using ReachForStars.Roles.Neutrals.CursedSoul;
 using ReachForStars.Roles.Impostors.Arachnid;
+using ReachForStars.Roles.Crewmates.Trapper;
 
 namespace ReachForStars.Networking
 {
@@ -144,6 +145,12 @@ namespace ReachForStars.Networking
         {
             //TODO Animation :heh:
             yield break;
+        }
+        [MethodRpc((uint)RPC.PlaceTrap)]
+        public static void RpcPlaceTrap(this PlayerControl p)
+        {
+            gameObject trap = new GameObject("Trap");
+            trap.AddComponent<Trap>();
         }
     }
 }
