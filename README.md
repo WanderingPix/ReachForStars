@@ -20,6 +20,5 @@ features in the works:
 
 Planned features:
 1. Ranks
-2. Necromancer Role
 
-**Estimated Public Release: July**
+**Estimated Public Release: Late July**
