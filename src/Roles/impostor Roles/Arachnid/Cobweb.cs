@@ -30,9 +30,6 @@ public class Cobweb : MonoBehaviour
     }
     public void FixedUpdate()
     {
-        foreach (PlayerControl p in Helpers.GetAlivePlayers().Where(x => Vector3.Distance(gameObject.transform.position, p.GetTruePosition()) > 1f))
-        {
-            p.AddModifier<SlowedDownModifier>();
-        }
+        //Player check
     }
 }
