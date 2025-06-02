@@ -14,7 +14,7 @@ using ReachForStars.Roles.Crewmates.Trapper;
 
 namespace ReachForStars;
 
-[BepInAutoPlugin("ReachForStars", "Reach For Stars Beta", "0.1")]
+[BepInAutoPlugin("ReachForStars", "Reach For Stars Internal Testing [DO NOT SHARE!]", "1.0.0")]
 [BepInProcess("Among Us.exe")]
 [BepInDependency(ReactorPlugin.Id)]
 [BepInDependency(MiraApiPlugin.Id)]
@@ -30,7 +30,7 @@ public partial class ReachForStars : BasePlugin, IMiraPlugin
         Harmony.PatchAll();
         ClassInjector.RegisterTypeInIl2Cpp<ExtendedPlayerControl>();
         ClassInjector.RegisterTypeInIl2Cpp<Cobweb>();
-        ClassInjector.RegisterTypeInIl2Cpp<Trap>();
+        //ClassInjector.RegisterTypeInIl2Cpp<Trap>();
         ReactorCredits.Register<ReachForStars>(ReactorCredits.AlwaysShow);
     }
 }
