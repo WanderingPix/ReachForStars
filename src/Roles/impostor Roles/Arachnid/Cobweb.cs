@@ -12,7 +12,7 @@ using System.Linq;
 
 namespace ReachForStars.Roles.Impostors.Arachnid;
 
-public class Cobweb : MonoBehaviour(ptr)
+public class Cobweb : MonoBehaviour
 {
     public SpriteRenderer myRend;
   
