@@ -22,3 +22,4 @@ Planned features:
 1. Ranks
 
 **Estimated Public Release: Late July**
+**Trailer Progress: Editing**
