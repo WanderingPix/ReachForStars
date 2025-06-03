@@ -1,15 +1,9 @@
-using MiraAPI.Utilities.Assets;
-using MiraAPI.Utilities;
 using Reactor.Utilities.Extensions;
 using Reactor.Utilities;
 using System.Collections;
-using System;
-using Reactor.Utilities.Attributes;
 using UnityEngine;
-using Sentry.Unity.NativeUtils;
-using ReachForStars.Networking;
-using System.Linq;
 using MiraAPI.Modifiers;
+using MiraAPI.Events;
 
 namespace ReachForStars.Roles.Impostors.Arachnid;
 
@@ -29,6 +23,7 @@ public class Cobweb : MonoBehaviour
     }
     public IEnumerator DoSpawnAnimation(SpriteRenderer rend)
     {
+        SoundManager.Instance.PlaySound(Assets.CobwebSFX.LoadAsset(), false, 1f);
         rend.sprite = Assets.Cobweb0.LoadAsset();
         yield return new WaitForSeconds(0.1f);
 
@@ -36,7 +31,7 @@ public class Cobweb : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
 
         rend.sprite = Assets.Cobweb2.LoadAsset();
-        yield return new WaitForSeconds(0.1f); 
+        yield return new WaitForSeconds(0.1f);
 
         yield break;
     }
@@ -49,6 +44,14 @@ public class Cobweb : MonoBehaviour
             {
                 player.AddModifier<SlowedDownModifier>();
             }
+        }
+    }
+    [RegisterEvent]
+    public static void OnMeetingEnd(MiraAPI.Events.Vanilla.Meeting.EndMeetingEvent @event)
+    {
+        foreach (var cobweb in Object.FindObjectsOfType<Cobweb>())
+        {
+            cobweb.DestroyImmediate();
         }
     }
 }

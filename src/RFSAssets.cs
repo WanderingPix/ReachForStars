@@ -24,4 +24,5 @@ public static class Assets
     public static LoadableResourceAsset Cobweb1 { get; } = new("ReachForStars.Resources.Cobwebs.Cobweb1.png");
     public static LoadableResourceAsset Cobweb2 { get; } = new("ReachForStars.Resources.Cobwebs.Cobweb2.png");
     public static LoadableResourceAsset Cobweb3 { get; } = new("ReachForStars.Resources.Cobwebs.Cobweb3.png");
+    public static LoadableAudioResourceAsset CobwebSFX { get; } = new("ReachForStars.Resources.SoundEffects.Cobweb.wav");
 }

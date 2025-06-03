@@ -24,7 +24,7 @@ public partial class ReachForStars : BasePlugin, IMiraPlugin
     public Harmony Harmony { get; } = new(Id);
     public string OptionsTitleText => "Reach For The Stars";
     public bool IsDev = true;
-    public ConfigFile GetConfigFile() => new ConfigFile(System.IO.Path.Combine(Paths.GameDataPath, "/ReachForStars/ReachForStars.cfg"), true);
+    public ConfigFile GetConfigFile() => Config;
     public override void Load()
     {
         Harmony.PatchAll();
