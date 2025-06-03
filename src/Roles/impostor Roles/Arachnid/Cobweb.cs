@@ -13,7 +13,7 @@ public class Cobweb : MonoBehaviour
 
     public bool ShouldAffectPlayer(PlayerControl Player)
     {
-        return Player.Data.Role is not ArachnidRole && !Player.Data.IsDead;
+        return Player.Data.Role is not ArachnidRole && !Player.Data.IsDead && Player.HasModifier<SlowedDownModifier>();
     }
     public void Start()
     {
