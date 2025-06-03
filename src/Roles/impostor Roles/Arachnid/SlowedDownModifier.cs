@@ -15,6 +15,10 @@ namespace ReachForStars.Roles.Impostors.Arachnid
                 Player.RemoveModifier<SlowedDownModifier>();
             }
         }
+        public override void OnDeactivate()
+        {
+            Player.MyPhysics.body.velocity *= new Vector2(2.5f, 5f);
+        }
         public override int GetAmountPerGame()
         {
             return 0;
