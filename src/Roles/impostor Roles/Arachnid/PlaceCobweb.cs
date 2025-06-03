@@ -10,21 +10,21 @@ using ReachForStars.Utilities;
 using Reactor.Utilities;
 using ReachForStars.Translation;
 
-namespace ReachForStars.Roles.Impostors.Mole;
-public class Dig : CustomActionButton
+namespace ReachForStars.Roles.Impostors.Arachnid;
+public class PlaceCobweb : CustomActionButton
 {
     public override string Name => buttonName.GetTranslatedText();
     public TranslationPool buttonName = new TranslationPool(
-    english: "Dig",
-    spanish: "excavar",
-    portuguese: "escavação",
-    french: "creuser",
-    russian: "копать",// tbh, i love this role actually :) - lime
-    italian: "scavare"// btw really that sounds kida unprofessional (I'm using slang) XoXo pengun
+    english: "Cobweb",
+    spanish: "",
+    portuguese: "",
+    french: "",
+    russian: "",
+    italian: ""
     );
 
-    public override float Cooldown => 0;
-    public override float EffectDuration => 5;
+    public override float Cooldown => 10;
+    public override float EffectDuration => 0;
 
     public override ButtonLocation Location => ButtonLocation.BottomRight;
 
@@ -34,7 +34,7 @@ public class Dig : CustomActionButton
 
     public override bool Enabled(RoleBehaviour? role)
     {
-        return role is MoleRole;
+        return role is ArachnidRole;
     }
 
     public override bool CanUse()
@@ -44,11 +44,6 @@ public class Dig : CustomActionButton
     public List<Vent> MinedVents;
     protected override void OnClick()
     {
-        PlayerControl.LocalPlayer.RpcPlaceVent();
-        PlayerControl.LocalPlayer.MyPhysics.enabled = false;
+        PlayerControl.LocalPlayer.RpcPlaceCobweb();
     }
-    public override void OnEffectEnd()
-    {
-        PlayerControl.LocalPlayer.MyPhysics.enabled = true;
-    } 
 }

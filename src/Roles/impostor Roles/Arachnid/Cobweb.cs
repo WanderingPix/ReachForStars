@@ -9,27 +9,46 @@ using UnityEngine;
 using Sentry.Unity.NativeUtils;
 using ReachForStars.Networking;
 using System.Linq;
+using MiraAPI.Modifiers;
 
 namespace ReachForStars.Roles.Impostors.Arachnid;
 
 public class Cobweb : MonoBehaviour
 {
     public SpriteRenderer myRend;
-  
+
+    public bool ShouldAffectPlayer(PlayerControl Player)
+    {
+        return Player.Data.Role is not ArachnidRole && !Player.Data.IsDead;
+    }
     public void Start()
     {
-        //Setup
-        gameObject.transform.localScale = new Vector3(0.35f, 0.35f, 0.45f);
         myRend = gameObject.AddComponent<SpriteRenderer>();
-        gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y, -5f);
-        myRend.sprite = Assets.FrozenBody0.LoadAsset();
-       
-        //Spawn Animation
-        HudManager.Instance.StartCoroutine(Effects.ColorFade(myRend, new Color(1f, 1f, 1f, 0f), new Color(1f, 1f, 1f, 1f), 0.4f));
-        HudManager.Instance.StartCoroutine(Effects.ScaleIn(gameObject.transform, 0f, 0.5f, 0.4f));
+        Coroutines.Start(DoSpawnAnimation(myRend));
     }
+    public IEnumerator DoSpawnAnimation(SpriteRenderer rend)
+    {
+        rend.sprite = Assets.Cobweb0.LoadAsset();
+        yield return new WaitForSeconds(0.15f);
+
+        rend.sprite = Assets.Cobweb1.LoadAsset();
+        yield return new WaitForSeconds(0.15f);
+
+        rend.sprite = Assets.Cobweb2.LoadAsset();
+        yield return new WaitForSeconds(0.15f);
+
+
+        yield break;
+    }
+
     public void FixedUpdate()
     {
-        //Player check
+        foreach (var player in PlayerControl.AllPlayerControls)
+        {
+            if (ShouldAffectPlayer(player) && Vector2.Distance(player.GetTruePosition(), transform.position) < 0.7f)
+            {
+                player.AddModifier<SlowedDownModifier>();
+            }
+        }
     }
 }

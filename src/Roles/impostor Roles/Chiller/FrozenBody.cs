@@ -16,7 +16,7 @@ namespace ReachForStars.Roles.Impostors.Chiller;
 public class FrozenBody(IntPtr ptr) : MonoBehaviour(ptr)
 {
     public bool isActive;
-    public ImageNames UseIcon => ;
+    public ImageNames UseIcon => ImageNames.FreeplayButton;
     public float UsableDistance => 180f;
     public float PercentCool => 0f;
     public BoxCollider2D myCol;

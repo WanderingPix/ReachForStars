@@ -19,7 +19,9 @@ public static class Assets
     public static LoadableResourceAsset SpeedOMeter { get; } = new("ReachForStars.Resources.SpeedOMeter.png");
 
 
-    //Snoop
-    public static LoadableResourceAsset SnoopCamOn { get; } = new("ReachForStars.Resources.SnoopCamera.SnoopCamOn.png");
-    public static LoadableResourceAsset SnoopCamOff { get; } = new("ReachForStars.Resources.SnoopCamera.SnoopCamOff.png");
+    //Arachnid
+    public static LoadableResourceAsset Cobweb0 { get; } = new("ReachForStars.Resources.Cobwebs.Cobweb0.png");
+    public static LoadableResourceAsset Cobweb1 { get; } = new("ReachForStars.Resources.Cobwebs.Cobweb1.png");
+    public static LoadableResourceAsset Cobweb2 { get; } = new("ReachForStars.Resources.Cobwebs.Cobweb2.png");
+    public static LoadableResourceAsset Cobweb3 { get; } = new("ReachForStars.Resources.Cobwebs.Cobweb3.png");
 }
