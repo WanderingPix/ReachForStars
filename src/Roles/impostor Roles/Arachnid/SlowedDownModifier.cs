@@ -5,7 +5,7 @@ namespace ReachForStars.Roles.Impostors.Arachnid
 {
     public class SlowedDownModifier : TimedModifier
     {
-        public override float Duration => 0.1f;
+        public override float Duration => 1f;
 
         public override string ModifierName => "Slowed Down";
 

@@ -28,7 +28,7 @@ public class PlaceCobweb : CustomActionButton
 
     public override ButtonLocation Location => ButtonLocation.BottomRight;
 
-    public override int MaxUses => 1;
+    public override int MaxUses => 0;
 
     public override LoadableAsset<Sprite> Sprite => Assets.PoisonButton;
 
@@ -37,11 +37,6 @@ public class PlaceCobweb : CustomActionButton
         return role is ArachnidRole;
     }
 
-    public override bool CanUse()
-    {
-        return UsesLeft != 0;
-    }
-    public List<Vent> MinedVents;
     protected override void OnClick()
     {
         PlayerControl.LocalPlayer.RpcPlaceCobweb();
