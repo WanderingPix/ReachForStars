@@ -40,7 +40,7 @@ public class Cobweb : MonoBehaviour
     {
         foreach (var player in PlayerControl.AllPlayerControls)
         {
-            if (ShouldAffectPlayer(player) && Vector2.Distance(player.GetTruePosition(), transform.position) < 0.7f)
+            if (ShouldAffectPlayer(player) && Vector2.Distance(player.GetTruePosition(), transform.position) < 1f)
             {
                 player.AddModifier<SlowedDownModifier>();
             }
