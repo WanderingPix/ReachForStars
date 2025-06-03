@@ -25,13 +25,13 @@ public class Cobweb : MonoBehaviour
     {
         SoundManager.Instance.PlaySound(Assets.CobwebSFX.LoadAsset(), false, 1f);
         rend.sprite = Assets.Cobweb0.LoadAsset();
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.125f);
 
         rend.sprite = Assets.Cobweb1.LoadAsset();
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.125f);
 
         rend.sprite = Assets.Cobweb2.LoadAsset();
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.125f);
 
         yield break;
     }
