@@ -16,9 +16,11 @@ features in the works:
 4. Sound Effects
 5. Translations
 6. Cursed Soul Role
+7. Update to 16.0.5 (pain, I hate IL2CPP so much, and inlining is stupid)
 
 Planned features:
 1. Ranks
-2. Pyromaniac Role
 
-**Estimated Public Release: July**
+**Estimated Public Release: Late July**
+
+**Trailer Progress: Editing**
