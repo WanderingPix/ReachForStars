@@ -17,7 +17,6 @@ namespace ReachForStars
         {
             ExtendedPlayerControl exp = __instance.gameObject.AddComponent<ExtendedPlayerControl>();
             exp.parent = __instance;
-            
         }
         /*[HarmonyPatch(typeof(PlayerControl), nameof(PlayerControl.CoSetRole))]
         [HarmonyPostfix]
