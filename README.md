@@ -7,7 +7,7 @@ Completed features:
 4. Jester Role
 5. Sheriff Role
 6. Bounty Hunter Role
-7. Mole Role
+7. Arachnid Role
 
 features in the works:
 1. Snoop Role
@@ -17,6 +17,7 @@ features in the works:
 5. Translations
 6. Cursed Soul Role
 7. Update to 16.0.5 (pain, I hate IL2CPP so much, and inlining is stupid)
+8. Mole Role (Why is it still broken)
 
 Planned features:
 1. Ranks
