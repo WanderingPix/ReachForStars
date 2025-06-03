@@ -137,13 +137,8 @@ namespace ReachForStars.Networking
         public static void RpcPlaceCobweb(this PlayerControl p)
         {
             GameObject web = new GameObject("Cobweb");
-            web.transform.position = p.GetTruePosition();
-            Coroutines.Start(DoCobwebAnim(web.AddComponent<Cobweb>()));
-        }
-        public static System.Collections.IEnumerator DoCobwebAnim(Cobweb web)
-        {
-            //TODO Animation :heh:
-            yield break;
+            web.transform.position = p.GetTruePosition(); 
+            web.AddComponent<Cobweb>();
         }
     }
 }

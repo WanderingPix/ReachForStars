@@ -15,9 +15,9 @@ namespace ReachForStars.Patches
     {
         [HarmonyPatch(typeof(PlayerVoteArea), nameof(PlayerVoteArea.SetCosmetics))]
         [HarmonyPostfix]
-        public static void SetCosmeticsPostfix(PlayerVoteArea __instance, ref NetworkedPlayerInfo pInfo)
+        public static void SetCosmeticsPostfix(PlayerVoteArea __instance)
         {
-            if (PlayerControl.LocalPlayer.Data.Role is DetectiveRole det && PlayerControlUtils.GetPlayerById(pInfo.PlayerId))
+            if (PlayerControl.LocalPlayer.Data.Role is DetectiveRole det && det.Suspects.Contains(__instance.GetPlayer()))
             {
                 det.SetUpVoteArea(__instance);
             }
