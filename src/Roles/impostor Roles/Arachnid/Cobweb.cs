@@ -51,7 +51,7 @@ public class Cobweb : MonoBehaviour
     {
         foreach (var cobweb in Object.FindObjectsOfType<Cobweb>())
         {
-            cobweb.DestroyImmediate();
+            cobweb.gameObject.DestroyImmediate();
         }
     }
 }
