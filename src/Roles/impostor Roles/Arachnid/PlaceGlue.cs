@@ -1,57 +1,44 @@
-using Reactor.Utilities.Extensions;
-using Reactor.Utilities;
-using System.Collections;
+using MiraAPI.Hud;
+using MiraAPI.Utilities.Assets;
+using ReachForStars.Networking;
 using UnityEngine;
-using MiraAPI.Modifiers;
-using MiraAPI.Events;
+using MiraAPI.Utilities;
+using MiraAPI.Networking;
+using System.Collections.Generic;
+using UnityEngine.UI;
+using ReachForStars.Utilities;
+using Reactor.Utilities;
+using ReachForStars.Translation;
 
 namespace ReachForStars.Roles.Impostors.Arachnid;
-
-public class Glue : MonoBehaviour
+public class PlaceGlue : CustomActionButton
 {
-    public SpriteRenderer myRend;
+    public override string Name => buttonName.GetTranslatedText();
+    public TranslationPool buttonName = new TranslationPool(
+    english: "Glue",
+    spanish: "",
+    portuguese: "",
+    french: "",
+    russian: "",
+    italian: ""
+    );
 
-    public bool ShouldAffectPlayer(PlayerControl Player)
+    public override float Cooldown => 10;
+    public override float EffectDuration => 0;
+
+    public override ButtonLocation Location => ButtonLocation.BottomRight;
+
+    public override int MaxUses => 0;
+
+    public override LoadableAsset<Sprite> Sprite => Assets.Glue;
+
+    public override bool Enabled(RoleBehaviour? role)
     {
-        return Player.Data.Role is not ArachnidRole && !Player.Data.IsDead && !Player.HasModifier<SlowedDownModifier>();
-    }
-    public void Start()
-    {
-        gameObject.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
-        myRend = gameObject.AddComponent<SpriteRenderer>();
-        Coroutines.Start(DoSpawnAnimation(myRend));
-    }
-    public IEnumerator DoSpawnAnimation(SpriteRenderer rend)
-    {
-        SoundManager.Instance.PlaySound(Assets. GlueSFX.LoadAsset(), false, 1f);
-        rend.sprite = Assets. Glue0.LoadAsset();
-        yield return new WaitForSeconds(0.125f);
-
-        rend.sprite = Assets. Glue1.LoadAsset();
-        yield return new WaitForSeconds(0.125f);
-
-        rend.sprite = Assets. Glue2.LoadAsset();
-        yield return new WaitForSeconds(0.125f);
-
-        yield break;
+        return role is ArachnidRole;
     }
 
-    public void FixedUpdate()
+    protected override void OnClick()
     {
-        foreach (var player in PlayerControl.AllPlayerControls)
-        {
-            if (ShouldAffectPlayer(player) && Vector2.Distance(player.GetTruePosition(), transform.position) < 1f)
-            {
-                player.AddModifier<SlowedDownModifier>();
-            }
-        }
-    }
-    [RegisterEvent]
-    public static void OnMeetingEnd(MiraAPI.Events.Vanilla.Meeting.EndMeetingEvent @event)
-    {
-        foreach (var  Glue in Object.FindObjectsOfType< Glue>())
-        {
-             Glue.gameObject.DestroyImmediate();
-        }
+        PlayerControl.LocalPlayer.RpcPlaceGlue();
     }
 }
