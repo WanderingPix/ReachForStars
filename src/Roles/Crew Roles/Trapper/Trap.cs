@@ -47,10 +47,10 @@ namespace ReachForStars.Roles.Crewmates.Trapper
         public System.Collections.IEnumerator DoTriggerAnim()
         {
             HudManager.Instance.StartCoroutine(Effects.Bounce(gameObject.transform, 1f, 0.2f));
-            HudManager.Instance.StartCoroutine(Effects.Rotate2D(gameObject.transform, 0f, -45f, 0.3f));
+            HudManager.Instance.StartCoroutine(Effects.Rotate2D(gameObject.transform, 0f, 45f, 0.3f));
             myRend.sprite = Assets.TrapClosed.LoadAsset();
             yield return new WaitForSeconds(0.25f);
-            HudManager.Instance.StartCoroutine(Effects.Rotate2D(gameObject.transform, -45f, 45f, 0.3f));
+            HudManager.Instance.StartCoroutine(Effects.Rotate2D(gameObject.transform, 45f, -45f, 0.3f));
             yield return new WaitForSeconds(0.1f);
             HudManager.Instance.StartCoroutine(Effects.Rotate2D(gameObject.transform, -45f, 45f, 0.1f));
             yield break;
