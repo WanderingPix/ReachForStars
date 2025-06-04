@@ -5,27 +5,47 @@ using MiraAPI.Modifiers;
 
 namespace ReachForStars.Roles.Impostors.Arachnid
 {
-    public class SlowedDownModifier : GameModifier
+    public class SlowedDownModifier : TimedModifier
     {
-        public override void FixedUpdate()
-        {
-            Player.MyPhysics.body.velocity *= new Vector2(0.4f, 0.2f);
-            if (Player.GetNearestObjectOfType< Glue>(1f, new ContactFilter2D().NoFilter()) != null)
-            {
-                Player.RemoveModifier<SlowedDownModifier>();
-            }
-        }
+        public override float Duration => 10f;
         public override void OnDeactivate()
         {
             Player.MyPhysics.body.velocity *= new Vector2(2.5f, 5f);
         }
-        public override int GetAmountPerGame()
+        public override void FixedUpdate()
         {
-            return 0;
+            if (!TimerActive)
+            {
+                return;
+            }
+
+            if (TimeRemaining > 0 && Player.GetNearestObjectOfType<Glue>(0.3f, new ContactFilter2D().NoFilter()) != null)
+            {
+                TimeRemaining -= Time.fixedDeltaTime;
+                ResumeTimer();
+            }
+            if (TimeRemaining == 0) Player.RemoveModifier<SlowedDownModifier>();
+
+            if (Helpers.CheckChance(3))
+            {
+                GameObject droplet = new GameObject("Droplet");
+                droplet.transform.position = Player.GetTruePosition();
+                droplet.AddComponent<SpriteRenderer>().sprite = GetRandomDropletSprite();
+            }
         }
-        public override int GetAssignmentChance()
+        static Sprite[] Droplets = new[]
         {
-            return 0;
+            Assets.Droplet0.LoadAsset(),
+            Assets.Droplet1.LoadAsset(),
+            Assets.Droplet2.LoadAsset(),
+            Assets.Droplet3.LoadAsset(),
+            Assets.Droplet4.LoadAsset()
+         };
+        public static Sprite GetRandomDropletSprite()
+        {
+            System.Random rng = new System.Random();
+            int index = rng.Next(0, 5);
+            return Droplets[index];
         }
         public override string ModifierName => "Slowed Down";
 
