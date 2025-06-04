@@ -35,7 +35,7 @@ public class StunnedModifier : TimedModifier
     GameObject indicator;
     public System.Collections.IEnumerator DoStunnedAnim(SpriteRenderer rend)
     {
-        float frameinterval = 0.1f;
+        float frameinterval = 0.125f;
 
         rend.sprite = Assets.Stunned0.LoadAsset();
         yield return new WaitForSeconds(frameinterval);
