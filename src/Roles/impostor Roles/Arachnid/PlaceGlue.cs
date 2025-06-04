@@ -7,7 +7,7 @@ using MiraAPI.Events;
 
 namespace ReachForStars.Roles.Impostors.Arachnid;
 
-public class Cobweb : MonoBehaviour
+public class Glue : MonoBehaviour
 {
     public SpriteRenderer myRend;
 
@@ -23,14 +23,14 @@ public class Cobweb : MonoBehaviour
     }
     public IEnumerator DoSpawnAnimation(SpriteRenderer rend)
     {
-        SoundManager.Instance.PlaySound(Assets.CobwebSFX.LoadAsset(), false, 1f);
-        rend.sprite = Assets.Cobweb0.LoadAsset();
+        SoundManager.Instance.PlaySound(Assets. GlueSFX.LoadAsset(), false, 1f);
+        rend.sprite = Assets. Glue0.LoadAsset();
         yield return new WaitForSeconds(0.125f);
 
-        rend.sprite = Assets.Cobweb1.LoadAsset();
+        rend.sprite = Assets. Glue1.LoadAsset();
         yield return new WaitForSeconds(0.125f);
 
-        rend.sprite = Assets.Cobweb2.LoadAsset();
+        rend.sprite = Assets. Glue2.LoadAsset();
         yield return new WaitForSeconds(0.125f);
 
         yield break;
@@ -49,9 +49,9 @@ public class Cobweb : MonoBehaviour
     [RegisterEvent]
     public static void OnMeetingEnd(MiraAPI.Events.Vanilla.Meeting.EndMeetingEvent @event)
     {
-        foreach (var cobweb in Object.FindObjectsOfType<Cobweb>())
+        foreach (var  Glue in Object.FindObjectsOfType< Glue>())
         {
-            cobweb.gameObject.DestroyImmediate();
+             Glue.gameObject.DestroyImmediate();
         }
     }
 }

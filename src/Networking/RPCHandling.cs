@@ -104,12 +104,12 @@ namespace ReachForStars.Networking
                     break;
             }
         }
-        [MethodRpc((uint)RPC.PlaceCobweb)]
-        public static void RpcPlaceCobweb(this PlayerControl p)
+        [MethodRpc((uint)RPC.PlaceGlue)]
+        public static void RpcPlaceGlue(this PlayerControl p)
         {
-            GameObject web = new GameObject("Cobweb");
-            web.transform.position = p.GetTruePosition();
-            web.AddComponent<Cobweb>();
+            GameObject glue = new GameObject("Glue");
+            glue.transform.position = p.GetTruePosition();
+            glue.AddComponent<Glue>();
         }
         [MethodRpc((uint)RPC.PlaceTrap)]
         public static void RpcPlaceTrap(this PlayerControl p)

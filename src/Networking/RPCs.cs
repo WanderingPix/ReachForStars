@@ -18,8 +18,8 @@ namespace ReachForStars.Networking
         FreezeBody,
         // For unfreezing dead bodies
         DamageFrozenBody,
-        // for placing cobwebs as arachnid
-        PlaceCobweb,
+        // for placing  Glues as arachnid
+        PlaceGlue,
         // for placing traps as trapper
         PlaceTrap,
     }

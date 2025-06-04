@@ -11,11 +11,11 @@ using Reactor.Utilities;
 using ReachForStars.Translation;
 
 namespace ReachForStars.Roles.Impostors.Arachnid;
-public class PlaceCobweb : CustomActionButton
+public class PlaceGlue : CustomActionButton
 {
     public override string Name => buttonName.GetTranslatedText();
     public TranslationPool buttonName = new TranslationPool(
-    english: "Cobweb",
+    english: "Glue",
     spanish: "",
     portuguese: "",
     french: "",
@@ -39,6 +39,6 @@ public class PlaceCobweb : CustomActionButton
 
     protected override void OnClick()
     {
-        PlayerControl.LocalPlayer.RpcPlaceCobweb();
+        PlayerControl.LocalPlayer.RpcPlaceGlue();
     }
 }

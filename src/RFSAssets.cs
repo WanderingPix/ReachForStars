@@ -20,11 +20,11 @@ public static class Assets
 
 
     //Arachnid
-    public static LoadableResourceAsset Cobweb0 { get; } = new("ReachForStars.Resources.Cobwebs.Cobweb0.png");
-    public static LoadableResourceAsset Cobweb1 { get; } = new("ReachForStars.Resources.Cobwebs.Cobweb1.png");
-    public static LoadableResourceAsset Cobweb2 { get; } = new("ReachForStars.Resources.Cobwebs.Cobweb2.png");
-    public static LoadableResourceAsset Cobweb3 { get; } = new("ReachForStars.Resources.Cobwebs.Cobweb3.png");
-    public static LoadableAudioResourceAsset CobwebSFX { get; } = new("ReachForStars.Resources.SoundEffects.Cobweb.wav");
+    public static LoadableResourceAsset  Glue0 { get; } = new("ReachForStars.Resources. Glues. Glue0.png");
+    public static LoadableResourceAsset  Glue1 { get; } = new("ReachForStars.Resources. Glues. Glue1.png");
+    public static LoadableResourceAsset  Glue2 { get; } = new("ReachForStars.Resources. Glues. Glue2.png");
+    public static LoadableResourceAsset  Glue3 { get; } = new("ReachForStars.Resources. Glues. Glue3.png");
+    public static LoadableAudioResourceAsset  GlueSFX { get; } = new("ReachForStars.Resources.SoundEffects. Glue.wav");
     public static LoadableResourceAsset Glue { get; } = new("ReachForStars.Resources.Glue.png");
 
 

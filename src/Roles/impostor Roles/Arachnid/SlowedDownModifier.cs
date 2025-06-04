@@ -10,7 +10,7 @@ namespace ReachForStars.Roles.Impostors.Arachnid
         public override void FixedUpdate()
         {
             Player.MyPhysics.body.velocity *= new Vector2(0.4f, 0.2f);
-            if (Player.GetNearestObjectOfType<Cobweb>(1f, new ContactFilter2D().NoFilter()) != null)
+            if (Player.GetNearestObjectOfType< Glue>(1f, new ContactFilter2D().NoFilter()) != null)
             {
                 Player.RemoveModifier<SlowedDownModifier>();
             }
