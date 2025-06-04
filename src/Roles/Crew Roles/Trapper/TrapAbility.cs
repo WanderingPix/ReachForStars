@@ -12,6 +12,7 @@ using MiraAPI.Roles;
 using Rewired;
 using AmongUs.GameOptions;
 using Hazel;
+using ReachForStars.Networking;
 
 namespace ReachForStars.Roles.Crewmates.Trapper
 {

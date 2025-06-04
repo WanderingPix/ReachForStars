@@ -149,7 +149,7 @@ namespace ReachForStars.Networking
         [MethodRpc((uint)RPC.PlaceTrap)]
         public static void RpcPlaceTrap(this PlayerControl p)
         {
-            gameObject trap = new GameObject("Trap");
+            GameObject trap = new GameObject("Trap");
             trap.AddComponent<Trap>();
         }
     }

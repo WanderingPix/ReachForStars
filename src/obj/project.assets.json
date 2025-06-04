@@ -4813,17 +4813,17 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Desktop\\My Personal projects\\ReachForStars\\ReachForStars\\src\\ReachForStars.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Desktop\\My Personal projects\\Among Us\\ReachForStars\\ReachForStars\\src\\ReachForStars.csproj",
       "projectName": "ReachForStars",
-      "projectPath": "C:\\Users\\User\\Desktop\\My Personal projects\\ReachForStars\\ReachForStars\\src\\ReachForStars.csproj",
+      "projectPath": "C:\\Users\\User\\Desktop\\My Personal projects\\Among Us\\ReachForStars\\ReachForStars\\src\\ReachForStars.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Desktop\\My Personal projects\\ReachForStars\\ReachForStars\\src\\obj\\",
+      "outputPath": "C:\\Users\\User\\Desktop\\My Personal projects\\Among Us\\ReachForStars\\ReachForStars\\src\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\User\\Desktop\\My Personal projects\\ReachForStars\\ReachForStars\\NuGet.Config",
+        "C:\\Users\\User\\Desktop\\My Personal projects\\Among Us\\ReachForStars\\ReachForStars\\NuGet.Config",
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -4833,7 +4833,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Users\\User\\Desktop\\My Personal projects\\ReachForStars\\ReachForStars\\packages\\NuGet": {},
+        "C:\\Users\\User\\Desktop\\My Personal projects\\Among Us\\ReachForStars\\ReachForStars\\packages\\NuGet": {},
         "https://api.nuget.org/v3/index.json": {},
         "https://nuget.bepinex.dev/v3/index.json": {},
         "https://nuget.reactor.gg/v3/index.json": {},
