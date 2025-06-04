@@ -16,7 +16,7 @@ using ReachForStars.Networking;
 
 namespace ReachForStars.Roles.Crewmates.Trapper
 {
-    public class TrapAbility : CustomActionButton<PlayerControl>
+    public class TrapAbility : CustomActionButton
     {
         public override string Name => ButtonName.GetTranslatedText();
 
@@ -31,28 +31,13 @@ namespace ReachForStars.Roles.Crewmates.Trapper
         public override float Cooldown => 25;
         public override float EffectDuration => 0;
 
-        public override int MaxUses => 0;
+        public override int MaxUses => 3;
 
         public override LoadableAsset<Sprite> Sprite => Assets.Shoot;
 
         public override bool Enabled(RoleBehaviour? role)
         {
             return role is TrapperRole;
-        }
-
-        public override PlayerControl? GetTarget()
-        {
-            return PlayerControl.LocalPlayer.GetClosestPlayer(true, Distance, false);
-        }
-
-        public override void SetOutline(bool active)
-        {
-            Target?.cosmetics.SetOutline(active, new Il2CppSystem.Nullable<Color>(new Color(1f, 1f, 0f, 1f)));
-        }
-
-        public override bool IsTargetValid(PlayerControl? target)
-        {
-            return true;
         }
         protected override void OnClick()
         {

@@ -29,7 +29,7 @@ public partial class ReachForStars : BasePlugin, IMiraPlugin
     {
         Harmony.PatchAll();
         ClassInjector.RegisterTypeInIl2Cpp<Cobweb>();
-        //ClassInjector.RegisterTypeInIl2Cpp<Trap>();
+        ClassInjector.RegisterTypeInIl2Cpp<Trap>();
         ReactorCredits.Register<ReachForStars>(ReactorCredits.AlwaysShow);
     }
 }
