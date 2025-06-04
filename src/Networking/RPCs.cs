@@ -24,5 +24,7 @@ namespace ReachForStars.Networking
         Possess,
         // for placing cobwebs as arachnid
         PlaceCobweb,
+        // for placing traps as trapper
+        PlaceTrap,
     }
 }
