@@ -30,6 +30,7 @@ public class Glue : MonoBehaviour
         rend.sprite = Assets. Glue1.LoadAsset();
         yield return new WaitForSeconds(0.125f);
 
+        SoundManager.Instance.PlaySound(Assets.GlueSFX.LoadAsset(), false);
         rend.sprite = Assets. Glue2.LoadAsset();
         yield return new WaitForSeconds(0.125f);
 
