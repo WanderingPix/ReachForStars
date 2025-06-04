@@ -11,7 +11,6 @@ using Object = UnityEngine.Object;
 using ReachForStars.Roles.Impostors.Mole;
 using MiraAPI.Hud;
 using MiraAPI.Modifiers;
-using ReachForStars.Roles.Neutrals.CursedSoul;
 using ReachForStars.Roles.Impostors.Arachnid;
 using ReachForStars.Roles.Crewmates.Trapper;
 
@@ -104,31 +103,6 @@ namespace ReachForStars.Networking
                     body.DestroyImmediate();
                     break;
             }
-        }
-        [MethodRpc((uint)RPC.Possess)]
-        public static void RpcPossess(this PlayerControl p, byte id)
-        {
-            Coroutines.Start(DoPossessAnim(p, Object.FindObjectsOfType<DeadBody>().FirstOrDefault(x => x.ParentId == id)));
-        }
-        public static System.Collections.IEnumerator DoPossessAnim(PlayerControl p, DeadBody body)
-        {
-            p.MyPhysics.enabled = false;
-            p.StartCoroutine(Effects.Slide2D(p.transform, p.transform.position, body.TruePosition, 0.8f));
-            Animator anim = body.transform.GetChild(1).GetComponent<Animator>();
-            anim.speed *= -1f;
-            anim.Play(0, 0, 1);
-
-            yield return new WaitForSeconds(1f);
-
-            PlayerControl target = PlayerControl.AllPlayerControls.ToArray().ToList().FirstOrDefault(x => x.Data.PlayerId == body.ParentId);
-
-            p.MyPhysics.enabled = true;
-            p.Revive();
-            p.Shapeshift(target, false);
-            p.AddModifier<PossessingNodifier>();
-
-            body.gameObject.DestroyImmediate();
-            yield break;
         }
         [MethodRpc((uint)RPC.PlaceCobweb)]
         public static void RpcPlaceCobweb(this PlayerControl p)

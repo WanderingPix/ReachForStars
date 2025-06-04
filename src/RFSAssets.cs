@@ -25,4 +25,9 @@ public static class Assets
     public static LoadableResourceAsset Cobweb2 { get; } = new("ReachForStars.Resources.Cobwebs.Cobweb2.png");
     public static LoadableResourceAsset Cobweb3 { get; } = new("ReachForStars.Resources.Cobwebs.Cobweb3.png");
     public static LoadableAudioResourceAsset CobwebSFX { get; } = new("ReachForStars.Resources.SoundEffects.Cobweb.wav");
+
+
+    //Trapper
+    public static LoadableResourceAsset TrapOpen { get; } = new("ReachForStars.Resources.Traps.TrapOpen.png");
+    public static LoadableResourceAsset TrapClosed { get; } = new("ReachForStars.Resources.Traps.TrapClosed.png");
 }

@@ -14,14 +14,10 @@ namespace ReachForStars.Networking
         ResizePlayer,
         // Do I need to explain this one?
         DestroyObj,
-        // for reviving players
-        Revive,
         // For freezing dead bodies as chiller
         FreezeBody,
         // For unfreezing dead bodies
         DamageFrozenBody,
-        // for possessing as Cursed soul
-        Possess,
         // for placing cobwebs as arachnid
         PlaceCobweb,
         // for placing traps as trapper
