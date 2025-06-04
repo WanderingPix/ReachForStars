@@ -14,22 +14,31 @@ public class StunnedModifier : TimedModifier
 
     public override float Duration => 3f;
 
+    PlayerControl Trapper;
+
     public override void OnMeetingStart()
     {
         Player.MyPhysics.enabled = true;
         Player.RemoveModifier<StunnedModifier>();
     }
+    NoisemakerArrow arrow;
 
     public override void OnActivate()
     {
         //TODO: Stunned anim
 
-        if (PlayerControl.LocalPlayer.Data.Role is TrapperRole trapper || PlayerControl.LocalPlayer == Player)
+        if (PlayerControl.LocalPlayer == Trapper || PlayerControl.LocalPlayer == Player)
         {
             indicator = new GameObject("StunnedIndicator");
             indicator.transform.SetParent(Player.gameObject.transform);
             indicator.transform.localPosition = new Vector3(0f, 0.8f, 0f);
             Coroutines.Start(DoStunnedAnim(indicator.AddComponent<SpriteRenderer>()));
+
+            NoisemakerRole noise = RoleManager.Instance.GetRole(AmongUs.GameOptions.RoleTypes.Noisemaker) as NoisemakerRole;
+            arrow = Object.Instantiate(noise.deathArrowPrefab).GetComponent<NoisemakerArrow>();
+            arrow.pivot = Player.transform;
+
+            arrow.image.sprite = Assets.Trap0.LoadAsset();
         }
     }
     GameObject indicator;
@@ -50,7 +59,7 @@ public class StunnedModifier : TimedModifier
         yield return new WaitForSeconds(frameinterval);
 
 
-        Coroutines.Start(DoStunnedAnim(rend));
+        Coroutines.Start(DoStunnedAnim(rend)); 
         yield break;
     }
     public override void OnTimerComplete()

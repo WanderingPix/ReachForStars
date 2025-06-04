@@ -30,7 +30,7 @@ public class PlaceCobweb : CustomActionButton
 
     public override int MaxUses => 0;
 
-    public override LoadableAsset<Sprite> Sprite => Assets.PoisonButton;
+    public override LoadableAsset<Sprite> Sprite => Assets.Glue;
 
     public override bool Enabled(RoleBehaviour? role)
     {
