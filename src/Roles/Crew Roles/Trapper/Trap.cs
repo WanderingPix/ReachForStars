@@ -13,7 +13,7 @@ namespace ReachForStars.Roles.Crewmates.Trapper
         public void Start()
         {
             myRend = gameObject.AddComponent<SpriteRenderer>();
-            myRend.sprite = Assets.TrapOpen.LoadAsset();
+            myRend.sprite = Assets.Trap0.LoadAsset();
         }
         public void FixedUpdate()
         {
@@ -46,13 +46,15 @@ namespace ReachForStars.Roles.Crewmates.Trapper
         }
         public System.Collections.IEnumerator DoTriggerAnim()
         {
-            HudManager.Instance.StartCoroutine(Effects.Bounce(gameObject.transform, 1f, 0.2f));
-            HudManager.Instance.StartCoroutine(Effects.Rotate2D(gameObject.transform, 0f, 45f, 0.3f));
-            myRend.sprite = Assets.TrapClosed.LoadAsset();
-            yield return new WaitForSeconds(0.25f);
-            HudManager.Instance.StartCoroutine(Effects.Rotate2D(gameObject.transform, 45f, -45f, 0.3f));
-            yield return new WaitForSeconds(0.1f);
-            HudManager.Instance.StartCoroutine(Effects.Rotate2D(gameObject.transform, -45f, 45f, 0.1f));
+            myRend.sprite = Assets.Trap0.LoadAsset();
+            yield return new WaitForSeconds(0.125f);
+            myRend.sprite = Assets.Trap1.LoadAsset();
+            yield return new WaitForSeconds(0.125f);
+            myRend.sprite = Assets.Trap2.LoadAsset();
+            yield return new WaitForSeconds(0.125f);
+            myRend.sprite = Assets.Trap3.LoadAsset();
+            yield return new WaitForSeconds(0.125f);
+            //Play sound TBD
             yield break;
         }
     }

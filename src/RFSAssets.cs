@@ -28,6 +28,14 @@ public static class Assets
 
 
     //Trapper
-    public static LoadableResourceAsset TrapOpen { get; } = new("ReachForStars.Resources.Traps.TrapOpen.png");
-    public static LoadableResourceAsset TrapClosed { get; } = new("ReachForStars.Resources.Traps.TrapClosed.png");
+    public static LoadableResourceAsset Trap0 { get; } = new("ReachForStars.Resources.Traps.Trap0.png");
+    public static LoadableResourceAsset Trap1 { get; } = new("ReachForStars.Resources.Traps.Trap1.png");
+    public static LoadableResourceAsset Trap2 { get; } = new("ReachForStars.Resources.Traps.Trap2.png");
+    public static LoadableResourceAsset Trap3 { get; } = new("ReachForStars.Resources.Traps.Trap3.png");
+
+    //Stunned
+    public static LoadableResourceAsset Stunned0 { get; } = new("ReachForStars.Resources.StunnedAnimation.Stunned0.png");
+    public static LoadableResourceAsset Stunned1 { get; } = new("ReachForStars.Resources.StunnedAnimation.Stunned1.png");
+    public static LoadableResourceAsset Stunned2 { get; } = new("ReachForStars.Resources.StunnedAnimation.Stunned2.png");
+    public static LoadableResourceAsset Stunned3 { get; } = new("ReachForStars.Resources.StunnedAnimation.Stunned3.png");
 }
