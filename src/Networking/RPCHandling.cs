@@ -54,14 +54,10 @@ namespace ReachForStars.Networking
         }
         public static System.Collections.IEnumerator DoDigAnim(PlayerControl p)
         {
-            RoleEffectAnimation roleEffectAnimation = Object.Instantiate<RoleEffectAnimation>(RoleManager.Instance.appear_PoofAnim, p.transform);
-            roleEffectAnimation.Play(p, null, false, RoleEffectAnimation.SoundType.Local, 5f);
-
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(2f);
             Dig dig = CustomButtonSingleton<Dig>.Instance;
             Vent prefab = Object.FindObjectOfType<Vent>(true);
             Vent vent = Object.Instantiate<Vent>(prefab);
-            vent.transform.parent = ShipStatus.Instance.transform;
             vent.transform.localScale = new Vector3(1f, 1f, 1f);
             dig.MinedVents.Add(vent);
             vent.name = $"MoleVent{dig.MinedVents.Count()}";
