@@ -28,8 +28,10 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         russian: "Охотник за Головами",
         italian: "Mercenario"
     );
+    PlayerControl Target;
     public string RoleDescription => "Make sure your targets are dead";
     public string RoleLongDescription => RoleDescription;
+    int SuccessfulKills = 0;
     public Color RoleColor => new Color(1f, 0.12f, 0.54f, 1f);
     public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
@@ -38,11 +40,6 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         CanGetKilled = true,
         CanUseVent = false,
     };
-    PlayerVoteArea Popup;
-    public PlayerControl BountyTarget;
-    public int SuccessfulKills;
-    public GameObject BountyUIHolder;
-    public TextMeshPro BountyText;
     public override void Initialize(PlayerControl player)
     {
         RoleBehaviourStubs.Initialize(this, player);
@@ -52,42 +49,9 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
     }
     public void SetUpUI()
     {
-        //UI Holder stuff
-        BountyUIHolder = new GameObject("BountyUIHolder");
-        BountyUIHolder.transform.localScale = new Vector3(4f, 1.5f, 1f);
-        BountyUIHolder.transform.SetParent(HudManager.Instance.gameObject.transform);
-        AspectPosition pos = BountyUIHolder.gameObject.AddComponent<AspectPosition>();
-        pos.Alignment = AspectPosition.EdgeAlignments.Top;
-        pos.DistanceFromEdge = new Vector3(0f, 0.75f, 0f);
-        pos.AdjustPosition();
-
-
-        //PlayerVoteArea stuff
-        Popup = HudManager.Instance.MeetingPrefab.CreateButton(null); //Using Player temporarily, it'll get overriden anyway by GenerateBountyTarget
-        Popup.transform.SetParent(BountyUIHolder.transform);
-        foreach (var rend in Popup.gameObject.transform.GetComponentsInChildren<SpriteRenderer>())
-        {
-            rend.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
-        }
-        Popup.XMark.gameObject.SetActive(false);
-        Popup.Overlay.gameObject.SetActive(false);
-        Popup.SetHighlighted(true);
-        Popup.transform.localPosition = new Vector3(0f, -0.5f, 0f);
-
-        Popup.PlayerIcon.gameObject.SetActive(true);
-
-
-        //BountyText stuff
-        BountyText = Object.Instantiate<TextMeshPro>(HudManager.Instance.KillButton.buttonLabelText, BountyUIHolder.transform);
-        BountyText.gameObject.GetComponent<TextTranslatorTMP>().DestroyImmediate();
-        BountyText.gameObject.transform.localScale = new Vector3(1.25f, 2.5f, 1f);
     }
     public override void Deinitialize(PlayerControl targetPlayer)
     {
-        if (BountyUIHolder != null)
-        {
-            BountyUIHolder.gameObject.DestroyImmediate();
-        }
     }
 
 
@@ -105,44 +69,25 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         Random rnd = new Random();
         List<PlayerControl> Playerpool = Helpers.GetAlivePlayers().Where(x => x != PlayerControl.LocalPlayer && x != MeetingHud.Instance.exiledPlayer).ToList();
         int index = rnd.Next(Playerpool.Count);
-        BountyTarget = Playerpool[index];
-
-        if (Popup)
-        {
-            Popup.SetDead(false, false);
-            Popup.SetCosmetics(BountyTarget.Data);
-        }
-        if (BountyText)
-        {
-            BountyText.text = $"Current Target: {BountyTarget.Data.PlayerName}\n\n\n\n ({SuccessfulKills}/{OptionGroupSingleton<BountyHunterOptions>.Instance.SuccessfulKillsQuota})";
-        }
+        Target = Playerpool[index];
     }
 
     public override void OnVotingComplete()
     {
         GenerateNewBountyTarget();
-        BountyUIHolder.SetActive(true);
-    }
-    public override void OnMeetingStart()
-    {
-        BountyUIHolder.SetActive(false);
     }
 
     public override PlayerControl FindClosestTarget()
     {
-        if (PlayerControl.LocalPlayer.GetClosestPlayer(true, 1f, false) == BountyTarget)
+        if (PlayerControl.LocalPlayer.GetClosestPlayer(true, 1f, false) == Target)
         {
-            return BountyTarget;
+            return Target;
         }
         else return null;
     }
     public void OnTargetKill()
     {
         SuccessfulKills++;
-        Popup.SetDead(false, true, BountyTarget.Data.Role is GuardianAngelRole);
-
-        BountyText.text = $"Current Target: {BountyTarget.Data.PlayerName}\n\n\n\n ({SuccessfulKills}/{OptionGroupSingleton<BountyHunterOptions>.Instance.SuccessfulKillsQuota})";
-        
         if (SuccessfulKills >= ((int)OptionGroupSingleton<BountyHunterOptions>.Instance.SuccessfulKillsQuota))
         {
             CustomGameOver.Trigger<BountyHunterWin>([Player.Data]);

@@ -80,6 +80,7 @@ namespace ReachForStars.Roles.Crewmates.Trapper
                 rend.sprite = Assets.Trap2.LoadAsset();
                 yield return new WaitForSeconds(0.3f);
             }
+            rend.gameObject.DestroyImmediate();
             yield break;
         }
     }
