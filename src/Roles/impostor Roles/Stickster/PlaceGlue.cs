@@ -19,7 +19,7 @@ public class PlaceGlue : CustomActionButton
     spanish: "",
     portuguese: "",
     french: "",
-    russian: "",
+    russian: "Клей",
     italian: ""
     );
 
