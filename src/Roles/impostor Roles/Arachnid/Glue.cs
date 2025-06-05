@@ -48,7 +48,7 @@ public class Glue : MonoBehaviour
     public static Sprite getRandomGlueSprite()
     {
         System.Random rng = new System.Random();
-        int index = rng.Next(0, 3);
+        int index = rng.Next(0, 2);
         return Variations[index];
     }
     public void FixedUpdate()
