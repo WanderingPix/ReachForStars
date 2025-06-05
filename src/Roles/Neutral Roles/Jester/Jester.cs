@@ -66,7 +66,6 @@ public class JesterRole : ImpostorRole, ICustomRole
     public override void Initialize(PlayerControl p)
     {
         RoleBehaviourStubs.Initialize(this, p);
-        if (!OptionGroupSingleton<JesterOptions>.Instance.CanReportBodies) HudManager.Instance.ReportButton.Hide();
         if (!OptionGroupSingleton<JesterOptions>.Instance.CanCallMeeting) ShipStatus.Instance.EmergencyButton.enabled = false;
     }
     public override void Deinitialize(PlayerControl p)

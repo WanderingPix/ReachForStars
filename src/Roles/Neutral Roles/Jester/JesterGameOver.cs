@@ -16,7 +16,7 @@ public class JesterWin : CustomGameOver
         {
             return true;
         }
-        else 
+        else
         {
             return false;
         }
@@ -34,6 +34,7 @@ public class JesterWin : CustomGameOver
     public override void AfterEndGameSetup(EndGameManager endGameManager)
     {
         endGameManager.WinText.text = "The Jester has fooled the crew!";
+        SoundManager.Instance.PlaySound(endGameManager.DisconnectStinger, false, 1f);
         endGameManager.WinText.color = new Color(1f, 0.18f, 0.81f, 1f);
         endGameManager.BackgroundBar.material.SetColor(ShaderID.Color, new Color(1f, 0.18f, 0.81f, 1f));
     }

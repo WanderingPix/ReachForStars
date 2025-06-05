@@ -16,8 +16,5 @@ namespace ReachForStars.Roles.Neutrals.Jester
 
         [ModdedToggleOption("Jester Can Call Meeting")]
         public bool CanCallMeeting { get; set; } = true;
-
-        [ModdedToggleOption("Jester Can Report Bodies")]
-        public bool CanReportBodies { get; set; } = true;
     }
 }
