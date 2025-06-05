@@ -47,7 +47,7 @@ namespace ReachForStars.Roles.Crewmates.Trapper
             HasBeenTriggered = true;
             if (PlayerControl.LocalPlayer == p || PlayerControl.LocalPlayer == Trapper)
             {
-                NoisemakerArrow arrow = Object.Instantiate(RoleManager.Instance.GetRole(AmongUs.GameOptions.RoleTypes.Noisemaker).Cast<NoisemakerRole>().deathArrowPrefab).GetComponent<NoisemakerArrow>();
+               
             }
         }
         public LoadableResourceAsset[] TrapSprites = new[]

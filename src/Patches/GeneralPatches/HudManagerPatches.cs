@@ -5,7 +5,7 @@ using UnityEngine;
 namespace ReachForStars
 {
     [HarmonyPatch(typeof(HudManager), nameof(HudManager.Start))]
-    public class OnHudStart
+    public class HudManagerPatches
     {
         public static void Postfix(HudManager __instance)
         {

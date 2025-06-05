@@ -1,5 +1,6 @@
 using MiraAPI.Modifiers;
 using MiraAPI.Modifiers.Types;
+using ReachForStars.Features;
 using UnityEngine;
 
 namespace ReachForStars.Roles.Impostors.Witch;
@@ -18,7 +19,7 @@ public class RoleBlockedModifier : GameModifier
         foreach (ActionButton button in Object.FindObjectsOfType<ActionButton>())
         {
 
-            HudManager.Instance.StartCoroutine(Effects.ScaleIn(button.transform, 0.7f, 0f, 1.5f));
+            HudManager.Instance.StartCoroutine(Effects.ScaleIn(button.transform, 0.7f * SmolUI.ScaleFactor, 0f, 1.5f));
 
             HudManager.Instance.StartCoroutine(Effects.ColorFade(button.graphic, Palette.White, Palette.Black, 1f));
 
@@ -29,9 +30,9 @@ public class RoleBlockedModifier : GameModifier
     {
         foreach (ActionButton button in Object.FindObjectsOfType<ActionButton>())
         {
-            
-            HudManager.Instance.StartCoroutine(Effects.ScaleIn(button.transform, 0f, 0.7f, 1.5f));
-        
+
+            HudManager.Instance.StartCoroutine(Effects.ScaleIn(button.transform, 0f, 0.7f * SmolUI.ScaleFactor, 1.5f));
+
             HudManager.Instance.StartCoroutine(Effects.ColorFade(button.graphic, Palette.Black, Palette.White, 1f));
         }
         PlayerControl.LocalPlayer.cosmetics.SetOutline(false, new Il2CppSystem.Nullable<Color>(new Color(1f, 0f, 1f, 1f)));

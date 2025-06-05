@@ -49,13 +49,6 @@ namespace ReachForStars.Roles.Neutrals.Exiled
                 EnemyTeam = strings[random.Next(strings.Count)];
 
                 RoleBehaviourStubs.Initialize(this, player);
-
-                
-                GameObject Button = CustomButtonSingleton<ExileKill>.Instance.Button.gameObject;
-                Button.transform.SetParent(HudManager.Instance.transform);
-                AspectPosition pos = Button.gameObject.AddComponent<AspectPosition>();
-                pos.Alignment = AspectPosition.EdgeAlignments.Center;
-                pos.DistanceFromEdge = new Vector3(0f, -1.75f, 0f);
             }
         }
     }

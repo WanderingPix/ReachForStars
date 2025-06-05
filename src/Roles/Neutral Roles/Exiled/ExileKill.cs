@@ -24,7 +24,7 @@ public class ExileKill : CustomActionButton<PlayerControl>
 
     public override LoadableAsset<Sprite> Sprite => Assets.PoisonButton;
 
-    public override ButtonLocation Location => ButtonLocation.BottomLeft;
+    public override ButtonLocation Location => ButtonLocation.BottomRight;
 
     public override bool Enabled(RoleBehaviour? role)
     {
