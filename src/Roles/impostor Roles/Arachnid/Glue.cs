@@ -69,7 +69,7 @@ public class Glue : MonoBehaviour
     {
         foreach (var  Glue in Object.FindObjectsOfType< Glue>())
         {
-             Glue.gameObject.DestroyImmediate();
+            Glue.gameObject.DestroyImmediate();
         }
     }
 }
