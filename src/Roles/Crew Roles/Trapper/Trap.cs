@@ -3,6 +3,7 @@ using MiraAPI.Modifiers;
 using Reactor.Utilities;
 using MiraAPI.Events;
 using Reactor.Utilities.Extensions;
+using MiraAPI.Utilities.Assets;
 
 namespace ReachForStars.Roles.Crewmates.Trapper
 {
@@ -49,17 +50,20 @@ namespace ReachForStars.Roles.Crewmates.Trapper
                 NoisemakerArrow arrow = Object.Instantiate(RoleManager.Instance.GetRole(AmongUs.GameOptions.RoleTypes.Noisemaker).Cast<NoisemakerRole>().deathArrowPrefab).GetComponent<NoisemakerArrow>();
             }
         }
+        public LoadableResourceAsset[] TrapSprites = new[]
+        {
+            Assets.Trap0,
+            Assets.Trap1,
+            Assets.Trap2
+        };
         public System.Collections.IEnumerator DoTriggerAnim()
         {
-            myRend.sprite = Assets.Trap0.LoadAsset();
-            yield return new WaitForSeconds(0.125f);
-            myRend.sprite = Assets.Trap1.LoadAsset();
-            yield return new WaitForSeconds(0.125f);
-            myRend.sprite = Assets.Trap2.LoadAsset();
-            yield return new WaitForSeconds(0.125f);
-            myRend.sprite = Assets.Trap3.LoadAsset();
-            yield return new WaitForSeconds(0.125f);
-            //Play sound TBD
+            for (int i = 0; i == 3; i++)
+            {
+                myRend.sprite = TrapSprites[i].LoadAsset();
+                yield return new WaitForSeconds(0.125f);
+            }
+            //SFX  
             yield break;
         }
     }

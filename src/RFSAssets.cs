@@ -16,7 +16,6 @@ public static class Assets
     public static LoadableResourceAsset Freeze { get; } = new("ReachForStars.Resources.Freeze.png");
     public static LoadableAudioResourceAsset FreezeSFX { get; } = new("ReachForStars.Resources.SoundEffects.Freeze.wav");
     public static LoadableResourceAsset FrozenBody0 { get; } = new("ReachForStars.Resources.FrozenBodyStages.FrozenBody0.png");
-    public static LoadableResourceAsset SpeedOMeter { get; } = new("ReachForStars.Resources.SpeedOMeter.png");
 
 
     //Arachnid
@@ -41,7 +40,6 @@ public static class Assets
     public static LoadableResourceAsset Trap0 { get; } = new("ReachForStars.Resources.Traps.Trap0.png");
     public static LoadableResourceAsset Trap1 { get; } = new("ReachForStars.Resources.Traps.Trap1.png");
     public static LoadableResourceAsset Trap2 { get; } = new("ReachForStars.Resources.Traps.Trap2.png");
-    public static LoadableResourceAsset Trap3 { get; } = new("ReachForStars.Resources.Traps.Trap3.png");
 
     //Stunned
     public static LoadableResourceAsset Stunned0 { get; } = new("ReachForStars.Resources.StunnedAnimation.Stunned0.png");

@@ -51,7 +51,7 @@ public class Glue : MonoBehaviour
     public static LoadableResourceAsset getRandomGlueSprite()
     {
         System.Random rng = new System.Random();
-        int index = rng.Next(0, 2);
+        int index = rng.Next(0, Variations.Length);
         return Variations[index];
     }
     public void FixedUpdate()
