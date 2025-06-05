@@ -2,6 +2,7 @@ using UnityEngine;
 using MiraAPI.Modifiers.Types;
 using MiraAPI.Utilities;
 using MiraAPI.Modifiers;
+using MiraAPI.Utilities.Assets;
 
 namespace ReachForStars.Roles.Impostors.Arachnid
 {
@@ -19,20 +20,20 @@ namespace ReachForStars.Roles.Impostors.Arachnid
             {
                 GameObject droplet = new GameObject("Droplet");
                 droplet.transform.position = Player.GetTruePosition();
-                droplet.AddComponent<SpriteRenderer>().sprite = GetRandomDropletSprite();
+                droplet.AddComponent<SpriteRenderer>().sprite = GetRandomDropletSprite().LoadAsset();
             }
 
             Player.MyPhysics.body.velocity *= new Vector2(0.4f, 0.2f);
         }
-        static Sprite[] Droplets = new[]
+        static LoadableResourceAsset[] Droplets = new[]
         {
-            Assets.Droplet0.LoadAsset(),
-            Assets.Droplet1.LoadAsset(),
-            Assets.Droplet2.LoadAsset(),
-            Assets.Droplet3.LoadAsset(),
-            Assets.Droplet4.LoadAsset()
+            Assets.Droplet0,
+            Assets.Droplet1,
+            Assets.Droplet2,
+            Assets.Droplet3,
+            Assets.Droplet4
          };
-        public static Sprite GetRandomDropletSprite()
+        public static LoadableResourceAsset GetRandomDropletSprite()
         {
             System.Random rng = new System.Random();
             int index = rng.Next(0, 5);
