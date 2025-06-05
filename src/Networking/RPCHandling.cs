@@ -11,7 +11,7 @@ using Object = UnityEngine.Object;
 using ReachForStars.Roles.Impostors.Mole;
 using MiraAPI.Hud;
 using MiraAPI.Modifiers;
-using ReachForStars.Roles.Impostors.Arachnid;
+using ReachForStars.Roles.Impostors.Stickster;
 using ReachForStars.Roles.Crewmates.Trapper;
 
 namespace ReachForStars.Networking
