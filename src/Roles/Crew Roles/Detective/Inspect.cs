@@ -5,8 +5,7 @@ using Reactor.Utilities;
 using System.Collections;
 using UnityEngine;
 using MiraAPI.Utilities;
-using MiraAPI.Networking;
-using TMPro;
+using ReachForStars.Utilities;
 using ReachForStars.Translation;
 using Reactor.Utilities.Extensions;
 
@@ -26,7 +25,7 @@ public class Inspect : CustomActionButton<DeadBody>
 
     public override int MaxUses => 1;
 
-    public override LoadableAsset<Sprite> Sprite => Assets.Shoot;
+    public override LoadableAsset<Sprite> Sprite => Assets.Inspect;
 
     public override bool Enabled(RoleBehaviour? role)
     {
@@ -48,7 +47,7 @@ public class Inspect : CustomActionButton<DeadBody>
     }
     protected override void OnClick()
     {
-        
+        Coroutines.Start(DoInspectAnimation());
     }
     ContactFilter2D filter;
     public override void OnEffectEnd()
@@ -60,6 +59,19 @@ public class Inspect : CustomActionButton<DeadBody>
                 det.Suspects.Remove(pc);
             }
         }
+    }
+    public IEnumerator DoInspectAnimation()
+    {
+        GameObject Anim = new GameObject("InspectAnimation");
+        Anim.transform.position = Target.transform.position;
+        Anim.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
+
+        Anim.AddComponent<SpriteRenderer>().sprite = Assets.Inspect.LoadAsset();
+        HudManager.Instance.StartCoroutine(Effects.SwayX(Anim.transform, 3f, 0.3f));
+        yield return new WaitForSeconds(0.3f);
+        HudManager.Instance.SpawnTextOverlay("Info Collected!");
+        Anim.DestroyImmediate();
+        yield break;
     }
     public override ButtonLocation Location => ButtonLocation.BottomRight;
 }

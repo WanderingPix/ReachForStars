@@ -1,7 +1,7 @@
 ﻿using MiraAPI.Colors;
 using UnityEngine;
 
-namespace MiraAPI.Example;
+namespace ReachForStars.Colors;
 [RegisterCustomColors]
 public static class ExampleColors
 {

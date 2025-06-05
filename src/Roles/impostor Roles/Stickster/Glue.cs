@@ -19,7 +19,7 @@ public class Glue : MonoBehaviour
     }
     public void Start()
     {
-        gameObject.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
+        gameObject.transform.localScale = new Vector3(0.3f, 0.3f, 1f);
         myRend = gameObject.AddComponent<SpriteRenderer>();
         Coroutines.Start(DoSpawnAnimation(myRend));
     }
