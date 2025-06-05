@@ -1,6 +1,7 @@
 # Reach For Stars Progress Log
 
 Completed features:
+
 1. Witch Role
 2. Chiller Role & Frozen Bodies
 3. Exiled Role
@@ -9,6 +10,7 @@ Completed features:
 6. Stickster Role
 
 features in the works:
+
 2. Detective Role
 3. Cursed Soul Role
 4. Sound Effects
@@ -20,7 +22,8 @@ features in the works:
 10. Bounty Hunter (Previously done but I believe it needs to be reworked)
 
 Planned features:
-1. Ranks
+
+None!
 
 **Estimated Public Release: Late July**
 
