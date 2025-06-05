@@ -17,17 +17,19 @@ public class FrozenBody(IntPtr ptr) : MonoBehaviour(ptr)
 {
     public bool isActive;
     public ImageNames UseIcon => ImageNames.FreeplayButton;
-    public float UsableDistance => 180f;
+    public float UsableDistance => 90f;
     public float PercentCool => 0f;
     public BoxCollider2D myCol;
     public SpriteRenderer myRend;
     public DeadBody myBody;
-    public int StartingDurability = 30;
-    public int Durability = 30;
+    public int Level = 3;
+    public int Durability = 10;
+    public byte id;
 
     public void SetTargetBody(DeadBody body)
     {
         myBody = body;
+        id = body.ParentId;
     }
     public void Start()
     {
@@ -40,36 +42,29 @@ public class FrozenBody(IntPtr ptr) : MonoBehaviour(ptr)
         myRend = gameObject.AddComponent<SpriteRenderer>();
         gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y, -5f);
         myRend.sprite = Assets.FrozenBody0.LoadAsset();
-       
 
-
-
-            //Spawn Animation
+        //Spawn Animation
         HudManager.Instance.StartCoroutine(Effects.Bounce(gameObject.transform, 0.7f, 0.45f));
         HudManager.Instance.StartCoroutine(Effects.ColorFade(myRend, new Color(1f, 1f, 1f, 0f), new Color(1f, 1f, 1f, 1f), 0.4f));
         HudManager.Instance.StartCoroutine(Effects.ScaleIn(gameObject.transform, 0.5f, 0.35f, 0.4f));
+        
+        myRend.SetMaterial(ShipStatus.Instance.EmergencyButton.GetComponent<SpriteRenderer>().material);
     }
 
     public void Use()
     {
         Durability--;
         HudManager.Instance.StartCoroutine(Effects.Bounce(gameObject.transform, 0.7f, 0.25f));
-        
-        switch (Durability)
-        {
-            case 20 :
-                RPCS.RpcDamageFrozenBody(myBody.ParentId, Durability);
-                break;
-            case 10:
-                RPCS.RpcDamageFrozenBody(myBody.ParentId, Durability);
-                break;
-            case 0:
-                RPCS.RpcDamageFrozenBody(myBody.ParentId, Durability);
-                break;
-        }
+
+        if (Durability == 0) RPCS.RpcDamageFrozenBody(id);
     }
-            
-    
+    public void UpdateVisuals()
+    {
+        HudManager.Instance.StartCoroutine(Effects.Bounce(gameObject.transform, 0.4f, 0.3f));
+        HudManager.Instance.StartCoroutine(Effects.ScaleIn(gameObject.transform, gameObject.transform.localScale.x, gameObject.transform.localScale.x*0.8f, 0.4f));
+        if (Level == 0) gameObject.DestroyImmediate();
+    }
+
     public void OnDestroy()
     {
         myBody.gameObject.SetActive(true);

@@ -87,22 +87,12 @@ namespace ReachForStars.Networking
             FrozenBody.AddComponent<FrozenBody>().SetTargetBody(targetBody);
         }
         [MethodRpc((uint)RPC.DamageFrozenBody)]
-        public static void RpcDamageFrozenBody(int id, int NewDurability)
+        public static void RpcDamageFrozenBody(byte id)
         {
-            var body = Object.FindObjectsOfType<FrozenBody>().ToList().FirstOrDefault(x => x.myBody.ParentId == id);
-            body.Durability = NewDurability;
-            switch (body.Durability)
-            {
-                case 20:
-                    HudManager.Instance.StartCoroutine(Effects.ScaleIn(body.gameObject.transform, body.gameObject.transform.localScale.x, body.gameObject.transform.localScale.x * 0.6f, 0.4f));
-                    break;
-                case 10:
-                    HudManager.Instance.StartCoroutine(Effects.ScaleIn(body.gameObject.transform, body.gameObject.transform.localScale.x, body.gameObject.transform.localScale.x * 0.6f, 0.4f));
-                    break;
-                case 0:
-                    body.DestroyImmediate();
-                    break;
-            }
+            var body = Object.FindObjectsOfType<FrozenBody>().ToList().FirstOrDefault(x => x.id == id);
+            body.Level--;
+            body.Durability = 10;
+            body.UpdateVisuals();
         }
         [MethodRpc((uint)RPC.PlaceGlue)]
         public static void RpcPlaceGlue(this PlayerControl p)
