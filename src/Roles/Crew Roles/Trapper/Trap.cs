@@ -9,6 +9,7 @@ namespace ReachForStars.Roles.Crewmates.Trapper
     public class Trap : MonoBehaviour
     {
         SpriteRenderer myRend;
+        public PlayerControl Trapper;
         bool HasBeenTriggered = false;
         public void Start()
         {
@@ -43,6 +44,10 @@ namespace ReachForStars.Roles.Crewmates.Trapper
             Coroutines.Start(DoTriggerAnim());
 
             HasBeenTriggered = true;
+            if (PlayerControl.LocalPlayer == p || PlayerControl.LocalPlayer == Trapper)
+            {
+                NoisemakerArrow arrow = Object.Instantiate(RoleManager.Instance.GetRole(AmongUs.GameOptions.RoleTypes.Noisemaker).Cast<NoisemakerRole>().deathArrowPrefab).GetComponent<NoisemakerArrow>();
+            }
         }
         public System.Collections.IEnumerator DoTriggerAnim()
         {

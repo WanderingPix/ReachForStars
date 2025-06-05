@@ -4,6 +4,8 @@ using System.Collections;
 using UnityEngine;
 using MiraAPI.Modifiers;
 using MiraAPI.Events;
+using MiraAPI.Utilities.Assets;
+using MiraAPI.Utilities;
 
 namespace ReachForStars.Roles.Impostors.Arachnid;
 
@@ -23,6 +25,7 @@ public class Glue : MonoBehaviour
     }
     public IEnumerator DoSpawnAnimation(SpriteRenderer rend)
     {
+        if (Helpers.CheckChance(50)) myRend.flipX = true;
         SoundManager.Instance.PlaySound(Assets. GlueSFX.LoadAsset(), false, 1f);
         rend.sprite = Assets. Glue0.LoadAsset();
         yield return new WaitForSeconds(0.125f);
@@ -34,18 +37,18 @@ public class Glue : MonoBehaviour
         rend.sprite = Assets. Glue2.LoadAsset();
         yield return new WaitForSeconds(0.125f);
 
-        rend.sprite = getRandomGlueSprite();
+        rend.sprite = getRandomGlueSprite().LoadAsset();
         yield return new WaitForSeconds(0.125f);
 
         yield break;
     }
-    public static Sprite[] Variations = new[]
+    public static LoadableResourceAsset[] Variations = new[]
     {
-        Assets.GlueVar0.LoadAsset(),
-        Assets.GlueVar1.LoadAsset(),
-        Assets.GlueVar2.LoadAsset()
-    }; 
-    public static Sprite getRandomGlueSprite()
+        Assets.GlueVar0,
+        Assets.GlueVar1,
+        Assets.GlueVar2
+    };
+    public static LoadableResourceAsset getRandomGlueSprite()
     {
         System.Random rng = new System.Random();
         int index = rng.Next(0, 2);

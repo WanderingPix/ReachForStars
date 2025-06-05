@@ -115,8 +115,9 @@ namespace ReachForStars.Networking
         public static void RpcPlaceTrap(this PlayerControl p)
         {
             GameObject t = new GameObject("trap");
-            t.transform.position = p.GetTruePosition(); 
-            t.AddComponent<Trap>();
+            t.transform.position = p.GetTruePosition();
+            Trap trapcomp = t.AddComponent<Trap>();
+            trapcomp.Trapper = p;
         }
     }
 }
