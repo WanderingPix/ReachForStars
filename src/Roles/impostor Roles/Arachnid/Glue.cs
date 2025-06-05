@@ -7,7 +7,7 @@ using MiraAPI.Events;
 using MiraAPI.Utilities.Assets;
 using MiraAPI.Utilities;
 
-namespace ReachForStars.Roles.Impostors.Arachnid;
+namespace ReachForStars.Roles.Impostors.Stickster;
 
 public class Glue : MonoBehaviour
 {
@@ -15,7 +15,7 @@ public class Glue : MonoBehaviour
 
     public bool ShouldAffectPlayer(PlayerControl Player)
     {
-        return Player.Data.Role is not ArachnidRole && !Player.Data.IsDead && !Player.HasModifier<SlowedDownModifier>();
+        return Player.Data.Role is not SticksterRole && !Player.Data.IsDead && !Player.HasModifier<SlowedDownModifier>();
     }
     public void Start()
     {

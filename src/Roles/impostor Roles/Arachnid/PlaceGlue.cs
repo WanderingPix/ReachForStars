@@ -10,7 +10,7 @@ using ReachForStars.Utilities;
 using Reactor.Utilities;
 using ReachForStars.Translation;
 
-namespace ReachForStars.Roles.Impostors.Arachnid;
+namespace ReachForStars.Roles.Impostors.Stickster;
 public class PlaceGlue : CustomActionButton
 {
     public override string Name => buttonName.GetTranslatedText();
@@ -34,7 +34,7 @@ public class PlaceGlue : CustomActionButton
 
     public override bool Enabled(RoleBehaviour? role)
     {
-        return role is ArachnidRole;
+        return role is SticksterRole;
     }
 
     protected override void OnClick()

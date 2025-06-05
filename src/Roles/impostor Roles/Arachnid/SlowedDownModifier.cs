@@ -3,8 +3,9 @@ using MiraAPI.Modifiers.Types;
 using MiraAPI.Utilities;
 using MiraAPI.Modifiers;
 using MiraAPI.Utilities.Assets;
+using MiraAPI.GameOptions;
 
-namespace ReachForStars.Roles.Impostors.Arachnid
+namespace ReachForStars.Roles.Impostors.Stickster
 {
     public class SlowedDownModifier : TimedModifier
     {
@@ -13,17 +14,16 @@ namespace ReachForStars.Roles.Impostors.Arachnid
         {
             Player.MyPhysics.body.velocity *= new Vector2(2.5f, 5f);
         }
+        Vector2 Multiplier = new Vector2(OptionGroupSingleton<SticksterOptions>.Instance.SlowedDownSpeed.Value, OptionGroupSingleton<SticksterOptions>.Instance.SlowedDownSpeed.Value/2);
         public void Update()
         {
-            Player.MyPhysics.body.velocity *= new Vector2(0.4f, 0.2f);
+            Player.MyPhysics.body.velocity *= Multiplier;
             if (Helpers.CheckChance(3))
             {
                 GameObject droplet = new GameObject("Droplet");
                 droplet.transform.position = Player.GetTruePosition();
                 droplet.AddComponent<SpriteRenderer>().sprite = GetRandomDropletSprite().LoadAsset();
             }
-
-            Player.MyPhysics.body.velocity *= new Vector2(0.4f, 0.2f);
         }
         static LoadableResourceAsset[] Droplets = new[]
         {
