@@ -6,6 +6,7 @@ using MiraAPI.Modifiers;
 using MiraAPI.Events;
 using MiraAPI.Utilities.Assets;
 using MiraAPI.Utilities;
+using MiraAPI.GameOptions;
 
 namespace ReachForStars.Roles.Impostors.Stickster;
 
@@ -67,9 +68,12 @@ public class Glue : MonoBehaviour
     [RegisterEvent]
     public static void OnMeetingEnd(MiraAPI.Events.Vanilla.Meeting.EndMeetingEvent @event)
     {
-        foreach (var  Glue in Object.FindObjectsOfType< Glue>())
+        if (OptionGroupSingleton<SticksterOptions>.Instance.DoesGlueDespawn.Value)
         {
-            Glue.gameObject.DestroyImmediate();
+            foreach (var Glue in Object.FindObjectsOfType<Glue>())
+            {
+                Glue.gameObject.DestroyImmediate();
+            }
         }
     }
 }
