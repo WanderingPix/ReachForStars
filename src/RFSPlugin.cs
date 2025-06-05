@@ -9,7 +9,7 @@ using Reactor.Networking;
 using Reactor.Networking.Attributes;
 using MiraAPI;
 using Il2CppInterop.Runtime.Injection;
-using ReachForStars.Roles.Impostors.Arachnid;
+using ReachForStars.Roles.Impostors.Stickster;
 using ReachForStars.Roles.Crewmates.Trapper;
 
 namespace ReachForStars;
