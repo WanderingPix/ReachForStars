@@ -17,7 +17,6 @@ namespace ReachForStars.Roles.Impostors.Stickster
         Vector2 Multiplier = new Vector2(OptionGroupSingleton<SticksterOptions>.Instance.SlowedDownSpeed.Value, OptionGroupSingleton<SticksterOptions>.Instance.SlowedDownSpeed.Value/2);
         public void Update()
         {
-            Player.MyPhysics.body.velocity *= Multiplier;
             if (Helpers.CheckChance(3))
             {
                 GameObject droplet = new GameObject("Droplet");

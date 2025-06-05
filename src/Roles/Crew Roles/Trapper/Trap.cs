@@ -47,23 +47,25 @@ namespace ReachForStars.Roles.Crewmates.Trapper
             HasBeenTriggered = true;
             if (PlayerControl.LocalPlayer == p || PlayerControl.LocalPlayer == Trapper)
             {
-               
+                NoisemakerArrow arrow = Object.Instantiate<NoisemakerArrow>(RoleManager.Instance.GetRole(AmongUs.GameOptions.RoleTypes.Noisemaker).Cast<NoisemakerRole>().deathArrowPrefab.GetComponent<NoisemakerArrow>());
+                arrow.target = p.GetTruePosition();
+                arrow.image.sprite = Assets.Trap0.LoadAsset();
+                arrow.SetDuration(5f);
             }
         }
-        public LoadableResourceAsset[] TrapSprites = new[]
-        {
-            Assets.Trap0,
-            Assets.Trap1,
-            Assets.Trap2
-        };
         public System.Collections.IEnumerator DoTriggerAnim()
-        {
-            for (int i = 0; i == 3; i++)
-            {
-                myRend.sprite = TrapSprites[i].LoadAsset();
-                yield return new WaitForSeconds(0.125f);
-            }
-            //SFX  
+        { 
+            myRend.sprite = Assets.Trap0.LoadAsset();
+            yield return new WaitForSeconds(0.125f);
+
+            myRend.sprite = Assets.Trap1.LoadAsset();
+            yield return new WaitForSeconds(0.125f);
+
+            myRend.sprite = Assets.Trap2.LoadAsset();
+            yield return new WaitForSeconds(0.125f);
+
+            //SFX
+            
             yield break;
         }
     }
