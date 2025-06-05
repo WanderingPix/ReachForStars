@@ -12,20 +12,9 @@ namespace ReachForStars.Roles.Impostors.Arachnid
         {
             Player.MyPhysics.body.velocity *= new Vector2(2.5f, 5f);
         }
-        public override void FixedUpdate()
+        public void Update()
         {
-            if (!TimerActive)
-            {
-                return;
-            }
-
-            if (TimeRemaining > 0 && Player.GetNearestObjectOfType<Glue>(0.3f, new ContactFilter2D().NoFilter()) != null)
-            {
-                TimeRemaining -= Time.fixedDeltaTime;
-                ResumeTimer();
-            }
-            if (TimeRemaining == 0) Player.RemoveModifier<SlowedDownModifier>();
-
+            Player.MyPhysics.body.velocity *= new Vector2(0.4f, 0.2f);
             if (Helpers.CheckChance(3))
             {
                 GameObject droplet = new GameObject("Droplet");
