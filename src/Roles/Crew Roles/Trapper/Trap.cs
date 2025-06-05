@@ -4,6 +4,8 @@ using Reactor.Utilities;
 using MiraAPI.Events;
 using Reactor.Utilities.Extensions;
 using MiraAPI.Utilities.Assets;
+using MiraAPI.Utilities;
+using System.Collections;
 
 namespace ReachForStars.Roles.Crewmates.Trapper
 {
@@ -45,16 +47,10 @@ namespace ReachForStars.Roles.Crewmates.Trapper
             Coroutines.Start(DoTriggerAnim());
 
             HasBeenTriggered = true;
-            if (PlayerControl.LocalPlayer == p || PlayerControl.LocalPlayer == Trapper)
-            {
-                NoisemakerArrow arrow = Object.Instantiate<NoisemakerArrow>(RoleManager.Instance.GetRole(AmongUs.GameOptions.RoleTypes.Noisemaker).Cast<NoisemakerRole>().deathArrowPrefab.GetComponent<NoisemakerArrow>());
-                arrow.target = p.GetTruePosition();
-                arrow.image.sprite = Assets.Trap0.LoadAsset();
-                arrow.SetDuration(5f);
-            }
+            if (PlayerControl.LocalPlayer == p || PlayerControl.LocalPlayer == Trapper) SetUpArrow();
         }
         public System.Collections.IEnumerator DoTriggerAnim()
-        { 
+        {
             myRend.sprite = Assets.Trap0.LoadAsset();
             yield return new WaitForSeconds(0.125f);
 
@@ -65,7 +61,25 @@ namespace ReachForStars.Roles.Crewmates.Trapper
             yield return new WaitForSeconds(0.125f);
 
             //SFX
-            
+
+            yield break;
+        }
+        public void SetUpArrow()
+        {
+            ArrowBehaviour arrow = Helpers.CreateArrow(null, Color.white);
+            arrow.target = gameObject.transform.position;
+
+            Coroutines.Start(DoArrowAnimation(arrow.image));
+        }
+        public IEnumerator DoArrowAnimation(SpriteRenderer rend)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                rend.sprite = Assets.Trap0.LoadAsset();
+                yield return new WaitForSeconds(0.3f);
+                rend.sprite = Assets.Trap2.LoadAsset();
+                yield return new WaitForSeconds(0.3f);
+            }
             yield break;
         }
     }

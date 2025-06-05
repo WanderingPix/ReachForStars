@@ -8,7 +8,7 @@ using System.Linq;
 namespace ReachForStars
 {
     [HarmonyPatch(typeof(LogicGameFlowNormal), nameof(LogicGameFlowNormal.CheckEndCriteria))]
-    public class OnGameEnd
+    public class GameEndPatches
     {
         /// Heavy rewrite of CheckEndCriteria
         public static bool Prefix(LogicGameFlowNormal __instance)

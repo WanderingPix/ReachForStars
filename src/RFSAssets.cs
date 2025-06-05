@@ -32,13 +32,6 @@ public static class Assets
     public static LoadableResourceAsset GlueVar2 { get; } = new("ReachForStars.Resources.Glues.Variations.GlueVar2.png");
     public static LoadableAudioResourceAsset GlueSFX { get; } = new("ReachForStars.Resources.SoundEffects.Glue.wav");
     public static LoadableResourceAsset Glue { get; } = new("ReachForStars.Resources.Glue.png");
-    public static LoadableResourceAsset Droplet0 { get; } = new("ReachForStars.Resources.Glues.Droplets.Droplet0.png");
-    public static LoadableResourceAsset Droplet1 { get; } = new("ReachForStars.Resources.Glues.Droplets.Droplet1.png");
-    public static LoadableResourceAsset Droplet2 { get; } = new("ReachForStars.Resources.Glues.Droplets.Droplet2.png");
-    public static LoadableResourceAsset Droplet3 { get; } = new("ReachForStars.Resources.Glues.Droplets.Droplet3.png");
-    public static LoadableResourceAsset Droplet4 { get; } = new("ReachForStars.Resources.Glues.Droplets.Droplet4.png");
-
-
 
     //Trapper
     public static LoadableResourceAsset Trap0 { get; } = new("ReachForStars.Resources.Traps.Trap0.png");
