@@ -17,7 +17,7 @@ public class SticksterRole : ImpostorRole, ICustomRole
         english: "Spill glue all over the map!",
         spanish: "¡Derrama pegamento por todo el mapa!",
         french: "Verse de la colle partout sur la carte!",
-        russian: "",
+        russian: "Пролей клей по всей карте!",
         italian: ""
     );
 
