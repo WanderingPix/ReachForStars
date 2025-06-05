@@ -34,12 +34,23 @@ public class Glue : MonoBehaviour
         rend.sprite = Assets. Glue2.LoadAsset();
         yield return new WaitForSeconds(0.125f);
 
-        rend.sprite = Assets. Glue3.LoadAsset();
+        rend.sprite = getRandomGlueSprite();
         yield return new WaitForSeconds(0.125f);
 
         yield break;
     }
-
+    public static Sprite[] Variations = new[]
+    {
+        Assets.GlueVar0.LoadAsset(),
+        Assets.GlueVar1.LoadAsset(),
+        Assets.GlueVar2.LoadAsset()
+    }; 
+    public static Sprite getRandomGlueSprite()
+    {
+        System.Random rng = new System.Random();
+        int index = rng.Next(0, 3);
+        return Variations[index];
+    }
     public void FixedUpdate()
     {
         foreach (var player in PlayerControl.AllPlayerControls)

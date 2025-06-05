@@ -23,8 +23,11 @@ public static class Assets
     public static LoadableResourceAsset  Glue0 { get; } = new("ReachForStars.Resources.Glues.Glue0.png");
     public static LoadableResourceAsset  Glue1 { get; } = new("ReachForStars.Resources.Glues.Glue1.png");
     public static LoadableResourceAsset  Glue2 { get; } = new("ReachForStars.Resources.Glues.Glue2.png");
-    public static LoadableResourceAsset  Glue3 { get; } = new("ReachForStars.Resources.Glues.Glue3.png");
-    public static LoadableAudioResourceAsset  GlueSFX { get; } = new("ReachForStars.Resources.SoundEffects.Glue.wav");
+    
+    public static LoadableResourceAsset GlueVar0 { get; } = new("ReachForStars.Resources.Glues.Variations.GlueVar0.png");
+    public static LoadableResourceAsset GlueVar1 { get; } = new("ReachForStars.Resources.Glues.Variations.GlueVar1.png");
+    public static LoadableResourceAsset GlueVar2 { get; } = new("ReachForStars.Resources.Glues.Variations.GlueVar2.png");
+    public static LoadableAudioResourceAsset GlueSFX { get; } = new("ReachForStars.Resources.SoundEffects.Glue.wav");
     public static LoadableResourceAsset Glue { get; } = new("ReachForStars.Resources.Glue.png");
     public static LoadableResourceAsset Droplet0 { get; } = new("ReachForStars.Resources.Glues.Droplets.Droplet0.png");
     public static LoadableResourceAsset Droplet1 { get; } = new("ReachForStars.Resources.Glues.Droplets.Droplet1.png");
