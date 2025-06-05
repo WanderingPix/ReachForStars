@@ -32,6 +32,8 @@ namespace ReachForStars.Roles.Impostors.Arachnid
                 droplet.transform.position = Player.GetTruePosition();
                 droplet.AddComponent<SpriteRenderer>().sprite = GetRandomDropletSprite();
             }
+
+            Player.MyPhysics.body.velocity *= new Vector2(0.4f, 0.2f);
         }
         static Sprite[] Droplets = new[]
         {
