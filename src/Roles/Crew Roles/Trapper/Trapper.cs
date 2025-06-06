@@ -13,7 +13,7 @@ public class TrapperRole : CrewmateRole, ICustomRole
         spanish: "",
         portuguese: "",
         french: "Piégeur",
-        russian: "", 
+        russian: "Траппер", 
         italian: ""
     );
     public string RoleLongDescription => RoleDescLong.GetTranslatedText();
@@ -22,7 +22,7 @@ public class TrapperRole : CrewmateRole, ICustomRole
         french: "",
         portuguese: "",
         spanish: "",
-        russian: "",
+        russian: "Ставь Трапки (ловушки) чтобы поймать предателей!",
         italian: ""
     );
     public string RoleDescription => RoleDescShort.GetTranslatedText();
