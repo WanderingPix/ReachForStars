@@ -11,6 +11,7 @@ using MiraAPI;
 using Il2CppInterop.Runtime.Injection;
 using ReachForStars.Roles.Impostors.Stickster;
 using ReachForStars.Roles.Crewmates.Trapper;
+using ReachForStars.Roles.Neutrals.BountyHunter;
 
 namespace ReachForStars;
 
@@ -30,6 +31,7 @@ public partial class ReachForStars : BasePlugin, IMiraPlugin
         Harmony.PatchAll();
         ClassInjector.RegisterTypeInIl2Cpp<Glue>();
         ClassInjector.RegisterTypeInIl2Cpp<Trap>();
+        ClassInjector.RegisterTypeInIl2Cpp<BountyHud>();
         ReactorCredits.Register<ReachForStars>(ReactorCredits.AlwaysShow);
     }
 }
