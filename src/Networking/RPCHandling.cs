@@ -98,7 +98,7 @@ namespace ReachForStars.Networking
         public static void RpcPlaceGlue(this PlayerControl p)
         {
             GameObject glue = new GameObject("Glue");
-            glue.transform.position = p.GetTruePosition();
+            glue.transform.position = p.GetTruePosition() + new Vector2(0f, 1f);
             glue.AddComponent<Glue>();
         }
         [MethodRpc((uint)RPC.PlaceTrap)]

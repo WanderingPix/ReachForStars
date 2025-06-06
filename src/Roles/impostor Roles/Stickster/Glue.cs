@@ -29,17 +29,17 @@ public class Glue : MonoBehaviour
         if (Helpers.CheckChance(50)) myRend.flipX = true;
         SoundManager.Instance.PlaySound(Assets. GlueSFX.LoadAsset(), false, 1f);
         rend.sprite = Assets. Glue0.LoadAsset();
-        yield return new WaitForSeconds(0.125f);
+        yield return new WaitForSeconds(0.1f);
 
         rend.sprite = Assets. Glue1.LoadAsset();
-        yield return new WaitForSeconds(0.125f);
+        yield return new WaitForSeconds(0.1f);
 
         SoundManager.Instance.PlaySound(Assets.GlueSFX.LoadAsset(), false);
         rend.sprite = Assets. Glue2.LoadAsset();
-        yield return new WaitForSeconds(0.125f);
+        yield return new WaitForSeconds(0.1f);
 
         rend.sprite = getRandomGlueSprite().LoadAsset();
-        yield return new WaitForSeconds(0.125f);
+        yield return new WaitForSeconds(0.1f);
 
         yield break;
     }

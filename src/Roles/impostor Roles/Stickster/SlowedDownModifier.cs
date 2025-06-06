@@ -9,7 +9,7 @@ namespace ReachForStars.Roles.Impostors.Stickster
 {
     public class SlowedDownModifier : TimedModifier
     {
-        public override float Duration => 5f;
+        public override float Duration => 3f;
         public override void OnDeactivate()
         {
             Player.MyPhysics.body.velocity *= new Vector2(2.5f, 5f);
