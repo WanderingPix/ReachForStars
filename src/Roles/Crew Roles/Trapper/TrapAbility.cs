@@ -25,7 +25,7 @@ namespace ReachForStars.Roles.Crewmates.Trapper
             spanish: "",
             portuguese: "",
             french: "piéger",
-            russian: "",
+            russian: "Трапнуть",
             italian: ""
         );
         public override float Cooldown => 25;
