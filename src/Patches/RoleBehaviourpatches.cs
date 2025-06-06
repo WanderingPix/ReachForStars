@@ -11,7 +11,7 @@ namespace ReachForStars
         [HarmonyPostfix]
         public static void Postfix(RoleBehaviour __instance)
         {
-            RoleNameTag.SetRoleNameTag(__instance);
+            if (__instance.Player == PlayerControl.LocalPlayer)RoleNameTag.SetRoleNameTag(__instance);
         }
     }
 }
