@@ -22,9 +22,9 @@ public class PoisonedModifier : TimedModifier
     {
         Player.cosmetics.SetOutline(true, new Il2CppSystem.Nullable<Color>(new Color(1f, 0f, 1f, 1f)));
     }
-    public override void OnTimerComplete()
+    public override void OnDeactivate()
     {
-        Player.RpcCustomMurder(Player, true);
+        Player.CustomMurder(Player, MurderResultFlags.Succeeded, showKillAnim:false);
         Player.cosmetics.SetOutline(false, new Il2CppSystem.Nullable<Color>(new Color(1f, 0f, 1f, 1f)));
     }
 }

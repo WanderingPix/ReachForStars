@@ -39,7 +39,6 @@ public class StunnedModifier : TimedModifier
         Assets.Stunned0,
         Assets.Stunned1,
         Assets.Stunned2,
-        Assets.Stunned3
     };
     public System.Collections.IEnumerator DoStunnedAnim(SpriteRenderer rend)
     {
