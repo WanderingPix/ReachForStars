@@ -34,21 +34,18 @@ public class StunnedModifier : TimedModifier
         }
     }
     GameObject indicator;
-    public LoadableResourceAsset[] StunnedSprites = new[]
-    {
-        Assets.Stunned0,
-        Assets.Stunned1,
-        Assets.Stunned2,
-    };
     public System.Collections.IEnumerator DoStunnedAnim(SpriteRenderer rend)
     {
         float frameinterval = 0.125f;
 
-        for (int i = 0; i == 3; i++)
-        {
-            rend.sprite = StunnedSprites[i].LoadAsset();
-            yield return new WaitForSeconds(frameinterval);
-        }
+        rend.sprite = Assets.Stunned0.LoadAsset();
+        yield return new WaitForSeconds(frameinterval);
+
+        rend.sprite = Assets.Stunned1.LoadAsset();
+        yield return new WaitForSeconds(frameinterval);
+
+        rend.sprite = Assets.Stunned2.LoadAsset();
+        yield return new WaitForSeconds(frameinterval);
 
         Coroutines.Start(DoStunnedAnim(rend));
         yield break;
