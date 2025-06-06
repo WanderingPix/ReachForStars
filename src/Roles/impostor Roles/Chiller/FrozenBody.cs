@@ -30,13 +30,14 @@ public class FrozenBody(IntPtr ptr) : MonoBehaviour(ptr)
     {
         myBody = body;
         id = body.ParentId;
+        myBody.gameObject.SetActive(false);
     }
     public void Start()
     {
         //Setup
         gameObject.isStatic = true;
         gameObject.transform.localScale = new Vector3(0.35f, 0.35f, 0.45f);
-        myBody.gameObject.SetActive(false);
+        
         myCol = gameObject.AddComponent<BoxCollider2D>();
         myCol.size = gameObject.transform.localScale;
         myRend = gameObject.AddComponent<SpriteRenderer>();
@@ -56,19 +57,24 @@ public class FrozenBody(IntPtr ptr) : MonoBehaviour(ptr)
         Durability--;
         HudManager.Instance.StartCoroutine(Effects.Bounce(gameObject.transform, 0.7f, 0.25f));
 
-        if (Durability == 0) RPCS.RpcDamageFrozenBody(id);
+        if (Durability == 0)
+        {
+            PlayerControl.LocalPlayer.RpcDamageFrozenBody(id);
+            Durability = 10;
+        }
     }
-    public void UpdateVisuals()
+    public void Damage()
     {
+        Level--;
+        Vector3 newSize = gameObject.transform.localScale.x * new Vector3(0.8f, 0.8f, 0.8f);
         HudManager.Instance.StartCoroutine(Effects.Bounce(gameObject.transform, 0.4f, 0.3f));
-        HudManager.Instance.StartCoroutine(Effects.ScaleIn(gameObject.transform, gameObject.transform.localScale.x, gameObject.transform.localScale.x*0.8f, 0.4f));
+        HudManager.Instance.StartCoroutine(Effects.ScaleIn(gameObject.transform, gameObject.transform.localScale.x, newSize.x, 0.4f));
         if (Level == 0) gameObject.DestroyImmediate();
     }
 
     public void OnDestroy()
     {
         myBody.gameObject.SetActive(true);
-        gameObject.DestroyImmediate();
     }
 
     /// <summary>

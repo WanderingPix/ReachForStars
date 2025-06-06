@@ -96,12 +96,10 @@ namespace ReachForStars.Networking
             FrozenBody.AddComponent<FrozenBody>().SetTargetBody(targetBody);
         }
         [MethodRpc((uint)RPC.DamageFrozenBody)]
-        public static void RpcDamageFrozenBody(byte id)
+        public static void RpcDamageFrozenBody(this PlayerControl p, byte id)
         {
-            var body = Object.FindObjectsOfType<FrozenBody>().ToList().FirstOrDefault(x => x.id == id);
-            body.Level--;
-            body.Durability = 10;
-            body.UpdateVisuals();
+            FrozenBody body = Object.FindObjectsOfType<FrozenBody>().ToList().FirstOrDefault(x => x.id == id);
+            body.Damage();
         }
         [MethodRpc((uint)RPC.PlaceGlue)]
         public static void RpcPlaceGlue(this PlayerControl p)
