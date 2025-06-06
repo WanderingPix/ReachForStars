@@ -13,6 +13,7 @@ using MiraAPI.Hud;
 using MiraAPI.Modifiers;
 using ReachForStars.Roles.Impostors.Stickster;
 using ReachForStars.Roles.Crewmates.Trapper;
+using System.Collections.Generic;
 
 namespace ReachForStars.Networking
 {
@@ -50,27 +51,35 @@ namespace ReachForStars.Networking
         [MethodRpc((uint)RPC.PlaceDaVent)]
         public static void RpcPlaceVent(this PlayerControl p)
         {
-            Coroutines.Start(DoDigAnim(p));
+            if (p.Data.Role is MoleRole mole) Coroutines.Start(DoDigAnim(p, mole));
         }
-        public static System.Collections.IEnumerator DoDigAnim(PlayerControl p)
+        public static System.Collections.IEnumerator DoDigAnim(PlayerControl p, MoleRole mole)
         {
             yield return new WaitForSeconds(2f);
-            Dig dig = CustomButtonSingleton<Dig>.Instance;
             Vent prefab = Object.FindObjectOfType<Vent>(true);
             Vent vent = Object.Instantiate<Vent>(prefab);
-            vent.transform.localScale = new Vector3(1f, 1f, 1f);
-            dig.MinedVents.Add(vent);
-            vent.name = $"MoleVent{dig.MinedVents.Count()}";
-            vent.transform.position = new Vector3(p.GetTruePosition().x, p.GetTruePosition().y, prefab.transform.position.z);
+            vent.transform.position = p.GetTruePosition();
+
+            mole.MinedVents.Add(vent);
+
+            vent.gameObject.name = $"MoleVent{mole.MinedVents.Count()}";
+
 
             vent.Id = VentUtils.GetAvailableId();
             vent.Left = null;
-            vent.Right = dig.MinedVents[^1];
+            vent.Right = null;
 
-            dig.MinedVents[^1].Left = vent;
+            if (mole.MinedVents[^1] != null)
+            {
+                vent.Right = mole.MinedVents[^1];
+                mole.MinedVents[^1].Left = vent;
+            }
 
             vent.StartCoroutine(Effects.Bounce(vent.transform, 1f));
             vent.StartCoroutine(Effects.ColorFade(vent.myRend, Palette.Black, Palette.White, 1.4f));
+            List<Vent> newAllVents = ShipStatus.Instance.AllVents.ToList();
+            newAllVents.Add(vent);
+            ShipStatus.Instance.AllVents = newAllVents.ToArray();
         }
         [MethodRpc((uint)RPC.ResizePlayer)]
         public static void RpcResize(this PlayerControl player, float x, float y, float z)

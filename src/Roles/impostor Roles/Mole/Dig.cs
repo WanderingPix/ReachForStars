@@ -41,7 +41,6 @@ public class Dig : CustomActionButton
     {
         return UsesLeft != 0;
     }
-    public List<Vent> MinedVents;
     protected override void OnClick()
     {
         PlayerControl.LocalPlayer.RpcPlaceVent();

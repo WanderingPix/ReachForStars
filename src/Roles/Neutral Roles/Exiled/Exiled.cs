@@ -1,9 +1,7 @@
 ﻿using MiraAPI.Roles;
 using UnityEngine;
-using System.Collections.Generic;
-using System;
-using Random = System.Random;
 using MiraAPI.Patches.Stubs;
+using MiraAPI.Utilities;
 using MiraAPI.Hud;
 
 namespace ReachForStars.Roles.Neutrals.Exiled
@@ -11,8 +9,7 @@ namespace ReachForStars.Roles.Neutrals.Exiled
     public class Exiled : ImpostorRole, ICustomRole
     {
         public string RoleName => "Exiled";
-        public string EnemyTeam = "";
-        public string RoleDescription => $"Make sure the {EnemyTeam}lose at all costs!";
+        public string RoleDescription => $"Make sure {EnemyTeam} lose at all costs!";
         public string RoleLongDescription => RoleDescription;
         public Color RoleColor => Color.yellow;
         public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
@@ -31,7 +28,7 @@ namespace ReachForStars.Roles.Neutrals.Exiled
 
         public override bool DidWin(GameOverReason gameOverReason)
         {
-            if (EnemyTeam == "crewmates")
+            if (EnemyTeam == ExiledEnemyTeam.Crewmates)
             {
                 return !GameManager.Instance.DidHumansWin(gameOverReason);
             }
@@ -40,16 +37,25 @@ namespace ReachForStars.Roles.Neutrals.Exiled
                 return !GameManager.Instance.DidImpostorsWin(gameOverReason);
             }
         }
+        public ExiledEnemyTeam EnemyTeam;
         public override void Initialize(PlayerControl player)
         {
-            if (EnemyTeam == "")
+            RoleBehaviourStubs.Initialize(this, player);
+            CustomButtonSingleton<ExileKill>.Instance.Button.Show();
+            bool CheckChance = Helpers.CheckChance(50);
+            if (CheckChance)
             {
-                Random random = new Random();
-                List<string> strings = new List<string> { "crewmates", "impostors" };
-                EnemyTeam = strings[random.Next(strings.Count)];
-
-                RoleBehaviourStubs.Initialize(this, player);
+                EnemyTeam = ExiledEnemyTeam.Crewmates;
+            }
+            else
+            {
+                EnemyTeam = ExiledEnemyTeam.Impostors;
             }
         }
+    }
+    public enum ExiledEnemyTeam
+    {
+        Crewmates,
+        Impostors
     }
 }

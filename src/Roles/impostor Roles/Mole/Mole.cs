@@ -21,7 +21,7 @@ public class MoleRole : ImpostorRole, ICustomRole
     public string RoleLongDescription => RoleDescription;
     public Color RoleColor => Palette.ImpostorRed;
     public ModdedRoleTeams Team => ModdedRoleTeams.Impostor;
-
+    public List<Vent> MinedVents = new List<Vent>();
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
         UseVanillaKillButton = true,

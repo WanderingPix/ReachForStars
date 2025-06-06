@@ -11,6 +11,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System;
 using Random = System.Random;
+using ReachForStars.Features;
 
 namespace ReachForStars.Roles.Neutrals.Exiled;
 public class ExileKill : CustomActionButton<PlayerControl>
@@ -49,19 +50,19 @@ public class ExileKill : CustomActionButton<PlayerControl>
     {
         if (PlayerControl.LocalPlayer.Data.Role is Exiled exiled)
         {
-            if(exiled.EnemyTeam == "impostors" && Target.Data.Role.IsImpostor)
+            if(exiled.EnemyTeam == ExiledEnemyTeam.Impostors && Target.Data.Role.IsImpostor)
             {
                 PlayerControl.LocalPlayer.RpcCustomMurder (Target, true);
                 HudManager.Instance.StartCoroutine(Effects.ScaleIn(Button.transform, 1.4f, 0.7f, 0.7f));
             }
-            else if (!Target.Data.Role.IsImpostor && exiled.EnemyTeam == "crewmates")
+            else if (!Target.Data.Role.IsImpostor && exiled.EnemyTeam == ExiledEnemyTeam.Crewmates)
             {
                 PlayerControl.LocalPlayer.RpcCustomMurder (Target, true);
                 HudManager.Instance.StartCoroutine(Effects.ScaleIn(Button.transform, 1.4f, 0.7f, 0.7f));
             }
             else
             {
-                HudManager.Instance.StartCoroutine(Effects.SwayX(Button.transform, 0.7f, 0.25f));
+                HudManager.Instance.StartCoroutine(Effects.SwayX(Button.transform, 0.7f*SmolUI.ScaleFactor, 0.25f));
             }
         }   
     }
