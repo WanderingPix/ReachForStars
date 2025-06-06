@@ -48,8 +48,11 @@ public class RoleBlockedModifier : GameModifier
     }
     public override void OnDeactivate()
     {
-        Coroutines.Start(DoAnimation(false));
-        PlayerControl.LocalPlayer.cosmetics.SetOutline(false, new Il2CppSystem.Nullable<Color>(new Color(1f, 0f, 1f, 1f)));
+        if (Player == PlayerControl.LocalPlayer)
+        {
+            Coroutines.Start(DoAnimation(false));
+            PlayerControl.LocalPlayer.cosmetics.SetOutline(false, new Il2CppSystem.Nullable<Color>(new Color(1f, 0f, 1f, 1f)));
+        }
     }
 
     public override int GetAssignmentChance()
