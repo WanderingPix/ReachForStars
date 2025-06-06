@@ -27,7 +27,7 @@ public class SticksterRole : ImpostorRole, ICustomRole
         english: "Spill glue to slow down crewmates!",
         spanish: "Derrama pegamento para ralentizar a los tripulantes!",
         french: "Verse de la colle pour ralentir l'équipage!",
-        russian: "",
+        russian: "Разлей клей чтобы замедлять экипаж!",
         italian: ""
     );
     public string RoleLongDescription => RoleDescription;
