@@ -42,5 +42,4 @@ public static class Assets
     public static LoadableResourceAsset Stunned0 { get; } = new("ReachForStars.Resources.StunnedAnimation.Stunned0.png");
     public static LoadableResourceAsset Stunned1 { get; } = new("ReachForStars.Resources.StunnedAnimation.Stunned1.png");
     public static LoadableResourceAsset Stunned2 { get; } = new("ReachForStars.Resources.StunnedAnimation.Stunned2.png");
-    public static LoadableResourceAsset Stunned3 { get; } = new("ReachForStars.Resources.StunnedAnimation.Stunned3.png");
 }

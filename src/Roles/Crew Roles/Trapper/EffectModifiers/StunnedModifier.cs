@@ -23,7 +23,7 @@ public class StunnedModifier : TimedModifier
         Player.RemoveModifier<StunnedModifier>();
     }
 
-    /* public override void OnActivate()
+    public override void OnActivate()
     {
         if (PlayerControl.LocalPlayer == Trapper || PlayerControl.LocalPlayer == Player)
         {
@@ -32,7 +32,7 @@ public class StunnedModifier : TimedModifier
             indicator.transform.localPosition = new Vector3(0f, 0.8f, 0f);
             Coroutines.Start(DoStunnedAnim(indicator.AddComponent<SpriteRenderer>()));
         }
-    }*/
+    }
     GameObject indicator;
     public LoadableResourceAsset[] StunnedSprites = new[]
     {
