@@ -24,6 +24,8 @@ namespace ReachForStars
             if (FinalText.ToLower().Contains("heh")) FinalText.Replace("heh", "<sprite=2>");
             if (FinalText.ToLower().Contains("fire")) FinalText.Replace("fire", "<sprite=3>");
             if (FinalText.ToLower().Contains("sob")) FinalText.Replace("sob", "<sprite=4>");
+
+            __instance.TextArea.text = FinalText;
         }
     }
 }
