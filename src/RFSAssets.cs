@@ -1,5 +1,6 @@
 ﻿using MiraAPI.Utilities.Assets;
 using Reactor.Utilities;
+using TMPro;
 using UnityEngine;
 
 namespace ReachForStars;
@@ -9,6 +10,8 @@ public static class Assets
     public static readonly AssetBundle Bundle = AssetBundleManager.Load("rfsbundle");
     
     public static LoadableBundleAsset<GameObject> FrozenBodyPrefab { get; } = new("FrozenBodyPrefab.prefab", Bundle);
+
+    public static LoadableBundleAsset<TMP_SpriteAsset> EmojiIndex { get; } = new("Emojis.asset", Bundle);
 
     public static LoadableBundleAsset<AnimationClip> StunnedAnimation { get; } = new("StunnedAnimation.anim", Bundle);
 

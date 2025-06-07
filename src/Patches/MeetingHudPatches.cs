@@ -13,9 +13,9 @@ namespace ReachForStars.Patches
     [HarmonyPatch]
     public class MeetingHudPatches
     {
-        [HarmonyPatch(typeof(PlayerVoteArea), nameof(PlayerVoteArea.SetCosmetics))]
+        [HarmonyPatch(typeof(PlayerVoteArea), nameof(PlayerVoteArea.Start))]
         [HarmonyPostfix]
-        public static void SetCosmeticsPostfix(PlayerVoteArea __instance)
+        public static void PlayerVoteAreaStartPostfix(PlayerVoteArea __instance)
         {
             if (PlayerControl.LocalPlayer.Data.Role is DetectiveRole det && det.Suspects.Contains(__instance.GetPlayer()))
             {

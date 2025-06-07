@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using MiraAPI.Modifiers;
 using MiraAPI.Modifiers.Types;
 using ReachForStars.Features;
@@ -27,18 +28,18 @@ public class RoleBlockedModifier : GameModifier
     }
     public IEnumerator DoAnimation(bool Show)
     {
-        foreach (ActionButton button in Object.FindObjectsOfType<ActionButton>(true))
+        foreach (ActionButton button in Object.FindObjectsOfType<ActionButton>())
         {
             if (Show)
             {
                 HudManager.Instance.StartCoroutine(Effects.ScaleIn(button.transform, 0.7f * SmolUI.ScaleFactor, 0f, 1.5f));
 
                 yield return HudManager.Instance.StartCoroutine(Effects.ColorFade(button.graphic, Palette.White, Palette.Black, 1f));
-                button.Hide();
+                button.SetDisabled();
             }
             if (!Show)
             {
-                button.Show();
+                button.SetEnabled();
                 HudManager.Instance.StartCoroutine(Effects.ScaleIn(button.transform, 0f, 0.7f * SmolUI.ScaleFactor, 1.5f));
 
                 HudManager.Instance.StartCoroutine(Effects.ColorFade(button.graphic, Palette.Black, Palette.White, 1f));

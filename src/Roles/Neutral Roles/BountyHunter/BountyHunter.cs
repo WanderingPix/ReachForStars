@@ -44,20 +44,6 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
     {
         RoleBehaviourStubs.Initialize(this, player);
         HudManager.Instance.KillButton.Show();
-        SetUpUI();
-        GenerateNewBountyTarget();
-    }
-    public void SetUpUI()
-    {
-        if (Hud) Hud.gameObject.DestroyImmediate();
-        GameObject go = new GameObject("BountyHud");
-        go.transform.SetParent(HudManager.Instance.transform);
-        AspectPosition pos = go.AddComponent<AspectPosition>();
-        pos.Alignment = AspectPosition.EdgeAlignments.Top;
-        pos.DistanceFromEdge = new Vector3(0f, 1f, 0f);
-        pos.AdjustPosition();
-        Hud = go.AddComponent<BountyHud>();
-        Hud.Cur = SuccessfulKills;
     }
     public override void Deinitialize(PlayerControl targetPlayer)
     {
@@ -72,16 +58,12 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
     {
         return gameOverReason == CustomGameOver.GameOverReason<BountyHunterWin>();
     }
-    BountyHud Hud;
     private void GenerateNewBountyTarget()
     {
         Random rnd = new Random();
         List<PlayerControl> Playerpool = Helpers.GetAlivePlayers().Where(x => x != PlayerControl.LocalPlayer && x != MeetingHud.Instance.exiledPlayer).ToList();
         int index = rnd.Next(Playerpool.Count);
         Target = Playerpool[index];
-
-        SetUpUI();
-        Hud.SetTarget(Target);
     }
 
     public override void OnVotingComplete()
@@ -100,7 +82,6 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
     public void OnTargetKill()
     {
         SuccessfulKills++;
-        Hud.SetDead();
         if (SuccessfulKills >= ((int)OptionGroupSingleton<BountyHunterOptions>.Instance.SuccessfulKillsQuota))
         {
             CustomGameOver.Trigger<BountyHunterWin>([Player.Data]);
