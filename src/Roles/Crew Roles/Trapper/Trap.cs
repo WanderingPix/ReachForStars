@@ -12,13 +12,9 @@ namespace ReachForStars.Roles.Crewmates.Trapper
     public class Trap : MonoBehaviour
     {
         SpriteRenderer myRend;
+        Animator myAnim;
         public PlayerControl Trapper;
         bool HasBeenTriggered = false;
-        public void Start()
-        {
-            myRend = gameObject.AddComponent<SpriteRenderer>();
-            myRend.sprite = Assets.Trap0.LoadAsset();
-        }
         public void FixedUpdate()
         {
             foreach (var player in PlayerControl.AllPlayerControls)
@@ -28,6 +24,11 @@ namespace ReachForStars.Roles.Crewmates.Trapper
                     Trigger(player);
                 }
             }
+        }
+        public void Start()
+        {
+            myRend = gameObject.GetComponent<SpriteRenderer>();
+            myAnim = gameObject.GetComponent<Animator>();
         }
         [RegisterEvent]
         public static void OnMeetingEnd(MiraAPI.Events.Vanilla.Meeting.EndMeetingEvent @event)
@@ -44,44 +45,9 @@ namespace ReachForStars.Roles.Crewmates.Trapper
         public void Trigger(PlayerControl p)
         {
             p.AddModifier<StunnedModifier>();
-            Coroutines.Start(DoTriggerAnim());
-
+            myAnim.runtimeAnimatorController = Assets.TrapCloseAnimationController.LoadAsset();
             HasBeenTriggered = true;
-            if (PlayerControl.LocalPlayer == p || PlayerControl.LocalPlayer == Trapper) SetUpArrow();
-        }
-        public System.Collections.IEnumerator DoTriggerAnim()
-        {
-            myRend.sprite = Assets.Trap0.LoadAsset();
-            yield return new WaitForSeconds(0.125f);
-
-            myRend.sprite = Assets.Trap1.LoadAsset();
-            yield return new WaitForSeconds(0.125f);
-
-            myRend.sprite = Assets.Trap2.LoadAsset();
-            yield return new WaitForSeconds(0.125f);
-
-            //SFX
-
-            yield break;
-        }
-        public void SetUpArrow()
-        {
-            ArrowBehaviour arrow = Helpers.CreateArrow(null, Color.white);
-            arrow.target = gameObject.transform.position;
-
-            Coroutines.Start(DoArrowAnimation(arrow.image));
-        }
-        public IEnumerator DoArrowAnimation(SpriteRenderer rend)
-        {
-            for (int i = 0; i < 10; i++)
-            {
-                rend.sprite = Assets.Trap0.LoadAsset();
-                yield return new WaitForSeconds(0.3f);
-                rend.sprite = Assets.Trap2.LoadAsset();
-                yield return new WaitForSeconds(0.3f);
-            }
-            rend.gameObject.DestroyImmediate();
-            yield break;
+            //if (PlayerControl.LocalPlayer == p || PlayerControl.LocalPlayer == Trapper) SetUpArrow();
         }
     }
 }

@@ -27,29 +27,12 @@ public class StunnedModifier : TimedModifier
     {
         if (PlayerControl.LocalPlayer == Trapper || PlayerControl.LocalPlayer == Player)
         {
-            indicator = new GameObject("StunnedIndicator");
+            indicator = Object.Instantiate(Assets.StunnedPrefab.LoadAsset());
             indicator.transform.SetParent(Player.gameObject.transform);
             indicator.transform.localPosition = new Vector3(0f, 0.8f, 0f);
-            Coroutines.Start(DoStunnedAnim(indicator.AddComponent<SpriteRenderer>()));
         }
     }
     GameObject indicator;
-    public System.Collections.IEnumerator DoStunnedAnim(SpriteRenderer rend)
-    {
-        float frameinterval = 0.125f;
-
-        rend.sprite = Assets.Stunned0.LoadAsset();
-        yield return new WaitForSeconds(frameinterval);
-
-        rend.sprite = Assets.Stunned1.LoadAsset();
-        yield return new WaitForSeconds(frameinterval);
-
-        rend.sprite = Assets.Stunned2.LoadAsset();
-        yield return new WaitForSeconds(frameinterval);
-
-        Coroutines.Start(DoStunnedAnim(rend));
-        yield break;
-    }
     public override void OnTimerComplete()
     {
         Player.MyPhysics.enabled = true;

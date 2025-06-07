@@ -1,9 +1,24 @@
 ﻿using MiraAPI.Utilities.Assets;
+using Reactor.Utilities;
+using UnityEngine;
 
 namespace ReachForStars;
 
 public static class Assets
 {
+    public static readonly AssetBundle Bundle = AssetBundleManager.Load("rfsbundle");
+    
+    public static LoadableBundleAsset<GameObject> FrozenBodyPrefab { get; } = new("FrozenBodyPrefab.prefab", Bundle);
+
+    public static LoadableBundleAsset<AnimationClip> StunnedAnimation { get; } = new("StunnedAnimation.anim", Bundle);
+
+    public static LoadableBundleAsset<GameObject> StunnedPrefab { get; } = new("StunnedPrefab.prefab", Bundle);
+
+    public static LoadableBundleAsset<GameObject> TrapPrefab { get; } = new("TrapPrefab.prefab", Bundle);
+
+    public static LoadableBundleAsset<AnimationClip> TrapCloseAnimation { get; } = new("TrapCloseAnimation.anim", Bundle);
+    public static LoadableBundleAsset<RuntimeAnimatorController> TrapCloseAnimationController { get; } = new("TrapPrefab.controller", Bundle);
+
     //PlaceHolder
     public static LoadableResourceAsset PlaceHolder { get; } = new("ReachForStars.Resources.PlaceHolder.png");
     //Detective
@@ -18,9 +33,7 @@ public static class Assets
     //Chiller 
     public static LoadableResourceAsset Freeze { get; } = new("ReachForStars.Resources.Freeze.png");
     public static LoadableAudioResourceAsset FreezeSFX { get; } = new("ReachForStars.Resources.SoundEffects.Freeze.wav");
-    public static LoadableResourceAsset FrozenBody0 { get; } = new("ReachForStars.Resources.FrozenBodyStages.FrozenBody0.png");
     public static LoadableResourceAsset ChillerIcon { get; } = new("ReachForStars.Resources.RoleIcons.chiller.png");
-
 
     //Arachnid
     public static LoadableResourceAsset Glue0 { get; } = new("ReachForStars.Resources.Glues.Glue0.png");
@@ -32,14 +45,4 @@ public static class Assets
     public static LoadableResourceAsset GlueVar2 { get; } = new("ReachForStars.Resources.Glues.Variations.GlueVar2.png");
     public static LoadableAudioResourceAsset GlueSFX { get; } = new("ReachForStars.Resources.SoundEffects.Glue.wav");
     public static LoadableResourceAsset Glue { get; } = new("ReachForStars.Resources.Glue.png");
-
-    //Trapper
-    public static LoadableResourceAsset Trap0 { get; } = new("ReachForStars.Resources.Traps.Trap0.png");
-    public static LoadableResourceAsset Trap1 { get; } = new("ReachForStars.Resources.Traps.Trap1.png");
-    public static LoadableResourceAsset Trap2 { get; } = new("ReachForStars.Resources.Traps.Trap2.png");
-
-    //Stunned
-    public static LoadableResourceAsset Stunned0 { get; } = new("ReachForStars.Resources.StunnedAnimation.Stunned0.png");
-    public static LoadableResourceAsset Stunned1 { get; } = new("ReachForStars.Resources.StunnedAnimation.Stunned1.png");
-    public static LoadableResourceAsset Stunned2 { get; } = new("ReachForStars.Resources.StunnedAnimation.Stunned2.png");
 }

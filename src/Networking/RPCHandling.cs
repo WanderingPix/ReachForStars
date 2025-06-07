@@ -90,7 +90,7 @@ namespace ReachForStars.Networking
         public static void RpcFreezeBody(this PlayerControl player)
         {
             DeadBody targetBody = player.GetNearestDeadBody(2f);
-            GameObject FrozenBody = new GameObject($"FrozenBody{targetBody.ParentId}");
+            GameObject FrozenBody = Object.Instantiate(Assets.FrozenBodyPrefab.LoadAsset());
             FrozenBody.transform.position = targetBody.gameObject.transform.position;
             FrozenBody.transform.localScale = targetBody.gameObject.transform.localScale;
             FrozenBody.AddComponent<FrozenBody>().SetTargetBody(targetBody);
@@ -111,7 +111,7 @@ namespace ReachForStars.Networking
         [MethodRpc((uint)RPC.PlaceTrap)]
         public static void RpcPlaceTrap(this PlayerControl p)
         {
-            GameObject t = new GameObject("trap");
+            GameObject t = Object.Instantiate(Assets.TrapPrefab.LoadAsset());
             t.transform.position = p.GetTruePosition();
             Trap trapcomp = t.AddComponent<Trap>();
             trapcomp.Trapper = p;
