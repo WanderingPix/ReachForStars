@@ -37,7 +37,7 @@ public class FrozenBody(IntPtr ptr) : MonoBehaviour(ptr)
         //Spawn Animation
         HudManager.Instance.StartCoroutine(Effects.Bounce(gameObject.transform, 0.7f, 0.45f));
         HudManager.Instance.StartCoroutine(Effects.ColorFade(myRend, new Color(1f, 1f, 1f, 0f), new Color(1f, 1f, 1f, 1f), 0.4f));
-        HudManager.Instance.StartCoroutine(Effects.ScaleIn(gameObject.transform, 0.5f, 0.35f, 0.4f));
+        HudManager.Instance.StartCoroutine(Effects.ScaleIn(gameObject.transform, 0f, 0.4f, 0.4f));
         
 
         myRend = gameObject.GetComponent<SpriteRenderer>();

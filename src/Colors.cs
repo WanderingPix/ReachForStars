@@ -37,5 +37,4 @@ public static class ExampleColors
     public static CustomColor Colorless { get; } = new("Colorless", new Color(1f, 0f, 0f), new Color(0f, 0f, 1f, 1f));
 
     public static CustomColor Gold { get; } = new("Gold", new Color(1f, 1f, 0.05f), new Color(1f, 0f, 0f, 1f));
-    public static CustomColor Silver { get; } = new("Silver", new Color(0.75f, 0.75f, 0.75f), new Color(0f, 0f, 0f, 1f));
 }

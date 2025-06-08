@@ -8,11 +8,18 @@ namespace ReachForStars;
 public static class Assets
 {
     public static readonly AssetBundle Bundle = AssetBundleManager.Load("rfsbundle");
-    
+
+    //Chiller
     public static LoadableBundleAsset<GameObject> FrozenBodyPrefab { get; } = new("FrozenBodyPrefab.prefab", Bundle);
+    public static LoadableResourceAsset Freeze { get; } = new("ReachForStars.Resources.Freeze.png");
+    public static LoadableAudioResourceAsset FreezeSFX { get; } = new("ReachForStars.Resources.SoundEffects.Freeze.wav");
+    public static LoadableResourceAsset ChillerIcon { get; } = new("ReachForStars.Resources.RoleIcons.chiller.png");
 
+    //Bounty Hunter
+    public static LoadableBundleAsset<GameObject> BountyPrefab { get; } = new("BountyHudPrefab.prefab", Bundle);
+    //Emojis
     public static LoadableBundleAsset<TMP_SpriteAsset> EmojiIndex { get; } = new("Emojis.asset", Bundle);
-
+    //Trapper
     public static LoadableBundleAsset<AnimationClip> StunnedAnimation { get; } = new("StunnedAnimation.anim", Bundle);
 
     public static LoadableBundleAsset<GameObject> StunnedPrefab { get; } = new("StunnedPrefab.prefab", Bundle);
@@ -33,16 +40,10 @@ public static class Assets
     public static LoadableResourceAsset Shoot { get; } = new("ReachForStars.Resources.Shoot.png");
     public static LoadableResourceAsset SheriffIcon { get; } = new("ReachForStars.Resources.RoleIcons.sheriff.png");
 
-    //Chiller 
-    public static LoadableResourceAsset Freeze { get; } = new("ReachForStars.Resources.Freeze.png");
-    public static LoadableAudioResourceAsset FreezeSFX { get; } = new("ReachForStars.Resources.SoundEffects.Freeze.wav");
-    public static LoadableResourceAsset ChillerIcon { get; } = new("ReachForStars.Resources.RoleIcons.chiller.png");
-
-    //Arachnid
+    //Stickster
     public static LoadableResourceAsset Glue0 { get; } = new("ReachForStars.Resources.Glues.Glue0.png");
     public static LoadableResourceAsset  Glue1 { get; } = new("ReachForStars.Resources.Glues.Glue1.png");
-    public static LoadableResourceAsset  Glue2 { get; } = new("ReachForStars.Resources.Glues.Glue2.png");
-    
+    public static LoadableResourceAsset  Glue2 { get; } = new("ReachForStars.Resources.Glues.Glue2.png");    
     public static LoadableResourceAsset GlueVar0 { get; } = new("ReachForStars.Resources.Glues.Variations.GlueVar0.png");
     public static LoadableResourceAsset GlueVar1 { get; } = new("ReachForStars.Resources.Glues.Variations.GlueVar1.png");
     public static LoadableResourceAsset GlueVar2 { get; } = new("ReachForStars.Resources.Glues.Variations.GlueVar2.png");

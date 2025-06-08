@@ -32,6 +32,7 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
     public string RoleDescription => "Make sure your targets are dead";
     public string RoleLongDescription => RoleDescription;
     public int SuccessfulKills = 0;
+    public BountyHud hud;
     public Color RoleColor => new Color(1f, 0.12f, 0.54f, 1f);
     public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
@@ -44,6 +45,8 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
     {
         RoleBehaviourStubs.Initialize(this, player);
         HudManager.Instance.KillButton.Show();
+
+        Object.Instantiate(Assets.BountyPrefab.LoadAsset(), HudManager.Instance.transform);
     }
     public override void Deinitialize(PlayerControl targetPlayer)
     {
@@ -64,6 +67,7 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         List<PlayerControl> Playerpool = Helpers.GetAlivePlayers().Where(x => x != PlayerControl.LocalPlayer && x != MeetingHud.Instance.exiledPlayer).ToList();
         int index = rnd.Next(Playerpool.Count);
         Target = Playerpool[index];
+        HudManager.Instance.KillButton.graphic.color = Target.Data.Color;
     }
 
     public override void OnVotingComplete()

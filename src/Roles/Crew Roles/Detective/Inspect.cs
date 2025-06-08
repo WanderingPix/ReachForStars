@@ -63,13 +63,13 @@ public class Inspect : CustomActionButton<DeadBody>
     public IEnumerator DoInspectAnimation()
     {
         GameObject Anim = new GameObject("InspectAnimation");
-        Anim.transform.position = new Vector3(Target.transform.position.x, Target.transform.position.y, 1f);
+        Anim.transform.position = new Vector3(Target.transform.position.x, Target.transform.position.y, 0f);
         Anim.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
 
         Anim.AddComponent<SpriteRenderer>().sprite = Assets.Inspect.LoadAsset();
         HudManager.Instance.StartCoroutine(Effects.SwayX(Anim.transform, 3f, 0.3f));
         yield return new WaitForSeconds(3f);
-        HudManager.Instance.SpawnTextOverlay("Info Collected!");
+        HudManager.Instance.SpawnTextOverlay("Info Gathered!");
         Anim.DestroyImmediate();
         yield break;
     }
