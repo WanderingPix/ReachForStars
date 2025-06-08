@@ -18,7 +18,7 @@ public class Freeze : CustomActionButton<DeadBody>
         french: "Figer",
         spanish: "",
         portuguese: "",
-        russian: "",
+        russian: "Заморозить",
         italian: ""
     );
 

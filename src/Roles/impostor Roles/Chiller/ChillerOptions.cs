@@ -15,7 +15,7 @@ namespace ReachForStars.Roles.Impostors.Chiller
             spanish: "",
             portuguese: "",
             french: "Options Refrigirateur",
-            russian: "",
+            russian: "Настройки Охладителя",
             italian: ""
         );
         public ModdedToggleOption CanVent { get; set; } = new(Canvent.GetTranslatedText(), true);
@@ -25,7 +25,7 @@ namespace ReachForStars.Roles.Impostors.Chiller
             french: "Refrigirateur peut utiliser les conduits",
             portuguese: "",
             spanish: "",
-            russian: "",
+            russian: "Охладитель умеет использовать люк",
             italian: ""
         );
     }
