@@ -14,7 +14,6 @@ public class JesterRole : ImpostorRole, ICustomRole
         english: "Jester",
         french: "Plaisantin",
         spanish: "Bufón",
-        portuguese: "Bobo",
         russian: "Шут",
         italian: "Pagliaccio"
     );
@@ -23,7 +22,7 @@ public class JesterRole : ImpostorRole, ICustomRole
     (
         english: "Fool The Crew!",
         french: "Trollez l'équipage!",
-        spanish: "¡Engaña a la tripulación!"
+        spanish: "¡Engaña a la tripulación!",
         russian: "",
         italian: ""
     );
