@@ -6,11 +6,21 @@ using MiraAPI.Utilities;
 using MiraAPI.Networking;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using ReachForStars.Translation;
 
 namespace ReachForStars.Roles.Impostors.Chiller;
 public class Freeze : CustomActionButton<DeadBody>
 {
-    public override string Name => "Freeze";
+    public override string Name => name.GetTranslatedText();
+    public TranslationPool name = new
+    (
+        english: "Freeze",
+        french: "Figer",
+        spanish: "",
+        portuguese: "",
+        russian: "",
+        italian: ""
+    );
 
     public override float Cooldown => 0;
 

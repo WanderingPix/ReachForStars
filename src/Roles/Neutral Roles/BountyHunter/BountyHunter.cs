@@ -86,6 +86,7 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
     public void OnTargetKill()
     {
         SuccessfulKills++;
+        hud.UpdateCount(SuccessfulKills);
         if (SuccessfulKills >= ((int)OptionGroupSingleton<BountyHunterOptions>.Instance.SuccessfulKillsQuota))
         {
             CustomGameOver.Trigger<BountyHunterWin>([Player.Data]);

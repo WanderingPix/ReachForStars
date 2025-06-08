@@ -31,6 +31,7 @@ public partial class ReachForStars : BasePlugin, IMiraPlugin
         Harmony.PatchAll();
         ClassInjector.RegisterTypeInIl2Cpp<Glue>();
         ClassInjector.RegisterTypeInIl2Cpp<Trap>();
+        ClassInjector.RegisterTypeInIl2Cpp<BountyHud>();
         ReactorCredits.Register<ReachForStars>(ReactorCredits.AlwaysShow);
     }
 }

@@ -1,3 +1,4 @@
+using MiraAPI.GameOptions;
 using TMPro;
 using UnityEngine;
 
@@ -14,7 +15,16 @@ namespace ReachForStars.Roles.Neutrals.BountyHunter
         }
         public void UpdateCount(int count)
         {
-            
+            Counter.text = "";
+            int i;
+            for (i = 0; i == count; i++) //Killed Bounties
+            {
+                Counter.text += "<sprite=5>";
+            }
+            for (int r = 0; r == OptionGroupSingleton<BountyHunterOptions>.Instance.SuccessfulKillsQuota - count; r++) //remaining bounties
+            {
+                Counter.text += "<sprite=6>";
+            }
         }
     }
 }
