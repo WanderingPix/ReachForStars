@@ -17,7 +17,7 @@ public class FreezerRole : ImpostorRole, ICustomRole
         french: "Refrigirateur",
         spanish: "",
         portuguese: "",
-        russian: "",
+        russian: "Охладитель",
         italian: ""
     );
     public string RoleDescription => RoleDescShort.GetTranslatedText();
@@ -27,7 +27,7 @@ public class FreezerRole : ImpostorRole, ICustomRole
         spanish: "",
         portuguese: "",
         french: "Figez des cadavres pour cacher leurs identités!",
-        russian: "",
+        russian: "Замораживай трупы чтобы избежать личностей!",
         italian: ""
     );
 
