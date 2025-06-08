@@ -24,7 +24,7 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         english: "Bounty Hunter",
         french: "Chasseur De Prime",
         spanish: "",
-        portuguese: "",
+         
         russian: "Охотник за Головами",
         italian: "Mercenario"
     );

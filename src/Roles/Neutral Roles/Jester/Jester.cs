@@ -53,7 +53,6 @@ public class JesterRole : ImpostorRole, ICustomRole
         english: "You've all been fooled!\n P was the Jester!\n\n", //PlayerName is referenced as P
         french: "Vous avez tous été dupés!\n P était le Plaisantin!\n\n",
         spanish: "¡Todos han sido engañados!\n P era el Bufón!\n\n",
-        portuguese: "Todos foram enganados!\n P era o Bobo!\n\n",
         russian: "",
         italian: ""
     );

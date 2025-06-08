@@ -15,7 +15,6 @@ public class WitchRole : ImpostorRole, ICustomRole
         english: "Witch",
         french: "Sorcière",
         spanish: "Bruja",
-        portuguese: "Bruxa",
         russian: "Ведьма",
         italian: "Strega"
     );
@@ -25,7 +24,7 @@ public class WitchRole : ImpostorRole, ICustomRole
         english: "Use magic against the crew.",
         french: "Utilisez de la magie contre l'equipage.",
         spanish: "",
-        portuguese: "",
+         
         russian: "",
         italian: ""
     );
@@ -35,7 +34,7 @@ public class WitchRole : ImpostorRole, ICustomRole
         english: "Use potions to kill, roleblock, and confuse the crew",
         french: "Utilisez des potions pour tuer, bloquer les roles des coéquipiers, et les embrouilles",
         spanish: "",
-        portuguese: "",
+         
         russian: "",
         italian: ""
     );

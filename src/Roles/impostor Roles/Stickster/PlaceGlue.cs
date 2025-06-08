@@ -17,7 +17,7 @@ public class PlaceGlue : CustomActionButton
     public TranslationPool buttonName = new TranslationPool(
     english: "Glue",
     spanish: "",
-    portuguese: "",
+     
     french: "",
     russian: "Клей",
     italian: "Colla"

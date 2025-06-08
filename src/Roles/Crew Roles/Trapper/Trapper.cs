@@ -11,7 +11,7 @@ public class TrapperRole : CrewmateRole, ICustomRole
     public TranslationPool Rolename = new TranslationPool(
         english: "Trapper",
         spanish: "",
-        portuguese: "",
+         
         french: "Piégeur",
         russian: "Траппер", 
         italian: ""
@@ -20,7 +20,7 @@ public class TrapperRole : CrewmateRole, ICustomRole
     public TranslationPool RoleDescLong = new TranslationPool(
         english: "Place Traps around the map to catch the impostors!",
         french: "",
-        portuguese: "",
+         
         spanish: "",
         russian: "Ставь Трапки (ловушки) чтобы поймать предателей!",
         italian: ""
@@ -29,7 +29,7 @@ public class TrapperRole : CrewmateRole, ICustomRole
     public TranslationPool RoleDescShort = new TranslationPool(
         english: "Trap the Impostors!",
         french: "Piégez les imposteurs!",
-        portuguese: "",
+         
         spanish: "",
         russian: "",
         italian: ""

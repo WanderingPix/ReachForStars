@@ -16,7 +16,6 @@ public class FreezerRole : ImpostorRole, ICustomRole
         english: "Chiller",
         french: "Refrigirateur",
         spanish: "",
-        portuguese: "",
         russian: "Охладитель",
         italian: ""
     );
@@ -24,8 +23,7 @@ public class FreezerRole : ImpostorRole, ICustomRole
     public TranslationPool RoleDescShort = new
     (
         english: "Freeze bodies to hide identities!",
-        spanish: "",
-        portuguese: "",
+        spanish: "Congelar cuerpos para ocultar sus identidades",
         french: "Figez des cadavres pour cacher leurs identités!",
         russian: "Замораживай трупы чтобы избежать личностей!",
         italian: ""
@@ -36,7 +34,7 @@ public class FreezerRole : ImpostorRole, ICustomRole
     (
         english: "Freeze bodies to stop the crewmates from reporting them!",
         spanish: "",
-        portuguese: "",
+         
         french: "Figez les cadavres pour empécher les coéquipiers de lés trouver!",
         russian: "Замораживай трупы чтобы экипаж не мог зарепортить!",
         italian: ""
