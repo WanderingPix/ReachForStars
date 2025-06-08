@@ -13,6 +13,7 @@ using MiraAPI.Patches.Stubs;
 using Reactor.Utilities.Extensions;
 using MiraAPI.Modifiers;
 using TMPro;
+using MiraAPI.Hud;
 
 namespace ReachForStars.Roles.Neutrals.Roles;
 
@@ -28,7 +29,7 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         russian: "Охотник за Головами",
         italian: "Mercenario"
     );
-    PlayerControl Target;
+    public PlayerControl Target;
     public string RoleDescription => "Make sure your targets are dead";
     public string RoleLongDescription => RoleDescription;
     public int SuccessfulKills = 0;
@@ -37,14 +38,15 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
     public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
-        UseVanillaKillButton = true,
+        UseVanillaKillButton = false,
         CanGetKilled = true,
         CanUseVent = false,
     };
     public override void Initialize(PlayerControl player)
     {
         RoleBehaviourStubs.Initialize(this, player);
-        HudManager.Instance.KillButton.Show();
+
+        CustomButtonSingleton<BountyKill>.Instance.Button.Show();
 
         hud = Object.Instantiate(Assets.BountyPrefab.LoadAsset(), HudManager.Instance.transform).AddComponent<BountyHud>();
         GenerateNewBountyTarget();
@@ -69,12 +71,12 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         List<PlayerControl> Playerpool = Helpers.GetAlivePlayers().Where(x => x != PlayerControl.LocalPlayer).ToList();
         int index = rnd.Next(Playerpool.Count);
         Target = Playerpool[index];
-        if (MeetingHud.Instance && MeetingHud.Instance.exiledPlayer == Target) GenerateNewBountyTarget();
+        if (hud.myPlayer) hud.myPlayer.UpdateFromPlayerData(Target.Data, PlayerOutfitType.Default, PlayerMaterial.MaskType.SimpleUI, true, null);
     }
 
     public override void OnVotingComplete()
     {
-        GenerateNewBountyTarget(); 
+        GenerateNewBountyTarget();
     }
 
     public override PlayerControl FindClosestTarget()

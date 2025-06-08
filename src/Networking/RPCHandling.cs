@@ -14,6 +14,8 @@ using MiraAPI.Modifiers;
 using ReachForStars.Roles.Impostors.Stickster;
 using ReachForStars.Roles.Crewmates.Trapper;
 using System.Collections.Generic;
+using IEnumerator = System.Collections.IEnumerator;
+using ReachForStars.Roles.Impostors.Shadow;
 
 namespace ReachForStars.Networking
 {
@@ -53,7 +55,7 @@ namespace ReachForStars.Networking
         {
             if (p.Data.Role is MoleRole mole) Coroutines.Start(DoDigAnim(p, mole));
         }
-        public static System.Collections.IEnumerator DoDigAnim(PlayerControl p, MoleRole mole)
+        public static IEnumerator DoDigAnim(PlayerControl p, MoleRole mole)
         {
             yield return new WaitForSeconds(2f);
             Vent prefab = Object.FindObjectOfType<Vent>(true);
@@ -115,6 +117,14 @@ namespace ReachForStars.Networking
             t.transform.position = p.GetTruePosition();
             Trap trapcomp = t.AddComponent<Trap>();
             trapcomp.Trapper = p;
+        }
+        [MethodRpc((uint)RPC.PlaceTrap)]
+        public static void RpcEclipse(this PlayerControl p, float Duration)
+        {
+            GameObject effect = Object.Instantiate(Assets.ShadowEffectPrefab.LoadAsset());
+            Vector3 pos = p.GetTruePosition();
+            effect.transform.position = new(pos.x, pos.y, -10);
+            effect.AddComponent<ShadowEffect>();
         }
     }
 }

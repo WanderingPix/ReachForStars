@@ -22,5 +22,7 @@ namespace ReachForStars.Networking
         PlaceGlue,
         // for placing traps as trapper
         PlaceTrap,
+        //For eclispsing the sun as Shadow
+        Eclipse,
     }
 }

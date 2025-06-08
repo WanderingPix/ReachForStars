@@ -9,6 +9,10 @@ public static class Assets
 {
     public static readonly AssetBundle Bundle = AssetBundleManager.Load("rfsbundle");
 
+    //Shadow
+    public static LoadableBundleAsset<Material> GrayscaleMaterial { get; } = new("GrayscaleMaterial.mat", Bundle);
+    public static LoadableBundleAsset<GameObject> ShadowEffectPrefab { get; } = new("ShadowEffectPrefab.prefab", Bundle);
+
     //Chiller
     public static LoadableBundleAsset<GameObject> FrozenBodyPrefab { get; } = new("FrozenBodyPrefab.prefab", Bundle);
     public static LoadableResourceAsset Freeze { get; } = new("ReachForStars.Resources.Freeze.png");

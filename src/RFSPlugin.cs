@@ -12,6 +12,7 @@ using Il2CppInterop.Runtime.Injection;
 using ReachForStars.Roles.Impostors.Stickster;
 using ReachForStars.Roles.Crewmates.Trapper;
 using ReachForStars.Roles.Neutrals.BountyHunter;
+using ReachForStars.Roles.Impostors.Shadow;
 
 namespace ReachForStars;
 
@@ -32,6 +33,7 @@ public partial class ReachForStars : BasePlugin, IMiraPlugin
         ClassInjector.RegisterTypeInIl2Cpp<Glue>();
         ClassInjector.RegisterTypeInIl2Cpp<Trap>();
         ClassInjector.RegisterTypeInIl2Cpp<BountyHud>();
+        ClassInjector.RegisterTypeInIl2Cpp<ShadowEffect>();
         ReactorCredits.Register<ReachForStars>(ReactorCredits.AlwaysShow);
     }
 }

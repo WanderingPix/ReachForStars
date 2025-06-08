@@ -4,15 +4,15 @@ using MiraAPI.Roles;
 using UnityEngine;
 using ReachForStars.Translation;
 
-namespace ReachForStars.Roles.Impostors.Mole;
+namespace ReachForStars.Roles.Impostors.Shadow;
 
 
-public class MoleRole : ImpostorRole, ICustomRole
+public class ShadowRole : ImpostorRole, ICustomRole
 {
     public string RoleName => rolename.GetTranslatedText();
     public TranslationPool rolename = new TranslationPool
     (
-        english: "Mole",
+        english: "Darkness",
         spanish: "Topo",
         french: "Taupe",
         italian: "Talpa",
@@ -22,7 +22,6 @@ public class MoleRole : ImpostorRole, ICustomRole
     public string RoleLongDescription => RoleDescription;
     public Color RoleColor => Palette.ImpostorRed;
     public ModdedRoleTeams Team => ModdedRoleTeams.Impostor;
-    public List<Vent> MinedVents = new List<Vent>();
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
         UseVanillaKillButton = true,
@@ -41,6 +40,5 @@ public class MoleRole : ImpostorRole, ICustomRole
     }
     public override void OnMeetingStart()
     {
-        CustomButtonSingleton<Dig>.Instance.SetUses(1);
     }
 }

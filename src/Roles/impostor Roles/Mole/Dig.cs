@@ -43,6 +43,7 @@ public class Dig : CustomActionButton
     protected override void OnClick()
     {
         PlayerControl.LocalPlayer.RpcPlaceVent();
+        PlayerControl.LocalPlayer.NetTransform.Halt();
         PlayerControl.LocalPlayer.MyPhysics.enabled = false;
     }
     public override void OnEffectEnd()
