@@ -18,7 +18,7 @@ public class FreezerRole : ImpostorRole, ICustomRole
         spanish: "",
         portuguese: "",
         russian: "Охладитель",
-        italian: ""
+        italian: "Congelatore"// idk lolol
     );
     public string RoleDescription => RoleDescShort.GetTranslatedText();
     public TranslationPool RoleDescShort = new
@@ -28,7 +28,7 @@ public class FreezerRole : ImpostorRole, ICustomRole
         portuguese: "",
         french: "Figez des cadavres pour cacher leurs identités!",
         russian: "Замораживай трупы чтобы избежать личностей!",
-        italian: ""
+        italian: "Congela cadaveri per nascondere le identità!"
     );
 
     public string RoleLongDescription => RoleDescLong.GetTranslatedText();
@@ -39,7 +39,7 @@ public class FreezerRole : ImpostorRole, ICustomRole
         portuguese: "",
         french: "Figez les cadavres pour empécher les coéquipiers de lés trouver!",
         russian: "Замораживай трупы чтобы экипаж не мог зарепортить!",
-        italian: ""
+        italian: "Congela i cadaveri per impedire che siano trovati!"
     );
     public Color RoleColor => Palette.ImpostorRed;
     public ModdedRoleTeams Team => ModdedRoleTeams.Impostor;
