@@ -7,26 +7,7 @@ namespace ReachForStars.Roles.Impostors.Chiller
 {
     public class ChillerOptions : AbstractOptionGroup<FreezerRole>
     {
-        public override string GroupName => groupName.GetTranslatedText();
-
-        public TranslationPool groupName = new
-        (
-            english: "Chiller Options",
-            spanish: "",
-            portuguese: "",
-            french: "Options Refrigirateur",
-            russian: "Настройки Охладителя",
-            italian: ""
-        );
-        public ModdedToggleOption CanVent { get; set; } = new(Canvent.GetTranslatedText(), true);
-        public static TranslationPool Canvent = new
-        (
-            english: "Chiller Can Vent",
-            french: "Refrigirateur peut utiliser les conduits",
-            portuguese: "",
-            spanish: "",
-            russian: "Охладитель умеет использовать люк",
-            italian: ""
-        );
+        public override string GroupName => "Chiller Options";
+        public ModdedToggleOption CanVent { get; set; } = new("Chiller Can Vent", true);
     }
 }
