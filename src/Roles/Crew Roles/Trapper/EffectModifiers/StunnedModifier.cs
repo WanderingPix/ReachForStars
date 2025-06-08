@@ -6,12 +6,21 @@ using MiraAPI.GameOptions;
 using Reactor.Utilities;
 using Reactor.Utilities.Extensions;
 using MiraAPI.Utilities.Assets;
+using ReachForStars.Translation;
 
 namespace ReachForStars.Roles.Crewmates.Trapper;
 
 public class StunnedModifier : TimedModifier
 {
-    public override string ModifierName => "Stunned";
+    public override string ModifierName => name.GetTranslatedText();
+    public TranslationPool name = new
+    (
+        english: "Stunned",
+        spanish: "Atónito",
+        french: "Choc",
+        russian: "",
+        italian: ""
+    );
 
     public override float Duration => 3f;
 

@@ -22,8 +22,7 @@ namespace ReachForStars.Roles.Crewmates.Trapper
 
         public TranslationPool ButtonName = new TranslationPool(
             english: "Trap",
-            spanish: "",
-             
+            spanish: "Trampa",
             french: "piéger",
             russian: "Трапнуть",
             italian: ""

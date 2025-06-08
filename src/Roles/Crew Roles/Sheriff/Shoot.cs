@@ -22,7 +22,6 @@ namespace ReachForStars.Roles.Crewmates.Sheriff
         public TranslationPool ButtonName = new TranslationPool(
             english: "Shoot",
             spanish: "Disparar",
-            portuguese: "Atirar",
             french: "Tirer",
             russian: "выстрелить",
             italian: "Sparare"

@@ -19,9 +19,8 @@ public class TrapperRole : CrewmateRole, ICustomRole
     public string RoleLongDescription => RoleDescLong.GetTranslatedText();
     public TranslationPool RoleDescLong = new TranslationPool(
         english: "Place Traps around the map to catch the impostors!",
-        french: "",
-         
-        spanish: "",
+        french: "Mettez des piéges pour trouver les imposteurs!",        
+        spanish: "¡Coloca trampas alrededor del mapa para atrapar a los impostores!",
         russian: "Ставь Трапки (ловушки) чтобы поймать предателей!",
         italian: ""
     );
@@ -29,8 +28,7 @@ public class TrapperRole : CrewmateRole, ICustomRole
     public TranslationPool RoleDescShort = new TranslationPool(
         english: "Trap the Impostors!",
         french: "Piégez les imposteurs!",
-         
-        spanish: "",
+        spanish: "¡Atrapa a los impostores!",
         russian: "",
         italian: ""
     );

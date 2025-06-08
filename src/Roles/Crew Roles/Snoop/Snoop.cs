@@ -11,20 +11,21 @@ public class SnoopRole : CrewmateRole, ICustomRole
     public TranslationPool Rolename = new TranslationPool(
         english: "Snoop",
         spanish: "fisgón",
-        portuguese: "bisbilhoteira",
         french: "Espion",
         russian: "шпион",
         italian: "Spia"
     );
     public string RoleLongDescription => RoleDescLong.GetTranslatedText();
-    public TranslationPool RoleDescLong = new TranslationPool(
+    public TranslationPool RoleDescLong = new TranslationPool
+    (
         english: "Use the admin map and place cameras to gather info",
         french: "Utilisez la carte d'administration et les caméras pour recueillir de l'info"
     );
     public string RoleDescription => RoleDescShort.GetTranslatedText();
-    public TranslationPool RoleDescShort = new TranslationPool(
-        english:"Gather Info on the crew",
-        french:"Espionnez vos coéquipiers"
+    public TranslationPool RoleDescShort = new TranslationPool
+    (
+        english: "Gather Info on the crew",
+        french: "Espionnez vos coéquipiers"
     );
     public Color RoleColor => Palette.CrewmateRoleHeaderDarkBlue;
     public ModdedRoleTeams Team => ModdedRoleTeams.Crewmate;

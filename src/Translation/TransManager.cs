@@ -21,17 +21,13 @@ namespace ReachForStars.Translation
          {
          return pool.Russian; //Russian translator: lime
          }
-         else if (TranslationController.Instance.currentLanguage.languageID == SupportedLangs.Portuguese && pool.Portuguese != null)
-         {
-           return pool.Portuguese; //Portuguese translator: TBD
-         }
          else if (TranslationController.Instance.currentLanguage.languageID == SupportedLangs.French && pool.French != null)
          {
            return pool.French; //french translator: WanderingPix
          }
          else if (TranslationController.Instance.currentLanguage.languageID == SupportedLangs.Italian && pool.Italian != null)
          {
-           return pool.Italian; //french translator: pengun
+           return pool.Italian; //italian translator: pengun
          }
          else return pool.English;
        }

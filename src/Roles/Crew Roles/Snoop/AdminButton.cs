@@ -17,8 +17,7 @@ public class AdminButton : CustomActionButton
 
     public TranslationPool ButtonName = new TranslationPool(
         english: "Admin",
-        spanish: "TBD",
-        portuguese: "TBD",
+        spanish: "Administración",
         french: "Administration",
         russian: "Админ",
         italian: "Amministrazone"
