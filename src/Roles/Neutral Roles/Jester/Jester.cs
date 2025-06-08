@@ -23,8 +23,7 @@ public class JesterRole : ImpostorRole, ICustomRole
     (
         english: "Fool The Crew!",
         french: "Trollez l'équipage!",
-        spanish: "¡Engaña a la tripulación!",
-        portuguese: "Engane a tripulação!",
+        spanish: "¡Engaña a la tripulación!"
         russian: "",
         italian: ""
     );
@@ -34,7 +33,6 @@ public class JesterRole : ImpostorRole, ICustomRole
         english: "Get voted out to win.",
         french: "Faites-vous ejecter pour gagner.",
         spanish: "Ser expulsado para ganar",
-        portuguese: "Seja expulso para ganhar",
         russian: "",
         italian: ""
     );

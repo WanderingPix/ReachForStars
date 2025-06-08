@@ -33,8 +33,7 @@ public class FreezerRole : ImpostorRole, ICustomRole
     public TranslationPool RoleDescLong = new
     (
         english: "Freeze bodies to stop the crewmates from reporting them!",
-        spanish: "",
-         
+        spanish: "¡Congela los cuerpos para evitar que los compañeros de tripulación los denuncien!",
         french: "Figez les cadavres pour empécher les coéquipiers de lés trouver!",
         russian: "Замораживай трупы чтобы экипаж не мог зарепортить!",
         italian: "Congela i cadaveri per impedire che siano trovati!"
