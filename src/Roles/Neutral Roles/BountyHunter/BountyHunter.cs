@@ -46,10 +46,12 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         RoleBehaviourStubs.Initialize(this, player);
         HudManager.Instance.KillButton.Show();
 
-        Object.Instantiate(Assets.BountyPrefab.LoadAsset(), HudManager.Instance.transform);
+        hud = Object.Instantiate(Assets.BountyPrefab.LoadAsset(), HudManager.Instance.transform).AddComponent<BountyHud>();
+        GenerateNewBountyTarget();
     }
     public override void Deinitialize(PlayerControl targetPlayer)
     {
+        hud.gameObject.DestroyImmediate();
     }
 
     public override void SpawnTaskHeader(PlayerControl playerControl)
@@ -64,15 +66,15 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
     private void GenerateNewBountyTarget()
     {
         Random rnd = new Random();
-        List<PlayerControl> Playerpool = Helpers.GetAlivePlayers().Where(x => x != PlayerControl.LocalPlayer && x != MeetingHud.Instance.exiledPlayer).ToList();
+        List<PlayerControl> Playerpool = Helpers.GetAlivePlayers().Where(x => x != PlayerControl.LocalPlayer).ToList();
         int index = rnd.Next(Playerpool.Count);
         Target = Playerpool[index];
-        HudManager.Instance.KillButton.graphic.color = Target.Data.Color;
+        if (MeetingHud.Instance && MeetingHud.Instance.exiledPlayer == Target) GenerateNewBountyTarget();
     }
 
     public override void OnVotingComplete()
     {
-        GenerateNewBountyTarget();
+        GenerateNewBountyTarget(); 
     }
 
     public override PlayerControl FindClosestTarget()
