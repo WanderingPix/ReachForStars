@@ -38,7 +38,7 @@ public class FreezerRole : ImpostorRole, ICustomRole
         spanish: "",
         portuguese: "",
         french: "Figez les cadavres pour empécher les coéquipiers de lés trouver!",
-        russian: "",
+        russian: "Замораживай трупы чтобы экипаж не мог зарепортить!",
         italian: ""
     );
     public Color RoleColor => Palette.ImpostorRed;
