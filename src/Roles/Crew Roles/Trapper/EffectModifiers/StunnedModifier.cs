@@ -24,7 +24,7 @@ public class StunnedModifier : TimedModifier
 
     public override float Duration => 3f;
 
-    PlayerControl Trapper;
+    public PlayerControl Trapper;
 
     public override void OnMeetingStart()
     {

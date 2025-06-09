@@ -113,7 +113,8 @@ namespace ReachForStars.Networking
         public static void RpcPlaceTrap(this PlayerControl p)
         {
             GameObject t = Object.Instantiate(Assets.TrapPrefab.LoadAsset());
-            t.transform.position = p.GetTruePosition();
+            Vector3 ppos = p.GetTruePosition();
+            t.transform.position = new(ppos.x, ppos.y, 1f);
             Trap trapcomp = t.AddComponent<Trap>();
             trapcomp.Trapper = p;
         }
