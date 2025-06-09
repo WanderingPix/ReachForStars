@@ -17,7 +17,7 @@ namespace ReachForStars.Roles.Neutrals.BountyHunter
             myRend = gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>();
             myPos = gameObject.AddComponent<AspectPosition>();
             myPos.Alignment = AspectPosition.EdgeAlignments.Top;
-            myPos.DistanceFromEdge = new Vector3(0f, 1f, 0f);
+            myPos.DistanceFromEdge = new Vector3(0f, 1.25f, 0f);
             myPos.AdjustPosition();
 
             Counter.text = "";
@@ -32,7 +32,7 @@ namespace ReachForStars.Roles.Neutrals.BountyHunter
             //set up PoolablePlayer
             myPlayer = HudManager.Instance.IntroPrefab.CreatePlayer(1, 1, info, false);
             myPlayer.transform.SetParent(gameObject.transform);
-            myPlayer.transform.localPosition = new Vector3(0f, -0.25f, 0f);
+            myPlayer.transform.localPosition = new Vector3(0f, 0f, 0f);
             foreach (var rend in myPlayer.gameObject.GetComponentsInChildren<SpriteRenderer>(true))
             {
                 rend.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;

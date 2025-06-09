@@ -17,7 +17,7 @@ public class FrozenBody(IntPtr ptr) : MonoBehaviour(ptr)
 {
     public bool isActive;
     public ImageNames UseIcon => ImageNames.FreeplayButton;
-    public float UsableDistance => 90f;
+    public float UsableDistance => 50f;
     public float PercentCool => 0f;
     public BoxCollider2D myCol;
     public SpriteRenderer myRend;

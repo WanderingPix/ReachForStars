@@ -80,11 +80,13 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
 
     public override void OnVotingComplete()
     {
+        hud.gameObject.SetActive(false);
         GenerateNewBountyTarget();
     }
     public override void OnMeetingStart()
     {
         hud.myPlayer.gameObject.DestroyImmediate();
+        hud.gameObject.SetActive(false);
     }
 
     public override PlayerControl FindClosestTarget()
