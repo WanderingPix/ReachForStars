@@ -46,10 +46,13 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
     {
         RoleBehaviourStubs.Initialize(this, player);
 
-        CustomButtonSingleton<BountyKill>.Instance.Button.Show();
+        if (player == PlayerControl.LocalPlayer)
+        {
+            CustomButtonSingleton<BountyKill>.Instance.Button.Show();
 
-        hud = Object.Instantiate(Assets.BountyPrefab.LoadAsset(), HudManager.Instance.transform).AddComponent<BountyHud>();
-        GenerateNewBountyTarget();
+            hud = Object.Instantiate(Assets.BountyPrefab.LoadAsset(), HudManager.Instance.transform).AddComponent<BountyHud>();
+            GenerateNewBountyTarget();
+        }
     }
     public override void Deinitialize(PlayerControl targetPlayer)
     {
@@ -71,7 +74,7 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         List<PlayerControl> Playerpool = Helpers.GetAlivePlayers().Where(x => x != PlayerControl.LocalPlayer).ToList();
         int index = rnd.Next(Playerpool.Count);
         Target = Playerpool[index];
-        if (hud.myPlayer) hud.myPlayer.UpdateFromPlayerData(Target.Data, PlayerOutfitType.Default, PlayerMaterial.MaskType.SimpleUI, true, null);
+        if (hud != null) hud.myPlayer.UpdateFromPlayerOutfit(Target.CurrentOutfit, PlayerMaterial.MaskType.None, false, true);
     }
 
     public override void OnVotingComplete()

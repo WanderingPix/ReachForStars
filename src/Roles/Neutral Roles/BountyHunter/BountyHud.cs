@@ -26,8 +26,7 @@ namespace ReachForStars.Roles.Neutrals.BountyHunter
             }
 
             //set up PoolablePlayer
-            myPlayer = Object.Instantiate<PoolablePlayer>(HudManager.Instance.MeetingPrefab.PlayerButtonPrefab.PlayerIcon, gameObject.transform);
-            myPlayer.SetFlipX(true);
+            myPlayer = Object.Instantiate<PoolablePlayer>(HudManager.Instance.IntroPrefab.PlayerPrefab, gameObject.transform);
             myPlayer.transform.localPosition = new Vector3(0f, 1f, 0f);
         }
         public void UpdateCount(int count)

@@ -29,8 +29,11 @@ public class DetectiveRole : CrewmateRole, ICustomRole
         RoleBehaviourStubs.Initialize(this, player);
         CustomButtonSingleton<Inspect>.Instance.Button.Show();
 
-        Suspects = PlayerControl.AllPlayerControls.ToArray().ToList();
-        ActualEvils = Suspects.Where(x => x.Data.Role.IsImpostor || x.Data.Role is ICustomRole custom && custom.Team == ModdedRoleTeams.Custom).ToList();
+        if (player == PlayerControl.LocalPlayer)
+        {
+            Suspects = PlayerControl.AllPlayerControls.ToArray().ToList();
+            ActualEvils = Suspects.Where(x => x.Data.Role.IsImpostor || x.Data.Role is ICustomRole custom && custom.Team == ModdedRoleTeams.Custom).ToList();
+        }
     }
     public void SetUpVoteArea(PlayerVoteArea area)
     {

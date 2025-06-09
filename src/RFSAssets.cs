@@ -9,10 +9,6 @@ public static class Assets
 {
     public static readonly AssetBundle Bundle = AssetBundleManager.Load("rfsbundle");
 
-    //Shadow
-    public static LoadableBundleAsset<Material> GrayscaleMaterial { get; } = new("GrayscaleMaterial.mat", Bundle);
-    public static LoadableBundleAsset<GameObject> ShadowEffectPrefab { get; } = new("ShadowEffectPrefab.prefab", Bundle);
-
     //Chiller
     public static LoadableBundleAsset<GameObject> FrozenBodyPrefab { get; } = new("FrozenBodyPrefab.prefab", Bundle);
     public static LoadableResourceAsset Freeze { get; } = new("ReachForStars.Resources.Freeze.png");
@@ -23,13 +19,13 @@ public static class Assets
     public static LoadableBundleAsset<GameObject> BountyPrefab { get; } = new("BountyHudPrefab.prefab", Bundle);
     //Emojis
     public static LoadableBundleAsset<TMP_SpriteAsset> EmojiIndex { get; } = new("Emojis.asset", Bundle);
+
+
     //Trapper
+    public static LoadableAudioResourceAsset TrapCloseSfx { get; } = new("ReachForStars.Resources.SoundEffects.TrapClose.wav");
     public static LoadableBundleAsset<AnimationClip> StunnedAnimation { get; } = new("StunnedAnimation.anim", Bundle);
-
     public static LoadableBundleAsset<GameObject> StunnedPrefab { get; } = new("StunnedPrefab.prefab", Bundle);
-
     public static LoadableBundleAsset<GameObject> TrapPrefab { get; } = new("TrapPrefab.prefab", Bundle);
-
     public static LoadableBundleAsset<AnimationClip> TrapCloseAnimation { get; } = new("TrapCloseAnimation.anim", Bundle);
     public static LoadableBundleAsset<RuntimeAnimatorController> TrapCloseAnimationController { get; } = new("TrapPrefab.controller", Bundle);
 

@@ -62,7 +62,7 @@ public class JesterRole : ImpostorRole, ICustomRole
     public override void Initialize(PlayerControl p)
     {
         RoleBehaviourStubs.Initialize(this, p);
-        if (!OptionGroupSingleton<JesterOptions>.Instance.CanCallMeeting) ShipStatus.Instance.EmergencyButton.enabled = false;
+        if (!OptionGroupSingleton<JesterOptions>.Instance.CanCallMeeting && Player == PlayerControl.LocalPlayer) ShipStatus.Instance.EmergencyButton.enabled = false;
     }
     public override void Deinitialize(PlayerControl p)
     {

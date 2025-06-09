@@ -29,6 +29,10 @@ namespace ReachForStars.Roles.Crewmates.Trapper
         {
             myRend = gameObject.GetComponent<SpriteRenderer>();
             myAnim = gameObject.GetComponent<Animator>();
+
+            HudManager.Instance.StartCoroutine(Effects.ColorFade(myRend, Color.black, Color.white, 0.7f));
+            if (PlayerControl.LocalPlayer.Data.Role.IsImpostor) myRend.color = new Color(1f, 1f, 1f, 0.3f);
+            else if (!PlayerControl.LocalPlayer.Data.Role.IsImpostor && PlayerControl.LocalPlayer.Data.Role is not TrapperRole) myRend.color = new Color(1f, 1f, 1f, 0f);
         }
         [RegisterEvent]
         public static void OnMeetingEnd(MiraAPI.Events.Vanilla.Meeting.EndMeetingEvent @event)
@@ -44,6 +48,7 @@ namespace ReachForStars.Roles.Crewmates.Trapper
         }
         public void Trigger(PlayerControl p)
         {
+            HudManager.Instance.StartCoroutine(Effects.Bounce(gameObject.transform, 0.4f, 0.25f));
             p.AddModifier<StunnedModifier>();
             myAnim.runtimeAnimatorController = Assets.TrapCloseAnimationController.LoadAsset();
             HasBeenTriggered = true;

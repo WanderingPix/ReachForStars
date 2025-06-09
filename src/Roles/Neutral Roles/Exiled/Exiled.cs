@@ -41,15 +41,18 @@ namespace ReachForStars.Roles.Neutrals.Exiled
         public override void Initialize(PlayerControl player)
         {
             RoleBehaviourStubs.Initialize(this, player);
-            CustomButtonSingleton<ExileKill>.Instance.Button.Show();
-            bool CheckChance = Helpers.CheckChance(50);
-            if (CheckChance)
+            if (player == PlayerControl.LocalPlayer)
             {
-                EnemyTeam = ExiledEnemyTeam.Crewmates;
-            }
-            else
-            {
-                EnemyTeam = ExiledEnemyTeam.Impostors;
+                CustomButtonSingleton<ExileKill>.Instance.Button.Show();
+                bool CheckChance = Helpers.CheckChance(50);
+                if (CheckChance)
+                {
+                    EnemyTeam = ExiledEnemyTeam.Crewmates;
+                }
+                else
+                {
+                    EnemyTeam = ExiledEnemyTeam.Impostors;
+                }
             }
         }
     }
