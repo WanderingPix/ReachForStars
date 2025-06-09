@@ -21,7 +21,7 @@ namespace ReachForStars.Roles.Neutrals.BountyHunter
             myPos.AdjustPosition();
 
             Counter.text = "";
-            for (int i = 0; i != OptionGroupSingleton<BountyHunterOptions>.Instance.SuccessfulKillsQuota; i++)
+            for (int i = 0; i != (int)OptionGroupSingleton<BountyHunterOptions>.Instance.SuccessfulKillsQuota; i++)
             {
                 Counter.text = $"{Counter.text}<sprite=6>";
             }
@@ -46,7 +46,7 @@ namespace ReachForStars.Roles.Neutrals.BountyHunter
             {
                 Counter.text = $"{Counter.text}<sprite=5>";
             }
-            for (int r = 0; r != OptionGroupSingleton<BountyHunterOptions>.Instance.SuccessfulKillsQuota - count; r++) //remaining bounties
+            for (int r = 0; r != (int)OptionGroupSingleton<BountyHunterOptions>.Instance.SuccessfulKillsQuota - count; r++) //remaining bounties
             {
                 Counter.text = $"{Counter.text}<sprite=6>";
             }
