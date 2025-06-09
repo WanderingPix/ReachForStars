@@ -4,10 +4,11 @@ using TMPro;
 using UnityEngine;
 
 namespace ReachForStars;
-
 public static class Assets
 {
     public static readonly AssetBundle Bundle = AssetBundleManager.Load("rfsbundle");
+    //Misc
+    public static LoadableBundleAsset<Material> DissolveMaterial { get; } = new("DissolveEmissionMaterial.mat", Bundle);
 
     //Chiller
     public static LoadableBundleAsset<GameObject> FrozenBodyPrefab { get; } = new("FrozenBodyPrefab.prefab", Bundle);

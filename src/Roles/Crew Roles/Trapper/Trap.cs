@@ -56,13 +56,23 @@ namespace ReachForStars.Roles.Crewmates.Trapper
             {
                 SoundManager.Instance.PlaySound(Assets.TrapCloseSfx.LoadAsset(), false);
                 myRend.color = Color.white;
-
-                NoisemakerArrow arrow = Object.Instantiate(RoleManager.Instance.GetRole(AmongUs.GameOptions.RoleTypes.Noisemaker).Cast<NoisemakerRole>().deathArrowPrefab).GetComponent<NoisemakerArrow>();
-                arrow.alwaysMaxSize = true;
-                arrow.duration = 3f;
-                arrow.target = p.GetTruePosition();
+                SetUpArrow(p);
             }
+        }
+        public void SetUpArrow(PlayerControl p)
+        {
+            NoisemakerArrow arrow = Object.Instantiate(RoleManager.Instance.GetRole(AmongUs.GameOptions.RoleTypes.Noisemaker).Cast<NoisemakerRole>().deathArrowPrefab).GetComponent<NoisemakerArrow>();
+            arrow.alwaysMaxSize = true;
+            arrow.duration = 3f;
+            arrow.target = p.GetTruePosition();
+            Transform deadbody = arrow.transform.parent.GetChild(1);
             
+
+
+            foreach (var rend in arrow.GetComponentsInChildren<SpriteRenderer>())
+            {
+                rend.color = Color.white;
+            }
         }
     }
 }

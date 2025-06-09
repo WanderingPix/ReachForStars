@@ -14,7 +14,6 @@ public class RoleBlock : CustomActionButton<PlayerControl>
         english: "Role Block",
         french: "Bloquer",
         spanish: "",
-         
         russian: "Ролевой блок",
         italian: "Blocco dei Ruoli"
     );
