@@ -1,4 +1,5 @@
 using MiraAPI.GameOptions;
+using Reactor.Utilities.Extensions;
 using TMPro;
 using UnityEngine;
 
@@ -24,10 +25,18 @@ namespace ReachForStars.Roles.Neutrals.BountyHunter
             {
                 Counter.text = $"{Counter.text}<sprite=6>";
             }
-
+        }
+        public void OnNewTargetGenerated(NetworkedPlayerInfo info)
+        {
+            if (myPlayer) myPlayer.gameObject.DestroyImmediate();
             //set up PoolablePlayer
-            myPlayer = Object.Instantiate<PoolablePlayer>(HudManager.Instance.IntroPrefab.PlayerPrefab, gameObject.transform);
-            myPlayer.transform.localPosition = new Vector3(0f, 1f, 0f);
+            myPlayer = HudManager.Instance.IntroPrefab.CreatePlayer(1, 1, info, false);
+            myPlayer.transform.SetParent(gameObject.transform);
+            myPlayer.transform.localPosition = new Vector3(0f, -0.25f, 0f);
+            foreach (var rend in myPlayer.GetComponentsInChildren<SpriteRenderer>(true))
+            {
+                rend.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+            }
         }
         public void UpdateCount(int count)
         {

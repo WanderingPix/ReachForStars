@@ -8,6 +8,7 @@ Completed features:
 4. Jester Role
 5. Sheriff Role
 6. Stickster Role
+7. Trapper Role
 
 features in the works:
 
@@ -16,12 +17,11 @@ features in the works:
 3. Translations
 4. Update to 16.0.5 (pain, I hate IL2CPP so much, and inlining is stupid)
 5. Mole Role (Why is it still broken)
-6. Trapper Role
-7. Bounty Hunter (Previously done but I believe it needs to be reworked)
+6. Bounty Hunter (Previously done but I believe it needs to be reworked)
 
 Planned features:
 
-None!
+Eclipse role
 
 **Estimated Public Release: Late July**
 

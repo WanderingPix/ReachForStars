@@ -74,12 +74,17 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         List<PlayerControl> Playerpool = Helpers.GetAlivePlayers().Where(x => x != PlayerControl.LocalPlayer).ToList();
         int index = rnd.Next(Playerpool.Count);
         Target = Playerpool[index];
-        if (hud != null) hud.myPlayer.UpdateFromPlayerOutfit(Target.CurrentOutfit, PlayerMaterial.MaskType.None, false, true);
+
+        if (hud) hud.OnNewTargetGenerated(Target.Data);
     }
 
     public override void OnVotingComplete()
     {
         GenerateNewBountyTarget();
+    }
+    public override void OnMeetingStart()
+    {
+        hud.myPlayer.gameObject.DestroyImmediate();
     }
 
     public override PlayerControl FindClosestTarget()
