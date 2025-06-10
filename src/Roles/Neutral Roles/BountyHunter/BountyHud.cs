@@ -4,6 +4,7 @@ using MiraAPI.Utilities;
 using Reactor.Utilities.Extensions;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace ReachForStars.Roles.Neutrals.BountyHunter
 {
@@ -56,9 +57,9 @@ namespace ReachForStars.Roles.Neutrals.BountyHunter
             IsOpen = true;
 
             myButton = myRend.gameObject.AddComponent<PassiveButton>();
-            myButton.OnClick = new();
-
-            myButton.OnClick.AddListener((Action)(() =>
+            myButton.OnUp = true;
+            myButton.OnClick = new UnityEngine.UI.Button.ButtonClickedEvent();
+            myButton.OnClick.AddListener((UnityAction)(() =>
             {
                 ToggleHud(!IsOpen);
             }));
@@ -69,7 +70,7 @@ namespace ReachForStars.Roles.Neutrals.BountyHunter
             //set up PoolablePlayer
             myPlayer = HudManager.Instance.IntroPrefab.CreatePlayer(1, 1, info, false);
             myPlayer.transform.SetParent(gameObject.transform);
-            myPlayer.transform.localPosition = new Vector3(0f, -0.1f, 0f);
+            myPlayer.transform.localPosition = new Vector3(0f, -0.15f, 0f);
             foreach (var rend in myPlayer.gameObject.GetComponentsInChildren<SpriteRenderer>(true))
             {
                 rend.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;

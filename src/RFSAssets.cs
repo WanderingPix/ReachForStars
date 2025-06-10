@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 
 namespace ReachForStars;
+
 public static class Assets
 {
     public static readonly AssetBundle Bundle = AssetBundleManager.Load("rfsbundle");
@@ -26,10 +27,8 @@ public static class Assets
 
     //Trapper
     public static LoadableAudioResourceAsset TrapCloseSfx { get; } = new("ReachForStars.Resources.SoundEffects.TrapClose.wav");
-    public static LoadableBundleAsset<AnimationClip> StunnedAnimation { get; } = new("StunnedAnimation.anim", Bundle);
     public static LoadableBundleAsset<GameObject> StunnedPrefab { get; } = new("StunnedPrefab.prefab", Bundle);
     public static LoadableBundleAsset<GameObject> TrapPrefab { get; } = new("TrapPrefab.prefab", Bundle);
-    public static LoadableBundleAsset<AnimationClip> TrapCloseAnimation { get; } = new("TrapCloseAnimation.anim", Bundle);
     public static LoadableBundleAsset<RuntimeAnimatorController> TrapCloseAnimationController { get; } = new("TrapPrefab.controller", Bundle);
 
     //PlaceHolder
@@ -45,11 +44,13 @@ public static class Assets
 
     //Stickster
     public static LoadableResourceAsset Glue0 { get; } = new("ReachForStars.Resources.Glues.Glue0.png");
-    public static LoadableResourceAsset  Glue1 { get; } = new("ReachForStars.Resources.Glues.Glue1.png");
-    public static LoadableResourceAsset  Glue2 { get; } = new("ReachForStars.Resources.Glues.Glue2.png");    
+    public static LoadableResourceAsset Glue1 { get; } = new("ReachForStars.Resources.Glues.Glue1.png");
+    public static LoadableResourceAsset Glue2 { get; } = new("ReachForStars.Resources.Glues.Glue2.png");
     public static LoadableResourceAsset GlueVar0 { get; } = new("ReachForStars.Resources.Glues.Variations.GlueVar0.png");
     public static LoadableResourceAsset GlueVar1 { get; } = new("ReachForStars.Resources.Glues.Variations.GlueVar1.png");
     public static LoadableResourceAsset GlueVar2 { get; } = new("ReachForStars.Resources.Glues.Variations.GlueVar2.png");
     public static LoadableAudioResourceAsset GlueSFX { get; } = new("ReachForStars.Resources.SoundEffects.Glue.wav");
     public static LoadableResourceAsset Glue { get; } = new("ReachForStars.Resources.Glue.png");
+    //Mole
+    public static LoadableBundleAsset<RuntimeAnimatorController> VentDigAnimController { get; } = new("VentDigAnimController.controller", Bundle);
 }

@@ -23,7 +23,7 @@ public class Dig : CustomActionButton
     );
 
     public override float Cooldown => 0;
-    public override float EffectDuration => 5;
+    public override float EffectDuration => 1;
 
     public override ButtonLocation Location => ButtonLocation.BottomRight;
 

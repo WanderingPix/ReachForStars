@@ -51,7 +51,7 @@ public class Inspect : CustomActionButton<DeadBody>
     ContactFilter2D filter;
     public override void OnEffectEnd()
     {
-        foreach (PlayerControl pc in Helpers.GetClosestPlayersInCircle(PlayerControl.LocalPlayer.GetTruePosition(), 6f))
+        foreach (PlayerControl pc in Helpers.GetClosestPlayersInCircle(PlayerControl.LocalPlayer.GetTruePosition(), 3f))
         {
             if (PlayerControl.LocalPlayer.Data.Role is DetectiveRole det && !det.ActualEvils.Contains(pc))
             {

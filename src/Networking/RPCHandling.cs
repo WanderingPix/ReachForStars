@@ -15,6 +15,7 @@ using ReachForStars.Roles.Impostors.Stickster;
 using ReachForStars.Roles.Crewmates.Trapper;
 using System.Collections.Generic;
 using IEnumerator = System.Collections.IEnumerator;
+using BepInEx;
 
 namespace ReachForStars.Networking
 {
@@ -52,35 +53,42 @@ namespace ReachForStars.Networking
         [MethodRpc((uint)RPC.PlaceDaVent)]
         public static void RpcPlaceVent(this PlayerControl p)
         {
-            if (p.Data.Role is MoleRole mole) Coroutines.Start(DoDigAnim(p, mole));
-        }
-        public static IEnumerator DoDigAnim(PlayerControl p, MoleRole mole)
-        {
-            yield return new WaitForSeconds(2f);
-            Vent prefab = Object.FindObjectOfType<Vent>(true);
-            Vent vent = Object.Instantiate<Vent>(prefab);
-            vent.transform.position = p.GetTruePosition();
-
-            mole.MinedVents.Add(vent);
-
-            vent.gameObject.name = $"MoleVent{mole.MinedVents.Count()}";
-
-
-            vent.Id = VentUtils.GetAvailableId();
-            vent.Left = null;
-            vent.Right = null;
-
-            if (mole.MinedVents[^1] != null)
+            if (p.Data.Role is MoleRole mole)
             {
-                vent.Right = mole.MinedVents[^1];
-                mole.MinedVents[^1].Left = vent;
-            }
+                Vent prefab = Object.FindObjectOfType<Vent>(true);
+                Vent vent = Object.Instantiate<Vent>(prefab);
+                vent.transform.position = p.GetTruePosition();
 
-            vent.StartCoroutine(Effects.Bounce(vent.transform, 1f));
-            vent.StartCoroutine(Effects.ColorFade(vent.myRend, Palette.Black, Palette.White, 1.4f));
-            List<Vent> newAllVents = ShipStatus.Instance.AllVents.ToList();
-            newAllVents.Add(vent);
-            ShipStatus.Instance.AllVents = newAllVents.ToArray();
+                PluginSingleton<ReachForStars>.Instance.Log.LogInfo("Managed to create vent!");
+
+                Animator myAnim = vent.myRend.gameObject.AddComponent<Animator>();
+
+                PluginSingleton<ReachForStars>.Instance.Log.LogInfo("Managed to create animator!");
+                RuntimeAnimatorController con = Assets.VentDigAnimController.LoadAsset();
+                myAnim.runtimeAnimatorController = con; //ts is failing
+
+                PluginSingleton<ReachForStars>.Instance.Log.LogInfo("Managed to add controller!");
+
+                mole.MinedVents.Add(vent);
+
+                vent.gameObject.name = $"MoleVent{mole.MinedVents.Count()}";
+
+
+                vent.Id = VentUtils.GetAvailableId();
+                vent.Left = null;
+                vent.Right = null;
+
+                if (mole.MinedVents[^1] != null)
+                {
+                    vent.Right = mole.MinedVents[^1];
+                    mole.MinedVents[^1].Left = vent;
+                }
+
+                List<Vent> newAllVents = ShipStatus.Instance.AllVents.ToList();
+                newAllVents.Add(vent);
+                ShipStatus.Instance.AllVents = newAllVents.ToArray();
+                //vent.additionalExitAnimation.DestroyImmediate();
+            }
         }
         [MethodRpc((uint)RPC.ResizePlayer)]
         public static void RpcResize(this PlayerControl player, float x, float y, float z)
