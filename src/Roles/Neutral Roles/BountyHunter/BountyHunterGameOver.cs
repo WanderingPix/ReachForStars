@@ -12,11 +12,11 @@ public class BountyHunterWin : CustomGameOver
     public override bool VerifyCondition(PlayerControl playerControl, NetworkedPlayerInfo[] winners)
     {
         winners.AddItem<NetworkedPlayerInfo>(playerControl.Data);
-        if (playerControl.Data.Role is BountyHunterRole BH && BH.SuccessfulKills == 1)
+        if (playerControl.Data.Role is BountyHunterRole BH)
         {
             return true;
         }
-        else 
+        else
         {
             return false;
         }
@@ -24,7 +24,8 @@ public class BountyHunterWin : CustomGameOver
 
     public override void AfterEndGameSetup(EndGameManager endGameManager)
     {
-        endGameManager.WinText.text = "\n<size=4>The Bounty Hunter has killed\n their targets!";
+        endGameManager.WinText.spriteAsset = Assets.EmojiIndex.LoadAsset();
+        endGameManager.WinText.text = "\nBounty Hunter wins!\n";
         endGameManager.WinText.color = Color.white;
         endGameManager.BackgroundBar.material.SetColor(ShaderID.Color, CustomRoleSingleton<BountyHunterRole>.Instance.RoleColor);
     }

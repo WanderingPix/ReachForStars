@@ -8,7 +8,7 @@ public static class Assets
 {
     public static readonly AssetBundle Bundle = AssetBundleManager.Load("rfsbundle");
     //Misc
-    public static LoadableBundleAsset<Material> DissolveMaterial { get; } = new("DissolveEmissionMaterial.mat", Bundle);
+    public static LoadableResourceAsset CustomKillButton { get; } = new("ReachForStars.Resources.CustomKillButton.png");
 
     //Chiller
     public static LoadableBundleAsset<GameObject> FrozenBodyPrefab { get; } = new("FrozenBodyPrefab.prefab", Bundle);
@@ -18,6 +18,8 @@ public static class Assets
 
     //Bounty Hunter
     public static LoadableBundleAsset<GameObject> BountyPrefab { get; } = new("BountyHudPrefab.prefab", Bundle);
+    public static LoadableBundleAsset<RuntimeAnimatorController> BountyHudCloseAnimController { get; } = new("HudCloseAnimController.controller", Bundle);
+    public static LoadableBundleAsset<RuntimeAnimatorController> BountyHudOpenAnimController { get; } = new("HudOpenAnimController.controller", Bundle);
     //Emojis
     public static LoadableBundleAsset<TMP_SpriteAsset> EmojiIndex { get; } = new("Emojis.asset", Bundle);
 

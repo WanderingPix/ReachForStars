@@ -1,27 +1,25 @@
+using System;
 using HarmonyLib;
-using MiraAPI.Utilities;
-using MiraAPI.Roles;
-using MiraAPI.GameOptions;
-using ReachForStars.GameEndSettings;
-using System.Linq;
+using ReachForStars.Features;
 
 namespace ReachForStars
 {
-    [HarmonyPatch(typeof(ChatBubble), nameof(ChatBubble.SetText))]
+    [HarmonyPatch]
     public class ChatPatches
     {
-        public static void Postfix(ChatBubble __instance, ref string chatText)
+        [HarmonyPatch(typeof(TextBoxTMP), nameof(TextBoxTMP.Start))]
+        public static void Postfix(TextBoxTMP __instance)
         {
-            __instance.TextArea.m_defaultSpriteAsset = Assets.EmojiIndex.LoadAsset();
-            string FinalText = chatText;
+            __instance.AllowPaste = true;
+            __instance.AllowSymbols = true;
+            __instance.allowAllCharacters = true;
+            __instance.characterLimit = int.MaxValue;
 
-            if (FinalText.ToLower().Contains("shrug")) FinalText = FinalText.Replace("shrug", "<sprite=0>");
-            if (FinalText.ToLower().Contains("heart")) FinalText = FinalText.Replace("heart", "<sprite=1>");
-            if (FinalText.ToLower().Contains("heh")) FinalText = FinalText.Replace("heh", "<sprite=2>");
-            if (FinalText.ToLower().Contains("fire")) FinalText = FinalText.Replace("fire", "<sprite=3>");
-            if (FinalText.ToLower().Contains("sob")) FinalText = FinalText.Replace("sob", "<sprite=4>");
-
-            __instance.TextArea.text = FinalText;
+            __instance.outputText.m_spriteAsset = Assets.EmojiIndex.LoadAsset();
+            __instance.OnChange.AddListener((Action)(() =>
+            {
+                __instance.SetText(Emojis.ReformatForEmojis(__instance.text));            
+            }));
         }
     }
 }

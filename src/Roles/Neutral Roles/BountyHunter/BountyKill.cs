@@ -19,12 +19,12 @@ public class BountyKill : CustomActionButton<PlayerControl>
 {
     public override string Name => "kill";
 
-    public override float Cooldown => 1;
+    public override float Cooldown => 0;
     public override float EffectDuration => 0;
 
     public override int MaxUses => 0;
 
-    public override LoadableAsset<Sprite> Sprite => Assets.PoisonButton;
+    public override LoadableAsset<Sprite> Sprite => Assets.CustomKillButton;
 
     public override ButtonLocation Location => ButtonLocation.BottomRight;
 

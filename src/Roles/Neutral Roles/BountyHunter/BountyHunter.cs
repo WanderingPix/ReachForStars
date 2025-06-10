@@ -14,6 +14,7 @@ using Reactor.Utilities.Extensions;
 using MiraAPI.Modifiers;
 using TMPro;
 using MiraAPI.Hud;
+using Hazel;
 
 namespace ReachForStars.Roles.Neutrals.Roles;
 
@@ -80,7 +81,7 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
 
     public override void OnVotingComplete()
     {
-        hud.gameObject.SetActive(false);
+        hud.gameObject.SetActive(true);
         GenerateNewBountyTarget();
     }
     public override void OnMeetingStart()
@@ -101,7 +102,7 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
     {
         SuccessfulKills++;
         hud.UpdateCount(SuccessfulKills);
-        if (SuccessfulKills >= ((int)OptionGroupSingleton<BountyHunterOptions>.Instance.SuccessfulKillsQuota))
+        if (SuccessfulKills == OptionGroupSingleton<BountyHunterOptions>.Instance.SuccessfulKillsQuota.ClampToInt(3, 6))
         {
             CustomGameOver.Trigger<BountyHunterWin>([Player.Data]);
         }
