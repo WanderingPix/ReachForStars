@@ -1,5 +1,6 @@
 using System;
 using MiraAPI.GameOptions;
+using MiraAPI.Utilities;
 using Reactor.Utilities.Extensions;
 using TMPro;
 using UnityEngine;
@@ -10,6 +11,7 @@ namespace ReachForStars.Roles.Neutrals.BountyHunter
     {
         public SpriteRenderer myRend;
         public TextMeshPro Counter;
+        public TextMeshPro WantedText;
         public AspectPosition myPos;
         public PoolablePlayer myPlayer;
         public PassiveButton myButton;
@@ -19,35 +21,43 @@ namespace ReachForStars.Roles.Neutrals.BountyHunter
         {
             if (Show)
             {
-                myPlayer.gameObject.SetActive(Show);
                 myAnim.runtimeAnimatorController = Assets.BountyHudOpenAnimController.LoadAsset();
             }
             else if (!Show)
             {
-                myPlayer.gameObject.SetActive(Show);
+                
                 myAnim.runtimeAnimatorController = Assets.BountyHudCloseAnimController.LoadAsset();
             }
+            myPlayer.gameObject.SetActive(Show);
+            Counter.gameObject.SetActive(Show);
+            WantedText.gameObject.SetActive(Show);
             IsOpen = Show;
         }
         public void Start()
         {
             Counter = gameObject.transform.GetChild(2).GetComponent<TextMeshPro>();
-            myRend = gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>();
-            myPos = gameObject.AddComponent<AspectPosition>();
-            myPos.Alignment = AspectPosition.EdgeAlignments.Top;
-            myPos.DistanceFromEdge = new Vector3(0f, 1.25f, 0f);
-            myPos.AdjustPosition();
-            myAnim = gameObject.AddComponent<Animator>();
-
             Counter.text = "";
             for (int i = 0; i != (int)OptionGroupSingleton<BountyHunterOptions>.Instance.SuccessfulKillsQuota; i++)
             {
                 Counter.text = $"{Counter.text}<sprite=6>";
             }
 
+            WantedText = gameObject.transform.GetChild(1).GetComponent<TextMeshPro>();
+
+            myRend = gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>();
+
+            myPos = gameObject.AddComponent<AspectPosition>();
+            myPos.Alignment = AspectPosition.EdgeAlignments.Top;
+            myPos.DistanceFromEdge = new Vector3(0f, 1.5f, 0f);
+            myPos.AdjustPosition();
+
+            myAnim = myRend.gameObject.AddComponent<Animator>();
+
             IsOpen = true;
 
-            myButton = gameObject.AddComponent<PassiveButton>();
+            myButton = myRend.gameObject.AddComponent<PassiveButton>();
+            myButton.OnClick = new();
+
             myButton.OnClick.AddListener((Action)(() =>
             {
                 ToggleHud(!IsOpen);
@@ -60,11 +70,11 @@ namespace ReachForStars.Roles.Neutrals.BountyHunter
             myPlayer = HudManager.Instance.IntroPrefab.CreatePlayer(1, 1, info, false);
             myPlayer.transform.SetParent(gameObject.transform);
             myPlayer.transform.localPosition = new Vector3(0f, -0.1f, 0f);
-            myPlayer.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
             foreach (var rend in myPlayer.gameObject.GetComponentsInChildren<SpriteRenderer>(true))
             {
                 rend.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
             }
+            HudManager.Instance.StartCoroutine(Effects.ScaleIn(gameObject.transform, 1.2f, 1f, 0.7f));
         }
         public void UpdateCount(int count)
         {

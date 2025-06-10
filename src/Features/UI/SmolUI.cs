@@ -19,10 +19,6 @@ namespace ReachForStars.Features
             {
                 arrange.CellSize *= new Vector2(ScaleFactor, ScaleFactor);
             }
-            foreach (GameObject button in HudManager.Instance.transform.FindChild("Buttons").GetChild(0))
-            {
-                button.transform.localScale *= ScaleFactor;
-            }
         }
     }
 }
