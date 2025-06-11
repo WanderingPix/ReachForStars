@@ -79,7 +79,7 @@ namespace ReachForStars.Networking
             vent.Left = null;
             vent.Right = null;
 
-            if (mole.MinedVents[^1] != null)
+            if (mole.MinedVents[^1] != vent && mole.MinedVents[^1] != null)
             {
                 vent.Right = mole.MinedVents[^1];
                 mole.MinedVents[^1].Left = vent;

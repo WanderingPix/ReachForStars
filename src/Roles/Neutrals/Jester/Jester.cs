@@ -4,6 +4,7 @@ using MiraAPI.GameEnd;
 using MiraAPI.GameOptions;
 using MiraAPI.Patches.Stubs;
 using ReachForStars.Translation;
+using MiraAPI.Modifiers;
 
 namespace ReachForStars.Roles.Neutrals.Jester;
 
@@ -79,13 +80,13 @@ public class JesterRole : ImpostorRole, ICustomRole
 
     public override bool DidWin(GameOverReason gameOverReason)
     {
-        return gameOverReason == CustomGameOver.GameOverReason<JesterWin>();
+        return Player.HasModifier<NeutralWinner>();
     }
     public override void OnDeath(DeathReason deathreason)
     {
         if (deathreason == DeathReason.Exile)
         {
-            CustomGameOver.Trigger<JesterWin>([Player.Data]);
+            Player.AddModifier<NeutralWinner>();
         }
         else Player.CoSetRole((AmongUs.GameOptions.RoleTypes)RoleId.Get<NeutralGhost>(), true);
     }

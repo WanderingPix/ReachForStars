@@ -4,6 +4,7 @@ using MiraAPI.GameEnd;
 using MiraAPI.GameOptions;
 using MiraAPI.Patches.Stubs;
 using ReachForStars.Translation;
+using MiraAPI.Modifiers;
 
 namespace ReachForStars.Roles.Neutrals;
 
@@ -41,5 +42,9 @@ public class NeutralGhost : CrewmateGhostRole, ICustomRole
     public virtual bool CanLocalPlayerSeeRole(PlayerControl player)
     {
         return false;
+    }
+    public override bool DidWin(GameOverReason gameOverReason)
+    {
+        return Player.HasModifier<NeutralWinner>();
     }
 }

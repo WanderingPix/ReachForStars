@@ -26,7 +26,7 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         english: "Bounty Hunter",
         french: "Chasseur De Prime",
         spanish: "",
-         
+
         russian: "Охотник за Головами",
         italian: "Mercenario"
     );
@@ -43,7 +43,8 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         CanGetKilled = true,
         CanUseVent = false,
         GhostRole = (AmongUs.GameOptions.RoleTypes)RoleId.Get<NeutralGhost>(),
-        TasksCountForProgress = false
+        TasksCountForProgress = false,
+        RoleHintType = RoleHintType.TaskHint
     };
     public override void Initialize(PlayerControl player)
     {
@@ -65,11 +66,6 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
     public override void SpawnTaskHeader(PlayerControl playerControl)
     {
         // remove existing task header.
-    }
-
-    public override bool DidWin(GameOverReason gameOverReason)
-    {
-        return gameOverReason == CustomGameOver.GameOverReason<BountyHunterWin>();
     }
     private void GenerateNewBountyTarget()
     {
@@ -106,7 +102,11 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         hud.UpdateCount(SuccessfulKills);
         if (SuccessfulKills == OptionGroupSingleton<BountyHunterOptions>.Instance.SuccessfulKillsQuota.ClampToInt(3, 6))
         {
-            CustomGameOver.Trigger<BountyHunterWin>([Player.Data]);
+            Player.AddModifier<NeutralWinner>();
         }
+    }
+    public override bool DidWin(GameOverReason gameOverReason)
+    {
+        return Player.HasModifier<NeutralWinner>();
     }
 }

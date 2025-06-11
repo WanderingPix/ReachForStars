@@ -3,6 +3,7 @@ using UnityEngine;
 using MiraAPI.Patches.Stubs;
 using MiraAPI.Utilities;
 using MiraAPI.Hud;
+using MiraAPI.Modifiers;
 
 namespace ReachForStars.Roles.Neutrals.Exiled
 {
