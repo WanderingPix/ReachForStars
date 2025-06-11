@@ -42,6 +42,8 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         UseVanillaKillButton = false,
         CanGetKilled = true,
         CanUseVent = false,
+        GhostRole = (AmongUs.GameOptions.RoleTypes)RoleId.Get<NeutralGhost>(),
+        TasksCountForProgress = false
     };
     public override void Initialize(PlayerControl player)
     {
