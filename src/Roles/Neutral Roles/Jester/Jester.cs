@@ -44,7 +44,6 @@ public class JesterRole : ImpostorRole, ICustomRole
         CanGetKilled = true,
         CanUseVent = true,
         CanUseSabotage = false,
-        GhostRole = (AmongUs.GameOptions.RoleTypes)RoleId.Get<NeutralGhost>(),
         TasksCountForProgress = false
     };
     public TranslationPool EjectMessage = new TranslationPool
@@ -88,5 +87,6 @@ public class JesterRole : ImpostorRole, ICustomRole
         {
             CustomGameOver.Trigger<JesterWin>([Player.Data]);
         }
+        else Player.CoSetRole((AmongUs.GameOptions.RoleTypes)RoleId.Get<NeutralGhost>(), true);
     }
 }

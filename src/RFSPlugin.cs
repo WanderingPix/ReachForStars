@@ -15,7 +15,7 @@ using ReachForStars.Roles.Neutrals.BountyHunter;
 
 namespace ReachForStars;
 
-[BepInAutoPlugin("ReachForStars", "Reach For Stars Internal Testing [DO NOT SHARE!]", "1.0.0")]
+[BepInAutoPlugin("ReachForStars", "Reach For Stars Beta", "1.0.0")]
 [BepInProcess("Among Us.exe")]
 [BepInDependency(ReactorPlugin.Id)]
 [BepInDependency(MiraApiPlugin.Id)]
