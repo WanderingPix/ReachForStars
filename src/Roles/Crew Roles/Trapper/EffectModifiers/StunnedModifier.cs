@@ -40,6 +40,8 @@ public class StunnedModifier : TimedModifier
             indicator.transform.SetParent(Player.gameObject.transform);
             indicator.transform.localPosition = new Vector3(0f, 0.8f, 0f);
         }
+        Player.NetTransform.Halt();
+        Player.MyPhysics.enabled = false;
     }
     GameObject indicator;
     public override void OnTimerComplete()

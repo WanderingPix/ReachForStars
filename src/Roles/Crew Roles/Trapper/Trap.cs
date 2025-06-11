@@ -62,6 +62,7 @@ namespace ReachForStars.Roles.Crewmates.Trapper
         public IEnumerator SetUpArrow(PlayerControl p)
         {
             ArrowBehaviour arrow = Helpers.CreateArrow(null, Color.white);
+            arrow.alwaysMaxSize = true;
             arrow.transform.localScale *= new Vector2(2f, 2f);
             arrow.target = p.GetTruePosition();
             arrow.gameObject.AddComponent<Animator>().runtimeAnimatorController = Assets.TrapArrowAnimationController.LoadAsset();
