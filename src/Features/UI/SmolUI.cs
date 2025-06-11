@@ -19,8 +19,6 @@ namespace ReachForStars.Features
             {
                 arrange.CellSize *= new Vector2(ScaleFactor, ScaleFactor);
             }
-            HudManager.Instance.TaskStuff.transform.GetChild(0).localScale *= ScaleFactor;
-            
         }
     }
 }

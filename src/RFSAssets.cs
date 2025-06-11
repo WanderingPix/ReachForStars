@@ -9,7 +9,8 @@ public static class Assets
 {
     public static readonly AssetBundle Bundle = AssetBundleManager.Load("rfsbundle");
     //Misc
-    public static LoadableResourceAsset CustomKillButton { get; } = new("ReachForStars.Resources.CustomKillButton.png");
+    public static LoadableResourceAsset RedKillButton { get; } = new("ReachForStars.Resources.KillButtonRed.png");
+    public static LoadableResourceAsset BlueKillButton { get; } = new("ReachForStars.Resources.KillButtonBlue.png");
 
     //Chiller
     public static LoadableBundleAsset<GameObject> FrozenBodyPrefab { get; } = new("FrozenBodyPrefab.prefab", Bundle);
@@ -30,7 +31,7 @@ public static class Assets
     public static LoadableBundleAsset<GameObject> StunnedPrefab { get; } = new("StunnedPrefab.prefab", Bundle);
     public static LoadableBundleAsset<GameObject> TrapPrefab { get; } = new("TrapPrefab.prefab", Bundle);
     public static LoadableBundleAsset<RuntimeAnimatorController> TrapCloseAnimationController { get; } = new("TrapPrefab.controller", Bundle);
-
+    public static LoadableBundleAsset<RuntimeAnimatorController> TrapArrowAnimationController { get; } = new("ArrowAnimationController.controller", Bundle);
     //PlaceHolder
     public static LoadableResourceAsset PlaceHolder { get; } = new("ReachForStars.Resources.PlaceHolder.png");
     //Detective

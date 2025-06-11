@@ -45,7 +45,6 @@ namespace ReachForStars.Roles.Neutrals.Exiled
             RoleBehaviourStubs.Initialize(this, player);
             if (player == PlayerControl.LocalPlayer)
             {
-                CustomButtonSingleton<ExileKill>.Instance.Button.Show();
                 bool CheckChance = Helpers.CheckChance(50);
                 if (CheckChance)
                 {
@@ -55,6 +54,7 @@ namespace ReachForStars.Roles.Neutrals.Exiled
                 {
                     EnemyTeam = ExiledEnemyTeam.Impostors;
                 }
+                CustomButtonSingleton<ExileKill>.Instance.Button.Show();
             }
         }
     }

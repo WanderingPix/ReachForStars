@@ -24,7 +24,7 @@ public class BountyKill : CustomActionButton<PlayerControl>
 
     public override int MaxUses => 0;
 
-    public override LoadableAsset<Sprite> Sprite => Assets.CustomKillButton;
+    public override LoadableAsset<Sprite> Sprite => Assets.RedKillButton;
 
     public override ButtonLocation Location => ButtonLocation.BottomRight;
 
