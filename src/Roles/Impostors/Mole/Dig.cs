@@ -29,7 +29,7 @@ public class Dig : CustomActionButton
 
     public override int MaxUses => 1;
 
-    public override LoadableAsset<Sprite> Sprite => Assets.PoisonButton;
+    public override LoadableAsset<Sprite> Sprite => Assets.Poison;
 
     public override bool Enabled(RoleBehaviour? role)
     {

@@ -34,7 +34,7 @@ namespace ReachForStars.Roles.Neutrals
         {
             if (Player == PlayerControl.LocalPlayer)
             {
-                Helpers.CreateTextLabel("You have won!\n Sit back and what the game unfold!", HudManager.Instance.transform, AspectPosition.EdgeAlignments.Bottom, new(0f, 1f, 0f));
+                Helpers.CreateTextLabel(hudString.GetTranslatedText(), HudManager.Instance.transform, AspectPosition.EdgeAlignments.Bottom, new(0f, 1f, 0f));
             }
         }
     }

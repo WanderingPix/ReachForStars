@@ -46,7 +46,7 @@ public class WitchRole : ImpostorRole, ICustomRole
         UseVanillaKillButton = OptionGroupSingleton<WitchOptions>.Instance.CanDoNormalKilling,
         CanGetKilled = true,
         CanUseVent = OptionGroupSingleton<WitchOptions>.Instance.CanVent,
-        Icon = Assets.PoisonButton
+        Icon = Assets.Poison
     };
 
     public override void SpawnTaskHeader(PlayerControl playerControl)

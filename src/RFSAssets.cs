@@ -37,7 +37,9 @@ public static class Assets
     //Detective
     public static LoadableResourceAsset Inspect { get; } = new("ReachForStars.Resources.Inspect.png");
     //Witch
-    public static LoadableResourceAsset PoisonButton { get; } = new("ReachForStars.Resources.Poison.png");
+    public static LoadableResourceAsset Poison { get; } = new("ReachForStars.Resources.Poison.png");
+    public static LoadableResourceAsset Roleblock { get; } = new("ReachForStars.Resources.RoleBlock.png");
+
 
     //Sheriff
     public static LoadableResourceAsset Shoot { get; } = new("ReachForStars.Resources.Shoot.png");

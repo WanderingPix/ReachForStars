@@ -27,7 +27,7 @@ public class Poison : CustomActionButton<PlayerControl>
 
     public override int MaxUses => 0;
 
-    public override LoadableAsset<Sprite> Sprite => Assets.PoisonButton;
+    public override LoadableAsset<Sprite> Sprite => Assets.Poison;
 
     public override bool Enabled(RoleBehaviour? role)
     {

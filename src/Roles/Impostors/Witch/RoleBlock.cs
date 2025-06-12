@@ -24,7 +24,7 @@ public class RoleBlock : CustomActionButton<PlayerControl>
 
     public override ButtonLocation Location => ButtonLocation.BottomRight;
 
-    public override LoadableAsset<Sprite> Sprite => Assets.PoisonButton;
+    public override LoadableAsset<Sprite> Sprite => Assets.Roleblock;
 
     public override bool Enabled(RoleBehaviour? role)
     {
