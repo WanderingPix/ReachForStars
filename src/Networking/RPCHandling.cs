@@ -78,11 +78,12 @@ namespace ReachForStars.Networking
             vent.Id = VentUtils.GetAvailableId();
             vent.Left = null;
             vent.Right = null;
+            vent.Center = null;
 
-            if (mole.MinedVents[^1] != vent && mole.MinedVents[^1] != null)
+            if (mole.MinedVents.Last() != vent)
             {
                 vent.Right = mole.MinedVents[^1];
-                mole.MinedVents[^1].Left = vent;
+                mole.MinedVents.Last().Left = vent;
             }
 
             List<Vent> newAllVents = ShipStatus.Instance.AllVents.ToList();

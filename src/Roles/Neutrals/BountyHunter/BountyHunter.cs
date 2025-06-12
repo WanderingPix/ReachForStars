@@ -100,7 +100,7 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
     {
         SuccessfulKills++;
         hud.UpdateCount(SuccessfulKills);
-        if (SuccessfulKills == OptionGroupSingleton<BountyHunterOptions>.Instance.SuccessfulKillsQuota.ClampToInt(3, 6))
+        if (SuccessfulKills == 3)
         {
             Player.AddModifier<NeutralWinner>();
         }

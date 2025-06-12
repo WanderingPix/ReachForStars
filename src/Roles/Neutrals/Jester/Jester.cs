@@ -11,7 +11,7 @@ namespace ReachForStars.Roles.Neutrals.Jester;
 public class JesterRole : ImpostorRole, ICustomRole
 {
     public string RoleName => roleName.GetTranslatedText();
-    public TranslationPool roleName = new TranslationPool(
+    public TranslationPool roleName => new TranslationPool(
         english: "Jester",
         french: "Plaisantin",
         spanish: "Bufón",
@@ -19,7 +19,7 @@ public class JesterRole : ImpostorRole, ICustomRole
         italian: "Pagliaccio"
     );
     public string RoleDescription => RoleDescShort.GetTranslatedText();
-    public TranslationPool RoleDescShort = new TranslationPool
+    public TranslationPool RoleDescShort => new TranslationPool
     (
         english: "Fool The Crew!",
         french: "Trollez l'équipage!",
@@ -28,7 +28,7 @@ public class JesterRole : ImpostorRole, ICustomRole
         italian: ""
     );
     public string RoleLongDescription => RoleDescLong.GetTranslatedText();
-    public TranslationPool RoleDescLong = new TranslationPool
+    public TranslationPool RoleDescLong => new TranslationPool
     (
         english: "Get voted out to win.",
         french: "Faites-vous ejecter pour gagner.",
@@ -88,6 +88,5 @@ public class JesterRole : ImpostorRole, ICustomRole
         {
             Player.AddModifier<NeutralWinner>();
         }
-        else Player.CoSetRole((AmongUs.GameOptions.RoleTypes)RoleId.Get<NeutralGhost>(), true);
     }
 }

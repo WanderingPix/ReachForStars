@@ -1,10 +1,12 @@
 using System;
 using MiraAPI.GameOptions;
 using MiraAPI.Utilities;
+using Reactor.Utilities;
 using Reactor.Utilities.Extensions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 namespace ReachForStars.Roles.Neutrals.BountyHunter
 {
@@ -57,13 +59,22 @@ namespace ReachForStars.Roles.Neutrals.BountyHunter
             IsOpen = true;
 
             myButton = myRend.gameObject.AddComponent<PassiveButton>();
-            myButton.OnUp = true;
-            myButton.OnClick = new UnityEngine.UI.Button.ButtonClickedEvent();
-            myButton.OnClick.AddListener((UnityAction)(() =>
-            {
-                ToggleHud(!IsOpen);
-            }));
+            var Event = new Button.ButtonClickedEvent();
+            Event.AddListener(OnClick());
+            myButton.OnClick = Event;
         }
+        public Action OnClick()
+        {
+            void Listener()
+            {
+                PluginSingleton<ReachForStars>.Instance.Log.LogDebug("User has clicked the bounty hud! closing ui...");
+                ToggleHud(!IsOpen);
+            }
+
+            return Listener;
+        }
+
+
         public void OnNewTargetGenerated(NetworkedPlayerInfo info)
         {
             if (myPlayer) myPlayer.gameObject.DestroyImmediate();

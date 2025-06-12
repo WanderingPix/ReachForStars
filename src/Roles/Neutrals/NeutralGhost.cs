@@ -21,8 +21,8 @@ public class NeutralGhost : CrewmateGhostRole, ICustomRole
     public string RoleDescription => RoleDescShort.GetTranslatedText();
     public TranslationPool RoleDescShort = new TranslationPool
     (
-        english: "You have lost! Watch the game unfold as a ghost!",
-        french: "Vous avez perdu! Regardez le reste de la partie!",
+        english: "You are dead, watch the game unfold!",
+        french: "Vous etes mort! regardez le reste de la partie",
         spanish: "",
         russian: "",
         italian: ""
@@ -37,7 +37,7 @@ public class NeutralGhost : CrewmateGhostRole, ICustomRole
         CanGetKilled = true,
         CanUseVent = false,
         CanUseSabotage = false,
-        TasksCountForProgress = false
+        TasksCountForProgress = false,
     };
     public virtual bool CanLocalPlayerSeeRole(PlayerControl player)
     {
