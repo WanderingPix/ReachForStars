@@ -7,19 +7,10 @@ namespace ReachForStars
     [HarmonyPatch]
     public class ChatPatches
     {
-        [HarmonyPatch(typeof(TextBoxTMP), nameof(TextBoxTMP.Start))]
-        public static void Postfix(TextBoxTMP __instance)
+        [HarmonyPatch(typeof(ChatBubble), nameof(ChatBubble.SetText))]
+        public static void Postfix(ChatBubble __instance, ref string chatText)
         {
-            __instance.AllowPaste = true;
-            __instance.AllowSymbols = true;
-            __instance.allowAllCharacters = true;
-            __instance.characterLimit = int.MaxValue;
-
-            __instance.outputText.m_spriteAsset = Assets.EmojiIndex.LoadAsset();
-            __instance.OnChange.AddListener((Action)(() =>
-            {
-                __instance.SetText(Emojis.ReformatForEmojis(__instance.text));            
-            }));
+            __instance.TextArea.text = Emojis.ReformatForEmojis(chatText);
         }
     }
 }
