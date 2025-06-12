@@ -33,8 +33,7 @@ public class WitchRole : ImpostorRole, ICustomRole
     (
         english: "Use potions to kill, roleblock, and confuse the crew",
         french: "Utilisez des potions pour tuer, bloquer les roles des coéquipiers, et les embrouilles",
-        spanish: "",
-         
+        spanish: "", 
         russian: "",
         italian: ""
     );

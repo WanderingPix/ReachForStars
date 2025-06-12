@@ -53,8 +53,7 @@ public class BountyKill : CustomActionButton<PlayerControl>
         {
             PlayerControl.LocalPlayer.RpcCustomMurder(Target, true);
             HudManager.Instance.StartCoroutine(Effects.ScaleIn(Button.transform, 1.4f, 0.7f *SmolUI.ScaleFactor, 0.7f));
-            BH.SuccessfulKills++;
-            BH.hud.UpdateCount(BH.SuccessfulKills);
+            BH.OnTargetKill();
         }   
     }
 

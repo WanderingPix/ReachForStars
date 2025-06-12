@@ -57,6 +57,7 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
             hud = Object.Instantiate(Assets.BountyPrefab.LoadAsset(), HudManager.Instance.transform).AddComponent<BountyHud>();
             GenerateNewBountyTarget();
         }
+        HasWon = false;
     }
     public override void Deinitialize(PlayerControl targetPlayer)
     {
@@ -79,13 +80,19 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
 
     public override void OnVotingComplete()
     {
-        hud.gameObject.SetActive(true);
-        GenerateNewBountyTarget();
+        if (!HasWon)
+        {
+            hud.gameObject.SetActive(true);
+            GenerateNewBountyTarget();
+        }
     }
     public override void OnMeetingStart()
     {
-        hud.myPlayer.gameObject.DestroyImmediate();
-        hud.gameObject.SetActive(false);
+        if (!HasWon)
+        {
+            hud.myPlayer.gameObject.DestroyImmediate();
+            hud.gameObject.SetActive(false);
+        }
     }
 
     public override PlayerControl FindClosestTarget()
@@ -96,13 +103,17 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         }
         else return null;
     }
+    public bool HasWon;
     public void OnTargetKill()
     {
         SuccessfulKills++;
         hud.UpdateCount(SuccessfulKills);
-        if (SuccessfulKills == 3)
+        if (SuccessfulKills >= (int)OptionGroupSingleton<BountyHunterOptions>.Instance.SuccessfulKillsQuota)
         {
             Player.AddModifier<NeutralWinner>();
+            CustomButtonSingleton<BountyKill>.Instance.Button.Hide();
+            hud.gameObject.DestroyImmediate();
+            HasWon = true;
         }
     }
     public override bool DidWin(GameOverReason gameOverReason)
