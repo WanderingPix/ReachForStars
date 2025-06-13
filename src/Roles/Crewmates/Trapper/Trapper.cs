@@ -33,7 +33,7 @@ public class TrapperRole : CrewmateRole, ICustomRole
         italian: ""
     );
     
-    public Color RoleColor => Palette.CrewmateRoleHeaderBlue;
+    public Color RoleColor => Palette.CrewmateBlue;
     public ModdedRoleTeams Team => ModdedRoleTeams.Crewmate;
 
     public Color OptionsMenuColor => Palette.CrewmateBlue;

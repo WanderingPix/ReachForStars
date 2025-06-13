@@ -2,6 +2,7 @@
 using Reactor.Utilities;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace ReachForStars;
 
@@ -11,10 +12,9 @@ public static class Assets
     //Misc
     public static LoadableResourceAsset RedKillButton { get; } = new("ReachForStars.Resources.KillButtonRed.png");
     public static LoadableResourceAsset BlueKillButton { get; } = new("ReachForStars.Resources.KillButtonBlue.png");
-
     //Chiller
     public static LoadableBundleAsset<GameObject> FrozenBodyPrefab { get; } = new("FrozenBodyPrefab.prefab", Bundle);
-    public static LoadableResourceAsset Freeze { get; } = new("ReachForStars.Resources.Freeze.png");
+    public static LoadableResourceAsset FreezeButton { get; } = new("ReachForStars.Resources.Freeze.png");
     public static LoadableAudioResourceAsset FreezeSFX { get; } = new("ReachForStars.Resources.SoundEffects.Freeze.wav");
     public static LoadableResourceAsset ChillerIcon { get; } = new("ReachForStars.Resources.RoleIcons.chiller.png");
 
@@ -27,6 +27,7 @@ public static class Assets
 
 
     //Trapper
+    public static LoadableResourceAsset PlaceTrapButton { get; } = new("ReachForStars.Resources.PlaceTrap.png");
     public static LoadableAudioResourceAsset TrapCloseSfx { get; } = new("ReachForStars.Resources.SoundEffects.TrapClose.wav");
     public static LoadableBundleAsset<GameObject> StunnedPrefab { get; } = new("StunnedPrefab.prefab", Bundle);
     public static LoadableBundleAsset<GameObject> TrapPrefab { get; } = new("TrapPrefab.prefab", Bundle);
@@ -37,8 +38,8 @@ public static class Assets
     //Detective
     public static LoadableResourceAsset Inspect { get; } = new("ReachForStars.Resources.Inspect.png");
     //Witch
-    public static LoadableResourceAsset Poison { get; } = new("ReachForStars.Resources.Poison.png");
-    public static LoadableResourceAsset Roleblock { get; } = new("ReachForStars.Resources.RoleBlock.png");
+    public static LoadableResourceAsset PoisonButton { get; } = new("ReachForStars.Resources.Poison.png");
+    public static LoadableResourceAsset RoleblockButton { get; } = new("ReachForStars.Resources.RoleBlock.png");
 
 
     //Sheriff

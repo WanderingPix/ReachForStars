@@ -31,7 +31,7 @@ public class Freeze : CustomActionButton<DeadBody>
     public override float Distance => 2f;
 
 
-    public override LoadableAsset<Sprite> Sprite => Assets.Freeze;
+    public override LoadableAsset<Sprite> Sprite => Assets.FreezeButton;
 
     public override bool Enabled(RoleBehaviour? role)
     {

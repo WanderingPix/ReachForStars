@@ -74,21 +74,15 @@ namespace ReachForStars.Networking
 
             vent.gameObject.name = $"MoleVent{mole.MinedVents.Count()}";
 
-
             vent.Id = VentUtils.GetAvailableId();
-            vent.Left = null;
-            vent.Right = null;
             vent.Center = null;
-
-            if (mole.MinedVents.Last() != vent)
-            {
-                vent.Right = mole.MinedVents[^1];
-                mole.MinedVents.Last().Left = vent;
-            }
 
             List<Vent> newAllVents = ShipStatus.Instance.AllVents.ToList();
             newAllVents.Add(vent);
             ShipStatus.Instance.AllVents = newAllVents.ToArray();
+
+            vent.Right = mole.MinedVents[^1];
+            mole.MinedVents.Last().Left = vent;
             
             yield break;
         }

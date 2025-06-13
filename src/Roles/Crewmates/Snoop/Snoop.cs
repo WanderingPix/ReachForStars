@@ -27,12 +27,8 @@ public class SnoopRole : CrewmateRole, ICustomRole
         english: "Gather Info on the crew",
         french: "Espionnez vos coéquipiers"
     );
-    public Color RoleColor => Palette.CrewmateRoleHeaderDarkBlue;
+    public Color RoleColor => Palette.CrewmateBlue;
     public ModdedRoleTeams Team => ModdedRoleTeams.Crewmate;
-    public bool CanLocalPlayerSeeRole(PlayerControl player)
-    {
-        return Team is ModdedRoleTeams.Crewmate;
-    }
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
     };

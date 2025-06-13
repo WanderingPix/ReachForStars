@@ -39,7 +39,7 @@ public class DetectiveRole : CrewmateRole, ICustomRole
     {
         SpriteRenderer Indicator = Object.Instantiate<SpriteRenderer>(area.XMark, area.XMark.transform.parent);
         Indicator.gameObject.name = "DetectiveIndicator";
-        Indicator.sprite = Assets.Freeze.LoadAsset();
+        Indicator.sprite = Assets.PlaceHolder.LoadAsset();
         Indicator.gameObject.SetActive(true);
     }
 }
