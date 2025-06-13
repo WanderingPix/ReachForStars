@@ -53,39 +53,45 @@ namespace ReachForStars.Networking
         [MethodRpc((uint)RPC.PlaceDaVent)]
         public static void RpcPlaceVent(this PlayerControl p)
         {
-            if (p.Data.Role is MoleRole mole) Coroutines.Start(DoDigAnim(mole, p));
-        }
-        public static IEnumerator DoDigAnim(MoleRole mole, PlayerControl p)
-        {
-            Vent prefab = Object.FindObjectOfType<Vent>(true);
-            Vent vent = Object.Instantiate<Vent>(prefab);
-            Vector3 ppos = p.GetTruePosition();
-            vent.transform.position = new(ppos.x, ppos.y, 1f);
+            if (p.Data.Role is MoleRole mole)
+            {
+                Vent prefab = Object.FindObjectOfType<Vent>(true);
+                Vent vent = Object.Instantiate<Vent>(prefab);
+                Vector3 ppos = p.GetTruePosition();
+                vent.transform.position = new(ppos.x, ppos.y, 1f);
 
-            PluginSingleton<ReachForStars>.Instance.Log.LogInfo("Managed to create vent!");
-            
-            Animator myAnim = vent.myRend.gameObject.GetComponent<Animator>();
+                PluginSingleton<ReachForStars>.Instance.Log.LogInfo("Managed to create vent!");
 
-            PluginSingleton<ReachForStars>.Instance.Log.LogInfo("Managed to create animator!");
-            myAnim.runtimeAnimatorController = Assets.VentDigAnimController.LoadAsset();
-            
+                Animator myAnim = vent.myRend.gameObject.GetComponent<Animator>();
 
-            vent.gameObject.name = $"MoleVent{mole.MinedVents.Count()}";
+                PluginSingleton<ReachForStars>.Instance.Log.LogInfo("Managed to create animator!");
+                myAnim.runtimeAnimatorController = Assets.VentDigAnimController.LoadAsset();
 
-            vent.Id = VentUtils.GetAvailableId();
-            vent.Center = null;
 
-            List<Vent> newAllVents = ShipStatus.Instance.AllVents.ToList();
-            newAllVents.Add(vent);
-            ShipStatus.Instance.AllVents = newAllVents.ToArray();
+                vent.gameObject.name = $"MoleVent{mole.MinedVents.Count()}";
 
-            vent.Left = mole.MinedVents.Last();
-            mole.MinedVents.Last().Right = vent;
-            mole.MinedVents.First().Right = mole.MinedVents.Last();
+                vent.Id = VentUtils.GetAvailableId();
+                vent.Center = null;
 
-            mole.MinedVents.Add(vent);
-            PluginSingleton<ReachForStars>.Instance.Log.LogDebug($"new vent placed! total placed vent count for {p.Data.PlayerName} is now {mole.MinedVents.Count}");
-            yield break;
+                List<Vent> newAllVents = ShipStatus.Instance.AllVents.ToList();
+                newAllVents.Add(vent);
+                ShipStatus.Instance.AllVents = newAllVents.ToArray();
+                if (mole.MinedVents.Count > 0)
+                {
+                    vent.Left = mole.MinedVents.Last();
+                    mole.MinedVents.Last().Right = vent;
+                    mole.MinedVents.First().Right = mole.MinedVents.Last();
+                }
+                else
+                {
+                    vent.Left = null;
+                    vent.Right = null;
+                }
+                vent.Center = null;
+
+                mole.MinedVents.Add(vent);
+                PluginSingleton<ReachForStars>.Instance.Log.LogDebug($"new vent placed! total placed vent count for {p.Data.PlayerName} is now {mole.MinedVents.Count}");
+            }
         }
         [MethodRpc((uint)RPC.ResizePlayer)]
         public static void RpcResize(this PlayerControl player, float x, float y, float z)
