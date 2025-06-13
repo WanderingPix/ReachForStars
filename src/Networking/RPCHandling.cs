@@ -60,11 +60,11 @@ namespace ReachForStars.Networking
                 Vector3 ppos = p.GetTruePosition();
                 vent.transform.position = new(ppos.x, ppos.y, 1f);
 
-                PluginSingleton<ReachForStars>.Instance.Log.LogInfo("Managed to create vent!");
+                PluginSingleton<ReachForStars>.Instance.Log.LogDebug("Managed to create vent!");
 
                 Animator myAnim = vent.myRend.gameObject.GetComponent<Animator>();
 
-                PluginSingleton<ReachForStars>.Instance.Log.LogInfo("Managed to create animator!");
+                PluginSingleton<ReachForStars>.Instance.Log.LogDebug("Managed to create animator!");
                 myAnim.runtimeAnimatorController = Assets.VentDigAnimController.LoadAsset();
 
 
@@ -80,7 +80,7 @@ namespace ReachForStars.Networking
                 {
                     vent.Left = mole.MinedVents.Last();
                     mole.MinedVents.Last().Right = vent;
-                    mole.MinedVents.First().Right = mole.MinedVents.Last();
+                    mole.MinedVents.First().Right = vent;
                 }
                 else
                 {

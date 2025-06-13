@@ -18,8 +18,8 @@ public class DetectiveRole : CrewmateRole, ICustomRole
     public Color OptionsMenuColor => Palette.CrewmateBlue;
     public ModdedRoleTeams Team => ModdedRoleTeams.Crewmate;
 
-    public List<PlayerControl> Suspects;
-    public List<PlayerControl> ActualEvils;
+    public List<PlayerControl> Suspects { get; set; } = new();
+    public List<PlayerControl> ActualEvils { get; set; } = new();
 
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
