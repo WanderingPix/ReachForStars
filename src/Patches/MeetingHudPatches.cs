@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using HarmonyLib;
+using Il2CppSystem;
 using MiraAPI.Utilities;
 using ReachForStars.Roles.Crewmates.Detective;
 using ReachForStars.Utilities;
@@ -11,13 +12,14 @@ using UnityEngine;
 namespace ReachForStars.Patches
 {
     [HarmonyPatch]
-    public class MeetingHudPatches
+    public static class MeetingHudPatches
     {
-        [HarmonyPatch(typeof(PlayerVoteArea), nameof(PlayerVoteArea.Start))]
+        [HarmonyPatch(typeof(PlayerVoteArea), nameof(PlayerVoteArea.SetTargetPlayerId))]
         [HarmonyPostfix]
         public static void PlayerVoteAreaStartPostfix(PlayerVoteArea __instance)
         {
-            if (PlayerControl.LocalPlayer.Data.Role is DetectiveRole det && det.Suspects.Contains(__instance.GetPlayer()))
+            byte targetId = __instance.TargetPlayerId;
+            if (PlayerControl.LocalPlayer.Data.Role is DetectiveRole det && det.Suspects.Where(x => x.PlayerId == targetId).Count() > 1)
             {
                 det.SetUpVoteArea(__instance);
             }

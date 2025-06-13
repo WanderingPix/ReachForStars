@@ -37,6 +37,8 @@ public static class Assets
     public static LoadableResourceAsset PlaceHolder { get; } = new("ReachForStars.Resources.PlaceHolder.png");
     //Detective
     public static LoadableResourceAsset Inspect { get; } = new("ReachForStars.Resources.Inspect.png");
+    public static LoadableResourceAsset MagnifyingGlass { get; } = new("ReachForStars.Resources.MagnifyingGlass.png");
+    public static LoadableResourceAsset DetectiveIndicator = new("ReachForStars.Resources.DetectiveIndicator.png");
     //Witch
     public static LoadableResourceAsset PoisonButton { get; } = new("ReachForStars.Resources.Poison.png");
     public static LoadableResourceAsset RoleblockButton { get; } = new("ReachForStars.Resources.RoleBlock.png");

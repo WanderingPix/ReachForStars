@@ -67,10 +67,8 @@ namespace ReachForStars.Networking
             Animator myAnim = vent.myRend.gameObject.GetComponent<Animator>();
 
             PluginSingleton<ReachForStars>.Instance.Log.LogInfo("Managed to create animator!");
-            vent.enabled = false;
-            yield return myAnim.runtimeAnimatorController = Assets.VentDigAnimController.LoadAsset();
-            vent.enabled = true;
-            mole.MinedVents.Add(vent);
+            myAnim.runtimeAnimatorController = Assets.VentDigAnimController.LoadAsset();
+            
 
             vent.gameObject.name = $"MoleVent{mole.MinedVents.Count()}";
 
@@ -81,9 +79,12 @@ namespace ReachForStars.Networking
             newAllVents.Add(vent);
             ShipStatus.Instance.AllVents = newAllVents.ToArray();
 
-            vent.Right = mole.MinedVents[^1];
-            mole.MinedVents.Last().Left = vent;
-            
+            vent.Left = mole.MinedVents.Last();
+            mole.MinedVents.Last().Right = vent;
+            mole.MinedVents.First().Right = mole.MinedVents.Last();
+
+            mole.MinedVents.Add(vent);
+            PluginSingleton<ReachForStars>.Instance.Log.LogDebug($"new vent placed! total placed vent count for {p.Data.PlayerName} is now {mole.MinedVents.Count}");
             yield break;
         }
         [MethodRpc((uint)RPC.ResizePlayer)]

@@ -54,6 +54,8 @@ namespace ReachForStars.Roles.Neutrals.BountyHunter
             myPos.DistanceFromEdge = new Vector3(0f, 1.5f, 0f);
             myPos.AdjustPosition();
 
+            gameObject.transform.localPosition = new(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y, 0f);
+
             myAnim = myRend.gameObject.AddComponent<Animator>();
 
             IsOpen = true;

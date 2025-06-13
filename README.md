@@ -26,3 +26,7 @@ Eclipse role
 **Estimated Public Release: Late July**
 
 **Trailer Progress: Editing**
+
+# Credits
+
+AUnlocker - The chat patches
