@@ -20,9 +20,6 @@ namespace ReachForStars.Features
         {
             if (role.Player == PlayerControl.LocalPlayer)
             {
-                if (role is not ICustomRole) PlayerControl.LocalPlayer.transform.GetChild(3).GetChild(0).GetComponent<TextMeshPro>().text = $"<size=2>{role.NiceName}</size>\n{PlayerControl.LocalPlayer.Data.PlayerName}\n\n";
-                else if (role is ICustomRole custom && custom.CanLocalPlayerSeeRole(PlayerControl.LocalPlayer)) PlayerControl.LocalPlayer.transform.GetChild(3).GetChild(0).GetComponent<TextMeshPro>().text = $"<size=2>{custom.RoleName}</size>\n{PlayerControl.LocalPlayer.Data.PlayerName}\n\n";
-
                 if (role is ICustomRole custom1 && custom1.Team == ModdedRoleTeams.Crewmate) role.Player.cosmetics.nameText.color = Palette.White;
             }
         }
