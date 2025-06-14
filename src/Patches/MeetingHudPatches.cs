@@ -19,9 +19,9 @@ namespace ReachForStars.Patches
         public static void PlayerVoteAreaStartPostfix(PlayerVoteArea __instance)
         {
             byte targetId = __instance.TargetPlayerId;
-            if (PlayerControl.LocalPlayer.Data.Role is DetectiveRole det && det.Suspects.Where(x => x.PlayerId == targetId).Count() > 1)
+            if (PlayerControl.LocalPlayer.Data.Role is DetectiveRole det && det.Suspects.Where(x => x.PlayerId == targetId).Count() > 0)
             {
-                det.SetUpVoteArea(__instance);
+                det.SetUpVoteArea(__instance); 
             }
         }
     }

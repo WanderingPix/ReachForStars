@@ -1,6 +1,7 @@
 ﻿using MiraAPI.Hud;
 using MiraAPI.Patches.Stubs;
 using MiraAPI.Roles;
+using MiraAPI.Utilities;
 using Rewired;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,20 +20,23 @@ public class DetectiveRole : CrewmateRole, ICustomRole
     public ModdedRoleTeams Team => ModdedRoleTeams.Crewmate;
 
     public List<PlayerControl> Suspects { get; set; } = new();
-    public List<PlayerControl> ActualEvils { get; set; } = new();
-
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
     };
     public override void Initialize(PlayerControl player)
     {
-        RoleBehaviourStubs.Initialize(this, player);
-        CustomButtonSingleton<Inspect>.Instance.Button.Show();
-
         if (player == PlayerControl.LocalPlayer)
         {
-            Suspects = PlayerControl.AllPlayerControls.ToArray().ToList();
-            ActualEvils = Suspects.Where(x => x.Data.Role.IsImpostor || x.Data.Role is ICustomRole custom && custom.Team == ModdedRoleTeams.Custom).ToList();
+            RoleBehaviourStubs.Initialize(this, player);
+            CustomButtonSingleton<Inspect>.Instance.Button.Show();
+        }
+    }
+    public void RegenerateSuspectList()
+    {
+        Suspects.Clear();
+        foreach (PlayerControl p in Helpers.GetClosestPlayers(Player.GetTruePosition(), 6f, true).Where(x => x != Player && !x.Data.IsDead))
+        {
+            Suspects.Add(p);
         }
     }
     public void SetUpVoteArea(PlayerVoteArea area)

@@ -54,12 +54,7 @@ public class Inspect : CustomActionButton<DeadBody>
     {
         if (PlayerControl.LocalPlayer.Data.Role is DetectiveRole det)
         {
-            List<PlayerControl> newList = [.. Helpers.GetClosestPlayersInCircle(PlayerControl.LocalPlayer.GetTruePosition(), 6f)];
-            foreach (var p in det.ActualEvils)
-            {
-                newList.Add(p);
-            }
-            det.Suspects = newList;
+            det.RegenerateSuspectList();
         }       
     }
     public IEnumerator DoInspectAnimation()
