@@ -9,15 +9,16 @@ Completed features:
 5. Sheriff Role
 6. Stickster Role
 7. Trapper Role
+8. Detective Role
+9. Sound Effects
+10. Mole Role
+11. Bounty Hunter
+
 
 features in the works:
 
-1. Detective Role
-2. Sound Effects
 3. Translations
 4. Update to 16.0.5 (pain, I hate IL2CPP so much, and inlining is stupid)
-5. Mole Role (Why is it still broken)
-6. Bounty Hunter (Previously done but I believe it needs to be reworked)
 
 Planned features:
 
