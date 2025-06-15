@@ -31,7 +31,15 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         italian: "Mercenario"
     );
     public PlayerControl Target;
-    public string RoleDescription => "Make sure your targets are dead";
+    public string RoleDescription => roleDescShort.GetTranslatedText();
+    public TranslationPool roleDescShort = new
+    (
+        english: "Kill your targets to win!",
+        spanish: "",
+        french: "Tuez vos primes pour gagner!",
+        russian: "",
+        italian: ""
+    );
     public string RoleLongDescription => RoleDescription;
     public int SuccessfulKills = 0;
     public BountyHud hud;
@@ -93,15 +101,6 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
             hud.myPlayer.gameObject.DestroyImmediate();
             hud.gameObject.SetActive(false);
         }
-    }
-
-    public override PlayerControl FindClosestTarget()
-    {
-        if (PlayerControl.LocalPlayer.GetClosestPlayer(true, 1f, false) == Target)
-        {
-            return Target;
-        }
-        else return null;
     }
     public bool HasWon;
     public void OnTargetKill()

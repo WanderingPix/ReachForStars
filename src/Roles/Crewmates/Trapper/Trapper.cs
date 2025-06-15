@@ -40,6 +40,6 @@ public class TrapperRole : CrewmateRole, ICustomRole
 
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
-        Icon = Assets.PlaceHolder,
+        //Icon = Assets.PlaceHolder,
     };
 }

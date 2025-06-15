@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using MiraAPI.GameOptions;
 using MiraAPI.Utilities;
 using Reactor.Utilities;
@@ -19,6 +20,7 @@ namespace ReachForStars.Roles.Neutrals.BountyHunter
         public PoolablePlayer myPlayer;
         public PassiveButton myButton;
         public Animator myAnim;
+        public BoxCollider2D myCollider;
         public bool IsOpen;
         public void ToggleHud(bool Show)
         {
@@ -60,10 +62,15 @@ namespace ReachForStars.Roles.Neutrals.BountyHunter
 
             IsOpen = true;
 
+            myCollider = gameObject.AddComponent<BoxCollider2D>();
+            myCollider.size = new(3f, 3f);
+            myCollider.isTrigger = true;
+
             myButton = myRend.gameObject.AddComponent<PassiveButton>();
             var Event = new Button.ButtonClickedEvent();
             Event.AddListener(OnClick());
             myButton.OnClick = Event;
+            myButton.Colliders = new([myCollider]);
         }
         public Action OnClick()
         {

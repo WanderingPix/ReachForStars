@@ -2,6 +2,7 @@
 using MiraAPI.Patches.Stubs;
 using MiraAPI.Roles;
 using MiraAPI.Utilities;
+using ReachForStars.Translation;
 using Rewired;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +13,26 @@ namespace ReachForStars.Roles.Crewmates.Detective;
 
 public class DetectiveRole : CrewmateRole, ICustomRole
 {
-    public string RoleName => "Detective";
-    public string RoleLongDescription => "PlaceHolder";
-    public string RoleDescription => RoleLongDescription;
-    public Color RoleColor => Palette.White;
+    public string RoleName => roleName.GetTranslatedText();
+    public TranslationPool roleName = new
+    (
+        english: "Detective",
+        spanish: "",
+        french: "Detective",
+        russian: "",
+        italian: ""
+    );
+    public string RoleLongDescription => roleDescLong.GetTranslatedText();
+    public TranslationPool roleDescLong = new
+    (
+        english: "Inspect dead bodies to find out who was nearby!",
+        spanish: "",
+        french: "Inspectez des cadavres pour decouvrir qui etait proche!",
+        russian: "",
+        italian: ""
+    );
+    public string RoleDescription => roleDescLong.GetTranslatedText();
+    public Color RoleColor => Palette.CrewmateBlue;
     public Color OptionsMenuColor => Palette.CrewmateBlue;
     public ModdedRoleTeams Team => ModdedRoleTeams.Crewmate;
 
