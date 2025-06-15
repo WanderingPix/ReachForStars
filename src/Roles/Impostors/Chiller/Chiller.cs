@@ -46,7 +46,8 @@ public class FreezerRole : ImpostorRole, ICustomRole
         UseVanillaKillButton = true,
         CanGetKilled = true,
         CanUseVent = OptionGroupSingleton<ChillerOptions>.Instance.CanVent,
-        //Icon = Assets.Chiller//Icon
+        //Icon = Assets.ChillerIcon
+        IntroSound = Assets.FreezeSFX
     };
 
     public override void SpawnTaskHeader(PlayerControl playerControl)

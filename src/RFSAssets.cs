@@ -29,6 +29,7 @@ public static class Assets
     //Trapper
     public static LoadableResourceAsset PlaceTrapButton { get; } = new("ReachForStars.Resources.PlaceTrap.png");
     public static LoadableAudioResourceAsset TrapCloseSfx { get; } = new("ReachForStars.Resources.SoundEffects.TrapClose.wav");
+    public static LoadableAudioResourceAsset TrapPlaceSfx { get; } = new("ReachForStars.Resources.SoundEffects.TrapPlace.wav");
     public static LoadableBundleAsset<GameObject> StunnedPrefab { get; } = new("StunnedPrefab.prefab", Bundle);
     public static LoadableBundleAsset<GameObject> TrapPrefab { get; } = new("TrapPrefab.prefab", Bundle);
     public static LoadableBundleAsset<RuntimeAnimatorController> TrapCloseAnimationController { get; } = new("TrapPrefab.controller", Bundle);
@@ -56,7 +57,11 @@ public static class Assets
     public static LoadableResourceAsset GlueVar1 { get; } = new("ReachForStars.Resources.Glues.Variations.GlueVar1.png");
     public static LoadableResourceAsset GlueVar2 { get; } = new("ReachForStars.Resources.Glues.Variations.GlueVar2.png");
     public static LoadableAudioResourceAsset GlueSFX { get; } = new("ReachForStars.Resources.SoundEffects.Glue.wav");
+    public static LoadableAudioResourceAsset SticksterIntroSFX { get; } = new("ReachForStars.Resources.SoundEffects.SticksterIntro.wav");
     public static LoadableResourceAsset Glue { get; } = new("ReachForStars.Resources.Glue.png");
+
+    //Jester
+    public static LoadableAudioResourceAsset JesterIntroSFX { get; } = new("ReachForStars.Resources.SoundEffects.JesterIntro.wav");
     //Mole
     public static LoadableBundleAsset<RuntimeAnimatorController> VentDigAnimController { get; } = new("VentDigAnimController.controller", Bundle);
 }

@@ -45,7 +45,8 @@ public class JesterRole : ImpostorRole, ICustomRole
         CanGetKilled = true,
         CanUseVent = true,
         CanUseSabotage = false,
-        TasksCountForProgress = false
+        TasksCountForProgress = false,
+        IntroSound = Assets.JesterIntroSFX
     };
     public TranslationPool EjectMessage = new TranslationPool
     (
@@ -87,6 +88,7 @@ public class JesterRole : ImpostorRole, ICustomRole
         if (deathreason == DeathReason.Exile)
         {
             Player.AddModifier<NeutralWinner>();
+            SoundManager.instance.PlaySound(Assets.JesterIntroSFX.LoadAsset(), false, 0.7f);
         }
     }
 }
