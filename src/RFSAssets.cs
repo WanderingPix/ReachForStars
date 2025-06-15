@@ -29,7 +29,7 @@ public static class Assets
     //Trapper
     public static LoadableResourceAsset PlaceTrapButton { get; } = new("ReachForStars.Resources.PlaceTrap.png");
     public static LoadableAudioResourceAsset TrapCloseSfx { get; } = new("ReachForStars.Resources.SoundEffects.TrapClose.wav");
-    public static LoadableAudioResourceAsset TrapPlaceSfx { get; } = new("ReachForStars.Resources.SoundEffects.TrapPlace.wav");
+    public static LoadableAudioResourceAsset TrapPlaceSfx { get; } = new("ReachForStars.Resources.SoundEffects.PlaceTrap.wav");
     public static LoadableBundleAsset<GameObject> StunnedPrefab { get; } = new("StunnedPrefab.prefab", Bundle);
     public static LoadableBundleAsset<GameObject> TrapPrefab { get; } = new("TrapPrefab.prefab", Bundle);
     public static LoadableBundleAsset<RuntimeAnimatorController> TrapCloseAnimationController { get; } = new("TrapPrefab.controller", Bundle);
