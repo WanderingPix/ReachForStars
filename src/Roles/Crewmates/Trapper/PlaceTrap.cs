@@ -41,6 +41,7 @@ namespace ReachForStars.Roles.Crewmates.Trapper
         protected override void OnClick()
         {
             PlayerControl.LocalPlayer.RpcPlaceTrap();
+            SoundManager.Instance.PlaySound(Assets.TrapPlaceSfx.LoadAsset(), false);
         }
         public override ButtonLocation Location => ButtonLocation.BottomRight;
     }

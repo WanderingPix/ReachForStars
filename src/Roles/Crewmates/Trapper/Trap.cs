@@ -56,19 +56,7 @@ namespace ReachForStars.Roles.Crewmates.Trapper
             {
                 SoundManager.Instance.PlaySound(Assets.TrapCloseSfx.LoadAsset(), false);
                 myRend.color = Color.white;
-                Coroutines.Start(SetUpArrow(p));
             }
-        }
-        public IEnumerator SetUpArrow(PlayerControl p)
-        {
-            ArrowBehaviour arrow = Helpers.CreateArrow(null, Color.white);
-            arrow.alwaysMaxSize = true;
-            arrow.transform.localScale *= new Vector2(2f, 2f);
-            arrow.target = p.GetTruePosition();
-            arrow.gameObject.AddComponent<Animator>().runtimeAnimatorController = Assets.TrapArrowAnimationController.LoadAsset();
-            yield return new WaitForSeconds(6f);
-            arrow.gameObject.DestroyImmediate();
-            yield break;      
         }
     }
 }
