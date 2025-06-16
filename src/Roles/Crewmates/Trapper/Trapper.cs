@@ -10,7 +10,7 @@ public class TrapperRole : CrewmateRole, ICustomRole
     public string RoleName => Rolename.GetTranslatedText(); 
     public TranslationPool Rolename = new TranslationPool(
         english: "Trapper",
-        spanish: "",
+        spanish: "Trampero",
          
         french: "Piégeur",
         russian: "Траппер", 

@@ -26,7 +26,7 @@ namespace ReachForStars.Roles.Neutrals
         (
             english: "You have won! sit back watch the rest of the game unfold!",
             french: "Vous avez gagner! Regardez le reste de la partie!",
-            spanish: "",
+            spanish: "¡Has ganado! ¡Siéntate y observa cómo se desarrolla el resto del juego!",
             russian: "",
             italian: ""
         );

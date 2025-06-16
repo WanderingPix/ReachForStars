@@ -5,7 +5,7 @@ using ReachForStars.Translation;
 
 namespace ReachForStars.Roles.Impostors.Chiller
 {
-    public class ChillerOptions : AbstractOptionGroup<FreezerRole>
+    public sealed class ChillerOptions : AbstractOptionGroup<FreezerRole>
     {
         public override string GroupName => "Chiller Options";
         public ModdedToggleOption CanVent { get; set; } = new("Chiller Can Vent", true);

@@ -12,7 +12,7 @@ using UnityEngine;
 
 namespace ReachForStars.Roles.Neutrals.BountyHunter
 {
-    public class BountyHunterOptions : AbstractOptionGroup<BountyHunterRole>
+    public sealed class BountyHunterOptions : AbstractOptionGroup<BountyHunterRole>
     {
         public override string GroupName => "Bounty Hunter Options";
 

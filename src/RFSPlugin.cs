@@ -29,11 +29,7 @@ public partial class ReachForStars : BasePlugin, IMiraPlugin
     public override void Load()
     {
         Harmony.PatchAll();
-        RegisterMonoBehaviours();
         ReactorCredits.Register<ReachForStars>(ReactorCredits.AlwaysShow);
-    }
-    public static void RegisterMonoBehaviours()
-    {
         ClassInjector.RegisterTypeInIl2Cpp<Glue>();
         ClassInjector.RegisterTypeInIl2Cpp<Trap>();
         ClassInjector.RegisterTypeInIl2Cpp<BountyHud>();

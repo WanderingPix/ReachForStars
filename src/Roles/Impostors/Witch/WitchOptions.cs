@@ -4,7 +4,7 @@ using MiraAPI.GameOptions.OptionTypes;
 
 namespace ReachForStars.Roles.Impostors.Witch
 {
-    public class WitchOptions : AbstractOptionGroup<WitchRole>
+    public sealed class WitchOptions : AbstractOptionGroup<WitchRole>
     {
         public override string GroupName => "Witch Options";
         [ModdedNumberOption("Poison Kill Delay", 10f, 25f, 5f, MiraAPI.Utilities.MiraNumberSuffixes.Seconds)]

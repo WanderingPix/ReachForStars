@@ -9,11 +9,11 @@ using UnityEngine;
 
 namespace ReachForStars;
 
-public class MapOptions : AbstractOptionGroup
+public sealed class MapOptions : AbstractOptionGroup
 {
     public override string GroupName => "Map Options";
     public override Color GroupColor => new Color(0f, 0.5f, 0f, 1f);
-    public ModdedEnumOption DecoOption { get; } = new("Map Decoration", 0, MapDeco);
+    public ModdedEnumOption DecoOption { get; } = new("Map Decoration", 0, typeof(MapDeco));
     public enum MapDeco
     {
         Default = 0,

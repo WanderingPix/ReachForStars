@@ -23,7 +23,7 @@ public class WitchRole : ImpostorRole, ICustomRole
     (
         english: "Use magic against the crew.",
         french: "Utilisez de la magie contre l'equipage.",
-        spanish: "",
+        spanish: "Usa magia contra la tripulación.",
          
         russian: "",
         italian: ""
@@ -33,7 +33,7 @@ public class WitchRole : ImpostorRole, ICustomRole
     (
         english: "Use potions to kill, roleblock, and confuse the crew",
         french: "Utilisez des potions pour tuer, bloquer les roles des coéquipiers, et les embrouilles",
-        spanish: "", 
+        spanish: "Usa pociones para matar, bloquear roles y confundir a la tripulación", 
         russian: "",
         italian: ""
     );

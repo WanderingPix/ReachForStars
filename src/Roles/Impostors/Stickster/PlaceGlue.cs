@@ -16,9 +16,9 @@ public class PlaceGlue : CustomActionButton
     public override string Name => buttonName.GetTranslatedText();
     public TranslationPool buttonName = new TranslationPool(
     english: "Glue",
-    spanish: "",
+    spanish: "Cola",
      
-    french: "",
+    french: "Colle",
     russian: "Клей",
     italian: "Colla"
     );

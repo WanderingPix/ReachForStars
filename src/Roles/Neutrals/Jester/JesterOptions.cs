@@ -8,7 +8,7 @@ using MiraAPI.GameOptions.OptionTypes;
 
 namespace ReachForStars.Roles.Neutrals.Jester
 {
-    public class JesterOptions : AbstractOptionGroup<JesterRole>
+    public sealed class JesterOptions : AbstractOptionGroup<JesterRole>
     {
         public override string GroupName => "Jester Options";
         [ModdedToggleOption("Jester Can Vent")]

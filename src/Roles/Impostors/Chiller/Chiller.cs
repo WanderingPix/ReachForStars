@@ -15,9 +15,9 @@ public class FreezerRole : ImpostorRole, ICustomRole
     (
         english: "Chiller",
         french: "Refrigirateur",
-        spanish: "",
+        spanish: "Congelador",
         russian: "Охладитель",
-        italian: "Congelatore"// idk lolol
+        italian: "Congelatore"
     );
     public string RoleDescription => RoleDescShort.GetTranslatedText();
     public TranslationPool RoleDescShort = new
@@ -45,7 +45,7 @@ public class FreezerRole : ImpostorRole, ICustomRole
     {
         UseVanillaKillButton = true,
         CanGetKilled = true,
-        CanUseVent = OptionGroupSingleton<ChillerOptions>.Instance.CanVent,
+        CanUseVent = OptionGroupSingleton<ChillerOptions>.Instance.CanVent.Value,
         //Icon = Assets.ChillerIcon
         IntroSound = Assets.FreezeSFX
     };

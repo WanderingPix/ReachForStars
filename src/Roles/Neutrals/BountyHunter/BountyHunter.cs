@@ -25,7 +25,7 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
     (
         english: "Bounty Hunter",
         french: "Chasseur De Prime",
-        spanish: "",
+        spanish: "cazarrecompensas",
 
         russian: "Охотник за Головами",
         italian: "Mercenario"
@@ -35,7 +35,7 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
     public TranslationPool roleDescShort = new
     (
         english: "Kill your targets to win!",
-        spanish: "",
+        spanish: "¡Mata a tus objetivos para ganar!",
         french: "Tuez vos primes pour gagner!",
         russian: "",
         italian: ""

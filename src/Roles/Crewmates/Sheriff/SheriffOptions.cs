@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace ReachForStars.Roles.Crewmates.Sheriff;
 
-public class SheriffOptions : AbstractOptionGroup<SheriffRole>
+public sealed class SheriffOptions : AbstractOptionGroup<SheriffRole>
 {
     public override string GroupName => "Sheriff Options";
     [ModdedEnumOption("Misfire Consequence", typeof(MisfireResults))]

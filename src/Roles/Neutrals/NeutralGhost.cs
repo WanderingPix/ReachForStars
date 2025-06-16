@@ -14,7 +14,7 @@ public class NeutralGhost : CrewmateGhostRole, ICustomRole
     public TranslationPool roleName = new TranslationPool(
         english: "Neutral Ghost",
         french: "",
-        spanish: "",
+        spanish: "Fantasma neutral",
         russian: "",
         italian: ""
     );
@@ -23,7 +23,7 @@ public class NeutralGhost : CrewmateGhostRole, ICustomRole
     (
         english: "You are dead, watch the game unfold!",
         french: "Vous etes mort! regardez le reste de la partie",
-        spanish: "",
+        spanish: "¡Has muerto! ¡Siéntate y observa cómo se desarrolla el resto del juego!",
         russian: "",
         italian: ""
     );

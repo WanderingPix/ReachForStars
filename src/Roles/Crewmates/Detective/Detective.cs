@@ -17,7 +17,7 @@ public class DetectiveRole : CrewmateRole, ICustomRole
     public TranslationPool roleName = new
     (
         english: "Detective",
-        spanish: "",
+        spanish: "Detective",
         french: "Detective",
         russian: "",
         italian: ""
@@ -26,7 +26,7 @@ public class DetectiveRole : CrewmateRole, ICustomRole
     public TranslationPool roleDescLong = new
     (
         english: "Inspect dead bodies to find out who was nearby!",
-        spanish: "",
+        spanish: "¡Inspecciona los cadáveres para averiguar quién estaba cerca!",
         french: "Inspectez des cadavres pour decouvrir qui etait proche!",
         russian: "",
         italian: ""
