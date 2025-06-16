@@ -1,16 +1,6 @@
-C:\Users\User\Desktop\My Personal projects\ReachForStars\ReachForStars\src\bin\Release\net6.0\ReachForStars.deps.json
-C:\Users\User\Desktop\My Personal projects\ReachForStars\ReachForStars\src\bin\Release\net6.0\ReachForStars.dll
-C:\Users\User\Desktop\My Personal projects\ReachForStars\ReachForStars\src\bin\Release\net6.0\ReachForStars.pdb
-C:\Users\User\Desktop\My Personal projects\ReachForStars\ReachForStars\src\obj\Release\net6.0\ReachForStars.csproj.AssemblyReference.cache
-C:\Users\User\Desktop\My Personal projects\ReachForStars\ReachForStars\src\obj\Release\net6.0\ReachForStars.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\User\Desktop\My Personal projects\ReachForStars\ReachForStars\src\obj\Release\net6.0\ReachForStars.AssemblyInfoInputs.cache
-C:\Users\User\Desktop\My Personal projects\ReachForStars\ReachForStars\src\obj\Release\net6.0\ReachForStars.AssemblyInfo.cs
-C:\Users\User\Desktop\My Personal projects\ReachForStars\ReachForStars\src\obj\Release\net6.0\ReachForStars.csproj.CoreCompileInputs.cache
-C:\Users\User\Desktop\My Personal projects\ReachForStars\ReachForStars\src\obj\Release\net6.0\ReachForStars.sourcelink.json
-C:\Users\User\Desktop\My Personal projects\ReachForStars\ReachForStars\src\obj\Release\net6.0\ReachForStars.dll
-C:\Users\User\Desktop\My Personal projects\ReachForStars\ReachForStars\src\obj\Release\net6.0\refint\ReachForStars.dll
-C:\Users\User\Desktop\My Personal projects\ReachForStars\ReachForStars\src\obj\Release\net6.0\ReachForStars.pdb
-C:\Users\User\Desktop\My Personal projects\ReachForStars\ReachForStars\src\obj\Release\net6.0\ref\ReachForStars.dll
+C:\Users\User\Desktop\My Personal projects\Among Us\ReachForStars\ReachForStars\src\bin\Release\net6.0\ReachForStars.deps.json
+C:\Users\User\Desktop\My Personal projects\Among Us\ReachForStars\ReachForStars\src\bin\Release\net6.0\ReachForStars.dll
+C:\Users\User\Desktop\My Personal projects\Among Us\ReachForStars\ReachForStars\src\bin\Release\net6.0\ReachForStars.pdb
 C:\Users\User\Desktop\My Personal projects\Among Us\ReachForStars\ReachForStars\src\obj\Release\net6.0\ReachForStars.csproj.AssemblyReference.cache
 C:\Users\User\Desktop\My Personal projects\Among Us\ReachForStars\ReachForStars\src\obj\Release\net6.0\ReachForStars.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\User\Desktop\My Personal projects\Among Us\ReachForStars\ReachForStars\src\obj\Release\net6.0\ReachForStars.AssemblyInfoInputs.cache
@@ -20,7 +10,4 @@ C:\Users\User\Desktop\My Personal projects\Among Us\ReachForStars\ReachForStars\
 C:\Users\User\Desktop\My Personal projects\Among Us\ReachForStars\ReachForStars\src\obj\Release\net6.0\ReachForStars.dll
 C:\Users\User\Desktop\My Personal projects\Among Us\ReachForStars\ReachForStars\src\obj\Release\net6.0\refint\ReachForStars.dll
 C:\Users\User\Desktop\My Personal projects\Among Us\ReachForStars\ReachForStars\src\obj\Release\net6.0\ReachForStars.pdb
-C:\Users\User\Desktop\My Personal projects\Among Us\ReachForStars\ReachForStars\src\bin\Release\net6.0\ReachForStars.deps.json
-C:\Users\User\Desktop\My Personal projects\Among Us\ReachForStars\ReachForStars\src\bin\Release\net6.0\ReachForStars.dll
-C:\Users\User\Desktop\My Personal projects\Among Us\ReachForStars\ReachForStars\src\bin\Release\net6.0\ReachForStars.pdb
 C:\Users\User\Desktop\My Personal projects\Among Us\ReachForStars\ReachForStars\src\obj\Release\net6.0\ref\ReachForStars.dll

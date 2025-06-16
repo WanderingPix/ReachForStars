@@ -44,7 +44,6 @@ public class WitchRole : ImpostorRole, ICustomRole
     {
         UseVanillaKillButton = OptionGroupSingleton<WitchOptions>.Instance.CanDoNormalKilling,
         CanGetKilled = true,
-        CanUseVent = OptionGroupSingleton<WitchOptions>.Instance.CanVent,
         //Icon = Assets.PlaceHolder
     };
 

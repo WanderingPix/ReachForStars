@@ -45,7 +45,7 @@ public class FreezerRole : ImpostorRole, ICustomRole
     {
         UseVanillaKillButton = true,
         CanGetKilled = true,
-        CanUseVent = OptionGroupSingleton<ChillerOptions>.Instance.CanVent.Value,
+        CanUseVent = true,
         //Icon = Assets.ChillerIcon
         IntroSound = Assets.FreezeSFX
     };
