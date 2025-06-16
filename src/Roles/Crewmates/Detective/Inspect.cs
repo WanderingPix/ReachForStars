@@ -18,7 +18,9 @@ public class Inspect : CustomActionButton<DeadBody>
     public TranslationPool ButtonName = new TranslationPool(
         english: "Inspect",
         spanish: "Inspeccionar",
-        french: "Inspecter"
+        french: "Inspecter",
+        russian: "",
+        italian: ""
     );
     public override float Cooldown => 25;
     public override float EffectDuration => 3;

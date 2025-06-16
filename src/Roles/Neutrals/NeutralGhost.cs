@@ -13,7 +13,7 @@ public class NeutralGhost : CrewmateGhostRole, ICustomRole
     public string RoleName => roleName.GetTranslatedText();
     public TranslationPool roleName = new TranslationPool(
         english: "Neutral Ghost",
-        french: "",
+        french: "Phantome Neutre",
         spanish: "Fantasma neutral",
         russian: "",
         italian: ""
