@@ -12,7 +12,7 @@ namespace ReachForStars.Roles.Neutrals.Exiled
         public string RoleName => "Exiled";
         public string RoleDescription => $"Make sure {EnemyTeam} lose at all costs!";
         public string RoleLongDescription => RoleDescription;
-        public Color RoleColor => Color.yellow;
+        public Color RoleColor => RFSPalette.ExiledColor;
         public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
 
         public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)

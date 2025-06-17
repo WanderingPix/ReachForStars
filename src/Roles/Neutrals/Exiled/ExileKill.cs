@@ -45,7 +45,7 @@ public class ExileKill : CustomActionButton<PlayerControl>
 
     public override void SetOutline(bool active)
     {
-        Target?.cosmetics.SetOutline(active, new Il2CppSystem.Nullable<Color>(CustomRoleSingleton<Exiled>.Instance.RoleColor));
+        Target?.cosmetics.SetOutline(active, new Il2CppSystem.Nullable<Color>(RFSPalette.ExiledColor));
     }
 
     public override bool IsTargetValid(PlayerControl? target)

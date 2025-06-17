@@ -43,7 +43,7 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
     public string RoleLongDescription => RoleDescription;
     public int SuccessfulKills = 0;
     public BountyHud hud;
-    public Color RoleColor => new Color(1f, 0.12f, 0.54f, 1f);
+    public Color RoleColor => RFSPalette.BountyHunterColor;
     public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {

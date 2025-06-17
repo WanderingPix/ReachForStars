@@ -19,7 +19,7 @@ public class BountyKill : CustomActionButton<PlayerControl>
 {
     public override string Name => "kill";
 
-    public override float Cooldown => 0;
+    public override float Cooldown => 15f;
     public override float EffectDuration => 0;
 
     public override int MaxUses => 0;
@@ -40,7 +40,7 @@ public class BountyKill : CustomActionButton<PlayerControl>
 
     public override void SetOutline(bool active)
     {
-        Target?.cosmetics.SetOutline(active, new Il2CppSystem.Nullable<Color>(CustomRoleSingleton<BountyHunterRole>.Instance.RoleColor));
+        Target?.cosmetics.SetOutline(active, new Il2CppSystem.Nullable<Color>(RFSPalette.BountyHunterColor));
     }
 
     public override bool IsTargetValid(PlayerControl? target)
