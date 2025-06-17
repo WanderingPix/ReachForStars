@@ -32,8 +32,8 @@ public class DetectiveRole : CrewmateRole, ICustomRole
         italian: "Osseva i cadaveri per ricevere indizi!"
     );
     public string RoleDescription => roleDescLong.GetTranslatedText();
-    public Color RoleColor => Palette.CrewmateBlue;
-    public Color OptionsMenuColor => Palette.CrewmateBlue;
+    public Color RoleColor => Palette.CrewmateRoleHeaderBlue;
+    public Color OptionsMenuColor => Palette.CrewmateRoleHeaderBlue;
     public ModdedRoleTeams Team => ModdedRoleTeams.Crewmate;
 
     public List<PlayerControl> Suspects { get; set; } = new();

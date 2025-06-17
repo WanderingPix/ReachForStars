@@ -19,7 +19,7 @@ namespace ReachForStars.Roles.Crewmates.Trapper
     public class TrapAbility : CustomActionButton
     {
         public override string Name => ButtonName.GetTranslatedText();
-        public override Color TextOutlineColor => Palette.CrewmateBlue;
+        public override Color TextOutlineColor => Palette.CrewmateRoleHeaderBlue;
         public TranslationPool ButtonName = new TranslationPool(
             english: "Trap",
             spanish: "Trampa",
