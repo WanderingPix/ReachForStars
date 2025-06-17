@@ -26,7 +26,7 @@ public class WitchRole : ImpostorRole, ICustomRole
         spanish: "Usa magia contra la tripulación.",
          
         russian: "Используй магию против экипажа!",
-        italian: ""
+        italian: "Utilizza la magia contro l'equipaggio."
     );
     public string RoleLongDescription => RoleDescLong.GetTranslatedText();
     public TranslationPool RoleDescLong = new TranslationPool
