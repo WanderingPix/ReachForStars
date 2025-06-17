@@ -18,7 +18,7 @@ public class StunnedModifier : TimedModifier
         english: "Stunned",
         spanish: "Atónito",
         french: "Choc",
-        russian: "",
+        russian: "ошеломленный",
         italian: ""
     );
 
