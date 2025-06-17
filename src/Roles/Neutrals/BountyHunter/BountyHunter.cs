@@ -37,7 +37,7 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         english: "Kill your targets to win!",
         spanish: "¡Mata a tus objetivos para ganar!",
         french: "Tuez vos primes pour gagner!",
-        russian: "",
+        russian: "Убей свои цели, чтобв победить!",
         italian: ""
     );
     public string RoleLongDescription => RoleDescription;
