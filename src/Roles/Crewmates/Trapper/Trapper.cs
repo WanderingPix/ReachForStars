@@ -29,7 +29,7 @@ public class TrapperRole : CrewmateRole, ICustomRole
         english: "Trap the Impostors!",
         french: "Piégez les imposteurs!",
         spanish: "¡Atrapa a los impostores!",
-        russian: "",
+        russian: "Замани предателей в ловушку",
         italian: ""
     );
     
