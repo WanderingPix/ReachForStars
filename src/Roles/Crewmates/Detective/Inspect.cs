@@ -19,7 +19,7 @@ public class Inspect : CustomActionButton<DeadBody>
         english: "Inspect",
         spanish: "Inspeccionar",
         french: "Inspecter",
-        russian: "",
+        russian: "Исследовать",
         italian: ""
     );
     public override float Cooldown => 25;
