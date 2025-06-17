@@ -25,8 +25,8 @@ public class WitchRole : ImpostorRole, ICustomRole
         french: "Utilisez de la magie contre l'equipage.",
         spanish: "Usa magia contra la tripulación.",
          
-        russian: "",
-        italian: ""
+        russian: "Используй магию против экипажа!",
+        italian: "Utilizza la magia contro l'equipaggio."
     );
     public string RoleLongDescription => RoleDescLong.GetTranslatedText();
     public TranslationPool RoleDescLong = new TranslationPool
@@ -34,7 +34,7 @@ public class WitchRole : ImpostorRole, ICustomRole
         english: "Use potions to kill, roleblock, and confuse the crew",
         french: "Utilisez des potions pour tuer, bloquer les roles des coéquipiers, et les embrouilles",
         spanish: "Usa pociones para matar, bloquear roles y confundir a la tripulación", 
-        russian: "",
+        russian: "Используй зелья чтобв убивать, Блокировать роль и путать экипаж!",
         italian: ""
     );
     public Color RoleColor => Palette.ImpostorRed;

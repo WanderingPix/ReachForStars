@@ -28,7 +28,7 @@ namespace ReachForStars.Roles.Neutrals
             french: "Vous avez gagner! Regardez le reste de la partie!",
             spanish: "¡Has ganado! ¡Siéntate y observa cómo se desarrolla el resto del juego!",
             russian: "",
-            italian: ""
+            italian: "Hai vinto! Divertiti a guardare la partita!"
         );
         public override void OnActivate()
         {

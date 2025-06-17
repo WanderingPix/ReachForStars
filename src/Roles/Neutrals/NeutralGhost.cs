@@ -15,8 +15,8 @@ public class NeutralGhost : CrewmateGhostRole, ICustomRole
         english: "Neutral Ghost",
         french: "Phantome Neutre",
         spanish: "Fantasma neutral",
-        russian: "",
-        italian: ""
+        russian: "Нейтральный призрак",
+        italian: "Spirito Neutrale"
     );
     public string RoleDescription => RoleDescShort.GetTranslatedText();
     public TranslationPool RoleDescShort = new TranslationPool
@@ -24,8 +24,8 @@ public class NeutralGhost : CrewmateGhostRole, ICustomRole
         english: "You are dead, watch the game unfold!",
         french: "Vous etes mort! regardez le reste de la partie",
         spanish: "¡Has muerto! ¡Siéntate y observa cómo se desarrolla el resto del juego!",
-        russian: "",
-        italian: ""
+        russian: "Ты мёртв, смотри игру до конца.",
+        italian: "Sei morto, osserva il resto della partita"//haha frenchie, I stole your idea
     );
     public string RoleLongDescription => RoleDescription;
     public Color RoleColor => Color.gray;

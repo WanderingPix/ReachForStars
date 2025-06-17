@@ -19,8 +19,8 @@ public class DetectiveRole : CrewmateRole, ICustomRole
         english: "Detective",
         spanish: "Detective",
         french: "Detective",
-        russian: "",
-        italian: ""
+        russian: "Детектив",
+        italian: "Ispettore"
     );
     public string RoleLongDescription => roleDescLong.GetTranslatedText();
     public TranslationPool roleDescLong = new
@@ -28,8 +28,8 @@ public class DetectiveRole : CrewmateRole, ICustomRole
         english: "Inspect dead bodies to find out who was nearby!",
         spanish: "¡Inspecciona los cadáveres para averiguar quién estaba cerca!",
         french: "Inspectez des cadavres pour decouvrir qui etait proche!",
-        russian: "",
-        italian: ""
+        russian: "Иследуй трупы чтобы найти, кто был близко!",
+        italian: "Osseva i cadaveri per ricevere indizi!"
     );
     public string RoleDescription => roleDescLong.GetTranslatedText();
     public Color RoleColor => Palette.CrewmateBlue;
