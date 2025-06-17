@@ -15,7 +15,7 @@ public class NeutralGhost : CrewmateGhostRole, ICustomRole
         english: "Neutral Ghost",
         french: "Phantome Neutre",
         spanish: "Fantasma neutral",
-        russian: "",
+        russian: "Нейтральный призрак",
         italian: ""
     );
     public string RoleDescription => RoleDescShort.GetTranslatedText();
