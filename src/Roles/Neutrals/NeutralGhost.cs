@@ -24,7 +24,7 @@ public class NeutralGhost : CrewmateGhostRole, ICustomRole
         english: "You are dead, watch the game unfold!",
         french: "Vous etes mort! regardez le reste de la partie",
         spanish: "¡Has muerto! ¡Siéntate y observa cómo se desarrolla el resto del juego!",
-        russian: "",
+        russian: "Ты мёртв, смотри игру до конца.",
         italian: ""
     );
     public string RoleLongDescription => RoleDescription;
