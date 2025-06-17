@@ -88,6 +88,7 @@ namespace ReachForStars.Networking
                     vent.Right = null;
                 }
                 vent.Center = null;
+                vent.gameObject.GetComponent<VentCleaningConsole>()?.DestroyImmediate();
 
                 mole.MinedVents.Add(vent);
                 PluginSingleton<ReachForStars>.Instance.Log.LogDebug($"new vent placed! total placed vent count for {p.Data.PlayerName} is now {mole.MinedVents.Count}");
