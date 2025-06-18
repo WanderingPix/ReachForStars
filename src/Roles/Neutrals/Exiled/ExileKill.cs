@@ -32,11 +32,6 @@ public class ExileKill : CustomActionButton<PlayerControl>
     {
         return role is Exiled;
     }
-    public void OnEnable()
-    {
-        if (PlayerControl.LocalPlayer.Data.Role is Exiled exiled && exiled.EnemyTeam == ExiledEnemyTeam.Crewmates) Button.graphic.sprite = Assets.BlueKillButton.LoadAsset();
-        else if (PlayerControl.LocalPlayer.Data.Role is Exiled exiled2 && exiled2.EnemyTeam == ExiledEnemyTeam.Impostors) Button.graphic.sprite = Assets.RedKillButton.LoadAsset();
-    }
 
     public override PlayerControl? GetTarget()
     {

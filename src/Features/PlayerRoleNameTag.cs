@@ -20,7 +20,7 @@ namespace ReachForStars.Features
         {
             if (role.Player == PlayerControl.LocalPlayer)
             {
-                if (role is ICustomRole custom1 && custom1.Team == ModdedRoleTeams.Crewmate) role.Player.cosmetics.nameText.color = Palette.White;
+                if (role is CrewmateRole) role.Player.cosmetics.nameText.color = Palette.White;
             }
         }
         
