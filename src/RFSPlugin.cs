@@ -33,5 +33,7 @@ public partial class ReachForStars : BasePlugin, IMiraPlugin
         ClassInjector.RegisterTypeInIl2Cpp<Glue>();
         ClassInjector.RegisterTypeInIl2Cpp<Trap>();
         ClassInjector.RegisterTypeInIl2Cpp<BountyHud>();
+        
+        Log.LogInfo("Reach For Stars Loaded Successfully! >u<");
     }
 }

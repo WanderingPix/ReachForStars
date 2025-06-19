@@ -23,8 +23,8 @@ namespace ReachForStars.Roles.Crewmates.Sheriff
             english: "Shoot",
             spanish: "Disparar",
             french: "Tirer",
-            russian: "выстрелить",
-            italian: "Sparare"
+            russian: "выстрелить"
+            //italian: "Sparare"
         );
         public override float Cooldown => 25;
         public override float EffectDuration => 0;

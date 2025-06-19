@@ -18,8 +18,8 @@ public class Freeze : CustomActionButton<DeadBody>
         french: "Figer",
         spanish: "Helar",
          
-        russian: "Заморозить",
-        italian: "Congela"
+        russian: "Заморозить"
+        //italian: "Congela"
     );
 
     public override float Cooldown => 0;

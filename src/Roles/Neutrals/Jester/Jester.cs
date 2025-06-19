@@ -15,8 +15,8 @@ public class JesterRole : ImpostorRole, ICustomRole
         english: "Jester",
         french: "Plaisantin",
         spanish: "Bufón",
-        russian: "Шут",
-        italian: "Pagliaccio"
+        russian: "Шут"
+        //italian: "Pagliaccio"
     );
     public string RoleDescription => RoleDescShort.GetTranslatedText();
     public TranslationPool RoleDescShort => new TranslationPool
@@ -24,8 +24,8 @@ public class JesterRole : ImpostorRole, ICustomRole
         english: "Fool The Crew!",
         french: "Trollez l'équipage!",
         spanish: "¡Engaña a la tripulación!",
-        russian: "Надурачь весь экипаж!",
-        italian: ""
+        russian: "Надурачь весь экипаж!"
+        //italian: ""
     );
     public string RoleLongDescription => RoleDescLong.GetTranslatedText();
     public TranslationPool RoleDescLong => new TranslationPool
@@ -33,8 +33,8 @@ public class JesterRole : ImpostorRole, ICustomRole
         english: "Get voted out to win.",
         french: "Faites-vous ejecter pour gagner.",
         spanish: "Ser expulsado para ganar",
-        russian: "Будь выброшен, чтобы выиграть",
-        italian: ""
+        russian: "Будь выброшен, чтобы выиграть"
+        //italian: ""
     );
     public Color RoleColor => new Color(1f, 0.18f, 0.81f, 1f);
     public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
@@ -53,8 +53,8 @@ public class JesterRole : ImpostorRole, ICustomRole
         english: "You've all been fooled!\n P was the Jester!\n\n", //PlayerName is referenced as P
         french: "Vous avez tous été dupés!\n P était le Plaisantin!\n\n",
         spanish: "¡Todos han sido engañados!\n P era el Bufón!\n\n",
-        russian: "Вы все были надурачены!\n P был шутом!\n\n", // i hope i done it right :skull:
-        italian: ""
+        russian: "Вы все были надурачены!\n P был шутом!\n\n" // i hope i done it right :skull:
+        //italian: ""
     );
     public string GetCustomEjectionMessage(NetworkedPlayerInfo player)
     {

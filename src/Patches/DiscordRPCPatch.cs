@@ -10,7 +10,7 @@ namespace ReachForStars
         [HarmonyPatch(typeof(ActivityManager), nameof(ActivityManager.UpdateActivity))]
         public static void Postfix([HarmonyArgument(0)] Activity activity)
         {
-            activity.Assets.LargeText = "Reach For Stars";
+            activity.Details = "Reach For The Stars";
         }
     }
 }

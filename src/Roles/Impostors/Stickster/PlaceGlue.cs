@@ -19,8 +19,8 @@ public class PlaceGlue : CustomActionButton
     spanish: "Cola",
      
     french: "Colle",
-    russian: "Клей",
-    italian: "Colla"
+    russian: "Клей"
+    //italian: "Colla"
     );
 
     public override float Cooldown => 10;

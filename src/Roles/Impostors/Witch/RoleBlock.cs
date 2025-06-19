@@ -14,8 +14,8 @@ public class RoleBlock : CustomActionButton<PlayerControl>
         english: "Role Block",
         french: "Bloquer",
         spanish: "Bloque de roles",
-        russian: "Ролевой блок",
-        italian: "Blocco dei Ruoli"
+        russian: "Ролевой блок"
+        //italian: "Blocco dei Ruoli"
     );
 
     public override float Cooldown => 5;

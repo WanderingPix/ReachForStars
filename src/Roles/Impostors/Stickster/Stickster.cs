@@ -17,8 +17,8 @@ public class SticksterRole : ImpostorRole, ICustomRole
         english: "Spill glue all over the map!",
         spanish: "¡Derrama pegamento por todo el mapa!",
         french: "Verse de la colle partout sur la carte!",
-        russian: "Пролей клей по всей карте!",
-        italian: ""
+        russian: "Пролей клей по всей карте!"
+        //italian: ""
     );
 
     public string RoleDescriptionLong => RoleDescLong.GetTranslatedText();
@@ -27,8 +27,8 @@ public class SticksterRole : ImpostorRole, ICustomRole
         english: "Spill glue to slow down crewmates!",
         spanish: "Derrama pegamento para ralentizar a los tripulantes!",
         french: "Verse de la colle pour ralentir l'équipage!",
-        russian: "Разлей клей чтобы замедлять экипаж!",
-        italian: ""
+        russian: "Разлей клей чтобы замедлять экипаж!"
+        //italian: ""
     );
     public string RoleLongDescription => RoleDescription;
     public Color RoleColor => Palette.ImpostorRed;

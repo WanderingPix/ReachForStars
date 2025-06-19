@@ -13,24 +13,24 @@ public class TrapperRole : CrewmateRole, ICustomRole
         spanish: "Trampero",
          
         french: "Piégeur",
-        russian: "Траппер", 
-        italian: ""
+        russian: "Траппер" 
+        //italian: ""
     );
     public string RoleLongDescription => RoleDescLong.GetTranslatedText();
     public TranslationPool RoleDescLong = new TranslationPool(
         english: "Place Traps around the map to catch the impostors!",
         french: "Mettez des piéges pour trouver les imposteurs!",        
         spanish: "¡Coloca trampas alrededor del mapa para atrapar a los impostores!",
-        russian: "Ставь Трапки (ловушки) чтобы поймать предателей!",
-        italian: ""
+        russian: "Ставь Трапки (ловушки) чтобы поймать предателей!"
+        //italian: ""
     );
     public string RoleDescription => RoleDescShort.GetTranslatedText();
     public TranslationPool RoleDescShort = new TranslationPool(
         english: "Trap the Impostors!",
         french: "Piégez les imposteurs!",
         spanish: "¡Atrapa a los impostores!",
-        russian: "Замани предателей в ловушку",
-        italian: ""
+        russian: "Замани предателей в ловушку"
+        //italian: ""
     );
     
     public Color RoleColor => Palette.CrewmateRoleHeaderBlue;

@@ -27,8 +27,8 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         french: "Chasseur De Prime",
         spanish: "cazarrecompensas",
 
-        russian: "Охотник за Головами",
-        italian: "Sicario"
+        russian: "Охотник за Головами"
+        //italian: "Sicario"
     );
     public PlayerControl Target;
     public string RoleDescription => roleDescShort.GetTranslatedText();
@@ -37,8 +37,8 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         english: "Kill your targets to win!",
         spanish: "¡Mata a tus objetivos para ganar!",
         french: "Tuez vos primes pour gagner!",
-        russian: "Убей свои цели, чтобв победить!",
-        italian: "Asassina i tuoi target per vincere!"
+        russian: "Убей свои цели, чтобв победить!"
+        //italian: "Asassina i tuoi target per vincere!"
     );
     public string RoleLongDescription => RoleDescription;
     public int SuccessfulKills = 0;

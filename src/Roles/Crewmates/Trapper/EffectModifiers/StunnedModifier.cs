@@ -18,8 +18,8 @@ public class StunnedModifier : TimedModifier
         english: "Stunned",
         spanish: "Atónito",
         french: "Choc",
-        russian: "ошеломленный",
-        italian: ""
+        russian: "ошеломленный"
+        //italian: ""
     );
 
     public override float Duration => 3f;

@@ -25,10 +25,6 @@ namespace ReachForStars.Translation
          {
            return pool.French; //french translator: WanderingPix
          }
-         else if (TranslationController.Instance.currentLanguage.languageID == SupportedLangs.Italian && pool.Italian != null)
-         {
-           return pool.Italian; //italian translator: pengun
-         }
          else return pool.English;
        }
     }

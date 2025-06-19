@@ -12,8 +12,8 @@ public class SnoopRole : CrewmateRole, ICustomRole
         english: "Snoop",
         spanish: "fisgón",
         french: "Espion",
-        russian: "шпион",
-        italian: "Spia"
+        russian: "шпион"
+        //italian: "Spia"
     );
     public string RoleLongDescription => RoleDescLong.GetTranslatedText();
     public TranslationPool RoleDescLong = new TranslationPool
