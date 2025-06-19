@@ -27,7 +27,7 @@ public class AdminButton : CustomActionButton
 
     public override int MaxUses => 0;
 
-    public override LoadableAsset<Sprite> Sprite => Assets.Shoot;
+    public override LoadableAsset<Sprite> Sprite => Assets.AdminButton;
 
     public override bool Enabled(RoleBehaviour? role)
     {

@@ -44,7 +44,7 @@ public static class Assets
     public static LoadableResourceAsset PoisonButton { get; } = new("ReachForStars.Resources.Poison.png");
     public static LoadableResourceAsset RoleblockButton { get; } = new("ReachForStars.Resources.RoleBlock.png");
 
-
+    public static LoadableResourceAsset AdminButton { get; } = new("ReachForStars.Resources.AdminButton.png");
     //Sheriff
     public static LoadableResourceAsset Shoot { get; } = new("ReachForStars.Resources.Shoot.png");
     public static LoadableResourceAsset SheriffIcon { get; } = new("ReachForStars.Resources.RoleIcons.sheriff.png");
