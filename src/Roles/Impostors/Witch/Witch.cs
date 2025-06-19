@@ -1,8 +1,8 @@
 ﻿using MiraAPI.GameOptions;
-using MiraAPI.Roles;
-using UnityEngine;
-using ReachForStars.Translation;
 using MiraAPI.Hud;
+using MiraAPI.Roles;
+using ReachForStars.Translation;
+using UnityEngine;
 
 namespace ReachForStars.Roles.Impostors.Witch;
 
@@ -37,7 +37,8 @@ public class WitchRole : ImpostorRole, ICustomRole
         russian: "Используй зелья чтобв убивать, Блокировать роль и путать экипаж!"
         //italian: ""
     );
-    public Color RoleColor => Palette.ImpostorRed;
+
+    public Color RoleColor => Palette.ImpostorRed; 
     public ModdedRoleTeams Team => ModdedRoleTeams.Impostor;
 
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
