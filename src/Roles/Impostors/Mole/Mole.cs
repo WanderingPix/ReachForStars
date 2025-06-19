@@ -16,7 +16,7 @@ public class MoleRole : ImpostorRole, ICustomRole
         spanish: "Topo",
         french: "Taupe",
         italian: "Talpa",
-        russian: ""
+        russian: "Моль"
     );
     public string RoleDescription => "Dig vents around the map";
     public string RoleLongDescription => RoleDescription;
