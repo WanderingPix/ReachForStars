@@ -1,5 +1,4 @@
 ﻿using MiraAPI.GameOptions;
-using MiraAPI.Hud;
 using MiraAPI.Roles;
 using ReachForStars.Translation;
 using UnityEngine;
@@ -9,10 +8,10 @@ namespace ReachForStars.Roles.Impostors.Witch;
 public class WitchRole : ImpostorRole, ICustomRole
 {
     public TranslationPool RoleDescLong = new(
-        "Use potions to kill, roleblock, and confuse the crew",
-        french: "Utilisez des potions pour tuer, bloquer les roles des coéquipiers, et les embrouilles",
-        spanish: "Usa pociones para matar, bloquear roles y confundir a la tripulación",
-        russian: "Используй зелья чтобв убивать, Блокировать роль и путать экипаж!"
+        "Use potions to and confuse the crew",
+        french: "Utilisez des potions pour tuer et les roles des coéquipiers, et les embrouilles",
+        spanish: "Usa pociones para matar y confundir a la tripulación",
+        russian: "Используйте зелья, чтобы сбить с толку экипаж!"
         //italian: ""
     );
 
@@ -56,10 +55,5 @@ public class WitchRole : ImpostorRole, ICustomRole
     public override bool DidWin(GameOverReason gameOverReason)
     {
         return GameManager.Instance.DidImpostorsWin(gameOverReason);
-    }
-
-    public override void OnMeetingStart()
-    {
-        CustomButtonSingleton<RoleBlock>.Instance.SetUses(1);
     }
 }
