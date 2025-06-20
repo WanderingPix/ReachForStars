@@ -1,59 +1,61 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using AmongUs.GameOptions;
+using MiraAPI.GameOptions;
+using MiraAPI.Hud;
+using MiraAPI.Modifiers;
+using MiraAPI.Patches.Stubs;
 using MiraAPI.Roles;
 using MiraAPI.Utilities;
 using ReachForStars.Roles.Neutrals.BountyHunter;
-using ReachForStars.Utilities;
-using MiraAPI.GameEnd;
-using UnityEngine;
 using ReachForStars.Translation;
-using Random = System.Random;
-using MiraAPI.GameOptions;
-using MiraAPI.Patches.Stubs;
 using Reactor.Utilities.Extensions;
-using MiraAPI.Modifiers;
-using TMPro;
-using MiraAPI.Hud;
-using Hazel;
+using UnityEngine;
+using Random = System.Random;
 
 namespace ReachForStars.Roles.Neutrals.Roles;
 
 public class BountyHunterRole : ImpostorRole, ICustomRole
 {
-    public string RoleName => roleName.GetTranslatedText();
-    public TranslationPool roleName = new TranslationPool
+    public PlayerControl Target;
+    public int SuccessfulKills;
+    public BountyHud hud;
+    public bool HasWon;
+
+    public TranslationPool roleDescShort = new
     (
-        english: "Bounty Hunter",
+        "Kill your targets to win!",
+        "¡Mata a tus objetivos para ganar!",
+        "Tuez vos primes pour gagner!",
+        "Убей свои цели, чтобв победить!"
+        //italian: "Asassina i tuoi target per vincere!"
+    );
+
+    public TranslationPool roleName = new(
+        "Bounty Hunter",
         french: "Chasseur De Prime",
         spanish: "cazarrecompensas",
-
         russian: "Охотник за Головами"
         //italian: "Sicario"
     );
-    public PlayerControl Target;
+
+    public override bool IsAffectedByComms => false;
+    public string RoleName => roleName.GetTranslatedText();
     public string RoleDescription => roleDescShort.GetTranslatedText();
-    public TranslationPool roleDescShort = new
-    (
-        english: "Kill your targets to win!",
-        spanish: "¡Mata a tus objetivos para ganar!",
-        french: "Tuez vos primes pour gagner!",
-        russian: "Убей свои цели, чтобв победить!"
-        //italian: "Asassina i tuoi target per vincere!"
-    );
     public string RoleLongDescription => RoleDescription;
-    public int SuccessfulKills = 0;
-    public BountyHud hud;
     public Color RoleColor => RFSPalette.BountyHunterColor;
     public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
+
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
         UseVanillaKillButton = false,
         CanGetKilled = true,
         CanUseVent = false,
-        GhostRole = (AmongUs.GameOptions.RoleTypes)RoleId.Get<NeutralGhost>(),
+        GhostRole = (RoleTypes)RoleId.Get<NeutralGhost>(),
         TasksCountForProgress = false,
         RoleHintType = RoleHintType.TaskHint
     };
+
     public override void Initialize(PlayerControl player)
     {
         RoleBehaviourStubs.Initialize(this, player);
@@ -62,11 +64,14 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         {
             CustomButtonSingleton<BountyKill>.Instance.Button.Show();
 
-            hud = Object.Instantiate(Assets.BountyPrefab.LoadAsset(), HudManager.Instance.transform).AddComponent<BountyHud>();
+            hud = Instantiate(Assets.BountyPrefab.LoadAsset(), HudManager.Instance.transform)
+                .AddComponent<BountyHud>();
             GenerateNewBountyTarget();
         }
+
         HasWon = false;
     }
+
     public override void Deinitialize(PlayerControl targetPlayer)
     {
         hud.gameObject.DestroyImmediate();
@@ -76,6 +81,7 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
     {
         // remove existing task header.
     }
+
     private void GenerateNewBountyTarget()
     {
         Random rnd = new Random();
@@ -94,6 +100,7 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
             GenerateNewBountyTarget();
         }
     }
+
     public override void OnMeetingStart()
     {
         if (!HasWon)
@@ -102,7 +109,7 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
             hud.gameObject.SetActive(false);
         }
     }
-    public bool HasWon;
+
     public void OnTargetKill()
     {
         SuccessfulKills++;
@@ -115,6 +122,7 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
             HasWon = true;
         }
     }
+
     public override bool DidWin(GameOverReason gameOverReason)
     {
         return Player.HasModifier<NeutralWinner>();

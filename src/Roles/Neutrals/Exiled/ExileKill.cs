@@ -1,20 +1,13 @@
-using MiraAPI.Networking;
-using MiraAPI.GameOptions;
+using Il2CppSystem;
 using MiraAPI.Hud;
-using MiraAPI.Utilities.Assets;
-using Reactor.Utilities;
-using System.Collections;
+using MiraAPI.Networking;
 using MiraAPI.Utilities;
-using Reactor.Networking;
-using MiraAPI.Roles;
-using UnityEngine;
-using System.Collections.Generic;
-using System;
-using Random = System.Random;
+using MiraAPI.Utilities.Assets;
 using ReachForStars.Features;
-using Rewired;
+using UnityEngine;
 
 namespace ReachForStars.Roles.Neutrals.Exiled;
+
 public class ExileKill : CustomActionButton<PlayerControl>
 {
     public override string Name => "kill";
@@ -40,32 +33,34 @@ public class ExileKill : CustomActionButton<PlayerControl>
 
     public override void SetOutline(bool active)
     {
-        Target?.cosmetics.SetOutline(active, new Il2CppSystem.Nullable<Color>(RFSPalette.ExiledColor));
+        Target?.cosmetics.SetOutline(active, new Nullable<Color>(RFSPalette.ExiledColor));
     }
 
     public override bool IsTargetValid(PlayerControl? target)
     {
         return true;
     }
+
     protected override void OnClick()
     {
         if (PlayerControl.LocalPlayer.Data.Role is Exiled exiled)
         {
-            if(exiled.EnemyTeam == ExiledEnemyTeam.Impostors && Target.Data.Role.IsImpostor)
+            if (exiled.EnemyTeam == ExiledEnemyTeam.Impostors && Target.Data.Role.IsImpostor)
             {
-                PlayerControl.LocalPlayer.RpcCustomMurder (Target, true);
+                PlayerControl.LocalPlayer.RpcCustomMurder(Target);
                 HudManager.Instance.StartCoroutine(Effects.ScaleIn(Button.transform, 1.4f, 0.7f, 0.7f));
             }
             else if (!Target.Data.Role.IsImpostor && exiled.EnemyTeam == ExiledEnemyTeam.Crewmates)
             {
-                PlayerControl.LocalPlayer.RpcCustomMurder (Target, true);
-                HudManager.Instance.StartCoroutine(Effects.ScaleIn(Button.transform, 1.4f, 0.7f, 0.7f));
+                PlayerControl.LocalPlayer.RpcCustomMurder(Target);
+                HudManager.Instance.StartCoroutine(Effects.ScaleIn(Button.transform, 1.4f, 0.7f * SmolUI.ScaleFactor,
+                    0.7f));
             }
             else
             {
-                HudManager.Instance.StartCoroutine(Effects.SwayX(Button.transform, 0.7f*SmolUI.ScaleFactor, 0.25f));
+                HudManager.Instance.StartCoroutine(Effects.SwayX(Button.transform, 0.7f));
             }
-        }   
+        }
     }
 
     public override void OnEffectEnd()

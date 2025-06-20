@@ -1,6 +1,5 @@
 using HarmonyLib;
 using ReachForStars.Features;
- 
 
 namespace ReachForStars
 {
@@ -11,7 +10,7 @@ namespace ReachForStars
         [HarmonyPostfix]
         public static void Postfix(RoleBehaviour __instance)
         {
-            if (__instance.Player == PlayerControl.LocalPlayer) RoleNameTag.SetRoleNameTag(__instance);
+            RecolorableUsesCounter.Update(__instance);
         }
     }
 }

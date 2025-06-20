@@ -1,15 +1,23 @@
 using HarmonyLib;
 using ReachForStars.Features;
-using UnityEngine;
 
 namespace ReachForStars
 {
-    [HarmonyPatch(typeof(HudManager), nameof(HudManager.Start))]
+    [HarmonyPatch]
     public class HudManagerPatches
     {
-        public static void Postfix(HudManager __instance)
+        [HarmonyPatch(typeof(HudManager), nameof(HudManager.Start))]
+        [HarmonyPostfix]
+        public static void HudManagerStartPostfix(HudManager __instance)
         {
             SmolUI.ResizeUI();
+        }
+
+        [HarmonyPatch(typeof(ActionButton), nameof(ActionButton.Show))]
+        [HarmonyPostfix]
+        public static void AbilityButtonStartPostfix(ActionButton __instance)
+        {
+            RecolorableUsesCounter.SetUp(__instance);
         }
     }
 }

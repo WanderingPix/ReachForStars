@@ -1,16 +1,32 @@
 ﻿using System.Collections.Generic;
-using MiraAPI.GameOptions;
-using MiraAPI.Hud;
 using MiraAPI.Roles;
 using ReachForStars.Translation;
 using UnityEngine;
 
 namespace ReachForStars.Roles.Impostors.Chiller;
 
-
 public class FreezerRole : ImpostorRole, ICustomRole
 {
-    public string RoleName => rolename.GetTranslatedText();
+    public List<Vent> MinerVents;
+
+    public TranslationPool RoleDescLong = new
+    (
+        "Freeze bodies to stop the crewmates from reporting them!",
+        "¡Congela los cuerpos para evitar que los compañeros de tripulación los denuncien!",
+        "Figez les cadavres pour empécher les coéquipiers de lés trouver!",
+        "Замораживай трупы чтобы экипаж не мог зарепортить!"
+        //italian: "Congela i cadaveri per impedire che siano trovati!"
+    );
+
+    public TranslationPool RoleDescShort = new
+    (
+        "Freeze bodies to hide identities!",
+        "Congelar cuerpos para ocultar sus identidades",
+        "Figez des cadavres pour cacher leurs identités!",
+        "Замораживай трупы чтобы избежать личностей!"
+        //italian: "Congela cadaveri per nascondere le identità!"
+    );
+
     public TranslationPool rolename = new
     (
         english: "Chiller",
@@ -19,25 +35,12 @@ public class FreezerRole : ImpostorRole, ICustomRole
         russian: "Охладитель"
         //italian: "Congelatore"
     );
+
+    public override bool IsAffectedByComms => false;
+    public string RoleName => rolename.GetTranslatedText();
     public string RoleDescription => RoleDescShort.GetTranslatedText();
-    public TranslationPool RoleDescShort = new
-    (
-        english: "Freeze bodies to hide identities!",
-        spanish: "Congelar cuerpos para ocultar sus identidades",
-        french: "Figez des cadavres pour cacher leurs identités!",
-        russian: "Замораживай трупы чтобы избежать личностей!"
-        //italian: "Congela cadaveri per nascondere le identità!"
-    );
 
     public string RoleLongDescription => RoleDescLong.GetTranslatedText();
-    public TranslationPool RoleDescLong = new
-    (
-        english: "Freeze bodies to stop the crewmates from reporting them!",
-        spanish: "¡Congela los cuerpos para evitar que los compañeros de tripulación los denuncien!",
-        french: "Figez les cadavres pour empécher les coéquipiers de lés trouver!",
-        russian: "Замораживай трупы чтобы экипаж не мог зарепортить!"
-        //italian: "Congela i cadaveri per impedire che siano trovati!"
-    );
     public Color RoleColor => Palette.ImpostorRed;
     public ModdedRoleTeams Team => ModdedRoleTeams.Impostor;
 
@@ -54,8 +57,6 @@ public class FreezerRole : ImpostorRole, ICustomRole
     {
         // remove existing task header.
     }
-
-    public List<Vent> MinerVents;
 
     public override bool DidWin(GameOverReason gameOverReason)
     {

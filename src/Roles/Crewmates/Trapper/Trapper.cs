@@ -1,5 +1,4 @@
 ﻿using MiraAPI.Roles;
-using MiraAPI.Utilities.Assets;
 using ReachForStars.Translation;
 using UnityEngine;
 
@@ -7,24 +6,14 @@ namespace ReachForStars.Roles.Crewmates.Trapper;
 
 public class TrapperRole : CrewmateRole, ICustomRole
 {
-    public string RoleName => Rolename.GetTranslatedText(); 
-    public TranslationPool Rolename = new TranslationPool(
-        english: "Trapper",
-        spanish: "Trampero",
-         
-        french: "Piégeur",
-        russian: "Траппер" 
-        //italian: ""
-    );
-    public string RoleLongDescription => RoleDescLong.GetTranslatedText();
     public TranslationPool RoleDescLong = new TranslationPool(
         english: "Place Traps around the map to catch the impostors!",
-        french: "Mettez des piéges pour trouver les imposteurs!",        
+        french: "Mettez des piéges pour trouver les imposteurs!",
         spanish: "¡Coloca trampas alrededor del mapa para atrapar a los impostores!",
         russian: "Ставь Трапки (ловушки) чтобы поймать предателей!"
         //italian: ""
     );
-    public string RoleDescription => RoleDescShort.GetTranslatedText();
+
     public TranslationPool RoleDescShort = new TranslationPool(
         english: "Trap the Impostors!",
         french: "Piégez les imposteurs!",
@@ -32,7 +21,19 @@ public class TrapperRole : CrewmateRole, ICustomRole
         russian: "Замани предателей в ловушку"
         //italian: ""
     );
-    
+
+    public TranslationPool Rolename = new(
+        "Trapper",
+        "Trampero",
+        "Piégeur",
+        "Траппер"
+        //italian: ""
+    );
+
+    public override bool IsAffectedByComms => false;
+    public string RoleName => Rolename.GetTranslatedText();
+    public string RoleLongDescription => RoleDescLong.GetTranslatedText();
+    public string RoleDescription => RoleDescShort.GetTranslatedText();
     public Color RoleColor => Palette.CrewmateRoleHeaderBlue;
     public ModdedRoleTeams Team => ModdedRoleTeams.Crewmate;
 

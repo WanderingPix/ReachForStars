@@ -1,14 +1,16 @@
-﻿using MiraAPI.Roles;
-using UnityEngine;
-using MiraAPI.Patches.Stubs;
-using MiraAPI.Utilities;
+﻿using AmongUs.GameOptions;
 using MiraAPI.Hud;
-using MiraAPI.Modifiers;
+using MiraAPI.Patches.Stubs;
+using MiraAPI.Roles;
+using MiraAPI.Utilities;
+using UnityEngine;
 
 namespace ReachForStars.Roles.Neutrals.Exiled
 {
     public class Exiled : ImpostorRole, ICustomRole
     {
+        public ExiledEnemyTeam EnemyTeam;
+        public override bool IsAffectedByComms => false;
         public string RoleName => "Exiled";
         public string RoleDescription => $"Make sure {EnemyTeam} lose at all costs!";
         public string RoleLongDescription => RoleDescription;
@@ -20,7 +22,7 @@ namespace ReachForStars.Roles.Neutrals.Exiled
             UseVanillaKillButton = false,
             CanGetKilled = true,
             CanUseVent = false,
-            GhostRole = (AmongUs.GameOptions.RoleTypes)RoleId.Get<NeutralGhost>(),
+            GhostRole = (RoleTypes)RoleId.Get<NeutralGhost>(),
             TasksCountForProgress = false
         };
 
@@ -40,7 +42,7 @@ namespace ReachForStars.Roles.Neutrals.Exiled
                 return !GameManager.Instance.DidImpostorsWin(gameOverReason);
             }
         }
-        public ExiledEnemyTeam EnemyTeam;
+
         public override void Initialize(PlayerControl player)
         {
             RoleBehaviourStubs.Initialize(this, player);
@@ -55,10 +57,12 @@ namespace ReachForStars.Roles.Neutrals.Exiled
                 {
                     EnemyTeam = ExiledEnemyTeam.Impostors;
                 }
+
                 CustomButtonSingleton<ExileKill>.Instance.Button.Show();
             }
         }
     }
+
     public enum ExiledEnemyTeam
     {
         Crewmates,
