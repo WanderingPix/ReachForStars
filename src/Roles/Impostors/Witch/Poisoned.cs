@@ -1,8 +1,9 @@
+using Il2CppSystem;
+using MiraAPI.GameOptions;
 using MiraAPI.Modifiers;
 using MiraAPI.Modifiers.Types;
-using UnityEngine;
 using MiraAPI.Networking;
-using MiraAPI.GameOptions;
+using UnityEngine;
 
 namespace ReachForStars.Roles.Impostors.Witch;
 
@@ -20,11 +21,12 @@ public class PoisonedModifier : TimedModifier
 
     public override void OnActivate()
     {
-        Player.cosmetics.SetOutline(true, new Il2CppSystem.Nullable<Color>(new Color(1f, 0f, 1f, 1f)));
+        Player.cosmetics.SetOutline(true, new Nullable<Color>(new Color(1f, 0f, 1f, 1f)));
     }
+
     public override void OnDeactivate()
     {
-        Player.CustomMurder(Player, MurderResultFlags.Succeeded, showKillAnim:false);
-        Player.cosmetics.SetOutline(false, new Il2CppSystem.Nullable<Color>(new Color(1f, 0f, 1f, 1f)));
+        Player.CustomMurder(Player, MurderResultFlags.Succeeded, showKillAnim: false);
+        Player.cosmetics.SetOutline(false, new Nullable<Color>(new Color(1f, 0f, 1f, 1f)));
     }
 }

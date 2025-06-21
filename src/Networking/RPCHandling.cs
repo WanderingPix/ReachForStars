@@ -1,21 +1,16 @@
-using Reactor.Networking.Attributes;
-using Reactor.Networking.Rpc;
-using UnityEngine;
-using Reactor.Utilities;
-using MiraAPI.Utilities;
-using ReachForStars.Utilities;
-using System.Linq;
-using Reactor.Utilities.Extensions;
-using ReachForStars.Roles.Impostors.Chiller;
-using Object = UnityEngine.Object;
-using ReachForStars.Roles.Impostors.Mole;
-using MiraAPI.Hud;
-using MiraAPI.Modifiers;
-using ReachForStars.Roles.Impostors.Stickster;
-using ReachForStars.Roles.Crewmates.Trapper;
 using System.Collections.Generic;
-using IEnumerator = System.Collections.IEnumerator;
-using BepInEx;
+using System.Linq;
+using MiraAPI.Utilities;
+using ReachForStars.Roles.Crewmates.Trapper;
+using ReachForStars.Roles.Impostors.Chiller;
+using ReachForStars.Roles.Impostors.Mole;
+using ReachForStars.Roles.Impostors.Stickster;
+using ReachForStars.Utilities;
+using Reactor.Networking.Attributes;
+using Reactor.Utilities;
+using Reactor.Utilities.Extensions;
+using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace ReachForStars.Networking
 {
@@ -26,12 +21,14 @@ namespace ReachForStars.Networking
         {
             go.DestroyImmediate();
         }
+
         [MethodRpc((uint)RPC.Yeehaw)]
         public static void RpcYeehaw()
         {
             var SFX = PlayerControl.LocalPlayer.transform.GetComponent<HnSImpostorScreamSfx>();
             SFX.LocalImpostorYeehaw();
         }
+
         [MethodRpc((uint)RPC.SeekerScream)]
         public static void RpcScream()
         {
@@ -40,7 +37,8 @@ namespace ReachForStars.Networking
         }
 
         [MethodRpc((uint)RPC.ChangeBodyType)]
-        public static void RpcChangeBodyType(this PlayerControl target, PlayerBodyTypes type, bool shouldAnimateForSeeker = false)
+        public static void RpcChangeBodyType(this PlayerControl target, PlayerBodyTypes type,
+            bool shouldAnimateForSeeker = false)
         {
             target.MyPhysics.SetBodyType(type);
             if (type == PlayerBodyTypes.Seeker && shouldAnimateForSeeker)
@@ -87,18 +85,22 @@ namespace ReachForStars.Networking
                     vent.Left = null;
                     vent.Right = null;
                 }
+
                 vent.Center = null;
                 vent.gameObject.GetComponent<VentCleaningConsole>()?.DestroyImmediate();
 
                 mole.MinedVents.Add(vent);
-                PluginSingleton<ReachForStars>.Instance.Log.LogDebug($"new vent placed! total placed vent count for {p.Data.PlayerName} is now {mole.MinedVents.Count}");
+                PluginSingleton<ReachForStars>.Instance.Log.LogDebug(
+                    $"new vent placed! total placed vent count for {p.Data.PlayerName} is now {mole.MinedVents.Count}");
             }
         }
+
         [MethodRpc((uint)RPC.ResizePlayer)]
         public static void RpcResize(this PlayerControl player, float x, float y, float z)
         {
             player.Resize(new Vector3(x, y, z));
         }
+
         [MethodRpc((uint)RPC.FreezeBody)]
         public static void RpcFreezeBody(this PlayerControl player)
         {
@@ -108,12 +110,14 @@ namespace ReachForStars.Networking
             FrozenBody.transform.localScale = targetBody.gameObject.transform.localScale;
             FrozenBody.AddComponent<FrozenBody>().SetTargetBody(targetBody);
         }
+
         [MethodRpc((uint)RPC.DamageFrozenBody)]
         public static void RpcDamageFrozenBody(this PlayerControl p, byte id)
         {
             FrozenBody body = Object.FindObjectsOfType<FrozenBody>().ToList().FirstOrDefault(x => x.id == id);
             body.Damage();
         }
+
         [MethodRpc((uint)RPC.PlaceGlue)]
         public static void RpcPlaceGlue(this PlayerControl p)
         {
@@ -121,6 +125,7 @@ namespace ReachForStars.Networking
             glue.transform.position = new Vector3(p.transform.position.x, p.transform.position.y, 1f);
             glue.AddComponent<Glue>();
         }
+
         [MethodRpc((uint)RPC.PlaceTrap)]
         public static void RpcPlaceTrap(this PlayerControl p)
         {

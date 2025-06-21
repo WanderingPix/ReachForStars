@@ -19,7 +19,7 @@ public class MoleRole : ImpostorRole, ICustomRole
     public override bool IsAffectedByComms => false;
     public List<Vent> MinedVents { get; set; } = new();
     public string RoleName => rolename.GetTranslatedText();
-    public string RoleDescription => "Dig vents around the map";
+    public string RoleDescription => "Throw vents around the map";
     public string RoleLongDescription => RoleDescription;
     public Color RoleColor => Palette.ImpostorRed;
     public ModdedRoleTeams Team => ModdedRoleTeams.Impostor;

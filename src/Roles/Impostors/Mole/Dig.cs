@@ -1,26 +1,22 @@
 using MiraAPI.Hud;
 using MiraAPI.Utilities.Assets;
 using ReachForStars.Networking;
-using UnityEngine;
-using MiraAPI.Utilities;
-using MiraAPI.Networking;
-using System.Collections.Generic;
-using UnityEngine.UI;
-using ReachForStars.Utilities;
-using Reactor.Utilities;
 using ReachForStars.Translation;
+using UnityEngine;
 
 namespace ReachForStars.Roles.Impostors.Mole;
+
 public class Dig : CustomActionButton
 {
-    public override string Name => buttonName.GetTranslatedText();
     public TranslationPool buttonName = new TranslationPool(
-    english: "Dig",
-    spanish: "excavar",
-    french: "creuser",
-    russian: "копать"// tbh, i love this role actually :) - lime
-    //italian: "scavare"// btw really that sounds kida unprofessional (I'm using slang) XoXo pengun
+        "Throw",
+        "excavar",
+        "creuser",
+        "копать" // tbh, i love this role actually :) - lime
+        //italian: "scavare"// btw really that sounds kida unprofessional (I'm using slang) XoXo pengun
     );
+
+    public override string Name => buttonName.GetTranslatedText();
 
     public override float Cooldown => 0;
     public override float EffectDuration => 1;
@@ -40,14 +36,16 @@ public class Dig : CustomActionButton
     {
         return UsesLeft != 0;
     }
+
     protected override void OnClick()
     {
         PlayerControl.LocalPlayer.RpcPlaceVent();
         PlayerControl.LocalPlayer.NetTransform.Halt();
         PlayerControl.LocalPlayer.MyPhysics.enabled = false;
     }
+
     public override void OnEffectEnd()
     {
         PlayerControl.LocalPlayer.MyPhysics.enabled = true;
-    } 
+    }
 }

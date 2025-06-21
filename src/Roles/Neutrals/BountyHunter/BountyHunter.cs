@@ -53,7 +53,6 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
         CanUseVent = false,
         GhostRole = (RoleTypes)RoleId.Get<NeutralGhost>(),
         TasksCountForProgress = false,
-        RoleHintType = RoleHintType.TaskHint
     };
 
     public override void Initialize(PlayerControl player)
