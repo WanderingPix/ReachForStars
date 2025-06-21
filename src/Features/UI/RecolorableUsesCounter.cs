@@ -13,8 +13,8 @@ public static class RecolorableUsesCounter
     {
         foreach (var button in HudManager.Instance.GetComponentsInChildren<AbilityButton>(true))
         {
-            if (role is not ICustomRole) button.usesRemainingSprite.color = role.TeamColor;
-            else if (role is ICustomRole custom) button.usesRemainingSprite.color = custom.RoleColor;
+            if (role is ICustomRole custom) button.usesRemainingSprite.color = custom.RoleColor;
+            else if (role is not ICustomRole) button.usesRemainingSprite.color = role.TeamColor;
         }
     }
 }

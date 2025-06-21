@@ -12,10 +12,10 @@ public class ExileKill : CustomActionButton<PlayerControl>
 {
     public override string Name => "kill";
 
-    public override float Cooldown => 1;
+    public override float Cooldown => 0;
     public override float EffectDuration => 0;
 
-    public override int MaxUses => 0;
+    public override int MaxUses => 1;
 
     public override LoadableAsset<Sprite> Sprite => Assets.RedKillButton;
 

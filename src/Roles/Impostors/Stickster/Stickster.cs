@@ -1,5 +1,8 @@
-﻿using MiraAPI.Roles;
+﻿using System.Collections.Generic;
+using MiraAPI.GameOptions;
+using MiraAPI.Roles;
 using ReachForStars.Translation;
+using Reactor.Utilities.Extensions;
 using UnityEngine;
 
 namespace ReachForStars.Roles.Impostors.Stickster;
@@ -23,6 +26,8 @@ public class SticksterRole : ImpostorRole, ICustomRole
         //italian: ""
     );
 
+    public List<Glue> PlacedGlues { get; set; } = new();
+
     public string RoleDescriptionLong => RoleDescLong.GetTranslatedText();
     public override bool IsAffectedByComms => false;
     public string RoleName => "Stickster";
@@ -39,6 +44,16 @@ public class SticksterRole : ImpostorRole, ICustomRole
     public override void SpawnTaskHeader(PlayerControl playerControl)
     {
         // remove existing task header.
+    }
+
+    public override void OnMeetingStart()
+    {
+        if (OptionGroupSingleton<SticksterOptions>.Instance.DoesGlueDespawn)
+        {
+            foreach (var g in PlacedGlues) g.gameObject.DestroyImmediate();
+
+            PlacedGlues.Clear();
+        }
     }
 
     public override bool DidWin(GameOverReason gameOverReason)

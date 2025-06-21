@@ -121,9 +121,13 @@ namespace ReachForStars.Networking
         [MethodRpc((uint)RPC.PlaceGlue)]
         public static void RpcPlaceGlue(this PlayerControl p)
         {
-            GameObject glue = new GameObject("Glue");
-            glue.transform.position = new Vector3(p.transform.position.x, p.transform.position.y, 1f);
-            glue.AddComponent<Glue>();
+            if (p.Data.Role is SticksterRole stickster)
+            {
+                var go = new GameObject("Glue");
+                go.transform.position = new Vector3(p.transform.position.x, p.transform.position.y, 1f);
+                var glue = go.AddComponent<Glue>();
+                stickster.PlacedGlues.Add(glue);
+            }
         }
 
         [MethodRpc((uint)RPC.PlaceTrap)]

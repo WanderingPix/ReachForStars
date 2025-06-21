@@ -61,7 +61,13 @@ namespace ReachForStars.Roles.Neutrals.Exiled
                 CustomButtonSingleton<ExileKill>.Instance.Button.Show();
             }
         }
+
+        public override void OnMeetingStart()
+        {
+            CustomButtonSingleton<ExileKill>.Instance.Button.SetUsesRemaining(1);
+        }
     }
+
 
     public enum ExiledEnemyTeam
     {
