@@ -50,7 +50,8 @@ public class FreezerRole : ImpostorRole, ICustomRole
         CanGetKilled = true,
         CanUseVent = true,
         //Icon = Assets.ChillerIcon
-        IntroSound = Assets.FreezeSFX
+        IntroSound = Assets.FreezeSFX,
+        TasksCountForProgress = false
     };
 
     public override void SpawnTaskHeader(PlayerControl playerControl)

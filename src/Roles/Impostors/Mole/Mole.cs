@@ -29,6 +29,8 @@ public class MoleRole : ImpostorRole, ICustomRole
         UseVanillaKillButton = true,
         CanGetKilled = true,
         CanUseVent = true,
+        Icon = Assets.DigButton,
+        TasksCountForProgress = false
     };
 
     public override void SpawnTaskHeader(PlayerControl playerControl)

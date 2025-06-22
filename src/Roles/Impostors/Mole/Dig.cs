@@ -9,7 +9,7 @@ namespace ReachForStars.Roles.Impostors.Mole;
 public class Dig : CustomActionButton
 {
     public TranslationPool buttonName = new TranslationPool(
-        "Throw",
+        "Dig",
         "excavar",
         "creuser",
         "копать" // tbh, i love this role actually :) - lime
@@ -25,7 +25,7 @@ public class Dig : CustomActionButton
 
     public override int MaxUses => 1;
 
-    public override LoadableAsset<Sprite> Sprite => Assets.PlaceHolder;
+    public override LoadableAsset<Sprite> Sprite => Assets.DigButton;
 
     public override bool Enabled(RoleBehaviour? role)
     {

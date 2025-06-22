@@ -105,4 +105,6 @@ public static class Assets
     //Mole
     public static LoadableBundleAsset<RuntimeAnimatorController> VentDigAnimController { get; } =
         new("VentDigAnimController.controller", Bundle);
+
+    public static LoadableResourceAsset DigButton { get; } = new("ReachForStars.Resources.DigButton.png");
 }

@@ -38,7 +38,8 @@ public class SticksterRole : ImpostorRole, ICustomRole
 
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
-        IntroSound = Assets.SticksterIntroSFX
+        IntroSound = Assets.SticksterIntroSFX,
+        TasksCountForProgress = false
     };
 
     public override void SpawnTaskHeader(PlayerControl playerControl)

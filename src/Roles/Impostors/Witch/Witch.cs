@@ -44,6 +44,7 @@ public class WitchRole : ImpostorRole, ICustomRole
     {
         UseVanillaKillButton = OptionGroupSingleton<WitchOptions>.Instance.CanDoNormalKilling,
         CanGetKilled = true,
+        TasksCountForProgress = false
         //Icon = Assets.PlaceHolder
     };
 
