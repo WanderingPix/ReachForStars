@@ -34,7 +34,7 @@ public class Dig : CustomActionButton
 
     public override bool CanUse()
     {
-        return UsesLeft != 0;
+        return UsesLeft != 0 && PlayerControl.LocalPlayer.CanPet();
     }
 
     protected override void OnClick()

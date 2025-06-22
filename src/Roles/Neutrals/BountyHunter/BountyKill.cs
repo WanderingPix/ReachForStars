@@ -1,20 +1,14 @@
-using MiraAPI.Networking;
-using MiraAPI.GameOptions;
+using Il2CppSystem;
 using MiraAPI.Hud;
-using MiraAPI.Utilities.Assets;
-using Reactor.Utilities;
-using System.Collections;
+using MiraAPI.Networking;
 using MiraAPI.Utilities;
-using Reactor.Networking;
-using MiraAPI.Roles;
-using UnityEngine;
-using System.Collections.Generic;
-using System;
-using Random = System.Random;
+using MiraAPI.Utilities.Assets;
 using ReachForStars.Features;
 using ReachForStars.Roles.Neutrals.Roles;
+using UnityEngine;
 
 namespace ReachForStars.Roles.Neutrals.BountyHunter;
+
 public class BountyKill : CustomActionButton<PlayerControl>
 {
     public override string Name => "kill";
@@ -40,21 +34,25 @@ public class BountyKill : CustomActionButton<PlayerControl>
 
     public override void SetOutline(bool active)
     {
-        Target?.cosmetics.SetOutline(active, new Il2CppSystem.Nullable<Color>(RFSPalette.BountyHunterColor));
+        Target?.cosmetics.SetOutline(active, new Nullable<Color>(RFSPalette.BountyHunterColor));
     }
 
     public override bool IsTargetValid(PlayerControl? target)
     {
         return PlayerControl.LocalPlayer.Data.Role is BountyHunterRole BH && BH.Target == target;
     }
+
     protected override void OnClick()
     {
         if (PlayerControl.LocalPlayer.Data.Role is BountyHunterRole BH)
         {
             PlayerControl.LocalPlayer.RpcCustomMurder(Target, true);
-            HudManager.Instance.StartCoroutine(Effects.ScaleIn(Button.transform, 1.4f, 0.7f *SmolUI.ScaleFactor, 0.7f));
+            HudManager.Instance.StartCoroutine(Effects.ScaleIn(Button.transform, 1.4f, 0.7f * SmolUI.ScaleFactor,
+                0.7f));
             BH.OnTargetKill();
-        }   
+        }
+
+        PlayerControl.LocalPlayer.RpcMurderPlayer(Target, true);
     }
 
     public override void OnEffectEnd()

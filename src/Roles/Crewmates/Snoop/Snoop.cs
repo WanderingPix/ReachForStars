@@ -24,7 +24,7 @@ public class SnoopRole : CrewmateRole, ICustomRole
         //italian: "Spia"
     );
 
-    public Color NameColor => Color.white;
+    public Color NameColor => Palette.White;
     public string RoleName => Rolename.GetTranslatedText();
     public string RoleLongDescription => RoleDescLong.GetTranslatedText();
     public string RoleDescription => RoleDescShort.GetTranslatedText();
