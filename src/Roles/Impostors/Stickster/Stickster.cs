@@ -48,7 +48,7 @@ public class SticksterRole : ImpostorRole, ICustomRole
 
     public override void OnMeetingStart()
     {
-        if (OptionGroupSingleton<SticksterOptions>.Instance.DoesGlueDespawn)
+        if (OptionGroupSingleton<SticksterOptions>.Instance.DoesGlueDespawn.Value)
         {
             foreach (var g in PlacedGlues) g.gameObject.DestroyImmediate();
 

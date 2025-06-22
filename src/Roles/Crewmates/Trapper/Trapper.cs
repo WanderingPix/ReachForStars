@@ -1,9 +1,11 @@
-﻿using MiraAPI.Roles;
+﻿using MiraAPI.PluginLoading;
+using MiraAPI.Roles;
 using ReachForStars.Translation;
 using UnityEngine;
 
 namespace ReachForStars.Roles.Crewmates.Trapper;
 
+[MiraIgnore]
 public class TrapperRole : CrewmateRole, ICustomRole
 {
     public TranslationPool RoleDescLong = new TranslationPool(
