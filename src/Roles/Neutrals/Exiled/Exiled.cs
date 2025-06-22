@@ -64,7 +64,7 @@ namespace ReachForStars.Roles.Neutrals.Exiled
 
         public override void OnMeetingStart()
         {
-            CustomButtonSingleton<ExileKill>.Instance.Button.SetUsesRemaining(1);
+            CustomButtonSingleton<ExileKill>.Instance.SetUses(1);
         }
     }
 
