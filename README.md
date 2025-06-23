@@ -11,7 +11,7 @@ This is achieved via making roles that fit seamlessly into the core game loop, a
 - Comsistent Artwork!
 - Game modes (Coming soon)
 
-# Disclamer:
-**This mod is not affiliated with Among Us or Innersloth LLC, and the content contained therein is not endorsed or otherwise sponsored by Innersloth LLC. Portions of the materials contained herein are property of Innersloth LLC. © Innersloth LLC.**
+>[!NOTE]
+>**This mod is not affiliated with Among Us or Innersloth LLC, and the content contained therein is not endorsed or otherwise sponsored by Innersloth LLC. Portions of the materials contained herein are property of Innersloth LLC. © Innersloth LLC.**
 
 # Made with 🩷 Using [Mira API](github.com/All-Of-Us-Mods/MiraAPI)!
