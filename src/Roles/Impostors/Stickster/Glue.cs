@@ -23,6 +23,7 @@ public class Glue : MonoBehaviour
     {
         gameObject.transform.localScale = new Vector3(0.45f, 0.45f, 1f);
         myRend = gameObject.AddComponent<SpriteRenderer>();
+        myRend.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
         Coroutines.Start(DoSpawnAnimation(myRend));
     }
 

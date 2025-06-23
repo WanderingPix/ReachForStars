@@ -109,7 +109,7 @@ namespace ReachForStars.Networking
             FrozenBody.transform.position = targetBody.gameObject.transform.position;
             FrozenBody.transform.localScale = targetBody.gameObject.transform.localScale;
             FrozenBody.AddComponent<FrozenBody>().SetTargetBody(targetBody);
-            FrozenBody.layer = LayerMask.NameToLayer("Objects");
+            FrozenBody.layer = LayerMask.NameToLayer("ShortObjects");
         }
 
         [MethodRpc((uint)RPC.DamageFrozenBody)]
