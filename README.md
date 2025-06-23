@@ -1,4 +1,4 @@
-<p style="text-align: center;">! [image](https://github.com/user-attachments/assets/2b0ed07e-741d-424b-accb-16a1a17634d2)
+<p style="text-align: center;">[image](https://github.com/user-attachments/assets/2b0ed07e-741d-424b-accb-16a1a17634d2)
 
 An Among Us mod meant to expand on the base game whilst keeping the vanilla feel ✨
 
