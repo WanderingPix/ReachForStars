@@ -1,3 +1,17 @@
-![ReachForStarsLogo](https://github.com/user-attachments/assets/cc3a0f7b-e1bc-4b2f-a054-9cccc6af0e5b)
+![image](https://github.com/user-attachments/assets/2b0ed07e-741d-424b-accb-16a1a17634d2)
 
-# An Among Us mod meant to expand on the base game whilst keeping the vanilla feel ✨
+An Among Us mod meant to expand on the base game whilst keeping the vanilla feel ✨
+
+This is achieved via making roles that fit seamlessly into the core game loop, and making use of animations
+
+# Features:
+
+- 9 New roles to spice up the game!
+- New colors to make you look more stylish!
+- Comsistent Artwork!
+- Game modes (Coming soon)
+
+# Disclamer:
+**This mod is not affiliated with Among Us or Innersloth LLC, and the content contained therein is not endorsed or otherwise sponsored by Innersloth LLC. Portions of the materials contained herein are property of Innersloth LLC. © Innersloth LLC.**
+
+# Made with 🩷 Using [Mira API](github.com/All-Of-Us-Mods/MiraAPI)!
