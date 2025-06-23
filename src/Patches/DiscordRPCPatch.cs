@@ -1,16 +1,14 @@
 using Discord;
 using HarmonyLib;
-using ReachForStars.Features;
 
-namespace ReachForStars
+namespace ReachForStars;
+
+[HarmonyPatch]
+public class DiscordRPCPatches
 {
-    [HarmonyPatch]
-    public class DiscordRPCPatches
+    [HarmonyPatch(typeof(ActivityManager), nameof(ActivityManager.UpdateActivity))]
+    public static void Postfix([HarmonyArgument(0)] Activity activity)
     {
-        [HarmonyPatch(typeof(ActivityManager), nameof(ActivityManager.UpdateActivity))]
-        public static void Postfix([HarmonyArgument(0)] Activity activity)
-        {
-            activity.Details = "Reach For The Stars";
-        }
+        activity.Details = "Reach For The Stars";
     }
 }

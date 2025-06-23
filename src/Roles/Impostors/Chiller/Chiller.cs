@@ -29,7 +29,7 @@ public class FreezerRole : ImpostorRole, ICustomRole
 
     public TranslationPool rolename = new
     (
-        english: "Chiller",
+        "Chiller",
         french: "Refrigirateur",
         spanish: "Congelador",
         russian: "Охладитель"
@@ -44,7 +44,7 @@ public class FreezerRole : ImpostorRole, ICustomRole
     public Color RoleColor => Palette.ImpostorRed;
     public ModdedRoleTeams Team => ModdedRoleTeams.Impostor;
 
-    public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
+    public CustomRoleConfiguration Configuration => new(this)
     {
         UseVanillaKillButton = true,
         CanGetKilled = true,

@@ -1,25 +1,21 @@
-﻿using System;
-using MiraAPI.Events;
-using MiraAPI.GameOptions;
-using MiraAPI.GameOptions.Attributes;
+﻿using MiraAPI.GameOptions;
 using MiraAPI.GameOptions.OptionTypes;
-using MiraAPI.Utilities;
-using Reactor.Utilities;
 using UnityEngine;
 
 namespace ReachForStars;
 
 public sealed class MapOptions : AbstractOptionGroup
 {
-    public override string GroupName => "Map Options";
-    public override Color GroupColor => new Color(0f, 0.5f, 0f, 1f);
-    public ModdedEnumOption DecoOption { get; } = new("Map Decoration", 0, typeof(MapDeco));
     public enum MapDeco
     {
         Default = 0,
         Normal = 1,
         Halloween = 2,
         Christmas = 3,
-        Celebration = 4,
+        Celebration = 4
     }
+
+    public override string GroupName => "Map Options";
+    public override Color GroupColor => new(0f, 0.5f, 0f, 1f);
+    public ModdedEnumOption DecoOption { get; } = new("Map Decoration", 0, typeof(MapDeco));
 }

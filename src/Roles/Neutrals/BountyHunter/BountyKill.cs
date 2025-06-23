@@ -29,7 +29,7 @@ public class BountyKill : CustomActionButton<PlayerControl>
 
     public override PlayerControl? GetTarget()
     {
-        return PlayerControl.LocalPlayer.GetClosestPlayer(true, Distance, false);
+        return PlayerControl.LocalPlayer.GetClosestPlayer(true, Distance);
     }
 
     public override void SetOutline(bool active)
@@ -46,7 +46,7 @@ public class BountyKill : CustomActionButton<PlayerControl>
     {
         if (PlayerControl.LocalPlayer.Data.Role is BountyHunterRole BH)
         {
-            PlayerControl.LocalPlayer.RpcCustomMurder(Target, true);
+            PlayerControl.LocalPlayer.RpcCustomMurder(Target);
             HudManager.Instance.StartCoroutine(Effects.ScaleIn(Button.transform, 1.4f, 0.7f * SmolUI.ScaleFactor,
                 0.7f));
             BH.OnTargetKill();

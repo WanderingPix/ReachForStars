@@ -17,12 +17,11 @@ public class SticksterRole : ImpostorRole, ICustomRole
         //italian: ""
     );
 
-    public TranslationPool RoleDescShort = new TranslationPool
-    (
-        english: "Spill glue all over the map!",
-        spanish: "¡Derrama pegamento por todo el mapa!",
-        french: "Verse de la colle partout sur la carte!",
-        russian: "Пролей клей по всей карте!"
+    public TranslationPool RoleDescShort = new(
+        "Spill glue all over the map!",
+        "¡Derrama pegamento por todo el mapa!",
+        "Verse de la colle partout sur la carte!",
+        "Пролей клей по всей карте!"
         //italian: ""
     );
 
@@ -36,7 +35,7 @@ public class SticksterRole : ImpostorRole, ICustomRole
     public Color RoleColor => Palette.ImpostorRed;
     public ModdedRoleTeams Team => ModdedRoleTeams.Impostor;
 
-    public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
+    public CustomRoleConfiguration Configuration => new(this)
     {
         IntroSound = Assets.SticksterIntroSFX,
         TasksCountForProgress = false,

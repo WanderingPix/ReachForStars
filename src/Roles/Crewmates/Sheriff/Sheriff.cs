@@ -6,16 +6,16 @@ namespace ReachForStars.Roles.Crewmates.Sheriff;
 
 public class SheriffRole : CrewmateRole, ICustomRole
 {
-    public TranslationPool RoleDescLong = new TranslationPool(
-        english: "Shoot the Impostors, but\n not the Crew",
+    public TranslationPool RoleDescLong = new(
+        "Shoot the Impostors, but\n not the Crew",
         french: "Tirez sur les imposteurs,\n mais pas sur vos coéquipiers",
         spanish: "Dispara a los impostores pero no\n a los tripulantes",
         russian: "стреляй в предателей, но не в экипаж"
         //italian: "Spara gli Impostori\n non l'equipaggio"
     );
 
-    public TranslationPool RoleDescShort = new TranslationPool(
-        english: "Choose who to shoot",
+    public TranslationPool RoleDescShort = new(
+        "Choose who to shoot",
         french: "Choisissez sur qui tirer",
         spanish: "Elige a quién disparar",
         russian: "выбери того, кого застрелить"
@@ -39,7 +39,7 @@ public class SheriffRole : CrewmateRole, ICustomRole
 
     public Color OptionsMenuColor => Palette.CrewmateRoleHeaderBlue;
 
-    public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
+    public CustomRoleConfiguration Configuration => new(this)
     {
         Icon = Assets.SheriffIcon
     };

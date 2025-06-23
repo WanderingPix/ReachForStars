@@ -63,7 +63,7 @@ public class Glue : MonoBehaviour
     public static LoadableResourceAsset getRandomGlueSprite()
     {
         var rng = new Random();
-        int index = rng.Next(0, Variations.Length);
+        var index = rng.Next(0, Variations.Length);
         return Variations[index];
     }
 }

@@ -22,10 +22,10 @@ public class DetectiveRole : CrewmateRole, ICustomRole
 
     public TranslationPool roleName = new
     (
-        english: "Detective",
-        spanish: "Detective",
-        french: "Detective",
-        russian: "Детектив"
+        "Detective",
+        "Detective",
+        "Detective",
+        "Детектив"
         //italian: "Ispettore"
     );
 
@@ -40,7 +40,7 @@ public class DetectiveRole : CrewmateRole, ICustomRole
     public Color RoleColor => Palette.CrewmateRoleHeaderBlue;
     public ModdedRoleTeams Team => ModdedRoleTeams.Crewmate;
 
-    public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
+    public CustomRoleConfiguration Configuration => new(this)
     {
         Icon = Assets.DetectiveIcon
     };
@@ -64,9 +64,7 @@ public class DetectiveRole : CrewmateRole, ICustomRole
         Suspects.Clear();
         foreach (var p in Helpers.GetClosestPlayers(Player.GetTruePosition(), 6f)
                      .Where(x => x != Player && !x.Data.IsDead))
-        {
             Suspects.Add(p);
-        }
     }
 
     public void SetUpVoteArea(PlayerVoteArea area)

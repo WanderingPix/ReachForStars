@@ -1,16 +1,16 @@
 using MiraAPI.GameOptions;
 using MiraAPI.GameOptions.Attributes;
-using MiraAPI.GameOptions.OptionTypes;
+using MiraAPI.Utilities;
 
-namespace ReachForStars.Roles.Impostors.Witch
+namespace ReachForStars.Roles.Impostors.Witch;
+
+public sealed class WitchOptions : AbstractOptionGroup<WitchRole>
 {
-    public sealed class WitchOptions : AbstractOptionGroup<WitchRole>
-    {
-        public override string GroupName => "Witch Options";
-        [ModdedNumberOption("Poison Kill Delay", 10f, 25f, 5f, MiraAPI.Utilities.MiraNumberSuffixes.Seconds)]
-        public float PoisonDelay { get; set; } = 15f;
-        
-        [ModdedToggleOption("Witch Can Do Normal Killing")]
-        public bool CanDoNormalKilling { get; set; } = false;
-    }
+    public override string GroupName => "Witch Options";
+
+    [ModdedNumberOption("Poison Kill Delay", 10f, 25f, 5f, MiraNumberSuffixes.Seconds)]
+    public float PoisonDelay { get; set; } = 15f;
+
+    [ModdedToggleOption("Witch Can Do Normal Killing")]
+    public bool CanDoNormalKilling { get; set; } = false;
 }

@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using AmongUs.GameOptions;
 using MiraAPI.GameOptions;
 using MiraAPI.Hud;
@@ -46,13 +45,13 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
     public Color RoleColor => RFSPalette.BountyHunterColor;
     public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
 
-    public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
+    public CustomRoleConfiguration Configuration => new(this)
     {
         UseVanillaKillButton = false,
         CanGetKilled = true,
         CanUseVent = false,
         GhostRole = (RoleTypes)RoleId.Get<NeutralGhost>(),
-        TasksCountForProgress = false,
+        TasksCountForProgress = false
     };
 
     public override void Initialize(PlayerControl player)
@@ -83,9 +82,9 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
 
     private void GenerateNewBountyTarget()
     {
-        Random rnd = new Random();
-        List<PlayerControl> Playerpool = Helpers.GetAlivePlayers().Where(x => x != PlayerControl.LocalPlayer).ToList();
-        int index = rnd.Next(Playerpool.Count);
+        var rnd = new Random();
+        var Playerpool = Helpers.GetAlivePlayers().Where(x => x != PlayerControl.LocalPlayer).ToList();
+        var index = rnd.Next(Playerpool.Count);
         Target = Playerpool[index];
 
         if (hud) hud.OnNewTargetGenerated(Target.Data);

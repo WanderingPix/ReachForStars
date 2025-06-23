@@ -1,30 +1,28 @@
 using MiraAPI.Modifiers;
 using MiraAPI.Modifiers.Types;
-using UnityEngine;
-using MiraAPI.Networking;
-using MiraAPI.GameOptions;
-using Reactor.Utilities;
-using Reactor.Utilities.Extensions;
-using MiraAPI.Utilities.Assets;
 using ReachForStars.Translation;
+using Reactor.Utilities.Extensions;
+using UnityEngine;
 
 namespace ReachForStars.Roles.Crewmates.Trapper;
 
 public class StunnedModifier : TimedModifier
 {
-    public override string ModifierName => name.GetTranslatedText();
+    private GameObject indicator;
+
     public TranslationPool name = new
     (
-        english: "Stunned",
-        spanish: "Atónito",
-        french: "Choc",
-        russian: "ошеломленный"
+        "Stunned",
+        "Atónito",
+        "Choc",
+        "ошеломленный"
         //italian: ""
     );
 
-    public override float Duration => 3f;
-
     public PlayerControl Trapper;
+    public override string ModifierName => name.GetTranslatedText();
+
+    public override float Duration => 3f;
 
     public override void OnMeetingStart()
     {
@@ -40,10 +38,11 @@ public class StunnedModifier : TimedModifier
             indicator.transform.SetParent(Player.gameObject.transform);
             indicator.transform.localPosition = new Vector3(0f, 0.8f, 0f);
         }
+
         Player.NetTransform.Halt();
         Player.MyPhysics.enabled = false;
     }
-    GameObject indicator;
+
     public override void OnTimerComplete()
     {
         Player.MyPhysics.enabled = true;

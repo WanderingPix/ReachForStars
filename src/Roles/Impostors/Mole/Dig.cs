@@ -8,7 +8,7 @@ namespace ReachForStars.Roles.Impostors.Mole;
 
 public class Dig : CustomActionButton
 {
-    public TranslationPool buttonName = new TranslationPool(
+    public TranslationPool buttonName = new(
         "Dig",
         "excavar",
         "creuser",

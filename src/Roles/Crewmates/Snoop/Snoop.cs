@@ -16,11 +16,11 @@ public class SnoopRole : CrewmateRole, ICustomRole
         french: "Espionnez vos coéquipiers"
     );
 
-    public TranslationPool Rolename = new TranslationPool(
-        english: "Snoop",
-        spanish: "fisgón",
-        french: "Espion",
-        russian: "шпион"
+    public TranslationPool Rolename = new(
+        "Snoop",
+        "fisgón",
+        "Espion",
+        "шпион"
         //italian: "Spia"
     );
 
@@ -31,7 +31,5 @@ public class SnoopRole : CrewmateRole, ICustomRole
     public Color RoleColor => Palette.CrewmateRoleHeaderBlue;
     public ModdedRoleTeams Team => ModdedRoleTeams.Crewmate;
 
-    public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
-    {
-    };
+    public CustomRoleConfiguration Configuration => new(this);
 }

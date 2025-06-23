@@ -1,7 +1,5 @@
 ﻿using MiraAPI.GameOptions;
 using MiraAPI.GameOptions.Attributes;
-using MiraAPI.Utilities;
-using UnityEngine;
 
 namespace ReachForStars;
 

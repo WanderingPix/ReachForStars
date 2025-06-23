@@ -23,9 +23,8 @@ public class WitchRole : ImpostorRole, ICustomRole
         //italian: "Utilizza la magia contro l'equipaggio."
     );
 
-    public TranslationPool roleName = new TranslationPool
-    (
-        english: "Witch",
+    public TranslationPool roleName = new(
+        "Witch",
         french: "Sorcière",
         spanish: "Bruja",
         russian: "Ведьма"
@@ -40,7 +39,7 @@ public class WitchRole : ImpostorRole, ICustomRole
     public Color RoleColor => Palette.ImpostorRed;
     public ModdedRoleTeams Team => ModdedRoleTeams.Impostor;
 
-    public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
+    public CustomRoleConfiguration Configuration => new(this)
     {
         UseVanillaKillButton = OptionGroupSingleton<WitchOptions>.Instance.CanDoNormalKilling,
         CanGetKilled = true,

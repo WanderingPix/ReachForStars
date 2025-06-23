@@ -17,17 +17,16 @@ public class JesterRole : ImpostorRole, ICustomRole
         //italian: ""
     );
 
-    public TranslationPool roleName => new TranslationPool(
-        english: "Jester",
+    public TranslationPool roleName => new(
+        "Jester",
         french: "Plaisantin",
         spanish: "Bufón",
         russian: "Шут"
         //italian: "Pagliaccio"
     );
 
-    public TranslationPool RoleDescShort => new TranslationPool
-    (
-        english: "Fool The Crew!",
+    public TranslationPool RoleDescShort => new(
+        "Fool The Crew!",
         french: "Trollez l'équipage!",
         spanish: "¡Engaña a la tripulación!",
         russian: "Надурачь весь экипаж!"
@@ -36,9 +35,8 @@ public class JesterRole : ImpostorRole, ICustomRole
 
     public override bool IsAffectedByComms => false;
 
-    public TranslationPool RoleDescLong => new TranslationPool
-    (
-        english: "Get voted out to win.",
+    public TranslationPool RoleDescLong => new(
+        "Get voted out to win.",
         french: "Faites-vous ejecter pour gagner.",
         spanish: "Ser expulsado para ganar",
         russian: "Будь выброшен, чтобы выиграть"
@@ -48,10 +46,10 @@ public class JesterRole : ImpostorRole, ICustomRole
     public string RoleName => roleName.GetTranslatedText();
     public string RoleDescription => RoleDescShort.GetTranslatedText();
     public string RoleLongDescription => RoleDescLong.GetTranslatedText();
-    public Color RoleColor => new Color(1f, 0.18f, 0.81f, 1f);
+    public Color RoleColor => new(1f, 0.18f, 0.81f, 1f);
     public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
 
-    public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
+    public CustomRoleConfiguration Configuration => new(this)
     {
         UseVanillaKillButton = false,
         CanGetKilled = true,
@@ -64,7 +62,7 @@ public class JesterRole : ImpostorRole, ICustomRole
 
     public string GetCustomEjectionMessage(NetworkedPlayerInfo player)
     {
-        string message = EjectMessage.GetTranslatedText();
+        var message = EjectMessage.GetTranslatedText();
         message = message.Replace("P", player.PlayerName);
         return message;
     }

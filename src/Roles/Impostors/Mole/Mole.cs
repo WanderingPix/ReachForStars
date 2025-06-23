@@ -8,12 +8,11 @@ namespace ReachForStars.Roles.Impostors.Mole;
 
 public class MoleRole : ImpostorRole, ICustomRole
 {
-    public TranslationPool rolename = new TranslationPool
-    (
-        english: "Mole",
-        spanish: "Topo",
-        french: "Taupe",
-        russian: "Моль"
+    public TranslationPool rolename = new(
+        "Mole",
+        "Topo",
+        "Taupe",
+        "Моль"
     );
 
     public override bool IsAffectedByComms => false;
@@ -24,7 +23,7 @@ public class MoleRole : ImpostorRole, ICustomRole
     public Color RoleColor => Palette.ImpostorRed;
     public ModdedRoleTeams Team => ModdedRoleTeams.Impostor;
 
-    public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
+    public CustomRoleConfiguration Configuration => new(this)
     {
         UseVanillaKillButton = true,
         CanGetKilled = true,

@@ -28,7 +28,7 @@ public class ExileKill : CustomActionButton<PlayerControl>
 
     public override PlayerControl? GetTarget()
     {
-        return PlayerControl.LocalPlayer.GetClosestPlayer(true, Distance, false);
+        return PlayerControl.LocalPlayer.GetClosestPlayer(true, Distance);
     }
 
     public override void SetOutline(bool active)

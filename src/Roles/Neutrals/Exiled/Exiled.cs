@@ -5,73 +5,62 @@ using MiraAPI.Roles;
 using MiraAPI.Utilities;
 using UnityEngine;
 
-namespace ReachForStars.Roles.Neutrals.Exiled
+namespace ReachForStars.Roles.Neutrals.Exiled;
+
+public class Exiled : ImpostorRole, ICustomRole
 {
-    public class Exiled : ImpostorRole, ICustomRole
+    public ExiledEnemyTeam EnemyTeam;
+    public override bool IsAffectedByComms => false;
+    public string RoleName => "Exiled";
+    public string RoleDescription => $"Make sure {EnemyTeam} lose at all costs!";
+    public string RoleLongDescription => RoleDescription;
+    public Color RoleColor => RFSPalette.ExiledColor;
+    public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
+
+    public CustomRoleConfiguration Configuration => new(this)
     {
-        public ExiledEnemyTeam EnemyTeam;
-        public override bool IsAffectedByComms => false;
-        public string RoleName => "Exiled";
-        public string RoleDescription => $"Make sure {EnemyTeam} lose at all costs!";
-        public string RoleLongDescription => RoleDescription;
-        public Color RoleColor => RFSPalette.ExiledColor;
-        public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
+        UseVanillaKillButton = false,
+        CanGetKilled = true,
+        CanUseVent = false,
+        GhostRole = (RoleTypes)RoleId.Get<NeutralGhost>(),
+        TasksCountForProgress = false
+    };
 
-        public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
-        {
-            UseVanillaKillButton = false,
-            CanGetKilled = true,
-            CanUseVent = false,
-            GhostRole = (RoleTypes)RoleId.Get<NeutralGhost>(),
-            TasksCountForProgress = false
-        };
+    public override void SpawnTaskHeader(PlayerControl playerControl)
+    {
+        // remove existing task header.
+    }
 
-        public override void SpawnTaskHeader(PlayerControl playerControl)
-        {
-            // remove existing task header.
-        }
+    public override bool DidWin(GameOverReason gameOverReason)
+    {
+        if (EnemyTeam == ExiledEnemyTeam.Crewmates) return !GameManager.Instance.DidHumansWin(gameOverReason);
 
-        public override bool DidWin(GameOverReason gameOverReason)
+        return !GameManager.Instance.DidImpostorsWin(gameOverReason);
+    }
+
+    public override void Initialize(PlayerControl player)
+    {
+        RoleBehaviourStubs.Initialize(this, player);
+        if (player == PlayerControl.LocalPlayer)
         {
-            if (EnemyTeam == ExiledEnemyTeam.Crewmates)
-            {
-                return !GameManager.Instance.DidHumansWin(gameOverReason);
-            }
+            var CheckChance = Helpers.CheckChance(50);
+            if (CheckChance)
+                EnemyTeam = ExiledEnemyTeam.Crewmates;
             else
-            {
-                return !GameManager.Instance.DidImpostorsWin(gameOverReason);
-            }
-        }
+                EnemyTeam = ExiledEnemyTeam.Impostors;
 
-        public override void Initialize(PlayerControl player)
-        {
-            RoleBehaviourStubs.Initialize(this, player);
-            if (player == PlayerControl.LocalPlayer)
-            {
-                bool CheckChance = Helpers.CheckChance(50);
-                if (CheckChance)
-                {
-                    EnemyTeam = ExiledEnemyTeam.Crewmates;
-                }
-                else
-                {
-                    EnemyTeam = ExiledEnemyTeam.Impostors;
-                }
-
-                CustomButtonSingleton<ExileKill>.Instance.Button.Show();
-            }
-        }
-
-        public override void OnMeetingStart()
-        {
-            CustomButtonSingleton<ExileKill>.Instance.SetUses(1);
+            CustomButtonSingleton<ExileKill>.Instance.Button.Show();
         }
     }
 
-
-    public enum ExiledEnemyTeam
+    public override void OnMeetingStart()
     {
-        Crewmates,
-        Impostors
+        CustomButtonSingleton<ExileKill>.Instance.SetUses(1);
     }
+}
+
+public enum ExiledEnemyTeam
+{
+    Crewmates,
+    Impostors
 }

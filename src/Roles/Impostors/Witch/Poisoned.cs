@@ -15,7 +15,7 @@ public class PoisonedModifier : TimedModifier
 
     public override void OnMeetingStart()
     {
-        Player.RpcCustomMurder(PlayerControl.LocalPlayer, true);
+        Player.RpcCustomMurder(PlayerControl.LocalPlayer);
         Player.RpcRemoveModifier<PoisonedModifier>();
     }
 

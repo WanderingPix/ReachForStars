@@ -11,11 +11,11 @@ namespace ReachForStars.Roles.Crewmates.Detective;
 
 public class Inspect : CustomActionButton<DeadBody>
 {
-    public TranslationPool ButtonName = new TranslationPool(
-        english: "Inspect",
-        spanish: "Inspeccionar",
-        french: "Inspecter",
-        russian: "Исследовать"
+    public TranslationPool ButtonName = new(
+        "Inspect",
+        "Inspeccionar",
+        "Inspecter",
+        "Исследовать"
         //italian: "Ispettore"
     );
 
@@ -55,10 +55,7 @@ public class Inspect : CustomActionButton<DeadBody>
 
     public override void OnEffectEnd()
     {
-        if (PlayerControl.LocalPlayer.Data.Role is DetectiveRole det)
-        {
-            det.RegenerateSuspectList();
-        }
+        if (PlayerControl.LocalPlayer.Data.Role is DetectiveRole det) det.RegenerateSuspectList();
     }
 
     public IEnumerator DoInspectAnimation()

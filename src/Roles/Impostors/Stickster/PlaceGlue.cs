@@ -1,27 +1,22 @@
 using MiraAPI.Hud;
 using MiraAPI.Utilities.Assets;
 using ReachForStars.Networking;
-using UnityEngine;
-using MiraAPI.Utilities;
-using MiraAPI.Networking;
-using System.Collections.Generic;
-using UnityEngine.UI;
-using ReachForStars.Utilities;
-using Reactor.Utilities;
 using ReachForStars.Translation;
+using UnityEngine;
 
 namespace ReachForStars.Roles.Impostors.Stickster;
+
 public class PlaceGlue : CustomActionButton
 {
-    public override string Name => buttonName.GetTranslatedText();
-    public TranslationPool buttonName = new TranslationPool(
-    english: "Glue",
-    spanish: "Cola",
-     
-    french: "Colle",
-    russian: "Клей"
-    //italian: "Colla"
+    public TranslationPool buttonName = new(
+        "Glue",
+        "Cola",
+        "Colle",
+        "Клей"
+        //italian: "Colla"
     );
+
+    public override string Name => buttonName.GetTranslatedText();
 
     public override float Cooldown => 10;
     public override float EffectDuration => 0;

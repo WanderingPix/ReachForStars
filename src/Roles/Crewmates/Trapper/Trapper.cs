@@ -8,16 +8,16 @@ namespace ReachForStars.Roles.Crewmates.Trapper;
 [MiraIgnore]
 public class TrapperRole : CrewmateRole, ICustomRole
 {
-    public TranslationPool RoleDescLong = new TranslationPool(
-        english: "Place Traps around the map to catch the impostors!",
+    public TranslationPool RoleDescLong = new(
+        "Place Traps around the map to catch the impostors!",
         french: "Mettez des piéges pour trouver les imposteurs!",
         spanish: "¡Coloca trampas alrededor del mapa para atrapar a los impostores!",
         russian: "Ставь Трапки (ловушки) чтобы поймать предателей!"
         //italian: ""
     );
 
-    public TranslationPool RoleDescShort = new TranslationPool(
-        english: "Trap the Impostors!",
+    public TranslationPool RoleDescShort = new(
+        "Trap the Impostors!",
         french: "Piégez les imposteurs!",
         spanish: "¡Atrapa a los impostores!",
         russian: "Замани предателей в ловушку"
@@ -41,9 +41,9 @@ public class TrapperRole : CrewmateRole, ICustomRole
 
     public Color OptionsMenuColor => Palette.CrewmateRoleHeaderBlue;
 
-    public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
+    public CustomRoleConfiguration Configuration => new(this)
     {
         //Icon = Assets.PlaceHolder,
-        IntroSound = Assets.TrapPlaceSfx,
+        IntroSound = Assets.TrapPlaceSfx
     };
 }
