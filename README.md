@@ -1,5 +1,4 @@
-<div style="text-align: center;">
-  ![image](https://github.com/user-attachments/assets/9c405f2e-72ed-4e3d-b37e-9a7a85fefc0d)
+![image](https://github.com/user-attachments/assets/58da762f-f1ac-4d8b-91b9-de256194bcad)
 
 
 An Among Us mod meant to expand on the base game whilst keeping the vanilla feel ✨
@@ -19,5 +18,3 @@ This is achieved via making roles that fit seamlessly into the core game loop, a
 >**This mod is not affiliated with Among Us or Innersloth LLC, and the content contained therein is not endorsed or otherwise sponsored by Innersloth LLC. Portions of the materials contained herein are property of Innersloth LLC. © Innersloth LLC.**
 
 # Made with 🩷 Using [Mira API](github.com/All-Of-Us-Mods/MiraAPI)!
-
-</div>
