@@ -42,6 +42,7 @@ public class DetectiveRole : CrewmateRole, ICustomRole
 
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
+        Icon = Assets.DetectiveIcon
     };
 
     public override void Initialize(PlayerControl player)

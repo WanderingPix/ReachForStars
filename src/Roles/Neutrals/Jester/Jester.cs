@@ -58,7 +58,8 @@ public class JesterRole : ImpostorRole, ICustomRole
         CanUseVent = true,
         CanUseSabotage = false,
         TasksCountForProgress = false,
-        IntroSound = Assets.JesterIntroSFX
+        IntroSound = Assets.JesterIntroSFX,
+        Icon = Assets.jesterIcon
     };
 
     public string GetCustomEjectionMessage(NetworkedPlayerInfo player)

@@ -49,7 +49,7 @@ public class FreezerRole : ImpostorRole, ICustomRole
         UseVanillaKillButton = true,
         CanGetKilled = true,
         CanUseVent = true,
-        //Icon = Assets.ChillerIcon
+        Icon = Assets.ChillerIcon,
         IntroSound = Assets.FreezeSFX,
         TasksCountForProgress = false
     };

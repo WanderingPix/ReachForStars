@@ -64,7 +64,7 @@ public static class Assets
 
     //Detective
     public static LoadableResourceAsset Inspect { get; } = new("ReachForStars.Resources.Inspect.png");
-
+    public static LoadableResourceAsset DetectiveIcon { get; } = new("ReachForStars.Resources.RoleIcons.detective.png");
     public static LoadableResourceAsset MagnifyingGlass { get; } = new("ReachForStars.Resources.MagnifyingGlass.png");
 
     //Witch
@@ -97,10 +97,13 @@ public static class Assets
         new("ReachForStars.Resources.SoundEffects.SticksterIntro.wav");
 
     public static LoadableResourceAsset Glue { get; } = new("ReachForStars.Resources.Glue.png");
+    public static LoadableResourceAsset SticksterIcon { get; } = new("ReachForStars.Resources.RoleIcons.stickster.png");
 
     //Jester
     public static LoadableAudioResourceAsset JesterIntroSFX { get; } =
         new("ReachForStars.Resources.SoundEffects.JesterIntro.wav");
+
+    public static LoadableResourceAsset jesterIcon { get; } = new("ReachForStars.Resources.RoleIcons.jester.png");
 
     //Mole
     public static LoadableBundleAsset<RuntimeAnimatorController> VentDigAnimController { get; } =

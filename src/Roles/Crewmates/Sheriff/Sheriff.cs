@@ -41,6 +41,6 @@ public class SheriffRole : CrewmateRole, ICustomRole
 
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
-        //Icon = Assets.Sheriff//Icon,
+        Icon = Assets.SheriffIcon
     };
 }
