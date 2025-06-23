@@ -45,6 +45,11 @@ public class DetectiveRole : CrewmateRole, ICustomRole
         Icon = Assets.DetectiveIcon
     };
 
+    public override void OnVotingComplete()
+    {
+        Suspects.Clear();
+    }
+
     public override void Initialize(PlayerControl player)
     {
         if (player == PlayerControl.LocalPlayer)
