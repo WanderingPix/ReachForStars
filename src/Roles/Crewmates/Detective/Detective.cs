@@ -62,7 +62,7 @@ public class DetectiveRole : CrewmateRole, ICustomRole
     public void RegenerateSuspectList()
     {
         Suspects.Clear();
-        foreach (var p in Helpers.GetClosestPlayers(Player.GetTruePosition(), 6f)
+        foreach (var p in Helpers.GetClosestPlayers(Player.GetTruePosition(), 7f)
                      .Where(x => x != Player && !x.Data.IsDead))
             Suspects.Add(p);
     }

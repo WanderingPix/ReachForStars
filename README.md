@@ -7,7 +7,7 @@ This is achieved via making roles that fit seamlessly into the core game loop, a
 
 # Features:
 
-- 9 New roles to spice up the game!
+- 8 New roles to spice up the game!
 - New colors to make you look more stylish!
 - Comsistent Artwork!
 - Game modes (Coming soon)

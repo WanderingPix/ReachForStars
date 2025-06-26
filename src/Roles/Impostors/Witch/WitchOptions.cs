@@ -4,7 +4,7 @@ using MiraAPI.Utilities;
 
 namespace ReachForStars.Roles.Impostors.Witch;
 
-public sealed class WitchOptions : AbstractOptionGroup<WitchRole>
+public class WitchOptions : AbstractOptionGroup<WitchRole>
 {
     public override string GroupName => "Witch Options";
 

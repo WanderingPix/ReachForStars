@@ -8,10 +8,10 @@ public static class SmolUI
 
     public static void ResizeUI()
     {
-        foreach (var button in
-                 HudManager.Instance.GetComponentsInChildren<ActionButton>(true))
+        foreach (var button in HudManager.Instance.GetComponentsInChildren<ActionButton>(true))
             button.gameObject.transform.localScale *=
                 ScaleFactor; //Once chipseq's client settings pr is merged, add a slider for this 
+
         foreach (var arrange in HudManager.Instance.transform.FindChild("Buttons")
                      .GetComponentsInChildren<GridArrange>(true))
             arrange.CellSize *= new Vector2(ScaleFactor, ScaleFactor);

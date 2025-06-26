@@ -59,11 +59,12 @@ public static class RPCS
 
             PluginSingleton<ReachForStars>.Instance.Log.LogDebug("Managed to create vent!");
 
-            var myAnim = vent.myRend.gameObject.GetComponent<Animator>();
+            Animator myAnim;
+            if (vent.gameObject.GetComponent<Animator>()) myAnim = vent.myRend.gameObject.GetComponent<Animator>();
+            else myAnim = vent.myRend.gameObject.AddComponent<Animator>();
 
             PluginSingleton<ReachForStars>.Instance.Log.LogDebug("Managed to create animator!");
             myAnim.runtimeAnimatorController = Assets.VentDigAnimController.LoadAsset();
-
 
             vent.gameObject.name = $"MoleVent{mole.MinedVents.Count()}";
 

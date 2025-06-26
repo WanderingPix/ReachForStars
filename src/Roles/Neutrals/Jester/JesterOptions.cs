@@ -3,7 +3,7 @@ using MiraAPI.GameOptions.Attributes;
 
 namespace ReachForStars.Roles.Neutrals.Jester;
 
-public sealed class JesterOptions : AbstractOptionGroup<JesterRole>
+public class JesterOptions : AbstractOptionGroup<JesterRole>
 {
     public override string GroupName => "Jester Options";
 

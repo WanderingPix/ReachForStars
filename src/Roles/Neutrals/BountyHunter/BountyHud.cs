@@ -53,6 +53,8 @@ public class BountyHud : MonoBehaviour
         Event.AddListener(OnClick());
         myButton.OnClick = Event;
         myButton.Colliders = new Il2CppReferenceArray<Collider2D>([myCollider]);
+        gameObject.transform.localPosition =
+            new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y, 20f);
     }
 
     public void ToggleHud(bool Show)

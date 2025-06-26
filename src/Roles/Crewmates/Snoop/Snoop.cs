@@ -32,4 +32,9 @@ public class SnoopRole : CrewmateRole, ICustomRole
     public ModdedRoleTeams Team => ModdedRoleTeams.Crewmate;
 
     public CustomRoleConfiguration Configuration => new(this);
+
+    public bool CanLocalPlayerSeeRole(PlayerControl player)
+    {
+        return false;
+    }
 }

@@ -44,15 +44,14 @@ public class BountyKill : CustomActionButton<PlayerControl>
 
     protected override void OnClick()
     {
-        if (PlayerControl.LocalPlayer.Data.Role is BountyHunterRole BH)
+        var BH = PlayerControl.LocalPlayer.Data.Role.TryCast<BountyHunterRole>();
+        if (BH)
         {
             PlayerControl.LocalPlayer.RpcCustomMurder(Target);
             HudManager.Instance.StartCoroutine(Effects.ScaleIn(Button.transform, 1.4f, 0.7f * SmolUI.ScaleFactor,
                 0.7f));
             BH.OnTargetKill();
         }
-
-        PlayerControl.LocalPlayer.RpcMurderPlayer(Target, true);
     }
 
     public override void OnEffectEnd()

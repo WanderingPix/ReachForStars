@@ -28,7 +28,7 @@ public class NeutralWinner : GameModifier
         return 0;
     }
 
-    public override string GetHudString()
+    public override string GetDescription()
     {
         return hudString.GetTranslatedText();
     }
@@ -37,6 +37,6 @@ public class NeutralWinner : GameModifier
     {
         if (Player == PlayerControl.LocalPlayer)
             Helpers.CreateTextLabel(hudString.GetTranslatedText(), HudManager.Instance.transform,
-                AspectPosition.EdgeAlignments.Bottom, new Vector3(0f, 1f, 0f));
+                AspectPosition.EdgeAlignments.Bottom, new Vector3(0f, 0f, 0f));
     }
 }

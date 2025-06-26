@@ -3,7 +3,7 @@ using MiraAPI.GameOptions.Attributes;
 
 namespace ReachForStars.Roles.Crewmates.Sheriff;
 
-public sealed class SheriffOptions : AbstractOptionGroup<SheriffRole>
+public class SheriffOptions : AbstractOptionGroup<SheriffRole>
 {
     public override string GroupName => "Sheriff Options";
 

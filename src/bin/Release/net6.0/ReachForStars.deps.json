@@ -8,20 +8,20 @@
     ".NETCoreApp,Version=v6.0": {
       "ReachForStars/1.0.0": {
         "dependencies": {
-          "AllOfUs.MiraAPI": "0.2.0-rc.5",
+          "AllOfUs.MiraAPI": "0.2.0-rc.7",
           "AmongUs.GameLibs.Steam": "2024.9.4",
           "BepInEx.AutoPlugin": "1.1.0",
           "BepInEx.IL2CPP.MSBuild": "2.0.1",
-          "BepInEx.Unity.IL2CPP": "6.0.0-be.697",
+          "BepInEx.Unity.IL2CPP": "6.0.0-be.735",
           "Reactor": "2.3.1"
         },
         "runtime": {
           "ReachForStars.dll": {}
         }
       },
-      "AllOfUs.MiraAPI/0.2.0-rc.5": {
+      "AllOfUs.MiraAPI/0.2.0-rc.7": {
         "dependencies": {
-          "BepInEx.Unity.IL2CPP": "6.0.0-be.697",
+          "BepInEx.Unity.IL2CPP": "6.0.0-be.735",
           "Reactor": "2.3.1"
         },
         "runtime": {
@@ -32,62 +32,61 @@
         }
       },
       "AmongUs.GameLibs.Steam/2024.9.4": {},
-      "AsmResolver/5.5.0": {},
-      "AsmResolver.DotNet/5.5.0": {
+      "AsmResolver/6.0.0-beta.1": {},
+      "AsmResolver.DotNet/6.0.0-beta.1": {
         "dependencies": {
-          "AsmResolver.PE": "5.5.0",
-          "System.Text.Json": "6.0.8"
+          "AsmResolver.PE": "6.0.0-beta.1"
         }
       },
-      "AsmResolver.PE/5.5.0": {
+      "AsmResolver.PE/6.0.0-beta.1": {
         "dependencies": {
-          "AsmResolver.PE.File": "5.5.0"
+          "AsmResolver.PE.File": "6.0.0-beta.1"
         }
       },
-      "AsmResolver.PE.File/5.5.0": {
+      "AsmResolver.PE.File/6.0.0-beta.1": {
         "dependencies": {
-          "AsmResolver": "5.5.0"
+          "AsmResolver": "6.0.0-beta.1"
         }
       },
-      "AssetRipper.CIL/1.0.0": {
+      "AssetRipper.CIL/1.1.2": {
         "dependencies": {
-          "AsmResolver.DotNet": "5.5.0"
+          "AsmResolver.DotNet": "6.0.0-beta.1"
         }
       },
-      "AssetRipper.Gee.External.Capstone/2.3.1": {},
+      "AssetRipper.Gee.External.Capstone/2.3.2": {},
       "AssetRipper.Primitives/3.1.3": {},
       "BepInEx.AutoPlugin/1.1.0": {},
-      "BepInEx.Core/6.0.0-be.697": {
+      "BepInEx.Core/6.0.0-be.735": {
         "dependencies": {
           "HarmonyX": "2.10.2",
-          "MonoMod.Utils": "22.5.1.1",
+          "MonoMod.Utils": "22.7.31.1",
           "SemanticVersioning": "2.0.2"
         }
       },
       "BepInEx.IL2CPP.MSBuild/2.0.1": {},
-      "BepInEx.Unity.Common/6.0.0-be.697": {
+      "BepInEx.Unity.Common/6.0.0-be.735": {
         "dependencies": {
           "AssetRipper.Primitives": "3.1.3",
-          "MonoMod.Utils": "22.5.1.1"
+          "MonoMod.Utils": "22.7.31.1"
         }
       },
-      "BepInEx.Unity.IL2CPP/6.0.0-be.697": {
+      "BepInEx.Unity.IL2CPP/6.0.0-be.735": {
         "dependencies": {
-          "BepInEx.Core": "6.0.0-be.697",
-          "BepInEx.Unity.Common": "6.0.0-be.697",
+          "BepInEx.Core": "6.0.0-be.735",
+          "BepInEx.Unity.Common": "6.0.0-be.735",
           "HarmonyX": "2.10.2",
           "Iced": "1.21.0",
           "Il2CppInterop.Generator": "1.4.6-ci.426",
           "Il2CppInterop.HarmonySupport": "1.4.6-ci.426",
           "Il2CppInterop.Runtime": "1.4.6-ci.426",
-          "MonoMod.RuntimeDetour": "22.5.1.1",
-          "Samboy063.Cpp2IL.Core": "2022.1.0-development.972"
+          "MonoMod.RuntimeDetour": "22.7.31.1",
+          "Samboy063.Cpp2IL.Core": "2022.1.0-pre-release.19"
         }
       },
-      "Disarm/2022.1.0-master.26": {},
+      "Disarm/2022.1.0-master.57": {},
       "HarmonyX/2.10.2": {
         "dependencies": {
-          "MonoMod.RuntimeDetour": "22.5.1.1",
+          "MonoMod.RuntimeDetour": "22.7.31.1",
           "System.Reflection.Emit": "4.7.0"
         }
       },
@@ -121,10 +120,10 @@
       "Microsoft.NETCore.Platforms/1.1.1": {},
       "Microsoft.NETCore.Targets/1.1.0": {},
       "Mono.Cecil/0.11.4": {},
-      "MonoMod.RuntimeDetour/22.5.1.1": {
+      "MonoMod.RuntimeDetour/22.7.31.1": {
         "dependencies": {
           "Mono.Cecil": "0.11.4",
-          "MonoMod.Utils": "22.5.1.1",
+          "MonoMod.Utils": "22.7.31.1",
           "System.Collections.NonGeneric": "4.3.0",
           "System.ComponentModel.TypeConverter": "4.3.0",
           "System.IO.FileSystem.Primitives": "4.3.0",
@@ -133,7 +132,7 @@
           "System.Reflection.TypeExtensions": "4.7.0"
         }
       },
-      "MonoMod.Utils/22.5.1.1": {
+      "MonoMod.Utils/22.7.31.1": {
         "dependencies": {
           "Mono.Cecil": "0.11.4",
           "System.Collections.NonGeneric": "4.3.0",
@@ -146,7 +145,7 @@
       },
       "Reactor/2.3.1": {
         "dependencies": {
-          "BepInEx.Unity.IL2CPP": "6.0.0-be.697"
+          "BepInEx.Unity.IL2CPP": "6.0.0-be.735"
         },
         "runtime": {
           "lib/net6.0/Reactor.dll": {
@@ -197,26 +196,26 @@
       "runtime.ubuntu.14.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {},
       "runtime.ubuntu.16.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {},
       "runtime.ubuntu.16.10-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {},
-      "Samboy063.Cpp2IL.Core/2022.1.0-development.972": {
+      "Samboy063.Cpp2IL.Core/2022.1.0-pre-release.19": {
         "dependencies": {
-          "AsmResolver.DotNet": "5.5.0",
-          "AssetRipper.CIL": "1.0.0",
-          "AssetRipper.Gee.External.Capstone": "2.3.1",
-          "Disarm": "2022.1.0-master.26",
+          "AsmResolver.DotNet": "6.0.0-beta.1",
+          "AssetRipper.CIL": "1.1.2",
+          "AssetRipper.Gee.External.Capstone": "2.3.2",
+          "Disarm": "2022.1.0-master.57",
           "Iced": "1.21.0",
-          "Samboy063.LibCpp2IL": "2022.1.0-development.972",
-          "StableNameDotNet": "0.1.0-development.972"
+          "Samboy063.LibCpp2IL": "2022.1.0-pre-release.19",
+          "StableNameDotNet": "0.1.0-pre-release.19"
         }
       },
-      "Samboy063.LibCpp2IL/2022.1.0-development.972": {
+      "Samboy063.LibCpp2IL/2022.1.0-pre-release.19": {
         "dependencies": {
           "AssetRipper.Primitives": "3.1.3",
-          "Samboy063.WasmDisassembler": "2022.1.0-development.972"
+          "Samboy063.WasmDisassembler": "2022.1.0-pre-release.19"
         }
       },
-      "Samboy063.WasmDisassembler/2022.1.0-development.972": {},
+      "Samboy063.WasmDisassembler/2022.1.0-pre-release.19": {},
       "SemanticVersioning/2.0.2": {},
-      "StableNameDotNet/0.1.0-development.972": {},
+      "StableNameDotNet/0.1.0-pre-release.19": {},
       "System.Collections/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.1",
@@ -454,7 +453,6 @@
           "Microsoft.NETCore.Targets": "1.1.0"
         }
       },
-      "System.Runtime.CompilerServices.Unsafe/6.0.0": {},
       "System.Runtime.Extensions/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.1",
@@ -617,17 +615,6 @@
           "System.Runtime": "4.3.0"
         }
       },
-      "System.Text.Encodings.Web/6.0.0": {
-        "dependencies": {
-          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
-        }
-      },
-      "System.Text.Json/6.0.8": {
-        "dependencies": {
-          "System.Runtime.CompilerServices.Unsafe": "6.0.0",
-          "System.Text.Encodings.Web": "6.0.0"
-        }
-      },
       "System.Threading/4.3.0": {
         "dependencies": {
           "System.Runtime": "4.3.0",
@@ -649,12 +636,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "AllOfUs.MiraAPI/0.2.0-rc.5": {
+    "AllOfUs.MiraAPI/0.2.0-rc.7": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-4wrzQIioxzB3c+/uzrvR5SeuW4d/iDxEiIM77sA2OdmaE8aeTsiV/WSep0nRokRyvq/QTvkhXY9Mo3Pq3r+coA==",
-      "path": "allofus.miraapi/0.2.0-rc.5",
-      "hashPath": "allofus.miraapi.0.2.0-rc.5.nupkg.sha512"
+      "sha512": "sha512-gVxCSrQRF0oI2/I3bnAnTkzcTAsYSEYhSnOu8Jm/AOB6LlPs3dx1GX8N9O9UzrVS26cMx7rsBFUK7nIV4+WLLA==",
+      "path": "allofus.miraapi/0.2.0-rc.7",
+      "hashPath": "allofus.miraapi.0.2.0-rc.7.nupkg.sha512"
     },
     "AmongUs.GameLibs.Steam/2024.9.4": {
       "type": "package",
@@ -663,47 +650,47 @@
       "path": "amongus.gamelibs.steam/2024.9.4",
       "hashPath": "amongus.gamelibs.steam.2024.9.4.nupkg.sha512"
     },
-    "AsmResolver/5.5.0": {
+    "AsmResolver/6.0.0-beta.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-IuOC+b/D/da4fohYVNwo/NL+8w+q89O9B32bLotegJ+hmFlBEpQEKgtyhxc9ZfEd+x0KzwzD52RISuyLgf/BAA==",
-      "path": "asmresolver/5.5.0",
-      "hashPath": "asmresolver.5.5.0.nupkg.sha512"
+      "sha512": "sha512-M5btCR/rmrx32jZsoN6CLQ/VQk8lN8hvPb6lgojua7pjNoo7StAl92koMC8qz4vzZyH2CNqxLSDoswRvyyK/vA==",
+      "path": "asmresolver/6.0.0-beta.1",
+      "hashPath": "asmresolver.6.0.0-beta.1.nupkg.sha512"
     },
-    "AsmResolver.DotNet/5.5.0": {
+    "AsmResolver.DotNet/6.0.0-beta.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-T19DazP0h4qKXwPspTEB0ZzwlftPuvVAd68HhsS8eNYd9lRd/rtppcBmM2QLQdZeGGNJc+QEzLiAW+wrA3nKAw==",
-      "path": "asmresolver.dotnet/5.5.0",
-      "hashPath": "asmresolver.dotnet.5.5.0.nupkg.sha512"
+      "sha512": "sha512-PTq8nNQvhgTxF1iARCknffCsu7Iq9B0kN7TVC8iMaU7uEYog3xvVqH/0+TreY8GW74/+MqhZt/yEFsvS4oAduQ==",
+      "path": "asmresolver.dotnet/6.0.0-beta.1",
+      "hashPath": "asmresolver.dotnet.6.0.0-beta.1.nupkg.sha512"
     },
-    "AsmResolver.PE/5.5.0": {
+    "AsmResolver.PE/6.0.0-beta.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-bSPe0A+z4iEAabpD9h7ACQ5dkcTirx4fx05P194u/+OIUqlexHf7Zq/PEPdOkesbqHoZmgVmJ1H0GWqqouvZfA==",
-      "path": "asmresolver.pe/5.5.0",
-      "hashPath": "asmresolver.pe.5.5.0.nupkg.sha512"
+      "sha512": "sha512-KadLvx/zzFCJyF+E4jG6jPE1d0iJquzL6+hm8GBivBAs6nwHC8s6g4c857QwQCzXMWza6Vz5Q+3hFiNuOfKaWQ==",
+      "path": "asmresolver.pe/6.0.0-beta.1",
+      "hashPath": "asmresolver.pe.6.0.0-beta.1.nupkg.sha512"
     },
-    "AsmResolver.PE.File/5.5.0": {
+    "AsmResolver.PE.File/6.0.0-beta.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-XHWHnPQf0e0VEJPTaWMoiajuikF0n0fDXS2XWzEXM+/xcY+LABsp1p7ETlg+bFsDVITQRtNTa/xV8eSDlSZjNQ==",
-      "path": "asmresolver.pe.file/5.5.0",
-      "hashPath": "asmresolver.pe.file.5.5.0.nupkg.sha512"
+      "sha512": "sha512-+lusB9UMHevI5aQsu73NQ1ctPMLFvyHAsEf8vjaJ/py+kX1DkU0JkbERtBRmaf58/hBZ7cyrE7gFnjoo7Bbg7A==",
+      "path": "asmresolver.pe.file/6.0.0-beta.1",
+      "hashPath": "asmresolver.pe.file.6.0.0-beta.1.nupkg.sha512"
     },
-    "AssetRipper.CIL/1.0.0": {
+    "AssetRipper.CIL/1.1.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-l639dKLllpJ5TcX+Z1OVYz+hsKVZyMpEm59Dl4Qd6YrCHPVj9yPtF/UNjn9nFxoDm7suEFP/0vlZD/bSeXjz6Q==",
-      "path": "assetripper.cil/1.0.0",
-      "hashPath": "assetripper.cil.1.0.0.nupkg.sha512"
+      "sha512": "sha512-BRPcHORadIzSFkrVOvGkSs54j19mQdXH8dmRTVM51mS8MZLSbTpi9CDPpnWN2IdDsILUrAqbPUFo3zJodYxErw==",
+      "path": "assetripper.cil/1.1.2",
+      "hashPath": "assetripper.cil.1.1.2.nupkg.sha512"
     },
-    "AssetRipper.Gee.External.Capstone/2.3.1": {
+    "AssetRipper.Gee.External.Capstone/2.3.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-WVujToXc2sB5nVEY4iMpjhsQaqGw5RjG3c0Hl1qT/pZMbfwtafpaOwAa0G/GS5gd2jcuJwrsG880Pkyjkhi3vQ==",
-      "path": "assetripper.gee.external.capstone/2.3.1",
-      "hashPath": "assetripper.gee.external.capstone.2.3.1.nupkg.sha512"
+      "sha512": "sha512-wOr5PQPL/2ZfD7+ebt6cpRbUhSzSY5nlHGHjjzuQRiU5zkQlqQNwWDLX0M3smrm5IkaDvONkmDjFMKTlZJmyuQ==",
+      "path": "assetripper.gee.external.capstone/2.3.2",
+      "hashPath": "assetripper.gee.external.capstone.2.3.2.nupkg.sha512"
     },
     "AssetRipper.Primitives/3.1.3": {
       "type": "package",
@@ -719,12 +706,12 @@
       "path": "bepinex.autoplugin/1.1.0",
       "hashPath": "bepinex.autoplugin.1.1.0.nupkg.sha512"
     },
-    "BepInEx.Core/6.0.0-be.697": {
+    "BepInEx.Core/6.0.0-be.735": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-6p/zLtBja8BEA5+FwFwH1lUg8avO725mZKRw0P1JbuXj/XUZL8Qy5n0c7COiq/dJ58nCyW5J/ldeYUHM0c4vRA==",
-      "path": "bepinex.core/6.0.0-be.697",
-      "hashPath": "bepinex.core.6.0.0-be.697.nupkg.sha512"
+      "sha512": "sha512-FuHm9UCzjSKeiZJc3IF70Fiuqi+FynRn62PwBoOeZcHK3/qm+vl1YwbZyFlmUyf45g+UKxg2Td40iZGx88LVAQ==",
+      "path": "bepinex.core/6.0.0-be.735",
+      "hashPath": "bepinex.core.6.0.0-be.735.nupkg.sha512"
     },
     "BepInEx.IL2CPP.MSBuild/2.0.1": {
       "type": "package",
@@ -733,26 +720,26 @@
       "path": "bepinex.il2cpp.msbuild/2.0.1",
       "hashPath": "bepinex.il2cpp.msbuild.2.0.1.nupkg.sha512"
     },
-    "BepInEx.Unity.Common/6.0.0-be.697": {
+    "BepInEx.Unity.Common/6.0.0-be.735": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-6eTjN4vBy7veWUwCVWqfvL05fQ4MskpjD4wIsD0FF8g0kF/1lKjsK0Fmyb4N78vSrvm/tV1quhHChCh2SQU0GQ==",
-      "path": "bepinex.unity.common/6.0.0-be.697",
-      "hashPath": "bepinex.unity.common.6.0.0-be.697.nupkg.sha512"
+      "sha512": "sha512-vmK//OBSr+jotqTk//HSdvHtMFTKu+NlQkiEsvr0dZApTVmQM2AgpVMhEAakQPmrSsM6LRJIHCBcLFO1ypfMPQ==",
+      "path": "bepinex.unity.common/6.0.0-be.735",
+      "hashPath": "bepinex.unity.common.6.0.0-be.735.nupkg.sha512"
     },
-    "BepInEx.Unity.IL2CPP/6.0.0-be.697": {
+    "BepInEx.Unity.IL2CPP/6.0.0-be.735": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-+ahFT8WkKZ8m9NCdXgQI05M34/mdE1MXmLnLRKhqpjId6mqDQf9ORJ1bCPifdkbgYJjteIvey9EreCfmD9Vndw==",
-      "path": "bepinex.unity.il2cpp/6.0.0-be.697",
-      "hashPath": "bepinex.unity.il2cpp.6.0.0-be.697.nupkg.sha512"
+      "sha512": "sha512-2+eFJGKMR1GFPeU9wuF+TVrMANIaWIc/6N9e8x4b7b/fNiY9B6vicYNiMDb2deYQpWZtOei+2btnar5dDE5BPg==",
+      "path": "bepinex.unity.il2cpp/6.0.0-be.735",
+      "hashPath": "bepinex.unity.il2cpp.6.0.0-be.735.nupkg.sha512"
     },
-    "Disarm/2022.1.0-master.26": {
+    "Disarm/2022.1.0-master.57": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-YnZEbRGr0nG+N3G8WbRQ4Lkg8dTD3oso9iJlCVBmyhEyhLyqs+drBs1kWQbQqFPnb9mi/RJ++R9bPb+L3HF03Q==",
-      "path": "disarm/2022.1.0-master.26",
-      "hashPath": "disarm.2022.1.0-master.26.nupkg.sha512"
+      "sha512": "sha512-/dkg7hg8iPBQN4bTV1lMQacarH6fMpgUXhJuo6iI7Wv7YpH7g5F9hJfje7dSMhqG0YlDacLuyWvcph5GzKUXog==",
+      "path": "disarm/2022.1.0-master.57",
+      "hashPath": "disarm.2022.1.0-master.57.nupkg.sha512"
     },
     "HarmonyX/2.10.2": {
       "type": "package",
@@ -824,19 +811,19 @@
       "path": "mono.cecil/0.11.4",
       "hashPath": "mono.cecil.0.11.4.nupkg.sha512"
     },
-    "MonoMod.RuntimeDetour/22.5.1.1": {
+    "MonoMod.RuntimeDetour/22.7.31.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-WG5zLRuAr8KJEnIkKTuIG1OJCrGIT3pjvnAD43E0FDchHf3Dp985MF/8tmIQvAzCZV87JNs6QKeGGqmwDmpXpw==",
-      "path": "monomod.runtimedetour/22.5.1.1",
-      "hashPath": "monomod.runtimedetour.22.5.1.1.nupkg.sha512"
+      "sha512": "sha512-nxVJTvQbWAujaogt5XX3eAy7d22t66Z88aWg9sirPLO9rR/6yNCHAyZpgxXrOsIobZVW0IEZPqNMOBhgke25/w==",
+      "path": "monomod.runtimedetour/22.7.31.1",
+      "hashPath": "monomod.runtimedetour.22.7.31.1.nupkg.sha512"
     },
-    "MonoMod.Utils/22.5.1.1": {
+    "MonoMod.Utils/22.7.31.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-vBObO1atXxhi2C4AuC53y87Bqeogi9xIrD1Ym3YWr5uxc8Nrm8SrsFeD1i3x04R999+XQ3FdeHrbXScyWYEHqQ==",
-      "path": "monomod.utils/22.5.1.1",
-      "hashPath": "monomod.utils.22.5.1.1.nupkg.sha512"
+      "sha512": "sha512-nI0E1oadXS1iMbfwfCzYF08C1jRQR9cnnHv66a4BSPd4sGu2p6g4BmctCWsdAB6oGKkSJUhcfHfxcfTsDyB94Q==",
+      "path": "monomod.utils/22.7.31.1",
+      "hashPath": "monomod.utils.22.7.31.1.nupkg.sha512"
     },
     "Reactor/2.3.1": {
       "type": "package",
@@ -950,26 +937,26 @@
       "path": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl/4.3.2",
       "hashPath": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512"
     },
-    "Samboy063.Cpp2IL.Core/2022.1.0-development.972": {
+    "Samboy063.Cpp2IL.Core/2022.1.0-pre-release.19": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-nCO5VGiZzMqdtf1yZZQwhJ+DHklSBqDxF25mTsfw8mP56wt4TBYiQyXnj2EASqbz2VN0+NqUB3jlcuOgD0gNHg==",
-      "path": "samboy063.cpp2il.core/2022.1.0-development.972",
-      "hashPath": "samboy063.cpp2il.core.2022.1.0-development.972.nupkg.sha512"
+      "sha512": "sha512-mAYIrMo0VdOZzh1NS5bZeflg80gtYNY7kZo9q/blEYheUPyLXu5ozQOjX+Bq2yDh40pA+yiE2MXTnN2Is2hjgw==",
+      "path": "samboy063.cpp2il.core/2022.1.0-pre-release.19",
+      "hashPath": "samboy063.cpp2il.core.2022.1.0-pre-release.19.nupkg.sha512"
     },
-    "Samboy063.LibCpp2IL/2022.1.0-development.972": {
+    "Samboy063.LibCpp2IL/2022.1.0-pre-release.19": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-8GtNi2i4CVXlunDyNhV1cZrxWNxlPejD5VPHgQ14bYrTjG8Rn7nGDt64B5cklGUT/FMADA9t/ZAALTMJ6UXpTA==",
-      "path": "samboy063.libcpp2il/2022.1.0-development.972",
-      "hashPath": "samboy063.libcpp2il.2022.1.0-development.972.nupkg.sha512"
+      "sha512": "sha512-/n8p81ltd38BeNNS2xUNPGMSzxk/UGXr9cRNqG1MaLogzANNNrvCAXqWmNMM3tZctjp7vqTxEA+e4J4ngul8Fg==",
+      "path": "samboy063.libcpp2il/2022.1.0-pre-release.19",
+      "hashPath": "samboy063.libcpp2il.2022.1.0-pre-release.19.nupkg.sha512"
     },
-    "Samboy063.WasmDisassembler/2022.1.0-development.972": {
+    "Samboy063.WasmDisassembler/2022.1.0-pre-release.19": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-lfbUsyjArvISK9oJBx+QmDwtjXg425K66BmLUoeqzJ11kt0EAUMM34qGEMDceNyNYfl5Op5RpS+krkq/sudM4g==",
-      "path": "samboy063.wasmdisassembler/2022.1.0-development.972",
-      "hashPath": "samboy063.wasmdisassembler.2022.1.0-development.972.nupkg.sha512"
+      "sha512": "sha512-uVQdYm/J6+jJ1xt6GJ3hNhXhciwlX+LmHTPITu9jjZ75T33YJuuTD7pLVYuMymr+4gSVisg7f1wterFSyqJBWA==",
+      "path": "samboy063.wasmdisassembler/2022.1.0-pre-release.19",
+      "hashPath": "samboy063.wasmdisassembler.2022.1.0-pre-release.19.nupkg.sha512"
     },
     "SemanticVersioning/2.0.2": {
       "type": "package",
@@ -978,12 +965,12 @@
       "path": "semanticversioning/2.0.2",
       "hashPath": "semanticversioning.2.0.2.nupkg.sha512"
     },
-    "StableNameDotNet/0.1.0-development.972": {
+    "StableNameDotNet/0.1.0-pre-release.19": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-1G965uhTTEI5sKU/CFMGuhzuxDophrYS2otI3Ej+BAhbEOq//LFWpoEwhaWW5moKW0K56ZCqvB8YqnEKyk9kbA==",
-      "path": "stablenamedotnet/0.1.0-development.972",
-      "hashPath": "stablenamedotnet.0.1.0-development.972.nupkg.sha512"
+      "sha512": "sha512-5BPWtntv3PXeFIg9CuGW6OM3f5GnwvdQJbzRpufPsistFwFyt1xYW1wSDr+QIdDO7vLndr7iNpWD3FyYp9LL4g==",
+      "path": "stablenamedotnet/0.1.0-pre-release.19",
+      "hashPath": "stablenamedotnet.0.1.0-pre-release.19.nupkg.sha512"
     },
     "System.Collections/4.3.0": {
       "type": "package",
@@ -1181,13 +1168,6 @@
       "path": "system.runtime/4.3.0",
       "hashPath": "system.runtime.4.3.0.nupkg.sha512"
     },
-    "System.Runtime.CompilerServices.Unsafe/6.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-/iUeP3tq1S0XdNNoMz5C9twLSrM/TH+qElHkXWaPvuNOt+99G75NrV0OS2EqHx5wMN7popYjpc8oTjC1y16DLg==",
-      "path": "system.runtime.compilerservices.unsafe/6.0.0",
-      "hashPath": "system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
-    },
     "System.Runtime.Extensions/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -1271,20 +1251,6 @@
       "sha512": "sha512-BiIg+KWaSDOITze6jGQynxg64naAPtqGHBwDrLaCtixsa5bKiR8dpPOHA7ge3C0JJQizJE+sfkz1wV+BAKAYZw==",
       "path": "system.text.encoding/4.3.0",
       "hashPath": "system.text.encoding.4.3.0.nupkg.sha512"
-    },
-    "System.Text.Encodings.Web/6.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-Vg8eB5Tawm1IFqj4TVK1czJX89rhFxJo9ELqc/Eiq0eXy13RK00eubyU6TJE6y+GQXjyV5gSfiewDUZjQgSE0w==",
-      "path": "system.text.encodings.web/6.0.0",
-      "hashPath": "system.text.encodings.web.6.0.0.nupkg.sha512"
-    },
-    "System.Text.Json/6.0.8": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-WhW6zPEgRZoo+c1NEvSSmrME4+LqXmW6tcsRFsEiSMeco+qZ9rpLs7tT53EIkE/s9GNTYS4/STQoaGiKDSWifQ==",
-      "path": "system.text.json/6.0.8",
-      "hashPath": "system.text.json.6.0.8.nupkg.sha512"
     },
     "System.Threading/4.3.0": {
       "type": "package",

@@ -1,3 +1,6 @@
+using System.Linq;
+using MiraAPI.Events;
+using MiraAPI.Events.Vanilla.Gameplay;
 using MiraAPI.Roles;
 
 namespace ReachForStars.Features;
@@ -14,5 +17,12 @@ public static class RecolorableUsesCounter
         foreach (var button in HudManager.Instance.GetComponentsInChildren<AbilityButton>(true))
             if (role is ICustomRole custom) button.usesRemainingSprite.color = custom.RoleColor;
             else if (role is not ICustomRole) button.usesRemainingSprite.color = role.TeamColor;
+    }
+
+    [RegisterEvent]
+    public static void OnSetRole(SetRoleEvent @event)
+    {
+        if (@event.Player == PlayerControl.LocalPlayer)
+            Update(RoleManager.Instance.AllRoles.First(x => x.Role == @event.Role));
     }
 }

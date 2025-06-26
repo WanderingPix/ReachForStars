@@ -4,7 +4,7 @@ using ReachForStars.Roles.Neutrals.Roles;
 
 namespace ReachForStars.Roles.Neutrals.BountyHunter;
 
-public sealed class BountyHunterOptions : AbstractOptionGroup<BountyHunterRole>
+public class BountyHunterOptions : AbstractOptionGroup<BountyHunterRole>
 {
     public override string GroupName => "Bounty Hunter Options";
 

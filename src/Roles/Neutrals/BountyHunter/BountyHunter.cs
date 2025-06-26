@@ -92,19 +92,21 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
 
     public override void OnVotingComplete()
     {
+        hud.myButton.enabled = true;
+        hud.gameObject.SetActive(true);
         if (!HasWon)
         {
-            hud.gameObject.SetActive(true);
             GenerateNewBountyTarget();
         }
     }
 
     public override void OnMeetingStart()
     {
+        hud.myButton.enabled = false;
+        hud.gameObject.SetActive(false);
         if (!HasWon)
         {
             hud.myPlayer.gameObject.DestroyImmediate();
-            hud.gameObject.SetActive(false);
         }
     }
 
