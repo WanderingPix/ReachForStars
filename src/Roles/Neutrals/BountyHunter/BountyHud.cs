@@ -53,6 +53,8 @@ public class BountyHud : MonoBehaviour
         Event.AddListener(OnClick());
         myButton.OnClick = Event;
         myButton.Colliders = new Il2CppReferenceArray<Collider2D>([myCollider]);
+        myButton.ClickMask = myCollider;
+        myButton.useGUILayout = true;
         gameObject.transform.localPosition =
             new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y, 20f);
     }
@@ -85,6 +87,8 @@ public class BountyHud : MonoBehaviour
         if (myPlayer) myPlayer.gameObject.DestroyImmediate();
         //set up PoolablePlayer
         myPlayer = HudManager.Instance.IntroPrefab.CreatePlayer(1, 1, info, false);
+        foreach (var cosmetic in myPlayer.cosmetics.gameObject.GetComponentsInChildren<SpriteRenderer>())
+            cosmetic.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
         myPlayer.transform.SetParent(gameObject.transform);
         myPlayer.transform.localPosition = new Vector3(0f, -0.15f, 0f);
         foreach (var rend in myPlayer.gameObject.GetComponentsInChildren<SpriteRenderer>(true))

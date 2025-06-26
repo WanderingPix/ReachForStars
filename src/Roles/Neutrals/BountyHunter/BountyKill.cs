@@ -39,7 +39,7 @@ public class BountyKill : CustomActionButton<PlayerControl>
 
     public override bool IsTargetValid(PlayerControl? target)
     {
-        return PlayerControl.LocalPlayer.Data.Role is BountyHunterRole BH && BH.Target == target;
+        return PlayerControl.LocalPlayer.Data.Role.TryCast<BountyHunterRole>().Target == target;
     }
 
     protected override void OnClick()
