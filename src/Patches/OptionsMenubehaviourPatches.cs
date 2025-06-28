@@ -1,6 +1,5 @@
 using System;
 using HarmonyLib;
-using MiraAPI.Utilities;
 using Reactor.Utilities.Extensions;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -25,14 +24,10 @@ public class OptionsMenubehaviourPatches
 
         popup.button1Text.gameObject.GetComponent<TextTranslatorTMP>().DestroyImmediate();
         popup.button1Text.text = "Leave";
-        popup.button1.inactiveSprites.gameObject.GetComponent<SpriteRenderer>().color =
-            Palette.ImpostorRed.DarkenColor();
         popup.button1.OnClick.AddListener(OnExitConfirm());
 
         popup.button2Text.gameObject.GetComponent<TextTranslatorTMP>().DestroyImmediate();
         popup.button2Text.text = "One more game";
-        popup.button2.inactiveSprites.gameObject.GetComponent<SpriteRenderer>().color =
-            Palette.AcceptedGreen.DarkenColor();
         return false;
     }
 
