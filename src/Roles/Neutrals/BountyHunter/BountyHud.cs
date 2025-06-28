@@ -54,7 +54,6 @@ public class BountyHud : MonoBehaviour
         myButton.OnClick = Event;
         myButton.Colliders = new Il2CppReferenceArray<Collider2D>([myCollider]);
         myButton.ClickMask = myCollider;
-        myButton.useGUILayout = true;
         gameObject.transform.localPosition =
             new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y, 20f);
     }
