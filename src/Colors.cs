@@ -4,7 +4,7 @@ using UnityEngine;
 namespace ReachForStars.Colors;
 
 [RegisterCustomColors]
-public static class ExampleColors
+public static class Colors
 {
     public static CustomColor Cerulean { get; } = new("Cerulean", new Color(0.0f, 0.48f, 0.65f));
 

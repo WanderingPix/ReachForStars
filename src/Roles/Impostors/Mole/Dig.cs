@@ -32,15 +32,9 @@ public class Dig : CustomActionButton
         return role is MoleRole;
     }
 
-    public override bool CanUse()
-    {
-        return UsesLeft != 0 && PlayerControl.LocalPlayer.CanPet();
-    }
-
     protected override void OnClick()
     {
         PlayerControl.LocalPlayer.RpcPlaceVent();
-        PlayerControl.LocalPlayer.NetTransform.Halt();
         PlayerControl.LocalPlayer.MyPhysics.enabled = false;
     }
 

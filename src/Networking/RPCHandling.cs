@@ -1,6 +1,6 @@
+using System.Collections;
 using System.Linq;
 using MiraAPI.Utilities;
-using ReachForStars.Roles.Crewmates.Trapper;
 using ReachForStars.Roles.Impostors.Chiller;
 using ReachForStars.Roles.Impostors.Mole;
 using ReachForStars.Roles.Impostors.Stickster;
@@ -52,6 +52,8 @@ public static class RPCS
     {
         if (p.Data.Role is MoleRole mole)
         {
+            p.NetTransform.Halt();
+            p.MyPhysics.Animations.PlayIdleAnimation();
             var prefab = Object.FindObjectOfType<Vent>(true);
             var vent = Object.Instantiate(prefab);
             Vector3 ppos = p.GetTruePosition();
@@ -62,6 +64,9 @@ public static class RPCS
             Animator myAnim;
             if (vent.gameObject.GetComponent<Animator>()) myAnim = vent.myRend.gameObject.GetComponent<Animator>();
             else myAnim = vent.myRend.gameObject.AddComponent<Animator>();
+
+            SoundManager.Instance.PlaySoundAtLocation(Assets.DigSfx.LoadAsset(), ppos,
+                PlayerControl.LocalPlayer.GetTruePosition(), SoundManager.Instance.SfxChannel);
 
             PluginSingleton<ReachForStars>.Instance.Log.LogDebug("Managed to create animator!");
             myAnim.runtimeAnimatorController = Assets.VentDigAnimController.LoadAsset();
@@ -131,13 +136,26 @@ public static class RPCS
         }
     }
 
-    [MethodRpc((uint)RPC.PlaceTrap)]
-    public static void RpcPlaceTrap(this PlayerControl p)
+    [MethodRpc((uint)RPC.Execute)]
+    public static void RpcExecutePlayer(this PlayerControl Source, PlayerControl Target)
     {
-        var t = Object.Instantiate(Assets.TrapPrefab.LoadAsset());
-        Vector3 ppos = p.GetTruePosition();
-        t.transform.position = new Vector3(ppos.x, ppos.y, 1f);
-        var trapcomp = t.AddComponent<Trap>();
-        trapcomp.Trapper = p;
+        var area = Object.FindObjectsOfType<PlayerVoteArea>()
+            .First(x => x.TargetPlayerId == Target.PlayerId);
+        Coroutines.Start(CoExecute(area, Target));
+    }
+
+    public static IEnumerator CoExecute(PlayerVoteArea area, PlayerControl Target)
+    {
+        area.StartCoroutine(Effects.Shake(area.transform, 1.3f, 0.1f, true, true));
+        var Go = new GameObject("ExileHammer");
+        Go.layer = LayerMask.NameToLayer("UI");
+        Go.gameObject.transform.SetParent(area.transform);
+        Go.transform.localPosition = Vector3.zero;
+        Go.AddComponent<SpriteRenderer>();
+        Go.AddComponent<Animator>().runtimeAnimatorController = Assets.HammerAnimController.LoadAsset();
+        HudManager.Instance.StartCoroutine(Effects.ScaleIn(Go.transform, 2f, 1f, 1.3f));
+        MeetingHud.Instance.exiledPlayer = Target.Data;
+        MeetingHud.Instance.VotingComplete(null, Target.Data, false);
+        yield break;
     }
 }

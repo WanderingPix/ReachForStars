@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "ReachForStars/1.0.0": {
         "dependencies": {
-          "AllOfUs.MiraAPI": "0.2.0-rc.7",
+          "AllOfUs.MiraAPI": "0.2.0",
           "AmongUs.GameLibs.Steam": "2024.9.4",
           "BepInEx.AutoPlugin": "1.1.0",
           "BepInEx.IL2CPP.MSBuild": "2.0.1",
@@ -19,7 +19,7 @@
           "ReachForStars.dll": {}
         }
       },
-      "AllOfUs.MiraAPI/0.2.0-rc.7": {
+      "AllOfUs.MiraAPI/0.2.0": {
         "dependencies": {
           "BepInEx.Unity.IL2CPP": "6.0.0-be.735",
           "Reactor": "2.3.1"
@@ -636,12 +636,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "AllOfUs.MiraAPI/0.2.0-rc.7": {
+    "AllOfUs.MiraAPI/0.2.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-gVxCSrQRF0oI2/I3bnAnTkzcTAsYSEYhSnOu8Jm/AOB6LlPs3dx1GX8N9O9UzrVS26cMx7rsBFUK7nIV4+WLLA==",
-      "path": "allofus.miraapi/0.2.0-rc.7",
-      "hashPath": "allofus.miraapi.0.2.0-rc.7.nupkg.sha512"
+      "sha512": "sha512-27eUS2fIHhrfhYJACiV59W6dl0cDti56g0mp4IdZCKh2OhhPmF12ZZatzJH2/cD9wvlSSvoPKRvRtq+1dhUq5A==",
+      "path": "allofus.miraapi/0.2.0",
+      "hashPath": "allofus.miraapi.0.2.0.nupkg.sha512"
     },
     "AmongUs.GameLibs.Steam/2024.9.4": {
       "type": "package",

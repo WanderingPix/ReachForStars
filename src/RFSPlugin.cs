@@ -5,7 +5,6 @@ using HarmonyLib;
 using Il2CppInterop.Runtime.Injection;
 using MiraAPI;
 using MiraAPI.PluginLoading;
-using ReachForStars.Roles.Crewmates.Trapper;
 using ReachForStars.Roles.Impostors.Stickster;
 using ReachForStars.Roles.Neutrals.BountyHunter;
 using Reactor;
@@ -15,7 +14,7 @@ using Reactor.Utilities;
 
 namespace ReachForStars;
 
-[BepInAutoPlugin("ReachForStars", "Reach For Stars", "v1.0.0")]
+[BepInAutoPlugin("ReachForStars", "Reach For Stars", "v1.1.0")]
 [BepInProcess("Among Us.exe")]
 [BepInDependency(ReactorPlugin.Id)]
 [BepInDependency(MiraApiPlugin.Id)]
@@ -36,7 +35,6 @@ public partial class ReachForStars : BasePlugin, IMiraPlugin
         Harmony.PatchAll();
         ReactorCredits.Register<ReachForStars>(ReactorCredits.AlwaysShow);
         ClassInjector.RegisterTypeInIl2Cpp<Glue>();
-        ClassInjector.RegisterTypeInIl2Cpp<Trap>();
         ClassInjector.RegisterTypeInIl2Cpp<BountyHud>();
 
         Log.LogInfo("Reach For Stars Loaded Successfully! >u<");

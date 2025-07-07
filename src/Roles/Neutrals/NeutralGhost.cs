@@ -1,4 +1,5 @@
-﻿using MiraAPI.Modifiers;
+﻿using Il2CppSystem.Text;
+using MiraAPI.Modifiers;
 using MiraAPI.Roles;
 using ReachForStars.Translation;
 using UnityEngine;
@@ -35,7 +36,8 @@ public class NeutralGhost : CrewmateGhostRole, ICustomRole
         CanGetKilled = true,
         CanUseVent = false,
         CanUseSabotage = false,
-        TasksCountForProgress = false
+        TasksCountForProgress = false,
+        RoleHintType = RoleHintType.TaskHint
     };
 
     public virtual bool CanLocalPlayerSeeRole(PlayerControl player)
@@ -46,5 +48,15 @@ public class NeutralGhost : CrewmateGhostRole, ICustomRole
     public override bool DidWin(GameOverReason gameOverReason)
     {
         return Player.HasModifier<NeutralWinner>();
+    }
+
+    public override void AppendTaskHint(StringBuilder taskStringBuilder)
+    {
+        if (Player.HasModifier<NeutralWinner>())
+            taskStringBuilder =
+                new StringBuilder($"You have <b>won<b> as {RoleName}! Watch the rest of the game unfold!");
+        else
+            taskStringBuilder =
+                new StringBuilder($"You have <b>lost<b> as {RoleName}! Watch the rest of the game unfold!");
     }
 }

@@ -17,6 +17,6 @@ public class HudManagerPatches
     [HarmonyPostfix]
     public static void AbilityButtonStartPostfix(ActionButton __instance)
     {
-        RecolorableUsesCounter.SetUp(__instance);
+        //RecolorableUsesCounter.SetUp(__instance);
     }
 }

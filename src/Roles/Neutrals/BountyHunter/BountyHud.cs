@@ -1,7 +1,6 @@
 using System;
 using Il2CppInterop.Runtime.InteropTypes.Arrays;
 using MiraAPI.GameOptions;
-using Reactor.Utilities;
 using Reactor.Utilities.Extensions;
 using TMPro;
 using UnityEngine;
@@ -73,7 +72,6 @@ public class BountyHud : MonoBehaviour
     {
         void Listener()
         {
-            PluginSingleton<ReachForStars>.Instance.Log.LogDebug("User has clicked the bounty hud! closing ui...");
             ToggleHud(!IsOpen);
         }
 

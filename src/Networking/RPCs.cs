@@ -29,6 +29,6 @@ public enum RPC : uint
     // for placing  Glues as arachnid
     PlaceGlue,
 
-    // for placing traps as trapper
-    PlaceTrap
+    // for exiling players as executioner
+    Execute
 }

@@ -57,6 +57,6 @@ public class Poison : CustomActionButton<PlayerControl>
 
     public override void OnEffectEnd()
     {
-        SoundManager.Instance.PlaySound(PlayerControl.LocalPlayer.KillSfx, false, 0.5f);
+        SoundManager.Instance.PlaySound(PlayerControl.LocalPlayer.KillSfx, false, 0.5f, SoundManager.Instance.sfxMixer);
     }
 }

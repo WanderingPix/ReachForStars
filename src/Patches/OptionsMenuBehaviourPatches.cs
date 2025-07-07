@@ -7,7 +7,7 @@ using Object = UnityEngine.Object;
 namespace ReachForStars;
 
 [HarmonyPatch]
-public class OptionsMenubehaviourPatches
+public class OptionsMenuBehaviourPatches
 {
     [HarmonyPatch(typeof(ExitGameButton), nameof(ExitGameButton.OnClick))]
     [HarmonyPrefix]
@@ -24,24 +24,25 @@ public class OptionsMenubehaviourPatches
 
         popup.button1Text.gameObject.GetComponent<TextTranslatorTMP>().DestroyImmediate();
         popup.button1Text.text = "Leave";
-        popup.button1.OnClick.AddListener(OnExitConfirm());
+        popup.button1.OnClick.AddListener(OnExitPopupButtonClicked(popup, true));
 
         popup.button2Text.gameObject.GetComponent<TextTranslatorTMP>().DestroyImmediate();
         popup.button2Text.text = "One more game";
+        popup.button1.OnClick.AddListener(OnExitPopupButtonClicked(popup, false));
         return false;
     }
 
-    private static Action OnExitConfirm()
+    private static Action OnExitPopupButtonClicked(InfoTextBox popup, bool leave)
     {
         void Listener()
         {
-            if (AmongUsClient.Instance)
+            if (AmongUsClient.Instance && leave)
             {
                 AmongUsClient.Instance.ExitGame(DisconnectReasons.ExitGame);
-                return;
+                SceneChanger.ChangeScene("MainMenu");
             }
 
-            SceneChanger.ChangeScene("MainMenu");
+            popup.gameObject.DestroyImmediate();
         }
 
         return Listener;

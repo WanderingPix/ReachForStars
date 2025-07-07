@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "mTa3PuLAOTs=",
+  "dgSpecHash": "bPN6R+kfZrM=",
   "success": true,
   "projectFilePath": "C:\\Users\\User\\Desktop\\My Personal projects\\Among Us\\ReachForStars\\ReachForStars\\src\\ReachForStars.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\User\\.nuget\\packages\\allofus.miraapi\\0.2.0-rc.7\\allofus.miraapi.0.2.0-rc.7.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\allofus.miraapi\\0.2.0\\allofus.miraapi.0.2.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\amongus.gamelibs.steam\\2024.9.4\\amongus.gamelibs.steam.2024.9.4.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\asmresolver\\6.0.0-beta.1\\asmresolver.6.0.0-beta.1.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\asmresolver.dotnet\\6.0.0-beta.1\\asmresolver.dotnet.6.0.0-beta.1.nupkg.sha512",

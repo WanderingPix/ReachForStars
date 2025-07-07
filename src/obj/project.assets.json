@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net6.0": {
-      "AllOfUs.MiraAPI/0.2.0-rc.7": {
+      "AllOfUs.MiraAPI/0.2.0": {
         "type": "package",
         "dependencies": {
           "BepInEx.Unity.IL2CPP": "6.0.0-be.735",
@@ -1399,14 +1399,15 @@
     }
   },
   "libraries": {
-    "AllOfUs.MiraAPI/0.2.0-rc.7": {
-      "sha512": "gVxCSrQRF0oI2/I3bnAnTkzcTAsYSEYhSnOu8Jm/AOB6LlPs3dx1GX8N9O9UzrVS26cMx7rsBFUK7nIV4+WLLA==",
+    "AllOfUs.MiraAPI/0.2.0": {
+      "sha512": "27eUS2fIHhrfhYJACiV59W6dl0cDti56g0mp4IdZCKh2OhhPmF12ZZatzJH2/cD9wvlSSvoPKRvRtq+1dhUq5A==",
       "type": "package",
-      "path": "allofus.miraapi/0.2.0-rc.7",
+      "path": "allofus.miraapi/0.2.0",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "README.md",
-        "allofus.miraapi.0.2.0-rc.7.nupkg.sha512",
+        "allofus.miraapi.0.2.0.nupkg.sha512",
         "allofus.miraapi.nuspec",
         "lib/net6.0/MiraAPI.dll",
         "lib/net6.0/MiraAPI.xml"
@@ -4655,7 +4656,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "AllOfUs.MiraAPI >= 0.2.0-rc.7",
+      "AllOfUs.MiraAPI >= 0.2.0",
       "AmongUs.GameLibs.Steam >= 2024.9.4",
       "BepInEx.AutoPlugin >= 1.1.0",
       "BepInEx.IL2CPP.MSBuild >= 2.0.1",
@@ -4719,7 +4720,7 @@
         "dependencies": {
           "AllOfUs.MiraAPI": {
             "target": "Package",
-            "version": "[0.2.0-rc.7, )"
+            "version": "[0.2.0, )"
           },
           "AmongUs.GameLibs.Steam": {
             "suppressParent": "All",
