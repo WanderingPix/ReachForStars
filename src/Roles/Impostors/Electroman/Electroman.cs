@@ -15,17 +15,12 @@ public class ElectromanRole : ImpostorRole, ICustomRole
     );
 
     public TranslationPool RoleDescShort = new(
-        "Electrocute crewmates!",
-        french: "",
-        spanish: "",
-        russian: ""
+        "Electrocute crewmates!"
     );
 
     public TranslationPool roleName = new(
         "Electroman",
-        french: "Eclaire",
-        spanish: "",
-        russian: ""
+        french: "Eclaire"
     );
 
     public override bool IsAffectedByComms => false;
