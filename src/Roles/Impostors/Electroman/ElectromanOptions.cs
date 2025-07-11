@@ -1,16 +1,13 @@
 using MiraAPI.GameOptions;
-using MiraAPI.GameOptions.Attributes;
+using MiraAPI.GameOptions.OptionTypes;
 using MiraAPI.Utilities;
 
-namespace ReachForStars.Roles.Impostors.Witch;
+namespace ReachForStars.Roles.Impostors.Electroman;
 
-public class WitchOptions : AbstractOptionGroup<WitchRole>
+public class ElectromanOptions : AbstractOptionGroup<ElectromanRole>
 {
-    public override string GroupName => "Witch Options";
+    public override string GroupName => "Electroman Options";
 
-    [ModdedNumberOption("Poison Kill Delay", 10f, 25f, 5f, MiraNumberSuffixes.Seconds)]
-    public float PoisonDelay { get; set; } = 15f;
-
-    [ModdedToggleOption("Witch Can Do Normal Killing")]
-    public bool CanDoNormalKilling { get; set; } = false;
+    public ModdedNumberOption Distance { get; set; } =
+        new("Electric Shock Distance", 1.5f, 1.5f, 3f, .5f, MiraNumberSuffixes.Multiplier);
 }

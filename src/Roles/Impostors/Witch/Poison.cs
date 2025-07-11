@@ -22,7 +22,7 @@ public class Poison : CustomActionButton<PlayerControl>
     public override string Name => btnName.GetTranslatedText();
 
     public override float Cooldown => 5;
-    public override float EffectDuration => OptionGroupSingleton<WitchOptions>.Instance.PoisonDelay;
+    public override float EffectDuration => OptionGroupSingleton<WitchOptions>.Instance.PoisonDelay.Value;
 
     public override ButtonLocation Location => ButtonLocation.BottomRight;
 

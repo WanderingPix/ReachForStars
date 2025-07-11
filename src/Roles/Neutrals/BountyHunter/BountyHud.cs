@@ -1,6 +1,9 @@
 using System;
+using System.Collections;
 using Il2CppInterop.Runtime.InteropTypes.Arrays;
 using MiraAPI.GameOptions;
+using PowerTools;
+using Reactor.Utilities;
 using Reactor.Utilities.Extensions;
 using TMPro;
 using UnityEngine;
@@ -16,7 +19,7 @@ public class BountyHud : MonoBehaviour
     public AspectPosition myPos;
     public PoolablePlayer myPlayer;
     public PassiveButton myButton;
-    public Animator myAnim;
+    public SpriteAnim myAnim;
     public BoxCollider2D myCollider;
     public bool IsOpen;
 
@@ -39,7 +42,8 @@ public class BountyHud : MonoBehaviour
         gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition.x,
             gameObject.transform.localPosition.y, 0f);
 
-        myAnim = myRend.gameObject.AddComponent<Animator>();
+        gameObject.AddComponent<Animator>();
+        myAnim = myRend.gameObject.AddComponent<SpriteAnim>();
 
         IsOpen = true;
 
@@ -59,13 +63,7 @@ public class BountyHud : MonoBehaviour
 
     public void ToggleHud(bool Show)
     {
-        if (Show)
-            myAnim.runtimeAnimatorController = Assets.BountyHudOpenAnimController.LoadAsset();
-        else if (!Show) myAnim.runtimeAnimatorController = Assets.BountyHudCloseAnimController.LoadAsset();
-        myPlayer.gameObject.SetActive(Show);
-        Counter.gameObject.SetActive(Show);
-        WantedText.gameObject.SetActive(Show);
-        IsOpen = Show;
+        Coroutines.Start(CoToggleHud(Show));
     }
 
     public Action OnClick()
@@ -103,5 +101,16 @@ public class BountyHud : MonoBehaviour
              r != (int)OptionGroupSingleton<BountyHunterOptions>.Instance.SuccessfulKillsQuota - count;
              r++) //remaining bounties
             Counter.text = $"{Counter.text}<sprite=6>";
+    }
+
+    public IEnumerator CoToggleHud(bool Show)
+    {
+        if (Show) yield return new WaitForAnimationFinish(myAnim, Assets.BountyHudOpenAnimation.LoadAsset());
+        else if (!Show)
+            yield return new WaitForAnimationFinish(myAnim, Assets.BountyHudCloseAnimation.LoadAsset());
+        myPlayer.gameObject.SetActive(Show);
+        Counter.gameObject.SetActive(Show);
+        WantedText.gameObject.SetActive(Show);
+        IsOpen = Show;
     }
 }

@@ -1,7 +1,4 @@
-﻿using MiraAPI.Events;
-using MiraAPI.Events.Vanilla.Gameplay;
-using MiraAPI.GameOptions;
-using MiraAPI.Hud;
+﻿using MiraAPI.Hud;
 using MiraAPI.Roles;
 using ReachForStars.Translation;
 using UnityEngine;
@@ -41,7 +38,7 @@ public class ElectromanRole : ImpostorRole, ICustomRole
 
     public CustomRoleConfiguration Configuration => new(this)
     {
-        UseVanillaKillButton = OptionGroupSingleton<ElectromanOptions>.Instance.CanDoNormalKilling,
+        UseVanillaKillButton = true,
         CanGetKilled = true,
         TasksCountForProgress = false,
         IntroSound = Assets.ElectromanIntroSfx
@@ -57,10 +54,8 @@ public class ElectromanRole : ImpostorRole, ICustomRole
         return GameManager.Instance.DidImpostorsWin(gameOverReason);
     }
 
-    [RegisterEvent]
-    public static void OnMurder(AfterMurderEvent @event)
+    public override void OnMeetingStart()
     {
-        if (@event.Source.Data.Role is ElectromanRole elec && @event.Source == PlayerControl.LocalPlayer)
-            CustomButtonSingleton<Electrocute>.Instance.IncreaseCharge();
+        CustomButtonSingleton<Electrocute>.Instance.Button.SetUsesRemaining(3);
     }
 }

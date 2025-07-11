@@ -30,5 +30,8 @@ public enum RPC : uint
     PlaceGlue,
 
     // for exiling players as executioner
-    Execute
+    Execute,
+
+    //For trapping tasks as electroman
+    ShortCircuit
 }

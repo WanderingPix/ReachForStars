@@ -1,6 +1,7 @@
 using System;
 using MiraAPI.Utilities;
 using ReachForStars.Networking;
+using ReachForStars.Utilities;
 using Reactor.Utilities.Attributes;
 using Reactor.Utilities.Extensions;
 using UnityEngine;
@@ -51,8 +52,9 @@ public class FrozenBody(IntPtr ptr) : MonoBehaviour(ptr)
     public void Use()
     {
         Durability--;
-        HudManager.Instance.StartCoroutine(Effects.Bounce(gameObject.transform, 0.7f, 0.25f));
-
+        HudManager.Instance.StartCoroutine(Effects.SwayX(gameObject.transform, 0.7f, 0.2f));
+        SoundManager.Instance.PlaySoundAtLocation(Assets.FrozenBodyImpactSfx.LoadAsset(), gameObject.transform.position,
+            PlayerControl.LocalPlayer.GetTruePosition(), SoundManager.Instance.SfxChannel);
         if (Durability == 0)
         {
             PlayerControl.LocalPlayer.RpcDamageFrozenBody(id);
@@ -64,30 +66,24 @@ public class FrozenBody(IntPtr ptr) : MonoBehaviour(ptr)
     {
         Level--;
         var newSize = gameObject.transform.localScale.x * new Vector3(0.8f, 0.8f, 0.8f);
-        HudManager.Instance.StartCoroutine(Effects.Bounce(gameObject.transform, 0.4f, 0.3f));
+        HudManager.Instance.StartCoroutine(Effects.Bounce(gameObject.transform, 0.4f, 0.6f));
         HudManager.Instance.StartCoroutine(Effects.ScaleIn(gameObject.transform, gameObject.transform.localScale.x,
             newSize.x, 0.4f));
-        if (Level == 0) gameObject.DestroyImmediate();
+        if (Level == 0)
+        {
+            SoundManager.Instance.PlaySoundAtLocation(Assets.FrozenBodyBreakSfx.LoadAsset(),
+                gameObject.transform.position, PlayerControl.LocalPlayer.GetTruePosition(),
+                SoundManager.Instance.SfxChannel);
+            gameObject.DestroyImmediate();
+        }
     }
 
-    /// <summary>
-    ///     Updates the sprite outline for the consoles
-    /// </summary>
-    /// <param name="isVisible">TRUE iff the console is within vision</param>
-    /// <param name="isTargeted">TRUE iff the console is the main target selected</param>
     public void SetOutline(bool on, bool mainTarget)
     {
         if (on) myRend.UpdateOutline(Palette.CrewmateRoleHeaderBlue);
         else myRend.UpdateOutline(new Color(0f, 0f, 0f, 0f));
     }
 
-    /// <summary
-    ///     Checks whether or not the console is usable by a player
-    /// </summary>
-    /// <param name="playerInfo">Player to check</param>
-    /// <param name="canUse">TRUE iff the player can access this console currently</param>
-    /// <param name="couldUse">TRUE if the player could access this console in the future</param>
-    /// <returns>Distance from console</returns>
     public float CanUse(NetworkedPlayerInfo pc, out bool canUse, out bool couldUse)
     {
         var num = float.MaxValue;

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Linq;
 using MiraAPI.Utilities;
 using ReachForStars.Roles.Impostors.Chiller;
+using ReachForStars.Roles.Impostors.Electroman;
 using ReachForStars.Roles.Impostors.Mole;
 using ReachForStars.Roles.Impostors.Stickster;
 using ReachForStars.Utilities;
@@ -157,5 +158,20 @@ public static class RPCS
         MeetingHud.Instance.exiledPlayer = Target.Data;
         MeetingHud.Instance.VotingComplete(null, Target.Data, false);
         yield break;
+    }
+
+    [MethodRpc((uint)RPC.ShortCircuit)]
+    public static void RpcShortCircuit(this PlayerControl Source, string ConsoleGOName)
+    {
+        var console = GameObject.Find(ConsoleGOName)?.GetComponent<Console>();
+        if (console == null)
+        {
+            PluginSingleton<ReachForStars>.Instance.Log.LogError("Console not found");
+        }
+        else
+        {
+            var shortcircuit = console.gameObject.AddComponent<ShortCircuitedConsole>();
+            shortcircuit.electroman = Source.Data.Role.TryCast<ElectromanRole>();
+        }
     }
 }
