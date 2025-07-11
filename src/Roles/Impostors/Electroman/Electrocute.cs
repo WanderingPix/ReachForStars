@@ -11,10 +11,7 @@ namespace ReachForStars.Roles.Impostors.Electroman;
 public class Electrocute : CustomActionButton<Console>
 {
     public TranslationPool btnName = new(
-        "Electrocute",
-        french: "",
-        spanish: "",
-        russian: ""
+        "Electrocute"
     );
 
     public override string Name => btnName.GetTranslatedText();
