@@ -13,7 +13,7 @@ namespace ReachForStars.Roles.Crewmates.Sheriff;
 public class Shoot : CustomActionButton<PlayerControl>
 {
     public TranslationPool ButtonName = new(
-        "Shoot",
+        "Jail",
         "Disparar",
         "Tirer",
         "выстрелить"

@@ -29,9 +29,12 @@ public enum RPC : uint
     // for placing  Glues as arachnid
     PlaceGlue,
 
-    // for exiling players as executioner
-    Execute,
-
     //For trapping tasks as electroman
-    ShortCircuit
+    ShortCircuit,
+
+    //For jailing players as jailor!
+    //Jail,
+
+    //For placing lanterns as Lightener
+    LightUp
 }

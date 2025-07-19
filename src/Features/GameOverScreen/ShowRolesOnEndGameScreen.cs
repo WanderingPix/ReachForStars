@@ -6,7 +6,7 @@ namespace ReachForStars.Features.GameOverScreen;
 
 public static class ShowRolesOnEndGameScreen
 {
-    public static Dictionary<int, RoleBehaviour> CachedRoles = new();
+    public static Dictionary<int, RoleBehaviour> CachedRoles { get; set; } = new();
 
     public static void CacheRoles()
     {

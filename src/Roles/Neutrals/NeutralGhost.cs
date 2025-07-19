@@ -1,5 +1,4 @@
-﻿using Il2CppSystem.Text;
-using MiraAPI.Modifiers;
+﻿using MiraAPI.Modifiers;
 using MiraAPI.Roles;
 using ReachForStars.Translation;
 using UnityEngine;
@@ -50,13 +49,13 @@ public class NeutralGhost : CrewmateGhostRole, ICustomRole
         return Player.HasModifier<NeutralWinner>();
     }
 
-    public override void AppendTaskHint(StringBuilder taskStringBuilder)
+    public override void SpawnTaskHeader(PlayerControl playerControl)
     {
         if (Player.HasModifier<NeutralWinner>())
-            taskStringBuilder =
-                new StringBuilder($"You have <b>won<b> as {RoleName}! Watch the rest of the game unfold!");
-        else
-            taskStringBuilder =
-                new StringBuilder($"You have <b>lost<b> as {RoleName}! Watch the rest of the game unfold!");
+            PlayerTask.GetOrCreateTask<ImportantTextTask>(Player).Text =
+                "You have <b>won!</b> Sit back and watch the game unfold!";
+        else if (!Player.HasModifier<NeutralWinner>())
+            PlayerTask.GetOrCreateTask<ImportantTextTask>(Player).Text =
+                "You have <b>lost!</b> watch the rest of the game unfold!";
     }
 }

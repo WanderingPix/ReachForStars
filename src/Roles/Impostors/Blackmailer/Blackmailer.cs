@@ -2,35 +2,32 @@
 using ReachForStars.Translation;
 using UnityEngine;
 
-namespace ReachForStars.Roles.Impostors.Chiller;
+namespace ReachForStars.Roles.Impostors.Blackmailer;
 
-public class FreezerRole : ImpostorRole, ICustomRole
+public class BlackmailerRole : ImpostorRole, ICustomRole
 {
     public TranslationPool RoleDescLong = new
     (
-        "Freeze bodies to stop the crewmates from reporting them!",
-        "¡Congela los cuerpos para evitar que los compañeros de tripulación los denuncien!",
-        "Figez les cadavres pour empécher les coéquipiers de lés trouver!",
-        "Замораживай трупы чтобы экипаж не мог зарепортить!"
-        //italian: "Congela i cadaveri per impedire che siano trovati!"
+        "Silence crewmates!",
+        "",
+        "",
+        ""
     );
 
     public TranslationPool RoleDescShort = new
     (
-        "Freeze bodies to hide identities!",
-        "Congelar cuerpos para ocultar sus identidades",
-        "Figez des cadavres pour cacher leurs identités!",
-        "Замораживай трупы чтобы избежать личностей!"
-        //italian: "Congela cadaveri per nascondere le identità!"
+        "Silence players to stop them from revealing your secrets!",
+        "",
+        "",
+        ""
     );
 
     public TranslationPool rolename = new
     (
-        "Chiller",
-        french: "Refrigirateur",
-        spanish: "Congelador",
-        russian: "Охладитель"
-        //italian: "Congelatore"
+        "Blackmailer",
+        french: "",
+        spanish: "",
+        russian: ""
     );
 
     public override bool IsAffectedByComms => false;

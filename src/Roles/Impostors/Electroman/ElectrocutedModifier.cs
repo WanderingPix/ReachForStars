@@ -52,7 +52,7 @@ public class ElectrocutedModifier : TimedModifier
     {
         base.FixedUpdate();
         var closestPlayer = Player.GetClosestPlayer(false, 1f);
-        if (closestPlayer && !closestPlayer.HasModifier<ElectrocutedModifier>())
+        if (closestPlayer && closestPlayer.Data.IsDead == false && !closestPlayer.HasModifier<ElectrocutedModifier>())
         {
             var mod = closestPlayer.AddModifier<ElectrocutedModifier>();
             mod.Electroman = Electroman;

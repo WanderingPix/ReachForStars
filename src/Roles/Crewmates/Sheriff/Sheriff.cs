@@ -1,4 +1,6 @@
-﻿using MiraAPI.Roles;
+﻿using System.Text;
+using MiraAPI.GameOptions;
+using MiraAPI.Roles;
 using ReachForStars.Translation;
 using UnityEngine;
 
@@ -7,7 +9,7 @@ namespace ReachForStars.Roles.Crewmates.Sheriff;
 public class SheriffRole : CrewmateRole, ICustomRole
 {
     public TranslationPool RoleDescLong = new(
-        "Shoot the Impostors, but\n not the Crew",
+        "Jail the Impostors, but\n not the Crew",
         french: "Tirez sur les imposteurs,\n mais pas sur vos coéquipiers",
         spanish: "Dispara a los impostores pero no\n a los tripulantes",
         russian: "стреляй в предателей, но не в экипаж"
@@ -43,4 +45,11 @@ public class SheriffRole : CrewmateRole, ICustomRole
     {
         Icon = Assets.SheriffIcon
     };
+
+    public StringBuilder SetTabText()
+    {
+        var sb = CustomRoleUtils.CreateForRole(this);
+        sb.Append($"\n<b>Misfire will lead to {OptionGroupSingleton<SheriffOptions>.Instance.Consequence}</b>.");
+        return sb;
+    }
 }

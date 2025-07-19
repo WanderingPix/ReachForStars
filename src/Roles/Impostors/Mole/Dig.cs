@@ -12,8 +12,7 @@ public class Dig : CustomActionButton
         "Dig",
         "excavar",
         "creuser",
-        "копать" // tbh, i love this role actually :) - lime
-        //italian: "scavare"// btw really that sounds kida unprofessional (I'm using slang) XoXo pengun
+        "копать"
     );
 
     public override string Name => buttonName.GetTranslatedText();

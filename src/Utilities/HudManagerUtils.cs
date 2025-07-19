@@ -43,4 +43,47 @@ public static class HudManUtils
         go.DestroyImmediate();
         yield break;
     }
+
+    public static void ShowKillOverlay(this HudManager hudman, NetworkedPlayerInfo Killer,
+        NetworkedPlayerInfo ToBeKilled, Color color)
+    {
+        hudman.KillOverlay.ShowKillAnimation(Killer, ToBeKilled);
+        hudman.KillOverlay.flameParent.transform.GetChild(0).GetComponent<SpriteRenderer>().color = color;
+    }
+
+    public static IEnumerator CoShowKillOverlay(this HudManager hudman, NetworkedPlayerInfo Killer,
+        NetworkedPlayerInfo ToBeKilled, Color color)
+    {
+        hudman.KillOverlay.ShowKillAnimation(Killer, ToBeKilled);
+
+        SpriteRenderer Flame = hudman.KillOverlay.flameParent.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        Flame.color = color;
+        yield return new WaitForSeconds(3f);
+        Flame.color = Color.white;
+    }
+
+    public static void FlashScreen(this HudManager hudman, Color color, AudioClip sound = null)
+    {
+        Coroutines.Start(CoFlashScreen(hudman, color, sound));
+    }
+
+    public static IEnumerator CoFlashScreen(this HudManager hudman, Color color, AudioClip sound)
+    {
+        WaitForSeconds wait = new WaitForSeconds(1f);
+        bool light = false;
+        hudman.FullScreen.color = new(color.r, color.g, color.b, 0.372549027f);
+        hudman.FullScreen.gameObject.SetActive(!hudman.FullScreen.gameObject.activeSelf);
+        SoundManager.Instance.PlaySound(sound, false, 1f, null);
+        if (hudman.lightFlashHandle == null)
+        {
+            hudman.lightFlashHandle = DestroyableSingleton<DualshockLightManager>.Instance.AllocateLight();
+            hudman.lightFlashHandle.color = color;
+            hudman.lightFlashHandle.intensity = 1f;
+        }
+
+        light = !light;
+        yield return wait;
+        hudman.FullScreen.gameObject.SetActive(false);
+        yield break;
+    }
 }

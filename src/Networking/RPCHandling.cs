@@ -1,6 +1,6 @@
-using System.Collections;
 using System.Linq;
 using MiraAPI.Utilities;
+using ReachForStars.Roles.Crewmates.Lightener;
 using ReachForStars.Roles.Impostors.Chiller;
 using ReachForStars.Roles.Impostors.Electroman;
 using ReachForStars.Roles.Impostors.Mole;
@@ -137,29 +137,6 @@ public static class RPCS
         }
     }
 
-    [MethodRpc((uint)RPC.Execute)]
-    public static void RpcExecutePlayer(this PlayerControl Source, PlayerControl Target)
-    {
-        var area = Object.FindObjectsOfType<PlayerVoteArea>()
-            .First(x => x.TargetPlayerId == Target.PlayerId);
-        Coroutines.Start(CoExecute(area, Target));
-    }
-
-    public static IEnumerator CoExecute(PlayerVoteArea area, PlayerControl Target)
-    {
-        area.StartCoroutine(Effects.Shake(area.transform, 1.3f, 0.1f, true, true));
-        var Go = new GameObject("ExileHammer");
-        Go.layer = LayerMask.NameToLayer("UI");
-        Go.gameObject.transform.SetParent(area.transform);
-        Go.transform.localPosition = Vector3.zero;
-        Go.AddComponent<SpriteRenderer>();
-        Go.AddComponent<Animator>().runtimeAnimatorController = Assets.HammerAnimController.LoadAsset();
-        HudManager.Instance.StartCoroutine(Effects.ScaleIn(Go.transform, 2f, 1f, 1.3f));
-        MeetingHud.Instance.exiledPlayer = Target.Data;
-        MeetingHud.Instance.VotingComplete(null, Target.Data, false);
-        yield break;
-    }
-
     [MethodRpc((uint)RPC.ShortCircuit)]
     public static void RpcShortCircuit(this PlayerControl Source, string ConsoleGOName)
     {
@@ -172,6 +149,23 @@ public static class RPCS
         {
             var shortcircuit = console.gameObject.AddComponent<ShortCircuitedConsole>();
             shortcircuit.electroman = Source.Data.Role.TryCast<ElectromanRole>();
+        }
+    }
+
+    //[MethodRpc((uint)RPC.Jail)]
+    //public static void RpcJail(this PlayerControl Source, PlayerControl target)
+    //{
+    //target.AddModifier<JaileeModifier>().Jailor = Source;
+    //}
+    [MethodRpc((uint)RPC.LightUp)]
+    public static void RpcPlaceLantern(this PlayerControl Source)
+    {
+        if (Source.Data.Role is LightenerRole light)
+        {
+            GameObject L = new("Lantern");
+            L.transform.position = Source.GetTruePosition();
+            Lantern lantern = L.AddComponent<Lantern>();
+            lantern.LightRadius = 2f;
         }
     }
 }

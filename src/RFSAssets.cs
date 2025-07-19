@@ -7,11 +7,24 @@ namespace ReachForStars;
 public static class Assets
 {
     public static readonly AssetBundle Bundle = AssetBundleManager.Load("rfsbundle");
-
     public static LoadableResourceAsset DetectiveIndicator = new("ReachForStars.Resources.UI.DetectiveIndicator.png");
+    public static LoadableResourceAsset CustomColoredShh = new("ReachForStars.Resources.UI.Shh.png");
 
+    public static LoadableBundleAsset<RuntimeAnimatorController> FreeChatBreakAnimation =
+        new("FreeChatBreakController.controller", Bundle);
 
-    //Misc
+    public static LoadableBundleAsset<RuntimeAnimatorController> QuickChatBreakAnimation =
+        new("QuickChatBreakController.controller", Bundle);
+
+    public static LoadableBundleAsset<RuntimeAnimatorController> KeyboardBtnBreakAnimation =
+        new("KeyboardBtnBreakController.controller", Bundle);
+
+    public static LoadableBundleAsset<RuntimeAnimatorController> ChatBackgroundBreakAnimation =
+        new("ChatBackgroundBreakController.controller", Bundle);
+
+    public static LoadableResourceAsset PListActive = new("ReachForStars.Resources.UI.PlayerListActive.png");
+    public static LoadableResourceAsset PListInactive = new("ReachForStars.Resources.UI.PlayerListInactive.png");
+
     public static LoadableResourceAsset GrayScaleUsesCounter { get; } =
         new("ReachForStars.Resources.AbilityCounters.AbilityCounter.png");
 
@@ -21,8 +34,6 @@ public static class Assets
     public static LoadableResourceAsset BlueKillButton { get; } =
         new("ReachForStars.Resources.Abilities.KillButtonBlue.png");
 
-
-    //Chiller
     public static LoadableBundleAsset<GameObject> FrozenBodyPrefab { get; } = new("FrozenBodyPrefab.prefab", Bundle);
     public static LoadableResourceAsset FreezeButton { get; } = new("ReachForStars.Resources.Abilities.Freeze.png");
 
@@ -36,9 +47,6 @@ public static class Assets
         new("ReachForStars.Resources.SoundEffects.FrozenBodyBreak.wav");
 
     public static LoadableResourceAsset ChillerIcon { get; } = new("ReachForStars.Resources.RoleIcons.chiller.png");
-
-
-    //Bounty Hunter
     public static LoadableBundleAsset<GameObject> BountyPrefab { get; } = new("BountyHudPrefab.prefab", Bundle);
 
     public static LoadableBundleAsset<AnimationClip> BountyHudCloseAnimation { get; } =
@@ -47,36 +55,19 @@ public static class Assets
     public static LoadableBundleAsset<AnimationClip> BountyHudOpenAnimation { get; } =
         new("BountyHudOpenAnimation.anim", Bundle);
 
-
-    //PlaceHolder
     public static LoadableResourceAsset PlaceHolder { get; } = new("ReachForStars.Resources.PlaceHolder.png");
-
-
-    //Executioner
-    public static LoadableResourceAsset ExileButton { get; } = new("ReachForStars.Resources.UI.Exile.png");
-
-    public static LoadableBundleAsset<RuntimeAnimatorController> HammerAnimController { get; } =
-        new("ExileAnimationController.controller", Bundle);
-
-
-    //Detective
     public static LoadableResourceAsset Inspect { get; } = new("ReachForStars.Resources.Abilities.Inspect.png");
     public static LoadableResourceAsset DetectiveIcon { get; } = new("ReachForStars.Resources.RoleIcons.detective.png");
 
     public static LoadableResourceAsset MagnifyingGlass { get; } =
         new("ReachForStars.Resources.UI.MagnifyingGlass.png");
 
-
-    //Witch
     public static LoadableResourceAsset PoisonButton { get; } = new("ReachForStars.Resources.Abilities.Poison.png");
 
     public static LoadableResourceAsset RoleblockButton { get; } =
         new("ReachForStars.Resources.Abilities.RoleBlock.png"); //Unused
 
     public static LoadableResourceAsset AdminButton { get; } = new("ReachForStars.Resources.Abilities.AdminButton.png");
-
-
-    //Sheriff
     public static LoadableResourceAsset Shoot { get; } = new("ReachForStars.Resources.Abilities.Shoot.png");
     public static LoadableResourceAsset SheriffIcon { get; } = new("ReachForStars.Resources.RoleIcons.sheriff.png");
 

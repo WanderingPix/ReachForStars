@@ -1,4 +1,5 @@
-﻿using MiraAPI.GameOptions;
+﻿using AmongUs.GameOptions;
+using MiraAPI.GameOptions;
 using MiraAPI.Modifiers;
 using MiraAPI.Patches.Stubs;
 using MiraAPI.Roles;
@@ -98,5 +99,7 @@ public class JesterRole : ImpostorRole, ICustomRole
             Player.AddModifier<NeutralWinner>();
             SoundManager.instance.PlaySound(Assets.JesterIntroSFX.LoadAsset(), false, 0.7f);
         }
+
+        Player.StartCoroutine(Player.CoSetRole((RoleTypes)RoleId.Get(typeof(NeutralGhost)), true));
     }
 }

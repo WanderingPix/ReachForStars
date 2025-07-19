@@ -11,6 +11,7 @@ public class HudManagerPatches
     public static void HudManagerStartPostfix(HudManager __instance)
     {
         SmolUI.ResizeUI();
+        if (LobbyBehaviour.Instance) Features.InGamePlayerList.CreateButton();
     }
 
     [HarmonyPatch(typeof(ActionButton), nameof(ActionButton.Show))]

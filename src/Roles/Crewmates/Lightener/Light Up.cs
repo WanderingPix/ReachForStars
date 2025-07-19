@@ -1,0 +1,33 @@
+using MiraAPI.GameOptions;
+using MiraAPI.Hud;
+using MiraAPI.Utilities;
+using MiraAPI.Utilities.Assets;
+using ReachForStars.Networking;
+using UnityEngine;
+
+namespace ReachForStars.Roles.Crewmates.Lightener;
+
+public class LightUp : CustomActionButton
+{
+    public override string Name { get; } = "Light up";
+    public override ButtonLocation Location { get; set; } = ButtonLocation.BottomRight;
+    public override float Cooldown => OptionGroupSingleton<LightenerOptions>.Instance.LightenUpCD.Value;
+    public override int MaxUses => OptionGroupSingleton<LightenerOptions>.Instance.LightenUpUses;
+    public override LoadableAsset<Sprite> Sprite { get; } = Assets.PlaceHolder;
+
+    protected override void OnClick()
+    {
+        PlayerControl.LocalPlayer.RpcPlaceLantern();
+    }
+
+    public override bool CanUse()
+    {
+        return Helpers.GetRoom(PlayerControl.LocalPlayer.GetTruePosition()) &&
+               base.CanUse();
+    }
+
+    public override bool Enabled(RoleBehaviour role)
+    {
+        return role is LightenerRole;
+    }
+}

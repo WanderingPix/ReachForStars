@@ -1,7 +1,6 @@
 using System.Linq;
 using HarmonyLib;
 using ReachForStars.Roles.Crewmates.Detective;
-using ReachForStars.Roles.Crewmates.Executionner;
 
 namespace ReachForStars.Patches;
 
@@ -15,9 +14,5 @@ public static class MeetingHudPatches
         var id = playerInfo.PlayerId;
         if (PlayerControl.LocalPlayer.Data.Role is DetectiveRole det &&
             det.Suspects.Where(x => x.PlayerId == id).Count() > 0) det.SetUpVoteArea(__instance);
-
-        if (PlayerControl.LocalPlayer.Data.Role is ExecutionerRole exe &&
-            !PlayerControl.LocalPlayer.Data.IsDead /* && PlayerControl.LocalPlayer.GetTasksLeft() == 0*/)
-            exe.SetUpVoteArea(__instance);
     }
 }
