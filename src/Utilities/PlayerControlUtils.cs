@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using System.Linq;
 using PowerTools;
+using Reactor.Utilities.Extensions;
 using UnityEngine;
 
 namespace ReachForStars.Utilities;
@@ -34,5 +36,23 @@ public static class PlayerControlUtils
     public static SpriteAnim GetAnimator(this PlayerControl p)
     {
         return p.MyPhysics.Animations.Animator;
+    }
+
+    public static void RegenerateTasks(this PlayerControl player)
+    {
+        NormalPlayerTask[] LongTasks = [];
+        ShipStatus.Instance.LongTasks.ToList().CopyTo(LongTasks);
+
+        List<byte> SelectedTasks = new();
+        for (var i = 0; i != GameOptionsManager.Instance.CurrentGameOptions.TotalTaskCount; i++)
+        {
+            var SelectedTask = LongTasks.Random();
+            SelectedTasks.Add((byte)SelectedTask.Index);
+            var newLongtasks = LongTasks.ToList();
+            newLongtasks.Remove(SelectedTask);
+            LongTasks = newLongtasks.ToArray();
+        }
+
+        player.Data.SetTasks(SelectedTasks.ToArray());
     }
 }

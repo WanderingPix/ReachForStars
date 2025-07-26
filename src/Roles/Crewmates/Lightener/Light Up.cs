@@ -22,7 +22,8 @@ public class LightUp : CustomActionButton
 
     public override bool CanUse()
     {
-        return Helpers.GetRoom(PlayerControl.LocalPlayer.GetTruePosition()) &&
+        return PlayerControl.LocalPlayer.GetNearestObjectOfType<Collider>(LayerMask.NameToLayer("Ship"),
+                   new ContactFilter2D().NoFilter()) is null &&
                base.CanUse();
     }
 

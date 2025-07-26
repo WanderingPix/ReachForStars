@@ -134,4 +134,8 @@ public static class Assets
     ];
 
     public static LoadableResourceAsset Ash { get; } = new("ReachForStars.Resources.Objects.Ash.png", 200f);
+    public static LoadableBundleAsset<GameObject> LanternObject { get; } = new("lanternPrefab.prefab", Bundle);
+
+    public static LoadableBundleAsset<AnimationClip> LanternBobAnim { get; } =
+        new("LanternBobbingAnimation.anim", Bundle);
 }

@@ -1,12 +1,17 @@
 ﻿using MiraAPI.Hud;
 using MiraAPI.Roles;
+using PowerTools;
+using ReachForStars.Components;
 using ReachForStars.Translation;
+using Reactor.Utilities.Extensions;
 using UnityEngine;
 
 namespace ReachForStars.Roles.Crewmates.Lightener;
 
 public class LightenerRole : CrewmateGhostRole, ICustomRole
 {
+    private SwingingLantern lantern;
+
     public TranslationPool RoleDescLong = new(
         "Help the crew by placing lanterns to light up dim areas!",
         french: "",
@@ -32,6 +37,20 @@ public class LightenerRole : CrewmateGhostRole, ICustomRole
 
     public void Start()
     {
+        if (Player == null) return;
+
+        lantern = new GameObject("HandAnimation").AddComponent<SwingingLantern>();
+        lantern.gameObject.layer = LayerMask.NameToLayer("Players");
+        lantern.gameObject.AddComponent<Animator>();
+        lantern._animator = lantern.gameObject.AddComponent<SpriteAnim>();
+        lantern._renderer = lantern.gameObject.AddComponent<SpriteRenderer>();
+        lantern._renderer.material = new Material(Shader.Find("Unlit/PlayerShader"));
+        PlayerMaterial.SetColors(Player.cosmetics.ColorId, lantern._renderer);
+        lantern.transform.SetParent(Player.MyPhysics.Animations.transform);
+        lantern.transform.localPosition = new Vector3(0f, -0.2f, -10f);
+        lantern.transform.localScale = new Vector3(0.5f, 0.5f, 10f);
+        lantern.Player = Player;
+
         if (PlayerControl.LocalPlayer == Player) CustomButtonSingleton<LightUp>.Instance.SetActive(true, this);
     }
 
@@ -47,6 +66,11 @@ public class LightenerRole : CrewmateGhostRole, ICustomRole
     {
         Icon = Assets.SheriffIcon,
         ShowInFreeplay = true,
-        HideSettings = false,
+        HideSettings = false
     };
+
+    public override void Deinitialize(PlayerControl targetPlayer)
+    {
+        lantern.gameObject.DestroyImmediate();
+    }
 }

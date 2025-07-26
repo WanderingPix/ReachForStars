@@ -5,6 +5,7 @@ using HarmonyLib;
 using Il2CppInterop.Runtime.Injection;
 using MiraAPI;
 using MiraAPI.PluginLoading;
+using ReachForStars.Components;
 using ReachForStars.Roles.Crewmates.Lightener;
 using ReachForStars.Roles.Impostors.Electroman;
 using ReachForStars.Roles.Impostors.Stickster;
@@ -39,6 +40,8 @@ public partial class ReachForStars : BasePlugin, IMiraPlugin
         ClassInjector.RegisterTypeInIl2Cpp<BountyHud>();
         ClassInjector.RegisterTypeInIl2Cpp<ShortCircuitedConsole>();
         ClassInjector.RegisterTypeInIl2Cpp<Lantern>();
+        ClassInjector.RegisterTypeInIl2Cpp<SwingingLantern>();
+        ClassInjector.RegisterTypeInIl2Cpp<AuraEffect>();
         Log.LogInfo("Reach For Stars Loaded Successfully! >u<");
     }
 }

@@ -1,7 +1,7 @@
 using MiraAPI.Events;
 using MiraAPI.Events.Vanilla.Gameplay;
 
-namespace ReachForStars.Features.Roles;
+namespace ReachForStars.Features;
 
 public static class BasicCrewmateColor
 {

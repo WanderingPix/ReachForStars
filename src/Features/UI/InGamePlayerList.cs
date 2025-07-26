@@ -1,6 +1,7 @@
 using System;
 using MiraAPI.Events;
 using MiraAPI.Events.Vanilla.Gameplay;
+using MiraAPI.Events.Vanilla.Player;
 using Reactor.Utilities.Extensions;
 using UnityEngine;
 
@@ -46,5 +47,11 @@ public static class InGamePlayerList
     {
         PlayerListButton.gameObject.DestroyImmediate();
         _plist.SetActive(false);
+    }
+
+    [RegisterEvent]
+    public static void OnPlayerJoined(PlayerJoinEvent e)
+    {
+        if (_plist) _plist.RefreshMenu();
     }
 }
