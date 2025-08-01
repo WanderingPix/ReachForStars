@@ -1,6 +1,8 @@
 using System.Linq;
 using MiraAPI.Utilities;
+using ReachForStars.Components;
 using ReachForStars.Roles.Crewmates.Lightener;
+using ReachForStars.Roles.Impostors.Bomber;
 using ReachForStars.Roles.Impostors.Chiller;
 using ReachForStars.Roles.Impostors.Electroman;
 using ReachForStars.Roles.Impostors.Mole;
@@ -162,10 +164,21 @@ public static class RPCS
     {
         if (Source.Data.Role is LightenerRole light)
         {
-            GameObject L = new("Lantern");
+            var L = Object.Instantiate(Assets.LanternObject.LoadAsset());
             L.transform.position = Source.GetTruePosition();
             Lantern lantern = L.AddComponent<Lantern>();
             lantern.LightRadius = 2f;
+        }
+    }
+
+    [MethodRpc((uint)RPC.Bomb)]
+    public static void RpcLaunchBomb(this PlayerControl Source)
+    {
+        if (Source.Data.Role is BomberRole b)
+        {
+            var go = UnityObject.Instantiate(Assets.BombPrefab.LoadAsset());
+            go.AddComponent<Bomb>().Player = Source;
+            go.transform.position = Source.GetTruePosition();
         }
     }
 }

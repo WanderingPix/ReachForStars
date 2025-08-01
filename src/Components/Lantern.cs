@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Il2CppInterop.Runtime.InteropTypes.Arrays;
+using ReachForStars.Utilities;
 using UnityEngine;
 
 namespace ReachForStars.Roles.Crewmates.Lightener;
@@ -57,6 +58,9 @@ public class Lantern : MonoBehaviour
     private void Start()
     {
         SetupLight();
+        if (PlayerControl.LocalPlayer.Data.IsDead)
+            SoundManager.Instance.PlaySoundAtLocation(Assets.ChainsSFX.LoadAsset(), transform.position,
+                PlayerControl.LocalPlayer.GetTruePosition(), SoundManager.Instance.SfxChannel);
     }
 
     private void SetupLight()

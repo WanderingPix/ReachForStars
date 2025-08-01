@@ -1,5 +1,6 @@
-﻿using System.Text;
-using MiraAPI.GameOptions;
+﻿using MiraAPI.Events;
+using MiraAPI.Events.Vanilla.Player;
+using MiraAPI.Hud;
 using MiraAPI.Roles;
 using ReachForStars.Translation;
 using UnityEngine;
@@ -46,10 +47,10 @@ public class SheriffRole : CrewmateRole, ICustomRole
         Icon = Assets.SheriffIcon
     };
 
-    public StringBuilder SetTabText()
+    [RegisterEvent]
+    public static void OnTaskComplete(CompleteTaskEvent e)
     {
-        var sb = CustomRoleUtils.CreateForRole(this);
-        sb.Append($"\n<b>Misfire will lead to {OptionGroupSingleton<SheriffOptions>.Instance.Consequence}</b>.");
-        return sb;
+        if (e.Player.Data.Role is SheriffRole && e.Player == PlayerControl.LocalPlayer)
+            CustomButtonSingleton<Shoot>.Instance.AddBullet();
     }
 }

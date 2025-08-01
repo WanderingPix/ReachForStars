@@ -40,7 +40,7 @@ public class LightenerRole : CrewmateGhostRole, ICustomRole
         if (Player == null) return;
 
         lantern = new GameObject("HandAnimation").AddComponent<SwingingLantern>();
-        lantern.gameObject.layer = LayerMask.NameToLayer("Players");
+        lantern.gameObject.layer = LayerMask.NameToLayer("Ghosts");
         lantern.gameObject.AddComponent<Animator>();
         lantern._animator = lantern.gameObject.AddComponent<SpriteAnim>();
         lantern._renderer = lantern.gameObject.AddComponent<SpriteRenderer>();

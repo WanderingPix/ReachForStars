@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using MiraAPI.Utilities;
 using PowerTools;
 using Reactor.Utilities.Extensions;
 using UnityEngine;
@@ -54,5 +56,20 @@ public static class PlayerControlUtils
         }
 
         player.Data.SetTasks(SelectedTasks.ToArray());
+    }
+
+    public static PlayerControl? GetClosestGhost(
+        this PlayerControl playerControl,
+        float distance,
+        bool ignoreColliders = false,
+        Predicate<PlayerControl>? predicate = null)
+    {
+        var filteredPlayers = Helpers.GetClosestPlayers(playerControl, distance, ignoreColliders)
+            .Where(playerInfo => !playerInfo.Data.Disconnected &&
+                                 playerInfo.PlayerId != playerControl.PlayerId &&
+                                 playerInfo.Data.IsDead)
+            .ToList();
+
+        return predicate != null ? filteredPlayers.Find(predicate) : filteredPlayers.FirstOrDefault();
     }
 }

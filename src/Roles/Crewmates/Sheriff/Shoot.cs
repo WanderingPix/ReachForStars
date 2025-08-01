@@ -13,21 +13,34 @@ namespace ReachForStars.Roles.Crewmates.Sheriff;
 public class Shoot : CustomActionButton<PlayerControl>
 {
     public TranslationPool ButtonName = new(
-        "Jail",
+        "Shoot",
         "Disparar",
         "Tirer",
         "выстрелить"
-        //italian: "Sparare"
     );
 
     public override string Name => ButtonName.GetTranslatedText();
     public override float Cooldown => 25;
     public override float EffectDuration => 0;
+    public override int MaxUses => 0;
 
-    public override int MaxUses => (int)OptionGroupSingleton<SheriffOptions>.Instance.BulletCount;
+    public override float Distance =>
+        GameOptionsManager.Instance.CurrentGameOptions.GetInt(Int32OptionNames.KillDistance);
 
     public override LoadableAsset<Sprite> Sprite => Assets.Shoot;
     public override ButtonLocation Location => ButtonLocation.BottomRight;
+
+    private int BulletCount { get; set; }
+
+    public override void CreateButton(Transform parent)
+    {
+        base.CreateButton(parent);
+        BulletCount = 0;
+        Button.usesRemainingText.enabled = false;
+        Button.usesRemainingSprite.sprite = Assets.BulletCounters[0].LoadAsset();
+        Button.usesRemainingSprite.color = Palette.CrewmateBlue;
+        Button.usesRemainingSprite.gameObject.SetActive(true);
+    }
 
     public override bool Enabled(RoleBehaviour? role)
     {
@@ -41,36 +54,44 @@ public class Shoot : CustomActionButton<PlayerControl>
 
     public override void SetOutline(bool active)
     {
-        Target?.cosmetics.SetOutline(active, new Nullable<Color>(new Color(1f, 1f, 0f, 1f)));
+        Target?.cosmetics.SetOutline(active, new Nullable<Color>(Palette.CrewmateBlue));
     }
 
-    public override bool IsTargetValid(PlayerControl? target)
+    public override bool IsTargetValid(PlayerControl target)
     {
-        return true;
+        return BulletCount > 0 && target != null;
     }
 
     protected override void OnClick()
     {
-        if (Target.Data.Role.IsImpostor)
+        if (OptionGroupSingleton<SheriffOptions>.Instance.SheriffKnowsIfRight) Notify(Target);
+        PlayerControl.LocalPlayer.RpcCustomMurder(Target);
+        BulletCount--;
+        Button.usesRemainingSprite.sprite = Assets.BulletCounters[BulletCount].LoadAsset();
+    }
+
+    public void AddBullet()
+    {
+        if (BulletCount < 3)
         {
-            PlayerControl.LocalPlayer.RpcCustomMurder(Target);
-            HudManager.Instance.StartCoroutine(Effects.ScaleIn(Button.transform, 1.4f, 0.7f, 0.7f));
+            BulletCount++;
+            Button.usesRemainingSprite.sprite = Assets.BulletCounters[BulletCount].LoadAsset();
         }
-        else if (!Target.Data.Role.IsImpostor)
-        {
-            switch (OptionGroupSingleton<SheriffOptions>.Instance.Consequence)
-            {
-                case MisfireResults.Demote:
-                    PlayerControl.LocalPlayer.RpcSetRole(RoleTypes.Crewmate, true);
-                    break;
-                case MisfireResults.Suicide:
-                    PlayerControl.LocalPlayer.RpcCustomMurder(PlayerControl.LocalPlayer, true, true, true, false,
-                        false);
-                    PlayerControl.LocalPlayer.RpcCustomMurder(Target, true, true, true, false, false);
-                    break;
-                case MisfireResults.None:
-                    break;
-            }
-        }
+    }
+
+    private void Notify(PlayerControl Target)
+    {
+        var message = "";
+        if (Target.Data.Role is ImpostorRole)
+            message = $"{Target.Data.PlayerName} was <color=red>an Impostor!</color>";
+
+        else if (Target.Data.Role is CrewmateRole)
+            message =
+                $"{Target.Data.PlayerName} was <color=#{ColorUtility.ToHtmlStringRGBA(Palette.CrewmateBlue)}>not an Impostor!</color>";
+
+        var notif = Helpers.CreateAndShowNotification(
+            message,
+            Color.white);
+        notif.transform.localPosition = new Vector3(0f, 1f, -20f);
     }
 }

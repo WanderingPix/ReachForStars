@@ -12,8 +12,6 @@ public static class Colors
 
     public static CustomColor Cherry { get; } = new("Cherry", new Color(1.0f, 0.61f, 0.83f));
 
-    public static CustomColor Sky { get; } = new("Sky", new Color(0.54f, 0.8f, 1f));
-
     public static CustomColor Magenta { get; } = new("Magenta", new Color(0.96f, 0.05f, 0.55f));
 
     public static CustomColor Olive { get; } = new("Olive", new Color(0.38f, 0.44f, 0.09f));
@@ -37,4 +35,7 @@ public static class Colors
     public static CustomColor Colorless { get; } = new("Colorless", new Color(1f, 0f, 0f), new Color(0f, 0f, 1f, 1f));
 
     public static CustomColor Gold { get; } = new("Gold", new Color(1f, 1f, 0.05f), new Color(1f, 0f, 0f, 1f));
+
+    public static CustomColor Sky { get; } =
+        new("Soul", new Color32(159, 201, 235, 255), new Color32(93, 163, 235, 255));
 }

@@ -1,5 +1,6 @@
 ﻿using MiraAPI.Utilities.Assets;
 using Reactor.Utilities;
+using TMPro;
 using UnityEngine;
 
 namespace ReachForStars;
@@ -7,8 +8,8 @@ namespace ReachForStars;
 public static class Assets
 {
     public static readonly AssetBundle Bundle = AssetBundleManager.Load("rfsbundle");
+    public static LoadableBundleAsset<TMP_SpriteAsset> RoleIcons = new("RoleIcons.asset", Bundle);
     public static LoadableResourceAsset DetectiveIndicator = new("ReachForStars.Resources.UI.DetectiveIndicator.png");
-    public static LoadableResourceAsset CustomColoredShh = new("ReachForStars.Resources.UI.Shh.png");
 
     public static LoadableBundleAsset<RuntimeAnimatorController> FreeChatBreakAnimation =
         new("FreeChatBreakController.controller", Bundle);
@@ -21,6 +22,9 @@ public static class Assets
 
     public static LoadableBundleAsset<RuntimeAnimatorController> ChatBackgroundBreakAnimation =
         new("ChatBackgroundBreakController.controller", Bundle);
+
+    public static LoadableBundleAsset<GameObject> BlackmailEmblem =
+        new("BlackmailEmblemPrefab.prefab", Bundle);
 
     public static LoadableResourceAsset PListActive = new("ReachForStars.Resources.UI.PlayerListActive.png");
     public static LoadableResourceAsset PListInactive = new("ReachForStars.Resources.UI.PlayerListInactive.png");
@@ -133,9 +137,30 @@ public static class Assets
         new("ReachForStars.Resources.AbilityCounters.EnergyCounter3.png")
     ];
 
+    public static LoadableResourceAsset[] BulletCounters { get; } =
+    [
+        new("ReachForStars.Resources.AbilityCounters.BulletCounter0.png"),
+        new("ReachForStars.Resources.AbilityCounters.BulletCounter1.png"),
+        new("ReachForStars.Resources.AbilityCounters.BulletCounter2.png"),
+        new("ReachForStars.Resources.AbilityCounters.BulletCounter3.png")
+    ];
+
     public static LoadableResourceAsset Ash { get; } = new("ReachForStars.Resources.Objects.Ash.png", 200f);
     public static LoadableBundleAsset<GameObject> LanternObject { get; } = new("lanternPrefab.prefab", Bundle);
 
     public static LoadableBundleAsset<AnimationClip> LanternBobAnim { get; } =
         new("LanternBobbingAnimation.anim", Bundle);
+
+    public static LoadableAudioResourceAsset ChainsSFX { get; } = new("ReachForStars.Resources.SoundEffects.Chain.wav");
+
+    public static LoadableBundleAsset<GameObject> BombPrefab { get; } =
+        new("BombPrefab.prefab", Bundle);
+
+    public static LoadableBundleAsset<GameObject> ReviveArrowPrefab { get; } =
+        new("ReviveArrowPrefab.prefab", Bundle);
+
+    public static LoadableAudioResourceAsset VacuumGhostSFX { get; } =
+        new("ReachForStars.Resources.SoundEffects.VacuumGhost.wav");
+
+    public static LoadableBundleAsset<AnimationClip> VacuumedGhostAnim { get; } = new("VacuumedGhost.anim", Bundle);
 }

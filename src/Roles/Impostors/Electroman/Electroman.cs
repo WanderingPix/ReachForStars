@@ -9,13 +9,16 @@ public class ElectromanRole : ImpostorRole, ICustomRole
 {
     public TranslationPool RoleDescLong = new(
         "Electrocute crewmates!",
-        french: "",
+        french: "Electrocutez les Coequipiers",
         spanish: "",
         russian: ""
     );
 
     public TranslationPool RoleDescShort = new(
-        "Electrocute crewmates!"
+        "Short-Circuit tasks to kill crewmates!",
+        french: "Piegez les taches pour tuer les coequipiers",
+        spanish: "",
+        russian: ""
     );
 
     public TranslationPool roleName = new(

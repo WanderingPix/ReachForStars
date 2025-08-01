@@ -8,7 +8,7 @@ public static class MapBehaviourPatches
 {
     [HarmonyPatch(typeof(MapBehaviour), nameof(MapBehaviour.Show))]
     [HarmonyPostfix]
-    public static void MapBehaviourSHowPostfix(MapBehaviour __instance)
+    public static void MapBehaviourShowPostfix(MapBehaviour __instance)
     {
         RefreshedMapBehaviour.SetUp(__instance);
     }

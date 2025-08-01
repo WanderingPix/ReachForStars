@@ -33,7 +33,7 @@ public class Freeze : CustomActionButton<DeadBody>
 
     public override bool Enabled(RoleBehaviour? role)
     {
-        return role is FreezerRole;
+        return role is ChillerRole;
     }
 
     public override bool IsTargetValid(DeadBody? target)

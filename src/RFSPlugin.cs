@@ -41,7 +41,10 @@ public partial class ReachForStars : BasePlugin, IMiraPlugin
         ClassInjector.RegisterTypeInIl2Cpp<ShortCircuitedConsole>();
         ClassInjector.RegisterTypeInIl2Cpp<Lantern>();
         ClassInjector.RegisterTypeInIl2Cpp<SwingingLantern>();
-        ClassInjector.RegisterTypeInIl2Cpp<AuraEffect>();
+        ClassInjector.RegisterTypeInIl2Cpp<ReviveArrow>();
+        ClassInjector.RegisterTypeInIl2Cpp<Bomb>();
+        ClassInjector.RegisterTypeInIl2Cpp<BlackmailEmblem>();
+        ClassInjector.RegisterTypeInIl2Cpp<TraitorsRemainingTextController>();
         Log.LogInfo("Reach For Stars Loaded Successfully! >u<");
     }
 }

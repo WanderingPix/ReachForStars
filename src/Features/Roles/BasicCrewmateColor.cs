@@ -9,7 +9,7 @@ public static class BasicCrewmateColor
     public static void OnSetRole(SetRoleEvent @event)
     {
         var behaviour = RoleManager.Instance.GetRole(@event.Role);
-        if (@event.Player == PlayerControl.LocalPlayer && behaviour.TryCast<CrewmateRole>() != null)
+        if (@event.Player == PlayerControl.LocalPlayer && @event.Player.Data.Role.TeamType == RoleTeamTypes.Crewmate)
             @event.Player.cosmetics.SetNameColor(Palette.White);
     }
 }

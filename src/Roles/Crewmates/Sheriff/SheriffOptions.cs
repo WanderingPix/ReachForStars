@@ -1,5 +1,5 @@
 ﻿using MiraAPI.GameOptions;
-using MiraAPI.GameOptions.Attributes;
+using MiraAPI.GameOptions.OptionTypes;
 
 namespace ReachForStars.Roles.Crewmates.Sheriff;
 
@@ -7,16 +7,5 @@ public class SheriffOptions : AbstractOptionGroup<SheriffRole>
 {
     public override string GroupName => "Sheriff Options";
 
-    [ModdedEnumOption("Misfire Consequence", typeof(MisfireResults))]
-    public MisfireResults Consequence { get; set; } = MisfireResults.Demote;
-
-    [ModdedNumberOption("Bullet Count", 1f, 3f)]
-    public float BulletCount { get; set; } = 1f;
-}
-
-public enum MisfireResults
-{
-    Suicide,
-    Demote,
-    None
+    public ModdedToggleOption SheriffKnowsIfRight { get; set; } = new("Sheriff knows if they shot the impostor", true);
 }

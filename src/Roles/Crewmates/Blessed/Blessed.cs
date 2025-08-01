@@ -1,15 +1,18 @@
-﻿using MiraAPI.Roles;
+﻿using System.Collections;
+using MiraAPI.Events;
+using MiraAPI.Events.Vanilla.Player;
+using MiraAPI.Roles;
+using MiraAPI.Utilities;
 using ReachForStars.Components;
 using ReachForStars.Translation;
 using ReachForStars.Utilities;
+using Reactor.Utilities;
 using UnityEngine;
 
 namespace ReachForStars.Roles.Crewmates.Blessed;
 
-public class LightenerRole : CrewmateGhostRole, ICustomRole
+public class BlessedRole : CrewmateGhostRole, ICustomRole
 {
-    public AuraEffect Aura;
-
     public TranslationPool RoleDescLong = new(
         "Finish your tasks to revive yourself!",
         french: "",
@@ -37,16 +40,7 @@ public class LightenerRole : CrewmateGhostRole, ICustomRole
     {
         if (Player == null) return;
 
-        Aura = new GameObject("HandAnimation").AddComponent<AuraEffect>();
-        Aura.gameObject.layer = LayerMask.NameToLayer("Players");
-        Aura._renderer = Aura.gameObject.AddComponent<SpriteRenderer>();
-        Aura._renderer.sprite = Assets.PlaceHolder.LoadAsset();
-        Aura._renderer.material = new Material(Shader.Find("Unlit/PlayerShader"));
-        PlayerMaterial.SetColors(Player.cosmetics.ColorId, Aura._renderer);
-        Aura.transform.SetParent(Player.MyPhysics.Animations.transform);
-        Aura.transform.localPosition = new Vector3(0f, -0.2f, -10f);
-        Aura.transform.localScale = new Vector3(0.5f, 0.5f, 10f);
-        Aura.Player = Player;
+        Player.gameObject.layer = LayerMask.NameToLayer("Players");
 
         if (Player != PlayerControl.LocalPlayer) return;
 
@@ -72,8 +66,30 @@ public class LightenerRole : CrewmateGhostRole, ICustomRole
         TasksCountForProgress = false
     };
 
+    public static IEnumerator CoRevive(PlayerControl p)
+    {
+        if (PlayerControl.LocalPlayer.Data.Role.IsImpostor) ShowReviveArrow(p);
+        yield return new WaitForSeconds(8f);
+        p.Revive();
+        yield break;
+    }
+
+    public static void ShowReviveArrow(PlayerControl target)
+    {
+        var go = Instantiate(Assets.ReviveArrowPrefab.LoadAsset());
+        var arrow = go.AddComponent<ReviveArrow>();
+        arrow.RevivingPlayer = target;
+    }
+
     public override void Deinitialize(PlayerControl targetPlayer)
     {
         //TBD Custom Player Model :3
+    }
+
+    [RegisterEvent]
+    public static void OnTaskComplete(CompleteTaskEvent e)
+    {
+        if (e.Player.Data.Role is BlessedRole b && e.Player.GetTasksLeft() == 0)
+            Coroutines.Start(CoRevive(e.Player)); //Check if player is blessed and has finished all their tasks
     }
 }

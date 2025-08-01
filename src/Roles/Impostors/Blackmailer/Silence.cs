@@ -29,7 +29,7 @@ public class Silence : CustomActionButton<PlayerControl>
     public override float Distance => 1f;
 
 
-    public override LoadableAsset<Sprite> Sprite => Assets.FreezeButton;
+    public override LoadableAsset<Sprite> Sprite => Assets.PlaceHolder;
 
     public override bool Enabled(RoleBehaviour? role)
     {

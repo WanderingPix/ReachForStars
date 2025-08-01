@@ -36,5 +36,7 @@ public enum RPC : uint
     //Jail,
 
     //For placing lanterns as Lightener
-    LightUp
+    LightUp,
+
+    Bomb
 }

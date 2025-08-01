@@ -4,6 +4,7 @@ using MiraAPI.Events.Vanilla.Meeting;
 using MiraAPI.Modifiers;
 using MiraAPI.Modifiers.Types;
 using MiraAPI.Utilities;
+using ReachForStars.Components;
 using Reactor.Utilities.Extensions;
 using UnityEngine;
 
@@ -91,7 +92,10 @@ public class BlackmailedModifier : GameModifier
         }
     }
 
-    public override void OnMeetingStart()
+    public override void OnActivate()
     {
+        var go = Object.Instantiate(Assets.BlackmailEmblem.LoadAsset(), HudManager.Instance.transform);
+        var emblem = go.AddComponent<BlackmailEmblem>();
+        go.transform.localPosition = Vector3.zero;
     }
 }

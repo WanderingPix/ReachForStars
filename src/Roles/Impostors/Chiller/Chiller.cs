@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ReachForStars.Roles.Impostors.Chiller;
 
-public class FreezerRole : ImpostorRole, ICustomRole
+public class ChillerRole : ImpostorRole, ICustomRole
 {
     public TranslationPool RoleDescLong = new
     (
