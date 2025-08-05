@@ -1,6 +1,6 @@
 using MiraAPI.Hud;
+using MiraAPI.Modifiers;
 using MiraAPI.Utilities.Assets;
-using ReachForStars.Networking;
 using ReachForStars.Translation;
 using UnityEngine;
 
@@ -17,12 +17,12 @@ public class Dig : CustomActionButton
 
     public override string Name => buttonName.GetTranslatedText();
 
-    public override float Cooldown => 0;
-    public override float EffectDuration => 1;
+    public override float Cooldown => 60; //TODO: Options
+    public override float EffectDuration => 10;
 
     public override ButtonLocation Location => ButtonLocation.BottomRight;
 
-    public override int MaxUses => 1;
+    public override int MaxUses => 0;
 
     public override LoadableAsset<Sprite> Sprite => Assets.DigButton;
 
@@ -33,12 +33,6 @@ public class Dig : CustomActionButton
 
     protected override void OnClick()
     {
-        PlayerControl.LocalPlayer.RpcPlaceVent();
-        PlayerControl.LocalPlayer.MyPhysics.enabled = false;
-    }
-
-    public override void OnEffectEnd()
-    {
-        PlayerControl.LocalPlayer.MyPhysics.enabled = true;
+        PlayerControl.LocalPlayer.RpcAddModifier<TunnelingModifier>();
     }
 }

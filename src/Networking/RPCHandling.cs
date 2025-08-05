@@ -1,11 +1,8 @@
 using System.Linq;
 using MiraAPI.Utilities;
-using ReachForStars.Components;
 using ReachForStars.Roles.Crewmates.Lightener;
-using ReachForStars.Roles.Impostors.Bomber;
 using ReachForStars.Roles.Impostors.Chiller;
 using ReachForStars.Roles.Impostors.Electroman;
-using ReachForStars.Roles.Impostors.Mole;
 using ReachForStars.Roles.Impostors.Stickster;
 using ReachForStars.Utilities;
 using Reactor.Networking.Attributes;
@@ -47,59 +44,6 @@ public static class RPCS
         {
             target.AnimateCustom(HudManager.Instance.IntroPrefab.HnSSeekerSpawnAnim);
             target.cosmetics.SetBodyCosmeticsVisible(false);
-        }
-    }
-
-    [MethodRpc((uint)RPC.PlaceDaVent)]
-    public static void RpcPlaceVent(this PlayerControl p)
-    {
-        if (p.Data.Role is MoleRole mole)
-        {
-            p.NetTransform.Halt();
-            p.MyPhysics.Animations.PlayIdleAnimation();
-            var prefab = Object.FindObjectOfType<Vent>(true);
-            var vent = Object.Instantiate(prefab);
-            Vector3 ppos = p.GetTruePosition();
-            vent.transform.position = new Vector3(ppos.x, ppos.y, 1f);
-
-            PluginSingleton<ReachForStars>.Instance.Log.LogDebug("Managed to create vent!");
-
-            Animator myAnim;
-            if (vent.gameObject.GetComponent<Animator>()) myAnim = vent.myRend.gameObject.GetComponent<Animator>();
-            else myAnim = vent.myRend.gameObject.AddComponent<Animator>();
-
-            SoundManager.Instance.PlaySoundAtLocation(Assets.DigSfx.LoadAsset(), ppos,
-                PlayerControl.LocalPlayer.GetTruePosition(), SoundManager.Instance.SfxChannel);
-
-            PluginSingleton<ReachForStars>.Instance.Log.LogDebug("Managed to create animator!");
-            myAnim.runtimeAnimatorController = Assets.VentDigAnimController.LoadAsset();
-
-            vent.gameObject.name = $"MoleVent{mole.MinedVents.Count()}";
-
-            vent.Id = VentUtils.GetAvailableId();
-            vent.Center = null;
-
-            var newAllVents = ShipStatus.Instance.AllVents.ToList();
-            newAllVents.Add(vent);
-            ShipStatus.Instance.AllVents = newAllVents.ToArray();
-            if (mole.MinedVents.Count > 0)
-            {
-                vent.Left = mole.MinedVents.Last();
-                mole.MinedVents.Last().Right = vent;
-                mole.MinedVents.First().Right = vent;
-            }
-            else
-            {
-                vent.Left = null;
-                vent.Right = null;
-            }
-
-            vent.Center = null;
-            vent.gameObject.GetComponent<VentCleaningConsole>()?.DestroyImmediate();
-
-            mole.MinedVents.Add(vent);
-            PluginSingleton<ReachForStars>.Instance.Log.LogDebug(
-                $"new vent placed! total placed vent count for {p.Data.PlayerName} is now {mole.MinedVents.Count}");
         }
     }
 
@@ -154,11 +98,6 @@ public static class RPCS
         }
     }
 
-    //[MethodRpc((uint)RPC.Jail)]
-    //public static void RpcJail(this PlayerControl Source, PlayerControl target)
-    //{
-    //target.AddModifier<JaileeModifier>().Jailor = Source;
-    //}
     [MethodRpc((uint)RPC.LightUp)]
     public static void RpcPlaceLantern(this PlayerControl Source)
     {
@@ -168,17 +107,6 @@ public static class RPCS
             L.transform.position = Source.GetTruePosition();
             Lantern lantern = L.AddComponent<Lantern>();
             lantern.LightRadius = 2f;
-        }
-    }
-
-    [MethodRpc((uint)RPC.Bomb)]
-    public static void RpcLaunchBomb(this PlayerControl Source)
-    {
-        if (Source.Data.Role is BomberRole b)
-        {
-            var go = UnityObject.Instantiate(Assets.BombPrefab.LoadAsset());
-            go.AddComponent<Bomb>().Player = Source;
-            go.transform.position = Source.GetTruePosition();
         }
     }
 }

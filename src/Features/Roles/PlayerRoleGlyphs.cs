@@ -12,14 +12,22 @@ public static class PlayerRoleGlyphs
     {
         e.Player.cosmetics.nameText.spriteAsset = Assets.RoleIcons.LoadAsset();
         var r = RoleManager.Instance.AllRoles.First(x => x.Role == e.Role);
-        if (r is ICustomRole c && c.CanLocalPlayerSeeRole(e.Player))
+
+        if (CanLocalPlayerSeeRole(r))
             e.Player.cosmetics.nameText.text = $"{GetTag(r)} {e.Player.cosmetics.nameText.text}";
-        else if (r is not ICustomRole && r.IsImpostor && PlayerControl.LocalPlayer.Data.Role.IsImpostor)
-            e.Player.cosmetics.nameText.text = $"{GetTag(r)}{e.Player.cosmetics.nameText.text}";
     }
 
     public static string GetTag(RoleBehaviour r)
     {
         return $"<sprite name={r.GetScriptClassName()}>";
+    }
+
+    public static bool CanLocalPlayerSeeRole(RoleBehaviour r)
+    {
+        if (r is ICustomRole c) return c.CanLocalPlayerSeeRole(PlayerControl.LocalPlayer);
+        if (r.IsImpostor) return PlayerControl.LocalPlayer.Data.Role.IsImpostor;
+        if (r.IsImpostor == false) return r.Player == PlayerControl.LocalPlayer;
+
+        return true;
     }
 }

@@ -53,7 +53,7 @@ public class Silence : CustomActionButton<PlayerControl>
 
     protected override void OnClick()
     {
-        Target.RpcAddModifier<BlackmailedModifier>();
+        Target.RpcAddModifier<BlackmailedModifier>(PlayerControl.LocalPlayer);
         var notification = Helpers.CreateAndShowNotification(
             $"<color=#{ColorUtility.ToHtmlStringRGBA(Target.Data.Color)}>{Target.Data.PlayerName}</color> has been silenced!\nThey will not be able to talk next meeting!",
             Palette.ImpostorRed, null);

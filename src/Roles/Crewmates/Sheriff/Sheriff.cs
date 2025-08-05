@@ -1,7 +1,4 @@
-﻿using MiraAPI.Events;
-using MiraAPI.Events.Vanilla.Player;
-using MiraAPI.Hud;
-using MiraAPI.Roles;
+﻿using MiraAPI.Roles;
 using ReachForStars.Translation;
 using UnityEngine;
 
@@ -10,9 +7,9 @@ namespace ReachForStars.Roles.Crewmates.Sheriff;
 public class SheriffRole : CrewmateRole, ICustomRole
 {
     public TranslationPool RoleDescLong = new(
-        "Jail the Impostors, but\n not the Crew",
-        french: "Tirez sur les imposteurs,\n mais pas sur vos coéquipiers",
-        spanish: "Dispara a los impostores pero no\n a los tripulantes",
+        "Shoot the Impostors, but not the Crew",
+        french: "Tirez sur les imposteurs, mais pas sur vos coéquipiers",
+        spanish: "Dispara a los impostores pero no a los tripulantes",
         russian: "стреляй в предателей, но не в экипаж"
         //italian: "Spara gli Impostori\n non l'equipaggio"
     );
@@ -44,13 +41,7 @@ public class SheriffRole : CrewmateRole, ICustomRole
 
     public CustomRoleConfiguration Configuration => new(this)
     {
-        Icon = Assets.SheriffIcon
+        Icon = Assets.SheriffIcon,
+        IntroSound = Assets.SheriffKillSFX
     };
-
-    [RegisterEvent]
-    public static void OnTaskComplete(CompleteTaskEvent e)
-    {
-        if (e.Player.Data.Role is SheriffRole && e.Player == PlayerControl.LocalPlayer)
-            CustomButtonSingleton<Shoot>.Instance.AddBullet();
-    }
 }

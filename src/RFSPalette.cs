@@ -9,5 +9,5 @@ public static class RFSPalette
     public static Color32 GhostBusterColor = new(0, 255, 200, 255);
     public static Color JesterColor = new(1f, 0.18f, 0.81f, 1f);
     public static Color CursedSoulColor = new(0.6f, 0.6f, 0.8f, 1f);
-    public static Color ExiledColor = Color.yellow;
+    public static Color LawyerColor = Color.yellow;
 }

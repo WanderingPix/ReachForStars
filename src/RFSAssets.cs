@@ -30,13 +30,10 @@ public static class Assets
     public static LoadableResourceAsset PListInactive = new("ReachForStars.Resources.UI.PlayerListInactive.png");
 
     public static LoadableResourceAsset GrayScaleUsesCounter { get; } =
-        new("ReachForStars.Resources.AbilityCounters.AbilityCounter.png");
+        new("ReachForStars.Resources.AbilityCounters.AbilityCounter.png"); //Unused 
 
     public static LoadableResourceAsset RedKillButton { get; } =
         new("ReachForStars.Resources.Abilities.KillButtonRed.png");
-
-    public static LoadableResourceAsset BlueKillButton { get; } =
-        new("ReachForStars.Resources.Abilities.KillButtonBlue.png");
 
     public static LoadableBundleAsset<GameObject> FrozenBodyPrefab { get; } = new("FrozenBodyPrefab.prefab", Bundle);
     public static LoadableResourceAsset FreezeButton { get; } = new("ReachForStars.Resources.Abilities.Freeze.png");
@@ -153,14 +150,17 @@ public static class Assets
 
     public static LoadableAudioResourceAsset ChainsSFX { get; } = new("ReachForStars.Resources.SoundEffects.Chain.wav");
 
-    public static LoadableBundleAsset<GameObject> BombPrefab { get; } =
-        new("BombPrefab.prefab", Bundle);
-
     public static LoadableBundleAsset<GameObject> ReviveArrowPrefab { get; } =
         new("ReviveArrowPrefab.prefab", Bundle);
 
     public static LoadableAudioResourceAsset VacuumGhostSFX { get; } =
         new("ReachForStars.Resources.SoundEffects.VacuumGhost.wav");
 
-    public static LoadableBundleAsset<AnimationClip> VacuumedGhostAnim { get; } = new("VacuumedGhost.anim", Bundle);
+    public static LoadableAudioResourceAsset SheriffKillSFX { get; } =
+        new("ReachForStars.Resources.SoundEffects.sheriffkill.wav");
+
+    public static LoadableAudioResourceAsset TunnelingSFX { get; } =
+        new("ReachForStars.Resources.SoundEffects.Tunneling.wav");
+
+    public static LoadableBundleAsset<AnimationClip> SlashAnimation { get; } = new("SlashAnimation.anim", Bundle);
 }

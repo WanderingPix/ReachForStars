@@ -11,9 +11,6 @@ public enum RPC : uint
     // for changing the body type of a player
     ChangeBodyType,
 
-    // for placing vents as mole
-    PlaceDaVent,
-
     // for resizing players, be careful with values tho!
     ResizePlayer,
 
@@ -32,11 +29,6 @@ public enum RPC : uint
     //For trapping tasks as electroman
     ShortCircuit,
 
-    //For jailing players as jailor!
-    //Jail,
-
     //For placing lanterns as Lightener
     LightUp,
-
-    Bomb
 }

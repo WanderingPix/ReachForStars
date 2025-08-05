@@ -58,10 +58,16 @@ public class GhostBusterRole : ImpostorRole, ICustomRole
     public override void Initialize(PlayerControl player)
     {
         RoleBehaviourStubs.Initialize(this, player);
+        Player.AddModifier<CanSeeGhostsModifier>();
         if (player == PlayerControl.LocalPlayer)
         {
             CustomButtonSingleton<Vacuum>.Instance.Button.Show();
-            player.AddModifier<CanSeeGhostsModifier>();
+            //TODO: UI and win cons
         }
+    }
+
+    public override void Deinitialize(PlayerControl targetPlayer)
+    {
+        Player.RemoveModifier<CanSeeGhostsModifier>();
     }
 }

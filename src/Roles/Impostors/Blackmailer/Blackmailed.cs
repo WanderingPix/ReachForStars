@@ -4,20 +4,18 @@ using MiraAPI.Events.Vanilla.Meeting;
 using MiraAPI.Modifiers;
 using MiraAPI.Modifiers.Types;
 using MiraAPI.Utilities;
-using ReachForStars.Components;
 using Reactor.Utilities.Extensions;
 using UnityEngine;
 
 namespace ReachForStars.Roles.Impostors.Blackmailer;
 
-public class BlackmailedModifier : GameModifier
+public class BlackmailedModifier(PlayerControl bmer) : GameModifier
 {
     private Sprite _NormalChatBackgroundSprite;
 
     private Sprite _NormalFreeChatSprite;
     private Sprite _NormalKeyboardBtnSprite;
     private Sprite _NormalQuickChatSprite;
-    public PlayerControl bmer;
     public bool HasOpenedChatOnce = false;
     public override string ModifierName => "Silenced";
 
@@ -36,6 +34,8 @@ public class BlackmailedModifier : GameModifier
         ChatController __instance = HudManager.Instance.Chat;
         if (PlayerControl.LocalPlayer == Player)
         {
+            __instance.backgroundImage.sprite = _NormalChatBackgroundSprite;
+
             __instance.freeChatField.textArea.enabled = true;
             __instance.freeChatField.background.sprite = _NormalFreeChatSprite;
 
@@ -52,7 +52,7 @@ public class BlackmailedModifier : GameModifier
     public IEnumerator CoAnimate(ChatController __instance)
     {
         HasOpenedChatOnce = true;
-        __instance.StartCoroutine(Effects.Shake(__instance.chatScreen.transform, 2f, 0.1f, false, true));
+        //__instance.StartCoroutine(Effects.Shake(__instance.chatScreen.transform, 2f, 0.1f, false, true));
         yield return new WaitForSeconds(1.5f);
 
         __instance.freeChatField.textArea.enabled = false;
@@ -90,12 +90,5 @@ public class BlackmailedModifier : GameModifier
         {
             if (p.HasModifier<BlackmailedModifier>()) p.RemoveModifier<BlackmailedModifier>();
         }
-    }
-
-    public override void OnActivate()
-    {
-        var go = Object.Instantiate(Assets.BlackmailEmblem.LoadAsset(), HudManager.Instance.transform);
-        var emblem = go.AddComponent<BlackmailEmblem>();
-        go.transform.localPosition = Vector3.zero;
     }
 }

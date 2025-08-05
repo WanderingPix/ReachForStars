@@ -13,7 +13,6 @@ public class ToBeSuckedModifier(PlayerControl GhostBuster) : TimedModifier
 
     public override void OnActivate()
     {
-        Player.MyPhysics.GhostSpeed *= 0.5f;
         HudManager.Instance.StartCoroutine(Effects.Slide2DWorld(Player.transform, Player.GetTruePosition(),
             GB.GetTruePosition(), 5f));
         SoundManager.Instance.PlaySound(Assets.VacuumGhostSFX.LoadAsset(), false, 0.6f, SoundManager.instance.sfxMixer);

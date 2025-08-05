@@ -13,5 +13,6 @@ public class SwingingLantern : MonoBehaviour
     {
         if (Player.MyPhysics.body.velocity.x != 0) _animator.Play(Assets.LanternBobAnim.LoadAsset());
         _renderer.flipX = Player.MyPhysics.FlipX;
+        _renderer.enabled = Player.Visible;
     }
 }

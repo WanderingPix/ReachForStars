@@ -65,7 +65,8 @@ public class Shoot : CustomActionButton<PlayerControl>
     protected override void OnClick()
     {
         if (OptionGroupSingleton<SheriffOptions>.Instance.SheriffKnowsIfRight) Notify(Target);
-        PlayerControl.LocalPlayer.RpcCustomMurder(Target);
+        PlayerControl.LocalPlayer.RpcCustomMurder(Target, playKillSound: false);
+        SoundManager.Instance.PlaySound(Assets.SheriffKillSFX.LoadAsset(), false, 1f, SoundManager.instance.sfxMixer);
         BulletCount--;
         Button.usesRemainingSprite.sprite = Assets.BulletCounters[BulletCount].LoadAsset();
     }
@@ -81,13 +82,17 @@ public class Shoot : CustomActionButton<PlayerControl>
 
     private void Notify(PlayerControl Target)
     {
-        var message = "";
-        if (Target.Data.Role is ImpostorRole)
+        var message = "if You're reading this, it's a bug";
+        if (Target.Data.Role.TeamType == RoleTeamTypes.Impostor)
+        {
             message = $"{Target.Data.PlayerName} was <color=red>an Impostor!</color>";
+        }
 
-        else if (Target.Data.Role is CrewmateRole)
+        else
+        {
             message =
                 $"{Target.Data.PlayerName} was <color=#{ColorUtility.ToHtmlStringRGBA(Palette.CrewmateBlue)}>not an Impostor!</color>";
+        }
 
         var notif = Helpers.CreateAndShowNotification(
             message,

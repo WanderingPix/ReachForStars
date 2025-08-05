@@ -1,6 +1,7 @@
 using MiraAPI.Modifiers;
 using MiraAPI.Modifiers.Types;
 using MiraAPI.Utilities;
+using ReachForStars.Modifiers;
 using Reactor.Utilities.Extensions;
 using TMPro;
 using UnityEngine;
@@ -29,7 +30,7 @@ public class VacuumedModifier(PlayerControl GhostBuster) : GameModifier
 
     public override void OnActivate()
     {
-        Player.MyPhysics.GhostSpeed /= 0.5f;
+        Player.AddModifier<InvisibleModifier>();
         if (Player != PlayerControl.LocalPlayer) return;
         HudManager.Instance.PlayerCam.Target = GB;
         Player.gameObject.SetActive(false);
@@ -49,6 +50,7 @@ public class VacuumedModifier(PlayerControl GhostBuster) : GameModifier
         HudManager.Instance.SetHudActive(true);
         HudManager.Instance.PlayerCam.Target = Player;
         Player.moveable = true;
+        Player.RemoveModifier<InvisibleModifier>();
         Player.RemoveModifier<VacuumedModifier>();
     }
 }
