@@ -4,7 +4,6 @@ using MiraAPI.GameOptions;
 using MiraAPI.Hud;
 using MiraAPI.Modifiers;
 using MiraAPI.Patches.Stubs;
-using MiraAPI.PluginLoading;
 using MiraAPI.Roles;
 using MiraAPI.Utilities;
 using ReachForStars.Roles.Neutrals.BountyHunter;
@@ -15,7 +14,6 @@ using Random = System.Random;
 
 namespace ReachForStars.Roles.Neutrals.Roles;
 
-[MiraIgnore]
 public class BountyHunterRole : ImpostorRole, ICustomRole
 {
     public PlayerControl Target;
@@ -94,7 +92,6 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
 
     public override void OnVotingComplete()
     {
-        hud.myButton.enabled = true;
         hud.gameObject.SetActive(true);
         if (!HasWon)
         {
@@ -104,7 +101,6 @@ public class BountyHunterRole : ImpostorRole, ICustomRole
 
     public override void OnMeetingStart()
     {
-        hud.myButton.enabled = false;
         hud.gameObject.SetActive(false);
         if (!HasWon)
         {

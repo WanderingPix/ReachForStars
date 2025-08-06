@@ -11,6 +11,6 @@ public class PlayerControlPatches
     [HarmonyPostfix]
     public static void Postfix(PlayerControl __instance)
     {
-        if (__instance.HasModifier<InvisibleModifier>()) __instance.Visible = false;
+        if (__instance.HasModifier<InvisibleModifier>()) __instance.Visible = true;
     }
 }

@@ -62,7 +62,6 @@ public class GhostBusterRole : ImpostorRole, ICustomRole
         if (player == PlayerControl.LocalPlayer)
         {
             CustomButtonSingleton<Vacuum>.Instance.Button.Show();
-            //TODO: UI and win cons
         }
     }
 

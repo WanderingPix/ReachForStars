@@ -1,24 +1,20 @@
-using System;
 using System.Collections;
-using Il2CppInterop.Runtime.InteropTypes.Arrays;
 using MiraAPI.GameOptions;
 using PowerTools;
 using Reactor.Utilities;
 using Reactor.Utilities.Extensions;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace ReachForStars.Roles.Neutrals.BountyHunter;
 
-public class BountyHud : MonoBehaviour
+public class BountyHud : MonoBehaviour //TODO: Big code cleanup, this is very poorly coded
 {
     public SpriteRenderer myRend;
     public TextMeshPro Counter;
     public TextMeshPro WantedText;
     public AspectPosition myPos;
     public PoolablePlayer myPlayer;
-    public PassiveButton myButton;
     public SpriteAnim myAnim;
     public BoxCollider2D myCollider;
     public bool IsOpen;
@@ -51,29 +47,17 @@ public class BountyHud : MonoBehaviour
         myCollider.size = new Vector2(3f, 3f);
         myCollider.isTrigger = true;
 
-        myButton = myRend.gameObject.AddComponent<PassiveButton>();
-        var Event = new Button.ButtonClickedEvent();
-        Event.AddListener(OnClick());
-        myButton.OnClick = Event;
-        myButton.Colliders = new Il2CppReferenceArray<Collider2D>([myCollider]);
-        myButton.ClickMask = myCollider;
-        gameObject.transform.localPosition =
-            new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y, 20f);
+        ToggleHud(true);
+    }
+
+    public void OnMouseDown()
+    {
+        ToggleHud(!IsOpen);
     }
 
     public void ToggleHud(bool Show)
     {
         Coroutines.Start(CoToggleHud(Show));
-    }
-
-    public Action OnClick()
-    {
-        void Listener()
-        {
-            ToggleHud(!IsOpen);
-        }
-
-        return Listener;
     }
 
 

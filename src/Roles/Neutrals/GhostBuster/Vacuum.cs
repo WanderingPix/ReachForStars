@@ -1,3 +1,4 @@
+using Il2CppSystem;
 using MiraAPI.Hud;
 using MiraAPI.Modifiers;
 using MiraAPI.Utilities.Assets;
@@ -44,7 +45,7 @@ public class Vacuum : CustomActionButton<PlayerControl>
 
     public override void SetOutline(bool active)
     {
-        //TODO: Outline method
+        Target?.cosmetics.SetOutline(active, new Nullable<Color>(RFSPalette.GhostBusterColor));
     }
 
     public override bool IsTargetValid(PlayerControl target)

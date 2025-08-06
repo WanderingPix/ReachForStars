@@ -4,10 +4,10 @@ namespace ReachForStars;
 
 public static class RFSPalette
 {
-    //TODO: Make these all use Color32 because Color is ew
-    public static Color BountyHunterColor = new(1f, 0.12f, 0.54f, 1f);
+    public static Color32 BountyHunterColor = new(255, 30, 137, 255);
     public static Color32 GhostBusterColor = new(0, 255, 200, 255);
-    public static Color JesterColor = new(1f, 0.18f, 0.81f, 1f);
-    public static Color CursedSoulColor = new(0.6f, 0.6f, 0.8f, 1f);
-    public static Color LawyerColor = Color.yellow;
+
+    public static Color JesterColor32 = new(255, 46, 200, 255);
+    //public static Color32 CursedSoulColor = new(128, 128, 200, 255); Coming soon!
+    //public static Color32 LawyerColor = Color.yellow; Coming soon aswell!
 }

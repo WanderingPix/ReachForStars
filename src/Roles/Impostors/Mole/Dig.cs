@@ -1,3 +1,4 @@
+using MiraAPI.GameOptions;
 using MiraAPI.Hud;
 using MiraAPI.Modifiers;
 using MiraAPI.Utilities.Assets;
@@ -17,8 +18,8 @@ public class Dig : CustomActionButton
 
     public override string Name => buttonName.GetTranslatedText();
 
-    public override float Cooldown => 60; //TODO: Options
-    public override float EffectDuration => 10;
+    public override float Cooldown => OptionGroupSingleton<MoleOptions>.Instance.DigCD.Value;
+    public override float EffectDuration => OptionGroupSingleton<MoleOptions>.Instance.TunnelingDuration.Value;
 
     public override ButtonLocation Location => ButtonLocation.BottomRight;
 

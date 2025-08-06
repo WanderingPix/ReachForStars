@@ -47,7 +47,7 @@ public class JesterRole : ImpostorRole, ICustomRole
     public string RoleName => roleName.GetTranslatedText();
     public string RoleDescription => RoleDescShort.GetTranslatedText();
     public string RoleLongDescription => RoleDescLong.GetTranslatedText();
-    public Color RoleColor => new(1f, 0.18f, 0.81f, 1f);
+    public Color RoleColor => RFSPalette.JesterColor32;
     public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
 
     public CustomRoleConfiguration Configuration => new(this)

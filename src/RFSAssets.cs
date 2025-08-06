@@ -10,6 +10,7 @@ public static class Assets
     public static readonly AssetBundle Bundle = AssetBundleManager.Load("rfsbundle");
     public static LoadableBundleAsset<TMP_SpriteAsset> RoleIcons = new("RoleIcons.asset", Bundle);
     public static LoadableResourceAsset DetectiveIndicator = new("ReachForStars.Resources.UI.DetectiveIndicator.png");
+    public static LoadableBundleAsset<GameObject> CreditsMenuPrefab = new("CreditsMenuPrefab.prefab", Bundle);
 
     public static LoadableBundleAsset<RuntimeAnimatorController> FreeChatBreakAnimation =
         new("FreeChatBreakController.controller", Bundle);

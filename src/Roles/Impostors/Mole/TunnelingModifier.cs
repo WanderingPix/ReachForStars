@@ -22,9 +22,9 @@ public class TunnelingModifier : TimedModifier
         CreateVent().myAnim.m_animator.runtimeAnimatorController = Assets.VentDigAnimController.LoadAsset();
         if (Player == PlayerControl.LocalPlayer)
             SoundManager.Instance.PlaySound(Assets.TunnelingSFX.LoadAsset(),
-                false); //If localplayer, play the sfx at 1f volume
+                true); //If localplayer, play the sfx at 1f volume
         else
-            SoundManager.Instance.PlaySound(Assets.TunnelingSFX.LoadAsset(), false,
+            SoundManager.Instance.PlaySound(Assets.TunnelingSFX.LoadAsset(), true,
                 0.2f); //else, play the sfx at 0.2 volume
         Player.AddModifier<InvisibleModifier>();
 

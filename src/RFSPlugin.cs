@@ -41,7 +41,6 @@ public partial class ReachForStars : BasePlugin, IMiraPlugin
         ClassInjector.RegisterTypeInIl2Cpp<ShortCircuitedConsole>();
         ClassInjector.RegisterTypeInIl2Cpp<Lantern>();
         ClassInjector.RegisterTypeInIl2Cpp<SwingingLantern>();
-        ClassInjector.RegisterTypeInIl2Cpp<ReviveArrow>();
         Log.LogInfo("Reach For Stars Loaded Successfully! >u<");
     }
 }
