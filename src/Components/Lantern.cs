@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Il2CppInterop.Runtime.InteropTypes.Arrays;
 using ReachForStars.Utilities;
@@ -18,7 +19,7 @@ public class Lantern : MonoBehaviour
     private static readonly int Radius = Shader.PropertyToID("_LightRadius");
 
     public int MinRays = 24;
-
+    
     public float LightRadius = 3f;
 
     public Material Material;
@@ -59,7 +60,7 @@ public class Lantern : MonoBehaviour
     {
         SetupLight();
         if (PlayerControl.LocalPlayer.Data.IsDead)
-            SoundManager.Instance.PlaySoundAtLocation(Assets.ChainsSFX.LoadAsset(), transform.position,
+            SoundManager.Instance.PlaySoundAtLocation(Assets.ChainsSfx.LoadAsset(), transform.position,
                 PlayerControl.LocalPlayer.GetTruePosition(), SoundManager.Instance.SfxChannel);
     }
 
@@ -93,6 +94,7 @@ public class Lantern : MonoBehaviour
         position.z -= 7f;
         child.transform.position = position;
         Vector2 vector = position;
+        
         Material.SetFloat(Radius, LightRadius);
         var num = Physics2D.OverlapCircleNonAlloc(vector, LightRadius, hits, Constants.ShadowMask);
         for (var i = 0; i < num; i++)

@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7a1a1721-cb63-4155-bddb-a44a77ef96eb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/CompatManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/AnalystDeadBodyCache.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/BatBehaviour.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/GhostTrap.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Minigames/SpyMinigame.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Tasks/SilenceTask.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/ThrowableObject.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Features/Freeplay/FreeplayOptionsLaptop.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Features/MainMenu/RFSLogo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Features/Roles/RoleIcons.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Modifiers/Game/Crewmates/Torch/TorchModifier.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Modifiers/Game/Crewmates/Torch/TorchModifierOptions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Modifiers/Game/Crewmates/Workaholic/WorkaholicModifier.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Modifiers/Game/Crewmates/Workaholic/WorkaholicModifierOptions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Modifiers/Game/Universal/Flash/FlashbangedModifier.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Modifiers/Game/Universal/Lonely/LonelyModifier.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Modifiers/Game/Universal/Lonely/LonelyModifierOptions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Options/ClientOptions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Options/GameplayOptions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Patches/ChatBubblePatches.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Patches/NoisemakerArrowPatches.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Resources/UI/AbilityUsedVisual.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Resources/UI/AbilityUsedVisual.png~" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Resources/UI/BodyIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Resources/UI/Circle.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Resources/UI/DousedOverlay.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Resources/UI/GogglesOverlay.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Resources/UI/ModIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Resources/UI/PlayerIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Resources/UI/ScreenshotIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Resources/UI/Square.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Resources/UI/Star.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Resources/UI/Target.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Crewmates/Actor/Act.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Crewmates/Actor/ActModifier.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Crewmates/Actor/Actor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Crewmates/Actor/ActorOptions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Crewmates/Analyst/AnalystOptions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Crewmates/Analyst/AnalystRole.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Crewmates/Analyst/AnalyzeButton.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Crewmates/Lifesaver/AnalystOptions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Crewmates/Lifesaver/LifesaverRole.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Crewmates/Lifesaver/ReviveButton.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Crewmates/Lifesaver/RevivedModifier.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Crewmates/Paranoiac/ParanoiaAbility.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Crewmates/Paranoiac/ParanoiacOptions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Crewmates/Paranoiac/ParanoiacRole.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Crewmates/Paranoiac/ParanoidModifier.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Crewmates/Spirit/Spirit.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Crewmates/Spirit/SpiritAbility.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Crewmates/Spirit/SpiritGhostModifier.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Crewmates/Spirit/SpiritOptions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Crewmates/Spy/BeingSpiedOnModifier.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Crewmates/Spy/Spy.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Crewmates/Spy/Stalk.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Crewmates/Taskmaster/TaskAbility.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Crewmates/Taskmaster/Taskmaster.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Crewmates/Taskmaster/TaskmasterOptions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Impostors/Carrier/Carrier.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Impostors/Carrier/Carry.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Impostors/Carrier/CarryingModifier.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Impostors/Carrier/Throw.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Impostors/Cowboy/Cowboy.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Impostors/Cowboy/Lasso.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Impostors/Cowboy/WrangledModifier.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Impostors/Pyromaniac/BurnAbility.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Impostors/Pyromaniac/BurningModifer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Impostors/Pyromaniac/DouseAbility.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Impostors/Pyromaniac/DousedModifier.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Impostors/Pyromaniac/PyromaniacRole.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Impostors/Silencer/SilenceButton.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Impostors/Silencer/SilencerOptions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Impostors/Silencer/SilencerRole.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Impostors/Sleepcaster/PacifyButton.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Impostors/Sleepcaster/SleepcasterOptions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Impostors/Sleepcaster/SleepcasterRole.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Impostors/Sleepcaster/SleepyModifier.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Neutrals/GhostBuster/AbsorbedModifier.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Neutrals/GhostBuster/Goggles.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Neutrals/GhostBuster/PlaceTrap.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Neutrals/Pirate/PirateOptions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Neutrals/Pirate/PirateRole.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Roles/Neutrals/Pirate/StealAbility.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Utilities/CameraUtils.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Utilities/ChatUtils.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Utilities/ColorUtils.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Utilities/RFSEffects.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modinfo.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ReachForStars/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ReachForStars/.idea/discord.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ReachForStars/.idea/discord.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ReachForStars/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ReachForStars/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/ProjectEvaluation/reachforstars.metadata.v9.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/ProjectEvaluation/reachforstars.metadata.v9.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/ProjectEvaluation/reachforstars.projects.v9.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/ProjectEvaluation/reachforstars.projects.v9.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/ProjectEvaluation/reachforstars.strings.v9.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/ProjectEvaluation/reachforstars.strings.v9.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/ReachForStars/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/ReachForStars/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/ReachForStars/FileContentIndex/c6a0d393-cd7b-4340-94ab-65f30f2051e0.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/ReachForStars/v17/.futdcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/ReachForStars/v17/.futdcache.v2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/ReachForStars/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/ReachForStars/v17/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReachForStars.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/ReachForStars.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nuget.config" beforeDir="false" afterPath="$PROJECT_DIR$/nuget.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Dependencies/MiraAPI.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Dependencies/Reactor.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Dependencies/nofile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/NuGet/AllOfUs.MiraAPI.0.2.0-ci.597.nupkg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/NuGet/amongus.gamelibs.steam.2025.4.15.nupkg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AmongUs.props" beforeDir="false" afterPath="$PROJECT_DIR$/src/AmongUs.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/BountyHud.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/FrozenBody.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Glue.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Lantern.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Lantern.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/ShortCircuitedConsole.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Features/MainMenu/Credits.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Features/MainMenu/Credits.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Features/Minimap/RefreshedMapBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Features/Minimap/RefreshedMapBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Features/Roles/BasicCrewmateColor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Features/Roles/GhostRoleAssignment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Features/Roles/GhostRoleAssignment.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Features/Roles/PlayerRoleGlyphs.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Features/UI/InGamePlayerList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Features/UI/InGamePlayerList.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Features/UI/SmolUI.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modifiers/CanSeeGhostsModifier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modifiers/CanSeeGhostsModifier.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modifiers/InvisibleModifier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modifiers/InvisibleModifier.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Networking/RPCHandling.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Networking/RPCHandling.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Networking/RPCs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Networking/RPCs.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Patches/ChatPatches.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Patches/ConsolePatches.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Patches/DiscordRPCPatch.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Patches/GameEndPatches.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Patches/HudManagerPatches.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Patches/HudManagerPatches.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Patches/MainMenuPatches.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Patches/MainMenuPatches.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Patches/MapBehaviourPatches.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Patches/MapBehaviourPatches.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Patches/MeetingHudPatches.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Patches/OptionsMenuBehaviourPatches.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Patches/OptionsMenuBehaviourPatches.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Patches/PlayerControlPatches.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Patches/PlayerControlPatches.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Patches/PlayerPhysicsPatches.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Patches/PlayerPhysicsPatches.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Patches/RoleManagerPatches.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Patches/RoleManagerPatches.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Patches/ShipStatusPatches.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Patches/ShipStatusPatches.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RFSAssets.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/RFSAssets.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RFSPalette.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/RFSPalette.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RFSPlugin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/RFSPlugin.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ReachForStars.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/ReachForStars.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/Abilities/DigButton.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Resources/Abilities/DigButton.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/Abilities/ElectrocuteButton.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/Abilities/Freeze.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/Abilities/Glue.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/Abilities/Inspect.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/Abilities/KillButtonBlue.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/Abilities/KillButtonRed.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/Abilities/Poison.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/Abilities/Shoot.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/Glues/Glue0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/Glues/Glue1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/Glues/Glue2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/Glues/Variations/GlueVar0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/Glues/Variations/GlueVar1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/Glues/Variations/GlueVar2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/RoleIcons/chiller.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/RoleIcons/detective.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/RoleIcons/electroman.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/RoleIcons/ghostbuster.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/RoleIcons/lightener.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Resources/RoleIcons/lightener.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/RoleIcons/recruiter.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/RoleIcons/sheriff.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/RoleIcons/stickster.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/RoleIcons/traitor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/SoundEffects/PlaceTrap.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/UI/DetectiveIndicator.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/UI/Exile.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/UI/MagnifyingGlass.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/UI/PlayerListInactive.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Resources/UI/PlayerListInactive.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/UI/RiggedVote.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/UI/Shh.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/rfsbundle-win.bundle" beforeDir="false" afterPath="$PROJECT_DIR$/src/Resources/rfsbundle-win.bundle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Roles/Crewmates/Detective/Detective.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Roles/Crewmates/Detective/Inspect.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Roles/Crewmates/Lightener/Lightener.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Roles/Crewmates/Lightener/Lightener.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Roles/Crewmates/Sheriff/Sheriff.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Roles/Crewmates/Sheriff/SheriffOptions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Roles/Crewmates/Sheriff/Shoot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Roles/Crewmates/Snoop/AdminButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Roles/Crewmates/Spy/Watch.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Roles/Crewmates/Snoop/Snoop.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Roles/Impostors/Blackmailer/Blackmailed.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Roles/Impostors/Blackmailer/Blackmailer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Roles/Impostors/Blackmailer/Silence.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Roles/Impostors/Chiller/Chiller.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Roles/Impostors/Chiller/Freeze.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Roles/Impostors/Electroman/Electrocute.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Roles/Impostors/Electroman/ElectrocutedModifier.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Roles/Impostors/Electroman/Electroman.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Roles/Impostors/Electroman/ElectromanOptions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Roles/Impostors/Mole/Dig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Roles/Impostors/Mole/Dig.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Roles/Impostors/Mole/Mole.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Roles/Impostors/Mole/Mole.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Roles/Impostors/Mole/TunnelingModifier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Roles/Impostors/Mole/TunnelingModifier.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Roles/Impostors/Stickster/PlaceGlue.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Roles/Impostors/Stickster/SlowedDownModifier.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Roles/Impostors/Stickster/Stickster.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Roles/Impostors/Stickster/SticksterOptions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Roles/Crewmates/Spy/SpyOptions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Roles/Impostors/Witch/Poison.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Roles/Impostors/Witch/Poisoned.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Roles/Impostors/Witch/Witch.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Roles/Impostors/Witch/WitchOptions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Roles/Neutrals/BountyHunter/BountyHunter.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Roles/Neutrals/BountyHunter/BountyHunterOptions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Roles/Neutrals/BountyHunter/BountyKill.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Roles/Neutrals/GhostBuster/GhostBuster.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Roles/Neutrals/GhostBuster/GhostBuster.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Roles/Neutrals/GhostBuster/GhostBusterOptions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Roles/Neutrals/GhostBuster/GhostBusterOptions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Roles/Neutrals/GhostBuster/ToBeSuckedModifier.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Roles/Neutrals/GhostBuster/Vacuum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Roles/Neutrals/GhostBuster/Vacuum.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Roles/Neutrals/GhostBuster/VacuumedModifier.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Roles/Neutrals/Jester/Jester.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Roles/Neutrals/Jester/Jester.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Roles/Neutrals/Jester/JesterOptions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Roles/Neutrals/Jester/JesterOptions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Roles/Neutrals/NeutralGhost.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Roles/Neutrals/NeutralGhost.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Roles/Neutrals/NeutralWinner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Roles/Neutrals/NeutralWinner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Translation/TransManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Translation/TranslationPool.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Utilities/HudManagerUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utilities/HudManagerUtils.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Utilities/PassiveButtonUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utilities/PassiveButtonUtils.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Utilities/PlayerControlUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utilities/PlayerControlUtils.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bin/Release/net6.0/ReachForStars.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/bin/Release/net6.0/ReachForStars.deps.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bin/Release/net6.0/ReachForStars.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/bin/Release/net6.0/ReachForStars.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bin/Release/net6.0/ReachForStars.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/bin/Release/net6.0/ReachForStars.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/obj/Debug/net6.0/ReachForStars.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/obj/Debug/net6.0/ReachForStars.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/obj/Debug/net6.0/ReachForStars.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/obj/Debug/net6.0/ReachForStars.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/obj/Debug/net6.0/ReachForStars.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/obj/Debug/net6.0/ReachForStars.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/obj/Debug/net6.0/ReachForStars.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/obj/Debug/net6.0/ReachForStars.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/obj/Debug/net6.0/ReachForStars.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/obj/Debug/net6.0/ReachForStars.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/obj/Debug/net6.0/ReachForStars.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/obj/Debug/net6.0/ReachForStars.sourcelink.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/obj/ReachForStars.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/obj/ReachForStars.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/obj/ReachForStars.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/src/obj/ReachForStars.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/obj/Release/net6.0/ReachForStars.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/obj/Release/net6.0/ReachForStars.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/obj/Release/net6.0/ReachForStars.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/obj/Release/net6.0/ReachForStars.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/obj/Release/net6.0/ReachForStars.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/obj/Release/net6.0/ReachForStars.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/obj/Release/net6.0/ReachForStars.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/obj/Release/net6.0/ReachForStars.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/obj/Release/net6.0/ReachForStars.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/obj/Release/net6.0/ReachForStars.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/obj/Release/net6.0/ReachForStars.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/obj/Release/net6.0/ReachForStars.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/obj/Release/net6.0/ReachForStars.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/obj/Release/net6.0/ReachForStars.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/obj/Release/net6.0/ReachForStars.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/obj/Release/net6.0/ReachForStars.sourcelink.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/obj/Release/net6.0/ref/ReachForStars.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/obj/Release/net6.0/ref/ReachForStars.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/obj/Release/net6.0/refint/ReachForStars.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/obj/Release/net6.0/refint/ReachForStars.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/src/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/src/obj/rider.project.restore.info" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;WanderingPix&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/WanderingPix/ReachForStars&quot;,
+    &quot;accountId&quot;: &quot;017f09b6-005b-470a-816a-0f8a2a6cdad5&quot;
+  }
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/ILViewer/9c0f9eb89a6c413cb1f56477965a73b52d3200/4d/39c697a0/0200032A.il" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6c3f2085f70249bda627c2f212432e5c29b800/fe/a3b0623d/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6c3f2085f70249bda627c2f212432e5c29b800/ff/96245140/Object.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9c0f9eb89a6c413cb1f56477965a73b52d3200/01/dedf8a2d/DangerMeter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9c0f9eb89a6c413cb1f56477965a73b52d3200/09/9d8b0351/DoorConsole.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9c0f9eb89a6c413cb1f56477965a73b52d3200/10/61cf090a/Palette.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9c0f9eb89a6c413cb1f56477965a73b52d3200/24/1978c9d7/ChatController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9c0f9eb89a6c413cb1f56477965a73b52d3200/39/432064f6/ChatNoteTypes.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9c0f9eb89a6c413cb1f56477965a73b52d3200/7a/e03f4273/ControllerManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9c0f9eb89a6c413cb1f56477965a73b52d3200/95/f32a96b6/RoleBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9c0f9eb89a6c413cb1f56477965a73b52d3200/bd/46705f72/AbilityButton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9c0f9eb89a6c413cb1f56477965a73b52d3200/cb/14930fbe/LogicPingsHnS.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9c0f9eb89a6c413cb1f56477965a73b52d3200/da/c8394d8a/InfectedOverlay.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9c0f9eb89a6c413cb1f56477965a73b52d3200/e8/a571485d/RoleManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9c0f9eb89a6c413cb1f56477965a73b52d3200/f6/aa1a1edb/ControllerUiElementsState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9dbf80842dec4a8c9bb9bbacb43fbc0e74ba00/55/23627e92/RoleEffectAnimation.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c7f4acf4f8d8acb6bad235952ee6e5b1e6a177be646ef57df47ec24677c7c01e/GameModifier.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c92a8bfe3730c779877b511f51e7f6982c3c82f28efb2a6483735d68394636/BaseModifier.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/cb95c8f02a3230ec189d39389ae58acaf3cb27e47329574c58b3a2c3d82fe3/CustomActionButton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Features/Freeplay/FreeplayOptionsLaptop.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Modifiers/Game/Crewmates/Workaholic/WorkaholicModifierOptions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Patches/HudManagerPatches.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/RFSAssets.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Roles/Crewmates/Lifesaver/LifesaverRole.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Roles/Crewmates/Lifesaver/RevivedModifier.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Roles/Crewmates/Paranoiac/ParanoidModifier.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Roles/Crewmates/Spirit/SpiritOptions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Roles/Impostors/Silencer/SilenceButton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Utilities/CameraUtils.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/RFS AssetBundles/Assets/Scripts/RFSScripts/SilencedGameComponent.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;ff0099ff&quot;,
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="374tOXzfw3rhcMz7dqxNP0A8oM4" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="runtimes">
+        <list />
+      </option>
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <option name="useMixedMode" value="false" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7a1a1721-cb63-4155-bddb-a44a77ef96eb" name="Changes" comment="" />
+      <created>1766174142470</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1766174142470</updated>
+      <workItem from="1766174145785" duration="790000" />
+      <workItem from="1766177883830" duration="1182000" />
+      <workItem from="1766183007813" duration="7099000" />
+      <workItem from="1766226915770" duration="2640000" />
+      <workItem from="1766233182855" duration="6624000" />
+      <workItem from="1766254368786" duration="1814000" />
+      <workItem from="1766258731735" duration="2688000" />
+      <workItem from="1766262525624" duration="2038000" />
+      <workItem from="1766265853057" duration="766000" />
+      <workItem from="1766268120310" duration="2768000" />
+      <workItem from="1766307662490" duration="5167000" />
+      <workItem from="1766320251565" duration="2109000" />
+      <workItem from="1766335051304" duration="804000" />
+      <workItem from="1766343123999" duration="591000" />
+      <workItem from="1766352205125" duration="1246000" />
+      <workItem from="1766355934861" duration="2112000" />
+      <workItem from="1766421622333" duration="3459000" />
+      <workItem from="1766426621496" duration="1693000" />
+      <workItem from="1766430234757" duration="5188000" />
+      <workItem from="1766491330519" duration="1330000" />
+      <workItem from="1766493358490" duration="200000" />
+      <workItem from="1766495567524" duration="376000" />
+      <workItem from="1766587958707" duration="770000" />
+      <workItem from="1766590893884" duration="2212000" />
+      <workItem from="1766599585548" duration="6305000" />
+      <workItem from="1766607832192" duration="182000" />
+      <workItem from="1766608708476" duration="5144000" />
+      <workItem from="1766617025772" duration="2094000" />
+      <workItem from="1766656431210" duration="774000" />
+      <workItem from="1766673414036" duration="2414000" />
+      <workItem from="1766678709237" duration="1173000" />
+      <workItem from="1766694848015" duration="576000" />
+      <workItem from="1766697787908" duration="64000" />
+      <workItem from="1766697952674" duration="500000" />
+      <workItem from="1766698895487" duration="506000" />
+      <workItem from="1766699617892" duration="1331000" />
+      <workItem from="1766742075063" duration="115000" />
+      <workItem from="1766745621781" duration="1736000" />
+      <workItem from="1766767802865" duration="5919000" />
+      <workItem from="1766778549577" duration="582000" />
+      <workItem from="1766780721068" duration="3625000" />
+      <workItem from="1766788712250" duration="1072000" />
+      <workItem from="1766827749217" duration="4197000" />
+      <workItem from="1766837617780" duration="1648000" />
+      <workItem from="1766841568039" duration="1241000" />
+      <workItem from="1766851658932" duration="564000" />
+      <workItem from="1766855325994" duration="1000" />
+      <workItem from="1766855803060" duration="3246000" />
+      <workItem from="1766869469128" duration="1450000" />
+      <workItem from="1766913314780" duration="764000" />
+      <workItem from="1766914356358" duration="6000" />
+      <workItem from="1766914420719" duration="1047000" />
+      <workItem from="1766937918224" duration="67000" />
+      <workItem from="1766939864705" duration="1711000" />
+      <workItem from="1766943165359" duration="10000" />
+      <workItem from="1766943724169" duration="8000" />
+      <workItem from="1766957857071" duration="4887000" />
+      <workItem from="1766965295405" duration="596000" />
+      <workItem from="1767001186280" duration="148000" />
+      <workItem from="1767023524248" duration="2007000" />
+      <workItem from="1767043114827" duration="5000" />
+      <workItem from="1767976131629" duration="1008000" />
+      <workItem from="1767983583485" duration="1692000" />
+      <workItem from="1767987302564" duration="903000" />
+      <workItem from="1768050504532" duration="9298000" />
+      <workItem from="1768254775951" duration="6000" />
+      <workItem from="1768254792162" duration="1383000" />
+      <workItem from="1768332745790" duration="5172000" />
+      <workItem from="1768422869571" duration="3219000" />
+      <workItem from="1768590993167" duration="3269000" />
+      <workItem from="1768597044833" duration="1219000" />
+      <workItem from="1768654320044" duration="6163000" />
+      <workItem from="1768670679912" duration="2283000" />
+      <workItem from="1768679874624" duration="1489000" />
+      <workItem from="1768760338570" duration="7645000" />
+      <workItem from="1768819010447" duration="161000" />
+      <workItem from="1768848032772" duration="929000" />
+      <workItem from="1768849782917" duration="185000" />
+      <workItem from="1768860004277" duration="1032000" />
+      <workItem from="1768927191473" duration="4187000" />
+      <workItem from="1769006962971" duration="2899000" />
+      <workItem from="1769100224444" duration="53000" />
+      <workItem from="1769107819004" duration="1570000" />
+      <workItem from="1769448850533" duration="9952000" />
+      <workItem from="1769698533742" duration="38000" />
+      <workItem from="1769698682257" duration="1534000" />
+      <workItem from="1769783062596" duration="353000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="UnityProjectDiscoverer">
+    <option name="hasUnityReference" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="DotNet_Exception_Breakpoints">
+          <properties exception="System.OperationCanceledException" breakIfHandledByOtherCode="false" displayValue="System.OperationCanceledException" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+        <breakpoint enabled="true" type="DotNet_Exception_Breakpoints">
+          <properties exception="System.Threading.Tasks.TaskCanceledException" breakIfHandledByOtherCode="false" displayValue="System.Threading.Tasks.TaskCanceledException" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+        <breakpoint enabled="true" type="DotNet_Exception_Breakpoints">
+          <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
+          <option name="timeStamp" value="3" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

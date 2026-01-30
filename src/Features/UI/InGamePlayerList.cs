@@ -2,6 +2,8 @@ using System;
 using MiraAPI.Events;
 using MiraAPI.Events.Vanilla.Gameplay;
 using MiraAPI.Events.Vanilla.Player;
+using MiraAPI.LocalSettings;
+using ReachForStars.Options;
 using Reactor.Utilities.Extensions;
 using UnityEngine;
 
@@ -11,7 +13,7 @@ public static class InGamePlayerList
 {
     private static global::InGamePlayerList _plist;
     private static bool _isOpen;
-    private static PassiveButton PlayerListButton;
+    public static PassiveButton PlayerListButton;
 
     public static void CreateButton()
     {
@@ -26,9 +28,10 @@ public static class InGamePlayerList
         PlayerListButton.activeSprites.GetComponent<SpriteRenderer>().sprite = Assets.PListActive.LoadAsset();
         PlayerListButton.inactiveSprites.GetComponent<SpriteRenderer>().sprite = Assets.PListInactive.LoadAsset();
         PlayerListButton.GetComponent<AspectPosition>().DistanceFromEdge = new(2.75f, 0.505f, -400f);
-
-
+        
         _isOpen = false;
+        
+        PlayerListButton.gameObject.SetActive(LocalSettingsTabSingleton<ClientSettings>.Instance.EnableInGamePlayerList.Value);
     }
 
     private static Action OnClick()

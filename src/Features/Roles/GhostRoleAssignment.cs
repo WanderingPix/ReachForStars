@@ -1,11 +1,12 @@
 using System.Linq;
 using AmongUs.GameOptions;
+using Il2CppSystem;
 using MiraAPI.Events;
 using MiraAPI.Events.Vanilla.Gameplay;
 using MiraAPI.Utilities;
 using Reactor.Utilities.Extensions;
 
-namespace ReachForStars.Features;
+namespace ReachForStars.Features.Roles;
 
 public static class GhostRoleAssignment
 {
@@ -34,7 +35,7 @@ public static class GhostRoleAssignment
     [RegisterEvent]
     public static void OnGameStart(IntroBeginEvent e)
     {
-        foreach (var r in RoleManager.Instance.AllRoles.Where(x => x.IsDead).ToList())
+        foreach (var r in RoleManager.Instance.AllRoles.ToArray().Where(x => x.IsDead))
         {
             var i = 0;
             while (i != GameOptionsManager.Instance.CurrentGameOptions.RoleOptions.GetNumPerGame(r.Role))

@@ -1,15 +1,18 @@
+using System.Linq;
+using AmongUs.GameOptions;
 using HarmonyLib;
 using ReachForStars.Features.MainMenu;
+using UnityEngine;
 
 namespace ReachForStars.Patches;
 
 [HarmonyPatch]
 public class MainMenuPatches
 {
-    [HarmonyPatch(typeof(MainMenuManager), nameof(MainMenuManager.Start))]
+    [HarmonyPatch(typeof(MainMenuManager), nameof(MainMenuManager.Awake))]
     [HarmonyPostfix]
-    public static void OnMainMenuStartPostfix(MainMenuManager __instance)
+    public static void OnMainMenuAwakePostfix(MainMenuManager __instance)
     {
-        Credits.CreateButton(__instance);
+        RFSLogo.Create(__instance);
     }
 }

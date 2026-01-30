@@ -2,7 +2,6 @@
 using MiraAPI.Roles;
 using PowerTools;
 using ReachForStars.Components;
-using ReachForStars.Translation;
 using Reactor.Utilities.Extensions;
 using UnityEngine;
 
@@ -11,27 +10,6 @@ namespace ReachForStars.Roles.Crewmates.Lightener;
 public class LightenerRole : CrewmateGhostRole, ICustomRole
 {
     private SwingingLantern lantern;
-
-    public TranslationPool RoleDescLong = new(
-        "Help the crew by placing lanterns to light up dim areas!",
-        french: "",
-        spanish: "",
-        russian: ""
-    );
-
-    public TranslationPool RoleDescShort = new(
-        "Let there be light!",
-        french: "",
-        spanish: "",
-        russian: ""
-    );
-
-    public TranslationPool Rolename = new(
-        "Lightener",
-        "",
-        "",
-        ""
-    );
 
     public override bool IsAffectedByComms => false;
 
@@ -54,17 +32,15 @@ public class LightenerRole : CrewmateGhostRole, ICustomRole
         if (PlayerControl.LocalPlayer == Player) CustomButtonSingleton<LightUp>.Instance.SetActive(true, this);
     }
 
-    public string RoleName => Rolename.GetTranslatedText();
-    public string RoleLongDescription => RoleDescLong.GetTranslatedText();
-    public string RoleDescription => RoleDescShort.GetTranslatedText();
-    public Color RoleColor => Palette.CrewmateRoleHeaderBlue;
+    public string RoleName => "Lightener";
+    public string RoleLongDescription => "Let there be light!";
+    public string RoleDescription => "Place lanterns to light up dark areas.";
+    public Color RoleColor => RFSPalette.LightenerRoleColor;
     public ModdedRoleTeams Team => ModdedRoleTeams.Crewmate;
-
-    public Color OptionsMenuColor => Palette.CrewmateRoleHeaderBlue;
 
     public CustomRoleConfiguration Configuration => new(this)
     {
-        Icon = Assets.SheriffIcon,
+        Icon = Assets.LightenerRoleIcon,
         ShowInFreeplay = true,
         HideSettings = false
     };

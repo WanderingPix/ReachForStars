@@ -1,72 +1,45 @@
-﻿using AmongUs.GameOptions;
+using System.Collections.Generic;
+using MiraAPI.GameOptions;
 using MiraAPI.Hud;
 using MiraAPI.Modifiers;
-using MiraAPI.Patches.Stubs;
 using MiraAPI.Roles;
-using ReachForStars.Modifiers;
-using ReachForStars.Roles.Neutrals.GhostBuster;
-using ReachForStars.Translation;
+using MiraAPI.Utilities;
+using ReachForStars.Utilities;
+using Rewired;
 using UnityEngine;
 
-namespace ReachForStars.Roles.Neutrals.Roles.GhostBuster;
+namespace ReachForStars.Roles.Neutrals.GhostBuster;
 
-public class GhostBusterRole : ImpostorRole, ICustomRole
+public class GhostBusterRole : CrewmateRole, ICustomRole
 {
-    public TranslationPool roleDescShort = new
-    (
-        "Collect 3 souls to win!",
-        "¡Mata a tus objetivos para ganar!",
-        "Tuez vos primes pour gagner!",
-        "Убей свои цели, чтобв победить!"
-        //italian: "Asassina i tuoi target per vincere!"
-    );
+    public string RoleName => "Ghost Buster";
 
-    public TranslationPool roleName = new(
-        "Ghost Buster",
-        french: "Chasseur De Prime",
-        spanish: "cazarrecompensas",
-        russian: "Охотник за Головами"
-        //italian: "Sicario"
-    );
+    public string RoleDescription => "Catch them ghosts";
 
-    public override bool IsAffectedByComms => false;
-    public string RoleName => roleName.GetTranslatedText();
-    public string RoleDescription => roleDescShort.GetTranslatedText();
-    public string RoleLongDescription => RoleDescription;
+    public string RoleLongDescription => "E";
+    
     public Color RoleColor => RFSPalette.GhostBusterColor;
+
     public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
+    
+    private List<PlayerControl> absorbedPlayers = new();
+
+    public void AddAbsorbedPlayer(PlayerControl player)
+    {
+        absorbedPlayers.Add(player);
+        if (absorbedPlayers.Count >= (int)OptionGroupSingleton<GhostBusterOptions>.Instance.GhostQuota.Value)
+        {
+            Player.AddModifier<NeutralWinner>();
+            if (Player.AmOwner)
+            {
+                HudManager.Instance.SetHudActive(Player, this, true);
+            }
+        }
+        HudManager.Instance.SpawnTextOverlay("+1 Ghost");
+    }
 
     public CustomRoleConfiguration Configuration => new(this)
     {
-        UseVanillaKillButton = false,
-        CanGetKilled = true,
-        CanUseVent = false,
-        GhostRole = (RoleTypes)RoleId.Get<NeutralGhost>(),
-        TasksCountForProgress = false
+        Icon = Assets.GhostbusterRoleIcon,
     };
-
-    public override void SpawnTaskHeader(PlayerControl playerControl)
-    {
-        // remove existing task header.
-    }
-
-    public override bool DidWin(GameOverReason gameOverReason)
-    {
-        return Player.HasModifier<NeutralWinner>();
-    }
-
-    public override void Initialize(PlayerControl player)
-    {
-        RoleBehaviourStubs.Initialize(this, player);
-        Player.AddModifier<CanSeeGhostsModifier>();
-        if (player == PlayerControl.LocalPlayer)
-        {
-            CustomButtonSingleton<Vacuum>.Instance.Button.Show();
-        }
-    }
-
-    public override void Deinitialize(PlayerControl targetPlayer)
-    {
-        Player.RemoveModifier<CanSeeGhostsModifier>();
-    }
 }

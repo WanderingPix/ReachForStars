@@ -1,5 +1,5 @@
 using HarmonyLib;
-using ReachForStars.Features;
+using ReachForStars.Features.Roles;
 
 namespace ReachForStars.Patches;
 

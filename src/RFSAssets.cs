@@ -8,160 +8,112 @@ namespace ReachForStars;
 public static class Assets
 {
     public static readonly AssetBundle Bundle = AssetBundleManager.Load("rfsbundle");
-    public static LoadableBundleAsset<TMP_SpriteAsset> RoleIcons = new("RoleIcons.asset", Bundle);
-    public static LoadableResourceAsset DetectiveIndicator = new("ReachForStars.Resources.UI.DetectiveIndicator.png");
+    public static LoadableBundleAsset<GameObject> BodyTypeSwitcher { get; } = new("BodytypeSwitcher.prefab", Bundle);
+
     public static LoadableBundleAsset<GameObject> CreditsMenuPrefab = new("CreditsMenuPrefab.prefab", Bundle);
-
-    public static LoadableBundleAsset<RuntimeAnimatorController> FreeChatBreakAnimation =
-        new("FreeChatBreakController.controller", Bundle);
-
-    public static LoadableBundleAsset<RuntimeAnimatorController> QuickChatBreakAnimation =
-        new("QuickChatBreakController.controller", Bundle);
-
-    public static LoadableBundleAsset<RuntimeAnimatorController> KeyboardBtnBreakAnimation =
-        new("KeyboardBtnBreakController.controller", Bundle);
-
-    public static LoadableBundleAsset<RuntimeAnimatorController> ChatBackgroundBreakAnimation =
-        new("ChatBackgroundBreakController.controller", Bundle);
-
-    public static LoadableBundleAsset<GameObject> BlackmailEmblem =
-        new("BlackmailEmblemPrefab.prefab", Bundle);
 
     public static LoadableResourceAsset PListActive = new("ReachForStars.Resources.UI.PlayerListActive.png");
     public static LoadableResourceAsset PListInactive = new("ReachForStars.Resources.UI.PlayerListInactive.png");
 
-    public static LoadableResourceAsset GrayScaleUsesCounter { get; } =
-        new("ReachForStars.Resources.AbilityCounters.AbilityCounter.png"); //Unused 
-
-    public static LoadableResourceAsset RedKillButton { get; } =
-        new("ReachForStars.Resources.Abilities.KillButtonRed.png");
-
-    public static LoadableBundleAsset<GameObject> FrozenBodyPrefab { get; } = new("FrozenBodyPrefab.prefab", Bundle);
-    public static LoadableResourceAsset FreezeButton { get; } = new("ReachForStars.Resources.Abilities.Freeze.png");
-
-    public static LoadableAudioResourceAsset FreezeSFX { get; } =
-        new("ReachForStars.Resources.SoundEffects.Freeze.wav");
-
-    public static LoadableAudioResourceAsset FrozenBodyImpactSfx { get; } =
-        new("ReachForStars.Resources.SoundEffects.FrozenBodyImpact.wav");
-
-    public static LoadableAudioResourceAsset FrozenBodyBreakSfx { get; } =
-        new("ReachForStars.Resources.SoundEffects.FrozenBodyBreak.wav");
-
-    public static LoadableResourceAsset ChillerIcon { get; } = new("ReachForStars.Resources.RoleIcons.chiller.png");
-    public static LoadableBundleAsset<GameObject> BountyPrefab { get; } = new("BountyHudPrefab.prefab", Bundle);
-
-    public static LoadableBundleAsset<AnimationClip> BountyHudCloseAnimation { get; } =
-        new("BountyHudCloseAnimation.anim", Bundle);
-
-    public static LoadableBundleAsset<AnimationClip> BountyHudOpenAnimation { get; } =
-        new("BountyHudOpenAnimation.anim", Bundle);
-
-    public static LoadableResourceAsset PlaceHolder { get; } = new("ReachForStars.Resources.PlaceHolder.png");
-    public static LoadableResourceAsset Inspect { get; } = new("ReachForStars.Resources.Abilities.Inspect.png");
-    public static LoadableResourceAsset DetectiveIcon { get; } = new("ReachForStars.Resources.RoleIcons.detective.png");
-
-    public static LoadableResourceAsset MagnifyingGlass { get; } =
-        new("ReachForStars.Resources.UI.MagnifyingGlass.png");
-
-    public static LoadableResourceAsset PoisonButton { get; } = new("ReachForStars.Resources.Abilities.Poison.png");
-
-    public static LoadableResourceAsset RoleblockButton { get; } =
-        new("ReachForStars.Resources.Abilities.RoleBlock.png"); //Unused
+    public static LoadableResourceAsset Square { get; } =
+        new("ReachForStars.Resources.UI.Square.png");
+    public static LoadableResourceAsset Circle { get; } = 
+        new("ReachForStars.Resources.UI.Circle.png", 75);
+    public static LoadableResourceAsset PlaceHolder { get; } = new("ReachForStars.Resources.PlaceHolder.png"); //TODO Make this unused.
 
     public static LoadableResourceAsset AdminButton { get; } = new("ReachForStars.Resources.Abilities.AdminButton.png");
-    public static LoadableResourceAsset Shoot { get; } = new("ReachForStars.Resources.Abilities.Shoot.png");
-    public static LoadableResourceAsset SheriffIcon { get; } = new("ReachForStars.Resources.RoleIcons.sheriff.png");
-
-
-    //Stickster
-    public static LoadableResourceAsset Glue0 { get; } = new("ReachForStars.Resources.Glues.Glue0.png");
-    public static LoadableResourceAsset Glue1 { get; } = new("ReachForStars.Resources.Glues.Glue1.png");
-    public static LoadableResourceAsset Glue2 { get; } = new("ReachForStars.Resources.Glues.Glue2.png");
-
-    public static LoadableResourceAsset GlueVar0 { get; } =
-        new("ReachForStars.Resources.Glues.Variations.GlueVar0.png");
-
-    public static LoadableResourceAsset GlueVar1 { get; } =
-        new("ReachForStars.Resources.Glues.Variations.GlueVar1.png");
-
-    public static LoadableResourceAsset GlueVar2 { get; } =
-        new("ReachForStars.Resources.Glues.Variations.GlueVar2.png");
-
-    public static LoadableAudioResourceAsset GlueSFX { get; } = new("ReachForStars.Resources.SoundEffects.Glue.wav");
-
-    public static LoadableAudioResourceAsset SticksterIntroSFX { get; } =
-        new("ReachForStars.Resources.SoundEffects.SticksterIntro.wav");
-
-    public static LoadableResourceAsset Glue { get; } = new("ReachForStars.Resources.Abilities.Glue.png");
-    public static LoadableResourceAsset SticksterIcon { get; } = new("ReachForStars.Resources.RoleIcons.stickster.png");
-
-
+    
     //Jester
-    public static LoadableAudioResourceAsset JesterIntroSFX { get; } =
+    public static LoadableAudioResourceAsset JesterIntroSfx { get; } =
         new("ReachForStars.Resources.SoundEffects.JesterIntro.wav");
 
-    public static LoadableResourceAsset jesterIcon { get; } = new("ReachForStars.Resources.RoleIcons.jester.png");
+    public static LoadableResourceAsset JesterIcon { get; } = new("ReachForStars.Resources.RoleIcons.jester.png");
 
 
     //Mole
-    public static LoadableBundleAsset<RuntimeAnimatorController> VentDigAnimController { get; } =
-        new("VentDigAnimController.controller", Bundle);
-
+    public static LoadableBundleAsset<AnimationClip> DigAnimation { get; } =
+        new("DigAnimation.anim", Bundle);
+    public static LoadableBundleAsset<GameObject> MoleVentPrefab { get; } =
+        new("MoleVent.prefab", Bundle);
     public static LoadableResourceAsset DigButton { get; } = new("ReachForStars.Resources.Abilities.DigButton.png");
     public static LoadableAudioResourceAsset DigSfx { get; } = new("ReachForStars.Resources.SoundEffects.Dig.wav");
-
-
-    //Electroman
-    public static LoadableResourceAsset ElectrocuteButton { get; } =
-        new("ReachForStars.Resources.Abilities.ElectrocuteButton.png");
-
-    public static LoadableAudioResourceAsset ElectromanIntroSfx { get; } =
-        new("ReachForStars.Resources.SoundEffects.ElectromanIntro.wav");
-
-    public static LoadableBundleAsset<AnimationClip> ElectrocutedAnimation { get; } =
-        new("ElectrocutedAnimation.anim", Bundle);
-
-    public static LoadableBundleAsset<AnimationClip> AshDeathAnimation { get; } = new("AshDeathAnimation.anim", Bundle);
-
-    public static LoadableAudioResourceAsset ElectricSound { get; } =
-        new("ReachForStars.Resources.SoundEffects.ElectricalSound.wav");
-
-    public static LoadableResourceAsset[] EnergyCounters { get; } =
-    [
-        new("ReachForStars.Resources.AbilityCounters.EnergyCounter0.png"),
-        new("ReachForStars.Resources.AbilityCounters.EnergyCounter1.png"),
-        new("ReachForStars.Resources.AbilityCounters.EnergyCounter2.png"),
-        new("ReachForStars.Resources.AbilityCounters.EnergyCounter3.png")
-    ];
-
-    public static LoadableResourceAsset[] BulletCounters { get; } =
-    [
-        new("ReachForStars.Resources.AbilityCounters.BulletCounter0.png"),
-        new("ReachForStars.Resources.AbilityCounters.BulletCounter1.png"),
-        new("ReachForStars.Resources.AbilityCounters.BulletCounter2.png"),
-        new("ReachForStars.Resources.AbilityCounters.BulletCounter3.png")
-    ];
-
-    public static LoadableResourceAsset Ash { get; } = new("ReachForStars.Resources.Objects.Ash.png", 200f);
+    
     public static LoadableBundleAsset<GameObject> LanternObject { get; } = new("lanternPrefab.prefab", Bundle);
 
     public static LoadableBundleAsset<AnimationClip> LanternBobAnim { get; } =
         new("LanternBobbingAnimation.anim", Bundle);
 
-    public static LoadableAudioResourceAsset ChainsSFX { get; } = new("ReachForStars.Resources.SoundEffects.Chain.wav");
+    public static LoadableAudioResourceAsset ChainsSfx { get; } = new("ReachForStars.Resources.SoundEffects.Chain.wav");
 
-    public static LoadableBundleAsset<GameObject> ReviveArrowPrefab { get; } =
-        new("ReviveArrowPrefab.prefab", Bundle);
-
-    public static LoadableAudioResourceAsset VacuumGhostSFX { get; } =
+    public static LoadableAudioResourceAsset VacuumGhostSfx { get; } =
         new("ReachForStars.Resources.SoundEffects.VacuumGhost.wav");
+    
+    public static LoadableBundleAsset<GameObject> StalkMinigame { get; } = new("StalkerTabletPrefab.prefab", Bundle);
+    public static LoadableBundleAsset<RenderTexture> StalkCamTex { get; } = new("StalkedCamTex.renderTexture", Bundle);
+    public static LoadableBundleAsset<GameObject> RfsLogo { get; } = new("RFSLogo.prefab", Bundle);
+    public static LoadableAudioResourceAsset MoneySfx { get; } = new("ReachForStars.Resources.SoundEffects.Money.wav");
+    public static LoadableResourceAsset HandHoldingBody { get; } = new("ReachForStars.Resources.Objects.HandHoldingBody.png");
+    public static LoadableResourceAsset DousedOverlay { get; } = new("ReachForStars.Resources.UI.DousedOverlay.png", 548);
+    public static LoadableBundleAsset<RuntimeAnimatorController> BurnButtonAnimationController =
+        new("burnButtonAnimationController.controller", Bundle);
+    
+    public static readonly LoadableBundleAsset<GameObject> flamePrefab =
+        new("flamePrefab.prefab", Bundle);
 
-    public static LoadableAudioResourceAsset SheriffKillSFX { get; } =
-        new("ReachForStars.Resources.SoundEffects.sheriffkill.wav");
+    public static readonly LoadableBundleAsset<AnimationClip> wrangledPlayerWalkAnim =
+        new LoadableBundleAsset<AnimationClip>("WrangledPlayerWalk.anim", Bundle);
+    
+    public static readonly LoadableBundleAsset<Material> ropeMaterial =
+        new LoadableBundleAsset<Material>("RopeMaterial.mat", Bundle);
+    
+    public static readonly LoadableBundleAsset<Material> GrayscaleMaterial =
+        new LoadableBundleAsset<Material>("Custom_DesaturationShader.mat", Bundle);
 
-    public static LoadableAudioResourceAsset TunnelingSFX { get; } =
-        new("ReachForStars.Resources.SoundEffects.Tunneling.wav");
-
-    public static LoadableBundleAsset<AnimationClip> SlashAnimation { get; } = new("SlashAnimation.anim", Bundle);
+    public static LoadableResourceAsset CowboyRoleIcon { get; set; } =
+        new("ReachForStars.Resources.RoleIcons.cowboy.png");
+    
+    public static LoadableResourceAsset PyromaniacRoleIcon { get; set; } =
+        new("ReachForStars.Resources.RoleIcons.pyromaniac.png");
+    //Pirate:
+    public static LoadableResourceAsset PirateRoleIcon { get; set; } =
+        new("ReachForStars.Resources.RoleIcons.pirate.png");
+    //Ghost buster:
+    public static LoadableResourceAsset GhostbusterRoleIcon { get; } =
+        new("ReachForStars.Resources.RoleIcons.ghostbuster.png");
+    public static LoadableResourceAsset GhostTrap { get; } =
+        new("ReachForStars.Resources.Objects.GhostTrap.png");
+    public static LoadableResourceAsset GogglesOverlay { get; } = 
+        new("ReachForStars.Resources.UI.GogglesOverlay.png", 548);
+    public static LoadableResourceAsset Wind { get; } =
+        new("ReachForStars.Resources.Objects.Wind.png");
+    //Taskmaster:
+    public static LoadableResourceAsset TaskmasterRoleIcon { get; } =
+        new("ReachForStars.Resources.RoleIcons.taskmaster.png");
+    public static LoadableResourceAsset DoTaskButton { get; } =
+        new("ReachForStars.Resources.Abilities.DoTaskButton.png");
+    //Paranoiac:
+    public static LoadableResourceAsset ParanoiacRoleIcon { get; } =
+        new("ReachForStars.Resources.RoleIcons.paranoiac.png");
+    public static LoadableResourceAsset ParanoiaButton { get; } =
+        new("ReachForStars.Resources.Abilities.ParanoiaButton.png");
+    public static LoadableResourceAsset AbilityUsedVisual { get; } = 
+        new("ReachForStars.Resources.UI.AbilityUsedVisual.png", 75);
+    //Carrier
+    public static LoadableResourceAsset CarrierRoleIcon { get; } =
+        new("ReachForStars.Resources.RoleIcons.carrier.png");
+    //Lightener
+    public static LoadableResourceAsset LightenerRoleIcon { get; } =
+        new("ReachForStars.Resources.RoleIcons.lightener.png");
+    
+    //Sleepcaster
+    public static LoadableBundleAsset<GameObject> SleepOverlay =
+        new LoadableBundleAsset<GameObject>("SleepOverlay.prefab", Bundle);
+    
+    public static LoadableBundleAsset<AnimationClip> SleepingPlayerAnimation =
+        new LoadableBundleAsset<AnimationClip>("SleepingPlayerAnimation.anim", Bundle);
+    public static LoadableResourceAsset Cloud { get; } = new("ReachForStars.Resources.Objects.Cloud.png");
+    public static LoadableResourceAsset PacifyButton { get; } = new("ReachForStars.Resources.Abilities.PacifyButton.png");
+    public static LoadableResourceAsset ReviveButton { get; } = new("ReachForStars.Resources.Abilities.ReviveButton.png");
+    public static LoadableResourceAsset BodyIcon { get; } = new("ReachForStars.Resources.UI.BodyIcon.png", 256);
+    public static LoadableResourceAsset HandHoldingTorch { get; } = new("ReachForStars.Resources.Objects.HandHoldingTorch.png");
 }

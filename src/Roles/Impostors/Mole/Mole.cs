@@ -1,23 +1,20 @@
 ﻿using System.Collections.Generic;
+using MiraAPI.Events;
+using MiraAPI.Events.Vanilla.Usables;
 using MiraAPI.Hud;
+using MiraAPI.Modifiers;
+using MiraAPI.PluginLoading;
 using MiraAPI.Roles;
-using ReachForStars.Translation;
 using UnityEngine;
 
 namespace ReachForStars.Roles.Impostors.Mole;
 
+[MiraIgnore]
 public class MoleRole : ImpostorRole, ICustomRole
 {
-    public TranslationPool rolename = new(
-        "Mole",
-        "Topo",
-        "Taupe",
-        "Моль"
-    );
-
     public override bool IsAffectedByComms => false;
     public List<Vent> MinedVents { get; set; } = new();
-    public string RoleName => rolename.GetTranslatedText();
+    public string RoleName => "Mole";
     public string RoleDescription => "Place vents around the map";
     public string RoleLongDescription => RoleDescription;
     public Color RoleColor => Palette.ImpostorRed;
@@ -46,5 +43,11 @@ public class MoleRole : ImpostorRole, ICustomRole
     public override void OnMeetingStart()
     {
         CustomButtonSingleton<Dig>.Instance.SetUses(1);
+    }
+    
+    [RegisterEvent]
+    public static void CanUseEvent(PlayerCanUseEvent e)
+    {
+        if (e.IsVent && PlayerControl.LocalPlayer.HasModifier<TunnelingModifier>()) e.Cancel();
     }
 }

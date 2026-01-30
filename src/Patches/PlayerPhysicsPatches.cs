@@ -1,20 +1,22 @@
 using HarmonyLib;
-using MiraAPI.GameOptions;
 using MiraAPI.Modifiers;
-using ReachForStars.Roles.Impostors.Stickster;
-using UnityEngine;
+using ReachForStars.Modifiers;
+using ReachForStars.Roles.Impostors.Mole;
 
-namespace ReachForStars;
+namespace ReachForStars.Patches;
 
-[HarmonyPatch(typeof(PlayerPhysics), nameof(PlayerPhysics.FixedUpdate))]
+[HarmonyPatch]
 public class PlayerPhysicsPatches
 {
-    [HarmonyPostfix]
-    public static void Postfix(PlayerPhysics __instance)
+    [HarmonyPatch(typeof(PlayerPhysics), nameof(PlayerPhysics.FixedUpdate))]
+    [HarmonyPrefix]
+    public static bool FixedUpdatePrefix(PlayerPhysics __instance)
     {
-        if (__instance.myPlayer.HasModifier<SlowedDownModifier>())
-            __instance.body.velocity *=
-                new Vector2(OptionGroupSingleton<SticksterOptions>.Instance.SlowedDownSpeed.Value,
-                    OptionGroupSingleton<SticksterOptions>.Instance.SlowedDownSpeed.Value / 2f);
+        bool handleTunnelingPhysics = __instance.myPlayer.HasModifier<TunnelingModifier>();
+        if (handleTunnelingPhysics)
+        {
+            __instance.myPlayer.GetModifier<TunnelingModifier>()?.PlayerPhysicsFixedUpdate();
+        }
+        return !handleTunnelingPhysics;
     }
 }

@@ -1,5 +1,7 @@
 using HarmonyLib;
+using MiraAPI.LocalSettings;
 using ReachForStars.Features;
+using ReachForStars.Options;
 
 namespace ReachForStars;
 
@@ -10,7 +12,11 @@ public class OptionsMenuBehaviourPatches
     [HarmonyPrefix]
     public static bool OnExitPrefix(ExitGameButton __instance)
     {
-        ConfirmExitDialog.ShowDialog();
-        return false;
+        if (LocalSettingsTabSingleton<ClientSettings>.Instance.ShowLeaveConfirmationPopup.Value)
+        {
+            ConfirmExitDialog.ShowDialog();
+            return false;
+        }
+        else return true;
     }
 }

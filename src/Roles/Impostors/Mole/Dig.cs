@@ -2,21 +2,13 @@ using MiraAPI.GameOptions;
 using MiraAPI.Hud;
 using MiraAPI.Modifiers;
 using MiraAPI.Utilities.Assets;
-using ReachForStars.Translation;
 using UnityEngine;
 
 namespace ReachForStars.Roles.Impostors.Mole;
 
 public class Dig : CustomActionButton
 {
-    public TranslationPool buttonName = new(
-        "Dig",
-        "excavar",
-        "creuser",
-        "копать"
-    );
-
-    public override string Name => buttonName.GetTranslatedText();
+    public override string Name => "Dig";
 
     public override float Cooldown => OptionGroupSingleton<MoleOptions>.Instance.DigCD.Value;
     public override float EffectDuration => OptionGroupSingleton<MoleOptions>.Instance.TunnelingDuration.Value;

@@ -19,5 +19,7 @@ This is achieved via making roles that fit seamlessly into the core game loop, a
 > [!Credits]
 > [LaunchpadReloaded](https://github.com/All-Of-Us-Mods/LaunchpadReloaded/blob/0.4.0/LaunchpadReloaded/Components/OgLightSource.cs) -
 OgLightSource MonoBehaviour
+> > [Town Of Us: Mira](https://github.com/AU-Avengers/TOU-Mira/blob/main/TownOfUs/Patches/AprilFools/LongPatches.cs) -
+LongBoi Patches
 
 # Made with 🩷 Using [Mira API](github.com/All-Of-Us-Mods/MiraAPI)!

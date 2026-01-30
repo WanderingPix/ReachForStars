@@ -8,30 +8,30 @@
     ".NETCoreApp,Version=v6.0": {
       "ReachForStars/1.0.0": {
         "dependencies": {
-          "AllOfUs.MiraAPI": "0.2.0",
-          "AmongUs.GameLibs.Steam": "2024.9.4",
+          "AllOfUs.MiraAPI": "0.3.6",
+          "AmongUs.GameLibs.Steam": "2025.10.14",
           "BepInEx.AutoPlugin": "1.1.0",
-          "BepInEx.IL2CPP.MSBuild": "2.0.1",
+          "BepInEx.IL2CPP.MSBuild": "2.1.0-rc.1",
           "BepInEx.Unity.IL2CPP": "6.0.0-be.735",
-          "Reactor": "2.3.1"
+          "Reactor": "2.5.0-ci.371"
         },
         "runtime": {
           "ReachForStars.dll": {}
         }
       },
-      "AllOfUs.MiraAPI/0.2.0": {
+      "AllOfUs.MiraAPI/0.3.6": {
         "dependencies": {
           "BepInEx.Unity.IL2CPP": "6.0.0-be.735",
-          "Reactor": "2.3.1"
+          "Reactor": "2.5.0-ci.371"
         },
         "runtime": {
           "lib/net6.0/MiraAPI.dll": {
-            "assemblyVersion": "0.2.0.0",
-            "fileVersion": "0.2.0.0"
+            "assemblyVersion": "0.3.6.0",
+            "fileVersion": "0.3.6.0"
           }
         }
       },
-      "AmongUs.GameLibs.Steam/2024.9.4": {},
+      "AmongUs.GameLibs.Steam/2025.10.14": {},
       "AsmResolver/6.0.0-beta.1": {},
       "AsmResolver.DotNet/6.0.0-beta.1": {
         "dependencies": {
@@ -63,7 +63,7 @@
           "SemanticVersioning": "2.0.2"
         }
       },
-      "BepInEx.IL2CPP.MSBuild/2.0.1": {},
+      "BepInEx.IL2CPP.MSBuild/2.1.0-rc.1": {},
       "BepInEx.Unity.Common/6.0.0-be.735": {
         "dependencies": {
           "AssetRipper.Primitives": "3.1.3",
@@ -143,14 +143,14 @@
           "System.Reflection.TypeExtensions": "4.7.0"
         }
       },
-      "Reactor/2.3.1": {
+      "Reactor/2.5.0-ci.371": {
         "dependencies": {
           "BepInEx.Unity.IL2CPP": "6.0.0-be.735"
         },
         "runtime": {
           "lib/net6.0/Reactor.dll": {
-            "assemblyVersion": "2.3.1.0",
-            "fileVersion": "2.3.1.0"
+            "assemblyVersion": "2.5.0.0",
+            "fileVersion": "2.5.0.0"
           }
         }
       },
@@ -636,19 +636,19 @@
       "serviceable": false,
       "sha512": ""
     },
-    "AllOfUs.MiraAPI/0.2.0": {
+    "AllOfUs.MiraAPI/0.3.6": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-27eUS2fIHhrfhYJACiV59W6dl0cDti56g0mp4IdZCKh2OhhPmF12ZZatzJH2/cD9wvlSSvoPKRvRtq+1dhUq5A==",
-      "path": "allofus.miraapi/0.2.0",
-      "hashPath": "allofus.miraapi.0.2.0.nupkg.sha512"
+      "sha512": "sha512-NAnERdVXh12F/ZP/ja9hqt36cin0IgCZR8NhU6NNDeTdKl3iTqNb9h56JOm/Ef22X9C+yFy4l8XXuyG2IcOz6A==",
+      "path": "allofus.miraapi/0.3.6",
+      "hashPath": "allofus.miraapi.0.3.6.nupkg.sha512"
     },
-    "AmongUs.GameLibs.Steam/2024.9.4": {
+    "AmongUs.GameLibs.Steam/2025.10.14": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-5ZzigeztB4Y3xBM84Xl4bLBS/GGVe7tyZB6RxvUXHZS0xUP3RxqTGLeiB+xZSBlwD77aMrkZK0uJEh+MYvDB/A==",
-      "path": "amongus.gamelibs.steam/2024.9.4",
-      "hashPath": "amongus.gamelibs.steam.2024.9.4.nupkg.sha512"
+      "sha512": "sha512-QeeXYh9wDDFv5ZTKRBxLPdjiaRYpU0/L5iew9pRVv1AKWqxCGzSvyHpAKpDZhpJqEWcG7p18W2WLLYhRlgfdOg==",
+      "path": "amongus.gamelibs.steam/2025.10.14",
+      "hashPath": "amongus.gamelibs.steam.2025.10.14.nupkg.sha512"
     },
     "AsmResolver/6.0.0-beta.1": {
       "type": "package",
@@ -713,12 +713,12 @@
       "path": "bepinex.core/6.0.0-be.735",
       "hashPath": "bepinex.core.6.0.0-be.735.nupkg.sha512"
     },
-    "BepInEx.IL2CPP.MSBuild/2.0.1": {
+    "BepInEx.IL2CPP.MSBuild/2.1.0-rc.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-hUZjCV0t8dkw/Z/zq4Zl405QP7frBk/LVfMdUmUz+7XOhGd7lYPKrR48A5vbGl2QeHudMxlkXzAr9WM3Duq2SQ==",
-      "path": "bepinex.il2cpp.msbuild/2.0.1",
-      "hashPath": "bepinex.il2cpp.msbuild.2.0.1.nupkg.sha512"
+      "sha512": "sha512-WI/7TbJwWl5P4B6UXGtKI1VMe6fA6h3fcbp3ZjJKqOBQ5MJfDMmeVB4fb+RW1tUQdxnlSWV3Ul62PHFyTqp4PA==",
+      "path": "bepinex.il2cpp.msbuild/2.1.0-rc.1",
+      "hashPath": "bepinex.il2cpp.msbuild.2.1.0-rc.1.nupkg.sha512"
     },
     "BepInEx.Unity.Common/6.0.0-be.735": {
       "type": "package",
@@ -825,12 +825,12 @@
       "path": "monomod.utils/22.7.31.1",
       "hashPath": "monomod.utils.22.7.31.1.nupkg.sha512"
     },
-    "Reactor/2.3.1": {
+    "Reactor/2.5.0-ci.371": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-CsFs84aM3PA6+74TzHEAUayXOosYBJEJKf1Ebs3CpL10RMLrj+WRAWrpgFoNd9qS+pIzQflW76Q5Pgg/aOQ40w==",
-      "path": "reactor/2.3.1",
-      "hashPath": "reactor.2.3.1.nupkg.sha512"
+      "sha512": "sha512-LMKHi2CPACJJkBK117HT6zKS8mkv1c/RUZusYlnFExS2nGCD/haqf+YkTXyK561T5+BSg0m0R4ubSG30cdYDNg==",
+      "path": "reactor/2.5.0-ci.371",
+      "hashPath": "reactor.2.5.0-ci.371.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {
       "type": "package",

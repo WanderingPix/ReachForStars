@@ -1,3 +1,7 @@
+using System.Collections;
+using MiraAPI.LocalSettings;
+using ReachForStars.Options;
+using Reactor.Utilities;
 using UnityEngine;
 
 namespace ReachForStars.Features.Minimap;
@@ -6,8 +10,27 @@ public static class RefreshedMapBehaviour
 {
     public static void SetUp(MapBehaviour __instance)
     {
+        if (!LocalSettingsTabSingleton<ClientSettings>.Instance.EnableBetterMinimap.Value) return;
         __instance.ColorControl.baseColor = PlayerControl.LocalPlayer.Data.Role.TeamColor;
-        __instance.StartCoroutine(Effects.Bloop(0f, __instance.transform, SmolUI.ScaleFactor));
-        __instance.fadedBackground.transform.localScale = Vector3.one;
+        Coroutines.Start(Animate(__instance.transform));
+    }
+
+    private static IEnumerator Animate(Transform target)
+    {
+        float duration = 0.2f;
+        Vector3 temp = target.localScale * 0.8f;
+        temp.x = 1;
+        for (float time = 0f; time < duration; time += Time.deltaTime)
+        {
+            float num = time / duration;
+            temp.y = Mathf.SmoothStep(0, 1, num);
+            target.transform.localScale = temp;
+            yield return null;
+        }
+
+        temp.y = 1;
+        target.transform.localScale = temp;
+        
+        yield break;
     }
 }

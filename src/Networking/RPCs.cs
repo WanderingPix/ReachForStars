@@ -3,32 +3,31 @@ namespace ReachForStars.Networking;
 public enum RPC : uint
 {
     // for the Yeehaw sfx 
-    Yeehaw,
+    Yeehaw = 1,
 
     // for the Seeker spawn sfx
-    SeekerScream,
+    SeekerScream = 2,
 
-    // for changing the body type of a player
-    ChangeBodyType,
-
-    // for resizing players, be careful with values tho!
-    ResizePlayer,
-
-    // Do I need to explain this one?
-    DestroyObj,
-
-    // For freezing dead bodies as chiller
-    FreezeBody,
-
-    // For unfreezing dead bodies
-    DamageFrozenBody,
-
-    // for placing  Glues as arachnid
-    PlaceGlue,
-
-    //For trapping tasks as electroman
-    ShortCircuit,
+    // for changing the bodytype of a player
+    ChangeBodyType = 3,
 
     //For placing lanterns as Lightener
-    LightUp,
+    LightUp = 4,
+    
+    //For Acting as Actor 
+    Act = 5,
+    
+    Silence = 6,
+    
+    Vacuum = 7,
+    
+    TriggerGhostTrap = 8,
+    
+    PlaceGhostTrap = 9,
+    
+    UseAbility = 10,
+    
+    Revive = 11,
+    
+    Sleep = 12
 }

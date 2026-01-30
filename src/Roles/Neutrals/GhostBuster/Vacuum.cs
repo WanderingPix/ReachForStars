@@ -1,56 +1,37 @@
-using Il2CppSystem;
+using System.Collections;
+using System.Linq;
+using Internal.Cryptography;
+using MiraAPI.GameOptions;
 using MiraAPI.Hud;
 using MiraAPI.Modifiers;
 using MiraAPI.Utilities.Assets;
-using ReachForStars.Roles.Neutrals.Roles.GhostBuster;
-using ReachForStars.Translation;
-using ReachForStars.Utilities;
+using ReachForStars.Modifiers;
+using ReachForStars.Networking;
+using Reactor.Utilities;
+using Rewired;
 using UnityEngine;
+using Helpers = MiraAPI.Utilities.Helpers;
 
 namespace ReachForStars.Roles.Neutrals.GhostBuster;
 
-public class Vacuum : CustomActionButton<PlayerControl>
+public class Vacuum : CustomActionButton
 {
-    private static readonly TranslationPool BtnName = new
-    (
-        "Vacuum"
-    );
-
-    public override ButtonLocation Location => ButtonLocation.BottomRight;
-
-    public override string Name => BtnName.GetTranslatedText();
-    public override float Cooldown => 15f;
-    public override float EffectDuration => 3f;
-    public override LoadableAsset<Sprite> Sprite => Assets.PlaceHolder;
-
-    public override PlayerControl GetTarget()
-    {
-        return PlayerControl.LocalPlayer.GetClosestGhost(Distance, true);
-    }
-
     protected override void OnClick()
     {
-        Target.RpcAddModifier<ToBeSuckedModifier>(PlayerControl.LocalPlayer);
-        SoundManager.Instance.PlaySound(Assets.VacuumGhostSFX.LoadAsset(), false, 1f, SoundManager.instance.sfxMixer);
-    }
-
-    public override void OnEffectEnd()
-    {
+        SoundManager.Instance.PlaySound(Assets.VacuumGhostSfx.LoadAsset(), false, 1f);
+        PlayerControl.LocalPlayer.RpcVacuum();   
     }
 
     public override bool Enabled(RoleBehaviour role)
     {
-        return role is GhostBusterRole;
+        return role is GhostBusterRole && !role.Player.HasModifier<NeutralWinner>();
     }
 
-    public override void SetOutline(bool active)
-    {
-        Target?.cosmetics.SetOutline(active, new Nullable<Color>(RFSPalette.GhostBusterColor));
-    }
+    public override string Name => "Vacuum";
 
-    public override bool IsTargetValid(PlayerControl target)
-    {
-        return base.IsTargetValid(target) && !target.HasModifier<ToBeSuckedModifier>() &&
-               !target.HasModifier<VacuumedModifier>();
-    }
+    public override float Cooldown => 30;
+
+    public override float EffectDuration => 1;
+
+    public override LoadableAsset<Sprite> Sprite => Assets.PlaceHolder;
 }

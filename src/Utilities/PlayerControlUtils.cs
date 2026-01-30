@@ -10,11 +10,6 @@ namespace ReachForStars.Utilities;
 
 public static class PlayerControlUtils
 {
-    public static void Resize(this PlayerControl player, Vector3 size)
-    {
-        player.transform.localScale = size;
-    }
-
     public static PlayerControl GetPlayerById(byte id)
     {
         return PlayerControl.AllPlayerControls.ToArray().ToList().FirstOrDefault(x => x.PlayerId == id);
@@ -57,19 +52,14 @@ public static class PlayerControlUtils
 
         player.Data.SetTasks(SelectedTasks.ToArray());
     }
-
-    public static PlayerControl? GetClosestGhost(
-        this PlayerControl playerControl,
-        float distance,
-        bool ignoreColliders = false,
-        Predicate<PlayerControl>? predicate = null)
+    
+    public static PlayerControl CreateFakePlayer(PlayerControl source)
     {
-        var filteredPlayers = Helpers.GetClosestPlayers(playerControl, distance, ignoreColliders)
-            .Where(playerInfo => !playerInfo.Data.Disconnected &&
-                                 playerInfo.PlayerId != playerControl.PlayerId &&
-                                 playerInfo.Data.IsDead)
-            .ToList();
-
-        return predicate != null ? filteredPlayers.Find(predicate) : filteredPlayers.FirstOrDefault();
+        var clone = UnityObject.Instantiate(source);
+        clone.transform.position = source.transform.position;
+        clone.enabled = false;
+        clone.MyPhysics.enabled = false;
+        clone.cosmetics.enabled = false;
+        return clone;
     }
 }

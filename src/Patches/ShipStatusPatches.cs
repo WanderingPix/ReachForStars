@@ -1,14 +1,17 @@
 using HarmonyLib;
+using MiraAPI.LocalSettings;
+using ReachForStars.Features.Freeplay;
+using ReachForStars.Options;
 
-namespace ReachForStars;
+namespace ReachForStars.Patches;
 
-[HarmonyPatch(typeof(RoleBehaviour))]
+[HarmonyPatch]
 public class ShipStatusPatches
 {
     [HarmonyPatch(typeof(ShipStatus), nameof(ShipStatus.Start))]
     [HarmonyPostfix]
-    public static void Postfix(ShipStatus __instance)
+    public static void ShipStatusStartPostfix(ShipStatus __instance)
     {
-        //TBD
+        FreeplayOptionsLaptop.Create();
     }
 }

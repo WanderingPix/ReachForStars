@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net6.0": {
-      "AllOfUs.MiraAPI/0.2.0": {
+      "AllOfUs.MiraAPI/0.3.6": {
         "type": "package",
         "dependencies": {
           "BepInEx.Unity.IL2CPP": "6.0.0-be.735",
@@ -19,7 +19,7 @@
           }
         }
       },
-      "AmongUs.GameLibs.Steam/2024.9.4": {
+      "AmongUs.GameLibs.Steam/2025.10.14": {
         "type": "package",
         "build": {
           "build/AmongUs.GameLibs.Steam.props": {}
@@ -155,14 +155,8 @@
           }
         }
       },
-      "BepInEx.IL2CPP.MSBuild/2.0.1": {
+      "BepInEx.IL2CPP.MSBuild/2.1.0-rc.1": {
         "type": "package",
-        "compile": {
-          "lib/netstandard2.1/BepInEx.IL2CPP.MSBuild.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.1/_._": {}
-        },
         "build": {
           "build/BepInEx.IL2CPP.MSBuild.props": {}
         }
@@ -417,10 +411,10 @@
           }
         }
       },
-      "Reactor/2.3.1": {
+      "Reactor/2.5.0-ci.371": {
         "type": "package",
         "dependencies": {
-          "BepInEx.Unity.IL2CPP": "6.0.0-be.679"
+          "BepInEx.Unity.IL2CPP": "6.0.0-be.735"
         },
         "compile": {
           "lib/net6.0/Reactor.dll": {
@@ -1399,32 +1393,31 @@
     }
   },
   "libraries": {
-    "AllOfUs.MiraAPI/0.2.0": {
-      "sha512": "27eUS2fIHhrfhYJACiV59W6dl0cDti56g0mp4IdZCKh2OhhPmF12ZZatzJH2/cD9wvlSSvoPKRvRtq+1dhUq5A==",
+    "AllOfUs.MiraAPI/0.3.6": {
+      "sha512": "NAnERdVXh12F/ZP/ja9hqt36cin0IgCZR8NhU6NNDeTdKl3iTqNb9h56JOm/Ef22X9C+yFy4l8XXuyG2IcOz6A==",
       "type": "package",
-      "path": "allofus.miraapi/0.2.0",
+      "path": "allofus.miraapi/0.3.6",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "README.md",
-        "allofus.miraapi.0.2.0.nupkg.sha512",
+        "allofus.miraapi.0.3.6.nupkg.sha512",
         "allofus.miraapi.nuspec",
         "lib/net6.0/MiraAPI.dll",
         "lib/net6.0/MiraAPI.xml"
       ]
     },
-    "AmongUs.GameLibs.Steam/2024.9.4": {
-      "sha512": "5ZzigeztB4Y3xBM84Xl4bLBS/GGVe7tyZB6RxvUXHZS0xUP3RxqTGLeiB+xZSBlwD77aMrkZK0uJEh+MYvDB/A==",
+    "AmongUs.GameLibs.Steam/2025.10.14": {
+      "sha512": "QeeXYh9wDDFv5ZTKRBxLPdjiaRYpU0/L5iew9pRVv1AKWqxCGzSvyHpAKpDZhpJqEWcG7p18W2WLLYhRlgfdOg==",
       "type": "package",
-      "path": "amongus.gamelibs.steam/2024.9.4",
+      "path": "amongus.gamelibs.steam/2025.10.14",
       "files": [
         ".nupkg.metadata",
-        "amongus.gamelibs.steam.2024.9.4.nupkg.sha512",
+        "amongus.gamelibs.steam.2025.10.14.nupkg.sha512",
         "amongus.gamelibs.steam.nuspec",
         "build/AddressablesPlayAssetDelivery.dll",
         "build/AmongUs.GameLibs.Steam.props",
         "build/AmongUsCaching.dll",
-        "build/AppleAuth.dll",
         "build/Assembly-CSharp-firstpass.dll",
         "build/Assembly-CSharp.dll",
         "build/CsvHelper.dll",
@@ -1434,6 +1427,7 @@
         "build/QRCoder.dll",
         "build/Rewired_Core.dll",
         "build/Rewired_Windows.dll",
+        "build/Rewired_Windows_Functions.dll",
         "build/Sentry.Microsoft.Bcl.AsyncInterfaces.dll",
         "build/Sentry.System.Buffers.dll",
         "build/Sentry.System.Collections.Immutable.dll",
@@ -1449,6 +1443,7 @@
         "build/System.Configuration.dll",
         "build/System.Core.dll",
         "build/System.Data.dll",
+        "build/System.Drawing.dll",
         "build/System.Net.Http.dll",
         "build/System.Numerics.dll",
         "build/System.Runtime.Serialization.dll",
@@ -1459,6 +1454,7 @@
         "build/Unity.Analytics.DataPrivacy.dll",
         "build/Unity.ProBuilder.dll",
         "build/Unity.ResourceManager.dll",
+        "build/Unity.Services.Analytics.dll",
         "build/Unity.Services.Core.Configuration.dll",
         "build/Unity.Services.Core.Device.dll",
         "build/Unity.Services.Core.Environments.Internal.dll",
@@ -1485,6 +1481,7 @@
         "build/UnityEngine.ParticleSystemModule.dll",
         "build/UnityEngine.Physics2DModule.dll",
         "build/UnityEngine.PhysicsModule.dll",
+        "build/UnityEngine.PropertiesModule.dll",
         "build/UnityEngine.Purchasing.SecurityCore.dll",
         "build/UnityEngine.Purchasing.dll",
         "build/UnityEngine.ScreenCaptureModule.dll",
@@ -1493,12 +1490,14 @@
         "build/UnityEngine.SpriteShapeModule.dll",
         "build/UnityEngine.SubsystemsModule.dll",
         "build/UnityEngine.TerrainModule.dll",
-        "build/UnityEngine.TextCoreModule.dll",
+        "build/UnityEngine.TextCoreFontEngineModule.dll",
+        "build/UnityEngine.TextCoreTextEngineModule.dll",
         "build/UnityEngine.TextRenderingModule.dll",
         "build/UnityEngine.TilemapModule.dll",
         "build/UnityEngine.UI.dll",
-        "build/UnityEngine.UIElementsNativeModule.dll",
+        "build/UnityEngine.UIElementsModule.dll",
         "build/UnityEngine.UIModule.dll",
+        "build/UnityEngine.UnityAnalyticsCommonModule.dll",
         "build/UnityEngine.UnityAnalyticsModule.dll",
         "build/UnityEngine.UnityWebRequestAssetBundleModule.dll",
         "build/UnityEngine.UnityWebRequestModule.dll",
@@ -1507,6 +1506,7 @@
         "build/UnityEngine.VideoModule.dll",
         "build/UnityEngine.XRModule.dll",
         "build/UnityEngine.dll",
+        "build/__Generated.dll",
         "build/io.sentry.unity.runtime.dll",
         "build/mscorlib.dll"
       ]
@@ -1708,18 +1708,22 @@
         "logo.png"
       ]
     },
-    "BepInEx.IL2CPP.MSBuild/2.0.1": {
-      "sha512": "hUZjCV0t8dkw/Z/zq4Zl405QP7frBk/LVfMdUmUz+7XOhGd7lYPKrR48A5vbGl2QeHudMxlkXzAr9WM3Duq2SQ==",
+    "BepInEx.IL2CPP.MSBuild/2.1.0-rc.1": {
+      "sha512": "WI/7TbJwWl5P4B6UXGtKI1VMe6fA6h3fcbp3ZjJKqOBQ5MJfDMmeVB4fb+RW1tUQdxnlSWV3Ul62PHFyTqp4PA==",
       "type": "package",
-      "path": "bepinex.il2cpp.msbuild/2.0.1",
+      "path": "bepinex.il2cpp.msbuild/2.1.0-rc.1",
       "files": [
         ".nupkg.metadata",
-        "bepinex.il2cpp.msbuild.2.0.1.nupkg.sha512",
+        "bepinex.il2cpp.msbuild.2.1.0-rc.1.nupkg.sha512",
         "bepinex.il2cpp.msbuild.nuspec",
         "build/BepInEx.IL2CPP.MSBuild.props",
-        "lib/net472/BepInEx.IL2CPP.MSBuild.dll",
-        "lib/netstandard2.1/BepInEx.IL2CPP.MSBuild.dll",
-        "logo.png"
+        "logo.png",
+        "tasks/net472/BepInEx.IL2CPP.MSBuild.Runner.dll",
+        "tasks/net472/BepInEx.IL2CPP.MSBuild.Shared.dll",
+        "tasks/net472/BepInEx.IL2CPP.MSBuild.dll",
+        "tasks/netstandard2.1/BepInEx.IL2CPP.MSBuild.Runner.dll",
+        "tasks/netstandard2.1/BepInEx.IL2CPP.MSBuild.Shared.dll",
+        "tasks/netstandard2.1/BepInEx.IL2CPP.MSBuild.dll"
       ]
     },
     "BepInEx.Unity.Common/6.0.0-be.735": {
@@ -1756,7 +1760,6 @@
       "path": "disarm/2022.1.0-master.57",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "disarm.2022.1.0-master.57.nupkg.sha512",
         "disarm.nuspec",
         "lib/net6.0/Disarm.dll",
@@ -2006,17 +2009,16 @@
         "monomod.utils.nuspec"
       ]
     },
-    "Reactor/2.3.1": {
-      "sha512": "CsFs84aM3PA6+74TzHEAUayXOosYBJEJKf1Ebs3CpL10RMLrj+WRAWrpgFoNd9qS+pIzQflW76Q5Pgg/aOQ40w==",
+    "Reactor/2.5.0-ci.371": {
+      "sha512": "LMKHi2CPACJJkBK117HT6zKS8mkv1c/RUZusYlnFExS2nGCD/haqf+YkTXyK561T5+BSg0m0R4ubSG30cdYDNg==",
       "type": "package",
-      "path": "reactor/2.3.1",
+      "path": "reactor/2.5.0-ci.371",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "icon.png",
         "lib/net6.0/Reactor.dll",
         "lib/net6.0/Reactor.xml",
-        "reactor.2.3.1.nupkg.sha512",
+        "reactor.2.5.0-ci.371.nupkg.sha512",
         "reactor.nuspec"
       ]
     },
@@ -4656,12 +4658,12 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "AllOfUs.MiraAPI >= 0.2.0",
-      "AmongUs.GameLibs.Steam >= 2024.9.4",
+      "AllOfUs.MiraAPI >= 0.3.6",
+      "AmongUs.GameLibs.Steam >= 2025.10.14",
       "BepInEx.AutoPlugin >= 1.1.0",
-      "BepInEx.IL2CPP.MSBuild >= 2.0.1",
+      "BepInEx.IL2CPP.MSBuild >= 2.1.0-rc.1",
       "BepInEx.Unity.IL2CPP >= 6.0.0-be.735",
-      "Reactor >= 2.3.1"
+      "Reactor >= 2.5.0-ci.371"
     ]
   },
   "packageFolders": {
@@ -4691,7 +4693,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Users\\User\\Desktop\\My Personal projects\\Among Us\\ReachForStars\\ReachForStars\\packages\\NuGet": {},
+        "C:\\Users\\User\\Desktop\\My Personal projects\\Among Us\\ReachForStars\\ReachForStars\\Packages\\Nuget": {},
         "https://api.nuget.org/v3/index.json": {},
         "https://nuget.bepinex.dev/v3/index.json": {},
         "https://nuget.reactor.gg/v3/index.json": {},
@@ -4720,12 +4722,12 @@
         "dependencies": {
           "AllOfUs.MiraAPI": {
             "target": "Package",
-            "version": "[0.2.0, )"
+            "version": "[0.3.6, )"
           },
           "AmongUs.GameLibs.Steam": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[2024.9.4, )"
+            "version": "[2025.10.14, )"
           },
           "BepInEx.AutoPlugin": {
             "suppressParent": "All",
@@ -4736,7 +4738,7 @@
             "include": "Compile, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "All",
             "target": "Package",
-            "version": "[2.0.1, )"
+            "version": "[2.1.0-rc.1, )"
           },
           "BepInEx.Unity.IL2CPP": {
             "include": "Compile, Build, ContentFiles, Analyzers, BuildTransitive",
@@ -4745,7 +4747,7 @@
           },
           "Reactor": {
             "target": "Package",
-            "version": "[2.3.1, )"
+            "version": "[2.5.0-ci.371, )"
           }
         },
         "imports": [
@@ -4767,13 +4769,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1900",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://nuget.reactor.gg/v3/index.json."
-    }
-  ]
+  }
 }
