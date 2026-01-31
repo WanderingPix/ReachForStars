@@ -116,4 +116,7 @@ public static class Assets
     public static LoadableResourceAsset ReviveButton { get; } = new("ReachForStars.Resources.Abilities.ReviveButton.png");
     public static LoadableResourceAsset BodyIcon { get; } = new("ReachForStars.Resources.UI.BodyIcon.png", 256);
     public static LoadableResourceAsset HandHoldingTorch { get; } = new("ReachForStars.Resources.Objects.HandHoldingTorch.png");
+    
+    public static LoadableAudioResourceAsset TeleportSfx { get; } =
+        new("ReachForStars.Resources.SoundEffects.Teleport.wav");
 }
