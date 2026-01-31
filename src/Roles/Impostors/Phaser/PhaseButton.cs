@@ -14,7 +14,18 @@ public class PhaseButton : TargetedPositionActionButton
 {
     public override void OnSelectTargetPosition(Vector2 position)
     {
-        PlayerControl.LocalPlayer.NetTransform.SnapTo(position);
+        Button.StartCoroutine(Effects.All([
+            Effects.Wait(0.5f),
+            Effects.PulseColor(PlayerControl.LocalPlayer.cosmetics.bodySprites[0].BodySprite, Color.white, Color.magenta, 0.7f), 
+            Effects.Wait(0.3f),
+            Effects.Action(new Action(() =>
+            {
+                PlayerControl.LocalPlayer.NetTransform.RpcSnapTo(position);
+            })),
+            Effects.Bloop(0.2f, PlayerControl.LocalPlayer.transform, PlayerControl.LocalPlayer.transform.localScale.x, 0.6f)
+        ]));
+
+        SoundManager.Instance.PlaySound(Assets.TeleportSfx.LoadAsset(), false);
     }
 
     public override bool IsTargetValid(Vector2 pos)
@@ -24,7 +35,6 @@ public class PhaseButton : TargetedPositionActionButton
 
     protected override void OnClick()
     {
-        
     }
 
     public override bool Enabled(RoleBehaviour role)

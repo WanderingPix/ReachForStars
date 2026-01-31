@@ -1,5 +1,6 @@
 using System;
 using MiraAPI.Hud;
+using MiraAPI.PluginLoading;
 using MiraAPI.Utilities;
 using MiraAPI.Utilities.Assets;
 using ReachForStars.Roles.Impostors.Phaser;
@@ -8,6 +9,7 @@ using UnityEngine;
 
 namespace ReachForStars.Utilities.Buttons;
 
+[MiraIgnore]
 public abstract class TargetedPositionActionButton : CustomActionButton
 {
     public SpriteRenderer targetRenderer;
@@ -25,15 +27,16 @@ public abstract class TargetedPositionActionButton : CustomActionButton
         if (EffectActive)
         {
             targetRenderer = new GameObject().AddComponent<SpriteRenderer>();
+            targetRenderer.color = new(1, 1, 1, 0.5f);
             targetRenderer.gameObject.layer = LayerMask.NameToLayer("UI");
-            targetRenderer.sprite = Assets.Circle.LoadAsset();
+            targetRenderer.sprite = TargetSprite.LoadAsset();
             var btn = targetRenderer.gameObject.AddComponent<PassiveButton>();
             btn.ClickMask = targetRenderer.gameObject.AddComponent<CircleCollider2D>();
             btn.Colliders = new([btn.ClickMask]);
             btn.OnClick = new();
             btn.OnClick.AddListener(new Action(() =>
             {
-                if (IsTargetValid(targetRenderer.transform.position)) return;
+                if (!IsTargetValid(targetRenderer.transform.position)) return;
                 OnSelectTargetPosition(targetRenderer.transform.position);
                 EffectActive = false;
                 ResetCooldownAndOrEffect();
