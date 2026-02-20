@@ -2,19 +2,20 @@ using System;
 using MiraAPI.Hud;
 using MiraAPI.Utilities;
 using MiraAPI.Utilities.Assets;
+using ReachForStars.Networking;
 using ReachForStars.Utilities;
 using ReachForStars.Utilities.Buttons;
 using Reactor.Utilities.Extensions;
 using Rewired;
 using UnityEngine;
 
-namespace ReachForStars.Roles.Impostors.Archer;
+namespace ReachForStars.Roles.Impostors.Ninja;
 
 public class ShootButton : TargetedPositionActionButton
 {
     public override void OnSelectTargetPosition(Vector2 position)
     {
-        
+        PlayerControl.LocalPlayer.RpcThrowShuriken(position - PlayerControl.LocalPlayer.GetTruePosition());
     }
 
     public override bool IsTargetValid(Vector2 pos)
@@ -28,7 +29,7 @@ public class ShootButton : TargetedPositionActionButton
 
     public override bool Enabled(RoleBehaviour role)
     {
-        return role is ArcherRole;
+        return role is NinjaRole;
     }
 
     public override string Name => "Shoot";

@@ -119,4 +119,6 @@ public static class Assets
     
     public static LoadableAudioResourceAsset TeleportSfx { get; } =
         new("ReachForStars.Resources.SoundEffects.Teleport.wav");
+    public static LoadableBundleAsset<GameObject> ShurikenProjectilePrefab =
+        new LoadableBundleAsset<GameObject>("ShurikenProjectilePrefab.prefab", Bundle);
 }

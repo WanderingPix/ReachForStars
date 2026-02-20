@@ -11,7 +11,7 @@ using UnityEngine;
 
 namespace ReachForStars.Roles.Neutrals.Pirate;
 
-public class PirateRole : CrewmateRole, ICustomRole
+public class PirateRole : CrewmateRole, INeutralRole
 {
     public override bool IsAffectedByComms => false;
     public string RoleName => "Pirate";

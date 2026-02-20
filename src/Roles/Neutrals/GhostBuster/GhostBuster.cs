@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace ReachForStars.Roles.Neutrals.GhostBuster;
 
-public class GhostBusterRole : CrewmateRole, ICustomRole
+public class GhostBusterRole : CrewmateRole, INeutralRole
 {
     public string RoleName => "Ghost Buster";
 

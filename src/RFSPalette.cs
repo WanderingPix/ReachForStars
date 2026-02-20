@@ -23,14 +23,10 @@ public static class RFSPalette
     public static Color32 LifesaverRoleColor = new(200, 50, 50, 255);
     
     //Neutral Role Colors:
+    public static Color32 NeutralGrayColor = new(50, 50, 100, 255);
+    public static Color32 FramerRoleColor = new(150, 20, 150, 255);
     public static Color32 BountyHunterColor = new(255, 30, 137, 255); //Unused
     public static Color32 PirateRoleColor = new(100, 50, 50, 255); //Unused
     public static Color32 ScrabblerRoleColor = new(150, 50, 100, 255); //Unused
     public static Color32 GhostBusterColor = new(0, 255, 200, 255);
-    public static Color32 JesterColor = new(255, 46, 200, 255);
-    
-    //Hider Role Colors (HnS):
-    public static Color32 LocksmithRoleColor = new(0, 0, 255, 255);
-    public static Color32 FlashRoleColor = new(255, 100, 100, 255);
-    public static Color32 RadarRoleColor = new(0, 100, 100, 255);
 }
