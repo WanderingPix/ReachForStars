@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Cpp2IL.Core.Extensions;
 using MiraAPI.Utilities;
 using PowerTools;
 using Reactor.Utilities.Extensions;

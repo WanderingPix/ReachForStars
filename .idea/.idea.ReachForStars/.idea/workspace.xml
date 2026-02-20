@@ -5,15 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7a1a1721-cb63-4155-bddb-a44a77ef96eb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Roles/Impostors/Archer/ArcherRole.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Roles/Impostors/Archer/ShootButton.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ReachForStars/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ReachForStars/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/BatBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ArrowProjectileBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReachForStars.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/ReachForStars.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/ShurikenProjectileBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ShurikenProjectileBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Utilities/PlayerControlUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utilities/PlayerControlUtils.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/bin/Release/net6.0/ReachForStars.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/bin/Release/net6.0/ReachForStars.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/bin/Release/net6.0/ReachForStars.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/bin/Release/net6.0/ReachForStars.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/obj/Release/net6.0/ReachForStars.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/obj/Release/net6.0/ReachForStars.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/obj/Release/net6.0/ReachForStars.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/obj/Release/net6.0/ReachForStars.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/obj/Release/net6.0/ReachForStars.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/obj/Release/net6.0/ReachForStars.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/obj/Release/net6.0/ReachForStars.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/obj/Release/net6.0/ReachForStars.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/obj/Release/net6.0/ReachForStars.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/obj/Release/net6.0/ReachForStars.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/obj/Release/net6.0/ReachForStars.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/obj/Release/net6.0/ReachForStars.sourcelink.json" afterDir="false" />
@@ -54,17 +53,23 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9c0f9eb89a6c413cb1f56477965a73b52d3200/10/61cf090a/Palette.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9c0f9eb89a6c413cb1f56477965a73b52d3200/24/1978c9d7/ChatController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9c0f9eb89a6c413cb1f56477965a73b52d3200/39/432064f6/ChatNoteTypes.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9c0f9eb89a6c413cb1f56477965a73b52d3200/47/3c593ff6/Vent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9c0f9eb89a6c413cb1f56477965a73b52d3200/7a/e03f4273/ControllerManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9c0f9eb89a6c413cb1f56477965a73b52d3200/7d/73c0df19/ShapeshifterRole.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9c0f9eb89a6c413cb1f56477965a73b52d3200/8b/cdae82b5/VentButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9c0f9eb89a6c413cb1f56477965a73b52d3200/95/f32a96b6/RoleBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9c0f9eb89a6c413cb1f56477965a73b52d3200/bd/46705f72/AbilityButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9c0f9eb89a6c413cb1f56477965a73b52d3200/cb/14930fbe/LogicPingsHnS.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9c0f9eb89a6c413cb1f56477965a73b52d3200/da/c8394d8a/InfectedOverlay.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9c0f9eb89a6c413cb1f56477965a73b52d3200/e8/a571485d/RoleManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9c0f9eb89a6c413cb1f56477965a73b52d3200/f6/aa1a1edb/ControllerUiElementsState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9dbf80842dec4a8c9bb9bbacb43fbc0e74ba00/08/0260e71a/StarGen.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9dbf80842dec4a8c9bb9bbacb43fbc0e74ba00/55/23627e92/RoleEffectAnimation.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c7f4acf4f8d8acb6bad235952ee6e5b1e6a177be646ef57df47ec24677c7c01e/GameModifier.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c92a8bfe3730c779877b511f51e7f6982c3c82f28efb2a6483735d68394636/BaseModifier.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/cb95c8f02a3230ec189d39389ae58acaf3cb27e47329574c58b3a2c3d82fe3/CustomActionButton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e41917b4beb5881b6b4e7a6d599d1c3cce4e2f5c9a957e65f3b8692424c42e2/Helpers.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Components/ShurikenProjectileBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Features/Freeplay/FreeplayOptionsLaptop.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Modifiers/Game/Crewmates/Workaholic/WorkaholicModifierOptions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Patches/HudManagerPatches.cs" root0="FORCE_HIGHLIGHTING" />
@@ -75,8 +80,6 @@
     <setting file="file://$PROJECT_DIR$/src/Roles/Crewmates/Spirit/SpiritOptions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Roles/Impostors/Silencer/SilenceButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Utilities/CameraUtils.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/User/Desktop/My Personal projects/Among Us/ReachForStars/ReachForStars/src/obj/Release/net6.0/ReachForStars.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/User/Desktop/My Personal projects/Among Us/ReachForStars/ReachForStars/src/obj/Release/net6.0/ReachForStars.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/RFS AssetBundles/Assets/Scripts/RFSScripts/SilencedGameComponent.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
@@ -96,6 +99,7 @@
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -217,6 +221,19 @@
       <workItem from="1769783062596" duration="353000" />
       <workItem from="1769802782787" duration="8983000" />
       <workItem from="1769874733804" duration="664000" />
+      <workItem from="1770457110430" duration="74000" />
+      <workItem from="1770663199750" duration="15000" />
+      <workItem from="1770749128791" duration="6000" />
+      <workItem from="1770749174544" duration="9000" />
+      <workItem from="1771261013307" duration="2354000" />
+      <workItem from="1771263469346" duration="1927000" />
+      <workItem from="1771347577099" duration="415000" />
+      <workItem from="1771509452091" duration="56000" />
+      <workItem from="1771539341561" duration="851000" />
+      <workItem from="1771540785183" duration="2152000" />
+      <workItem from="1771599092117" duration="3132000" />
+      <workItem from="1771609161899" duration="4843000" />
+      <workItem from="1771623569458" duration="1983000" />
     </task>
     <task id="LOCAL-00001" summary="2.0 WIP">
       <option name="closed" value="true" />
@@ -258,7 +275,23 @@
       <option name="project" value="LOCAL" />
       <updated>1769868563652</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="WIP Archer Role">
+      <option name="closed" value="true" />
+      <created>1770457966512</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1770457966513</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Ninja Role &amp; Framer Role">
+      <option name="closed" value="true" />
+      <created>1771624867124</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1771624867124</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -273,7 +306,9 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="2.0 WIP" />
     <MESSAGE value="Make TargetedPositionActionButton use [MiraIgnore] Attribute" />
-    <option name="LAST_COMMIT_MESSAGE" value="Make TargetedPositionActionButton use [MiraIgnore] Attribute" />
+    <MESSAGE value="WIP Archer Role" />
+    <MESSAGE value="Ninja Role &amp; Framer Role" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ninja Role &amp; Framer Role" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

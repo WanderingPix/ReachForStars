@@ -226,4 +226,12 @@ public static class RPCHandler
             p.AddModifier<SleepyModifier>();
         }
     }
+
+    [MethodRpc((uint)RPC.ThrowShuriken)]
+    public static void RpcThrowShuriken(this PlayerControl source, Vector2 vel)
+    {
+        ShurikenProjectileBehaviour.Create(source,vel);
+        ShurikenProjectileBehaviour.Create(source,vel + new Vector2(1, 1));
+        ShurikenProjectileBehaviour.Create(source,vel + new Vector2(-1, -1));
+    }
 }

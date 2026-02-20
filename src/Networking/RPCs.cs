@@ -29,5 +29,7 @@ public enum RPC : uint
     
     Revive = 11,
     
-    Sleep = 12
+    Sleep = 12,
+    
+    ThrowShuriken = 13
 }
